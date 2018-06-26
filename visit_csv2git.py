@@ -16,8 +16,15 @@ import argparse
 from create_git_labels import *
 from authentication import *
 
-def extract_labels(row, in_labels):
+BLOCK_FLAG = "temporarily blocked from content"
 
+def extract_labels(row, found):
+    """
+        Extract and format labels from VisIt redmine tickets. 
+    """
+
+    #TODO: this does way more work than it needs to. We only need to 
+    #      process labels that we haven't yet seen. 
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
         'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group', 'Target version']
@@ -72,12 +79,41 @@ def extract_labels(row, in_labels):
     out_labels = []
     for key in label_dict:
         for label in label_dict[key]:
-            if label.strip() != "" and label.strip() not in in_labels:
+            if label.strip() != "" and label.strip() not in found:
                 out_labels.append(label.strip())
+
     return out_labels
 
 
-def make_github_issue(title, body=None, assignees=None, milestone=None, labels=None, state="open"):
+def close_github_issue(issue_url):
+    """
+        Close a github issue.
+    """
+    sleep(3)
+    print "Setting state to closed"
+    session = requests.Session()
+    session.auth = (USERNAME, PASSWORD)
+    issue = {'state': "closed"}
+    response = session.post(issue_url, json.dumps(issue))
+    if response.status_code == 200:
+        print('Successfully closed issue "%s"' % title)
+    else:
+        print('Could not close issue "%s"' % title)
+        print('Response:', response.content)
+
+        if BLOCK_FLAG in response.content:
+            wait_time = 3605
+            print "Attempting to wait out the block..."
+            print "Will try again in %i seconds" % wait_time
+            sleep(wait_time)
+            close_github_issue(issue_url)
+
+
+
+def create_github_issue(title, body=None, assignees=None, milestone=None, labels=None, state="open"):
+    """
+        Create github issues. 
+    """
     main_url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)
@@ -96,25 +132,27 @@ def make_github_issue(title, body=None, assignees=None, milestone=None, labels=N
     else:
         print('Could not create Issue "%s"' % title)
         print('Response:', response.content)
-        return
 
-    if state == 'closed':
-        sleep(3)
-        print "Setting state to closed"
-        session = requests.Session()
-        session.auth = (USERNAME, PASSWORD)
-        issue = {'state': "closed"}
-        response = session.post(issue_url, json.dumps(issue))
-        if response.status_code == 200:
-            print('Successfully closed issue "%s"' % title)
+        if BLOCK_FLAG in response.content:
+            wait_time = 3605
+            print "Attempting to wait out the block..."
+            print "Will try again in %i seconds" % wait_time
+            sleep(wait_time)
+            create_github_issue(title, body, assignees, milestone, labels, state)
         else:
-            print('Could not close issue "%s"' % title)
-            print('Response:', response.content)
             return
 
+    if state == 'closed':
+        if issue_url == "":
+            print "ERROR: failed to retrieve issue url"
+            return
+        close_github_issue(issue_url)
 
-def migrate_issues(csv_path, do_tickets=True, do_labels=True):
 
+def migrate_issues(csv_path, name_map, do_tickets=True, do_labels=True):
+    """
+       Migrate redmine issues from a csv file to github issues. 
+    """
     csv_files  = os.path.join(csv_path, "*.csv")
     fin_labels = []
 
@@ -137,16 +175,19 @@ def migrate_issues(csv_path, do_tickets=True, do_labels=True):
                 csvfile.seek(0)
                 for row in reader:
                     closed      = ["Rejected", "Resolved"]
-                    #FIXME: this needs uncommenting once add people 
-                    #assignees   = [assignee for assignee in row['Assigned to'].split(",")]
+
+                    #FIXME: this needs uncommenting once accounts are added to git. 
+                    #assignees   = [name_map[assignee] if assignee in name_map else "" 
+                    #    for assignee in row['Assigned to'].split(",")]
                     assignees   = ["aowen87"]
+
                     title       = row['Subject']
                     body        = row['Description']
                     state       = "closed" if row['Status'] in closed else "open"
                     labels      = []
                     milestone   = None
 
-                    make_github_issue(title, body, assignees, milestone, labels, state)
+                    create_github_issue(title, body, assignees, milestone, labels, state)
 
                 print "Finished creating tickets!"
 
@@ -154,6 +195,8 @@ def migrate_issues(csv_path, do_tickets=True, do_labels=True):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("csv_path", help="path to csv files", type=str)
+    parser.add_argument("name_map_file", help="""a json file mapping VisIt 
+        redmine names to their github account names""", type=str)
     parser.add_argument("--no_tickets", help="don't create tickets", default=False,
         action="store_true") 
     parser.add_argument("--no_labels", help="don't create labels", default=False,
@@ -163,34 +206,17 @@ if __name__ == '__main__':
     do_tickets = True
     do_labels  = True
 
+    with open(args.name_map_file, 'r') as json_f:
+        name_map = json.load(json_f)
+
+    for key, value in name_map.iteritems():
+        name_map[key] = str(value)
+
     if args.no_tickets:
         do_tickets = False
 
     if args.no_labels:
         do_labels = False
 
-    migrate_issues(args.csv_path, do_tickets, do_labels)
+    migrate_issues(args.csv_path, name_map, do_tickets, do_labels)
 
-
-#files = [f for f in os.listdir("./") if (f.endswith(".csv") and not f.startswith("."))]
-#
-#for f_name in files:
-#    print "opening ", f_name
-#    with open(f_name, "r") as csvfile:
-#        reader = csv.DictReader(csvfile)
-#
-#        for row in reader:
-#            closed      = ["Rejected", "Resolved"]
-#            #FIXME: this needs uncommenting once add people 
-#            #assignees   = [assignee for assignee in row['Assigned to'].split(",")]
-#            assignees   = ["aowen87"]
-#            title       = row['Subject']
-#            body        = row['Description']
-#            state       = "closed" if row['Status'] in closed else "open"
-#            labels      = []
-#            milestone   = None
-#
-#            labels = extract_labels(row)
-#
-#            make_github_issue(title, body, assignees, milestone, labels, state)
-#

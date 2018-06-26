@@ -21,6 +21,13 @@ def create_github_labels(name, color, description=None):
         print('Could not create label "%s"' % name)
         print('Response:', reciever.content)
 
+        if BLOCK_FLAG in response.content:
+            wait_time = 3605
+            print "Attempting to wait out the block..."
+            print "Will try again in %i seconds" % wait_time
+            sleep(wait_time)
+            create_github_labels(name, color, description)
+
 def label_color_mapper(tag):
     hot_colors   = ["3df5f3", "f5ea3d", "fa8561", "f68f09", "f91515"]
     nice_colors  = ["6bd2db", "0ea7b5", "0c457d", "008080", "0000ff", 
@@ -35,11 +42,3 @@ def label_color_mapper(tag):
         return hot_colors[digits[0]-1]
     else:
         return nice_colors[random.randint(0, len(nice_colors)-1)]
-
-#with open('tags.csv', 'r') as csvfile:
-#    reader = csv.DictReader(csvfile)
-#    for row in reader:
-#        color = color_mapper(row['name'])      
-#        print "name: ", str(row['name'])
-#        create_github_labels(row['name'], color, row['description'])
-
