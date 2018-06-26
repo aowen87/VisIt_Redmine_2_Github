@@ -111,8 +111,7 @@ def close_github_issue(issue_url):
         if BLOCK_FLAG in response.content:
             #
             # Github only allows a certain amount of 
-            # contact before it needs some space. An hour
-            # is the documented wait time. 
+            # contact before it needs some space. 
             #
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % WAIT_TIME
@@ -152,8 +151,7 @@ def create_github_issue(title,
         if BLOCK_FLAG in response.content:
             #
             # Github only allows a certain amount of 
-            # contact before it needs some space. An hour
-            # is the documented wait time. 
+            # contact before it needs some space. 
             #
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % WAIT_TIME
@@ -181,7 +179,7 @@ def migrate_issues(csv_path,
 
     body_template = ("%s\n\n\n\n"
          "-----------------------REDMINE MIGRATION-----------------------\n"
-         "This ticket was migrated from Redmin. The following information\n"
+         "This ticket was migrated from Redmine. The following information\n"
          "could not be accurately captured in the new ticket:\n\n"
          "Original author: %s\n"
          "Original creation: %s\n"
