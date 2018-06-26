@@ -2,10 +2,10 @@ import json
 import random
 import requests
 import csv
+from time import sleep
 from authentication import *
 
 def create_github_labels(name, color, description=None):
-    print "Attempting to make label: %s" % name
     url = 'https://api.github.com/repos/%s/%s/labels' % (REPO_OWNER, REPO_NAME)
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)

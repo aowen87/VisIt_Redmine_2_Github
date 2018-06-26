@@ -16,9 +16,9 @@ import argparse
 from create_git_labels import *
 from authentication import *
 
-def extract_labels(row):
+def extract_labels(row, in_labels):
 
-    labels = {}
+    label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
         'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group', 'Target version']
 
@@ -27,61 +27,57 @@ def extract_labels(row):
         if label == '':
             continue
 
-        if title not in labels:
-            labels[title] = []
+        if title not in label_dict:
+            label_dict[title] = []
 
-        if label not in labels[title]:
-             labels[title].append(label)
+        if label not in label_dict[title]:
+             label_dict[title].append(label)
 
-    if 'Severity' in labels:
-        for i in range(len(labels['Severity'])):
-            labels['Severity'][i] = "Severity: %s" % labels['Severity'][i]
+    if 'Severity' in label_dict:
+        for i in range(len(label_dict['Severity'])):
+            label_dict['Severity'][i] = "Severity: %s" % label_dict['Severity'][i]
 
-    if 'Found in Version' in labels:    
-        for i in range(len(labels['Found in Version'])):
-            labels['Found in Version'][i] = "version: %s" % labels['Found in Version'][i]
+    if 'Found in Version' in label_dict:    
+        for i in range(len(label_dict['Found in Version'])):
+            label_dict['Found in Version'][i] = "version: %s" % label_dict['Found in Version'][i]
         
-    if 'Likelihood' in labels:
-        for i in range(len(labels['Likelihood'])):
-            labels['Likelihood'][i] = "Likelihood: %s" % labels['Likelihood'][i]
+    if 'Likelihood' in label_dict:
+        for i in range(len(label_dict['Likelihood'])):
+            label_dict['Likelihood'][i] = "Likelihood: %s" % label_dict['Likelihood'][i]
         
-    if 'Expected Use' in labels:
-        for i in range(len(labels['Expected Use'])):
-            labels['Expected Use'][i] = "Expected Use: %s" % labels['Expected Use'][i]
+    if 'Expected Use' in label_dict:
+        for i in range(len(label_dict['Expected Use'])):
+            label_dict['Expected Use'][i] = "Expected Use: %s" % label_dict['Expected Use'][i]
         
-    if 'Priority' in labels:
-        for i in range(len(labels['Priority'])):
-            labels['Priority'][i] = "Priority: %s" % labels['Priority'][i]
+    if 'Priority' in label_dict:
+        for i in range(len(label_dict['Priority'])):
+            label_dict['Priority'][i] = "Priority: %s" % label_dict['Priority'][i]
         
-    if 'Impact' in labels:
-        for i in range(len(labels['Impact'])):
-            labels['Impact'][i] = "Impact: %s" % labels['Impact'][i]
+    if 'Impact' in label_dict:
+        for i in range(len(label_dict['Impact'])):
+            label_dict['Impact'][i] = "Impact: %s" % label_dict['Impact'][i]
         
-    if 'Support Group' in labels:
-        for i in range(len(labels['Support Group'])):
-            labels['Support Group'][i] = "Support Group: %s" % labels['Support Group'][i]
+    if 'Support Group' in label_dict:
+        for i in range(len(label_dict['Support Group'])):
+            label_dict['Support Group'][i] = "Support Group: %s" % label_dict['Support Group'][i]
         
-    if 'Target version' in labels:
-        for i in range(len(labels['Target version'])):
-            labels['Target version'][i] = "Target Version: %s" % labels['Target version'][i]
+    if 'Target version' in label_dict:
+        for i in range(len(label_dict['Target version'])):
+            label_dict['Target version'][i] = "Target Version: %s" % label_dict['Target version'][i]
 
-    if 'OS' in labels:
-        for i in range(len(labels['OS'])):
-            labels['OS'][i] = "OS: %s" % labels['OS'][i]
+    if 'OS' in label_dict:
+        for i in range(len(label_dict['OS'])):
+            label_dict['OS'][i] = "OS: %s" % label_dict['OS'][i]
 
-    labels_lst = []
-
-    for key in labels:
-        for label in labels[key]:
-            if label.strip() != "":
-                labels_lst.append(label.strip())
-
-    return labels_lst
+    out_labels = []
+    for key in label_dict:
+        for label in label_dict[key]:
+            if label.strip() != "" and label.strip() not in in_labels:
+                out_labels.append(label.strip())
+    return out_labels
 
 
 def make_github_issue(title, body=None, assignees=None, milestone=None, labels=None, state="open"):
-
-    print "Attempting to create issue %s" % title
     main_url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)
@@ -119,19 +115,21 @@ def make_github_issue(title, body=None, assignees=None, milestone=None, labels=N
 
 def migrate_issues(csv_path, do_tickets=True, do_labels=True):
 
-    csv_files = os.path.join(csv_path, "*.csv")
+    csv_files  = os.path.join(csv_path, "*.csv")
+    fin_labels = []
 
     for f_pth in glob.glob(csv_files):
         with open(f_pth, "r") as csvfile:
             reader = csv.DictReader(csvfile)
-            labels = []
 
             if do_labels:
                 print "\nCreating labels "
+                f_labels = []
                 for row in reader:
-                    labels = extract_labels(row)
-                    for label in labels:
-                        create_github_labels(label, label_color_mapper(label))
+                    f_labels.extend(extract_labels(row, fin_labels))
+                    fin_labels.extend(f_labels)
+                for label in f_labels:
+                    create_github_labels(label, label_color_mapper(label))
                 print "Finished ceating labels!"
 
             if do_tickets:
