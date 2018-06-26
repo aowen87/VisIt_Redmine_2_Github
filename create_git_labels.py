@@ -5,6 +5,9 @@ import csv
 from time import sleep
 from authentication import *
 
+WAIT_TIME  = 1800 
+BLOCK_FLAG = "temporarily blocked from content"
+
 def create_github_labels(name, color, description=None):
     url = 'https://api.github.com/repos/%s/%s/labels' % (REPO_OWNER, REPO_NAME)
     session = requests.Session()
@@ -27,10 +30,9 @@ def create_github_labels(name, color, description=None):
             # contact before it needs some space. An hour
             # is the documented wait time. 
             #
-            wait_time = 3605
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % wait_time
-            sleep(wait_time)
+            print "Will try again in %i seconds" % WAIT_TIME
+            sleep(WAIT_TIME)
             create_github_labels(name, color, description)
 
 def label_color_mapper(tag):

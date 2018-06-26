@@ -19,6 +19,7 @@ import argparse
 from create_git_labels import *
 from authentication import *
 
+WAIT_TIME  = 1800 
 BLOCK_FLAG = "temporarily blocked from content"
 
 def extract_labels(row, found):
@@ -102,9 +103,9 @@ def close_github_issue(issue_url):
     issue = {'state': "closed"}
     response = session.post(issue_url, json.dumps(issue))
     if response.status_code == 200:
-        print('Successfully closed issue "%s"' % title)
+        print('Successfully closed issue')
     else:
-        print('Could not close issue "%s"' % title)
+        print('Could not close issue')
         print('Response:', response.content)
 
         if BLOCK_FLAG in response.content:
@@ -113,10 +114,9 @@ def close_github_issue(issue_url):
             # contact before it needs some space. An hour
             # is the documented wait time. 
             #
-            wait_time = 3605
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % wait_time
-            sleep(wait_time)
+            print "Will try again in %i seconds" % WAIT_TIME
+            sleep(WAIT_TIME)
             close_github_issue(issue_url)
 
 
@@ -155,10 +155,9 @@ def create_github_issue(title,
             # contact before it needs some space. An hour
             # is the documented wait time. 
             #
-            wait_time = 3605
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % wait_time
-            sleep(wait_time)
+            print "Will try again in %i seconds" % WAIT_TIME
+            sleep(WAIT_TIME)
             create_github_issue(title, body, assignees, milestone, labels, state)
         else:
             return
@@ -179,6 +178,15 @@ def migrate_issues(csv_path,
     """
     csv_files  = os.path.join(csv_path, "*.csv")
     fin_labels = []
+
+    body_template = ("%s\n\n\n\n"
+         "-----------------------REDMINE MIGRATION-----------------------\n"
+         "This ticket was migrated from Redmin. The following information\n"
+         "could not be accurately captured in the new ticket:\n\n"
+         "Original author: %s\n"
+         "Original creation: %s\n"
+         "Original update: %s\n"
+         "Ticket number: %s")
 
     for f_pth in glob.glob(csv_files):
         with open(f_pth, "r") as csvfile:
@@ -206,10 +214,24 @@ def migrate_issues(csv_path,
                     assignees   = ["aowen87"]
 
                     title       = row['Subject']
-                    body        = row['Description']
+                    desc        = row['Description']
                     state       = "closed" if row['Status'] in closed else "open"
                     labels      = []
                     milestone   = None
+    
+                    #
+                    # Retrieve redmine specific info that will need to be 
+                    # added to the description. 
+                    #
+                    author      = row['Author']               
+                    created     = row['Created']               
+                    updated     = row['Updated']
+                    t_num       = row['#']
+
+                    body = body_template % (desc, author, created, updated, t_num)
+ 
+                    print body
+                    print "\n\n\n"
 
                     create_github_issue(title, body, assignees, milestone, labels, state)
 
