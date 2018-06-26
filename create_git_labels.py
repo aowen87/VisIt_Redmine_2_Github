@@ -22,6 +22,11 @@ def create_github_labels(name, color, description=None):
         print('Response:', reciever.content)
 
         if BLOCK_FLAG in response.content:
+            #
+            # Github only allows a certain amount of 
+            # contact before it needs some space. An hour
+            # is the documented wait time. 
+            #
             wait_time = 3605
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % wait_time

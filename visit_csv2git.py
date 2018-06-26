@@ -2,6 +2,9 @@
 This is a specialized script to migrate VisIt issues from redmine to 
 github issues. 
 
+@author: Alister Maguire
+@date: Tue Jun 26 13:15:22 PDT 2018
+
 Acknowledgements:
     https://gist.github.com/nqthqn/9abcefb8a29e3292b3ca42026f0da23f
     (for a great starter script)
@@ -23,15 +26,13 @@ def extract_labels(row, found):
         Extract and format labels from VisIt redmine tickets. 
     """
 
-    #TODO: this does way more work than it needs to. We only need to 
-    #      process labels that we haven't yet seen. 
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
         'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group', 'Target version']
 
     for title in label_titles:
         label = row[title]
-        if label == '':
+        if label == '' or label in found:
             continue
 
         if title not in label_dict:
@@ -40,6 +41,11 @@ def extract_labels(row, found):
         if label not in label_dict[title]:
              label_dict[title].append(label)
 
+    #
+    # Many of these could be compacted into a single smart loop, 
+    # but some of them require little tweeks. I've decided on the
+    # messy route.
+    #
     if 'Severity' in label_dict:
         for i in range(len(label_dict['Severity'])):
             label_dict['Severity'][i] = "Severity: %s" % label_dict['Severity'][i]
@@ -102,6 +108,11 @@ def close_github_issue(issue_url):
         print('Response:', response.content)
 
         if BLOCK_FLAG in response.content:
+            #
+            # Github only allows a certain amount of 
+            # contact before it needs some space. An hour
+            # is the documented wait time. 
+            #
             wait_time = 3605
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % wait_time
@@ -109,10 +120,15 @@ def close_github_issue(issue_url):
             close_github_issue(issue_url)
 
 
-
-def create_github_issue(title, body=None, assignees=None, milestone=None, labels=None, state="open"):
+def create_github_issue(title, 
+                        body      = None, 
+                        assignees = None, 
+                        milestone = None, 
+                        labels    = None, 
+                        state     = "open"):
     """
-        Create github issues. 
+        Create a new github issue. If the issue is closed, close it after 
+        its creation. 
     """
     main_url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
     session = requests.Session()
@@ -134,6 +150,11 @@ def create_github_issue(title, body=None, assignees=None, milestone=None, labels
         print('Response:', response.content)
 
         if BLOCK_FLAG in response.content:
+            #
+            # Github only allows a certain amount of 
+            # contact before it needs some space. An hour
+            # is the documented wait time. 
+            #
             wait_time = 3605
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % wait_time
@@ -149,7 +170,10 @@ def create_github_issue(title, body=None, assignees=None, milestone=None, labels
         close_github_issue(issue_url)
 
 
-def migrate_issues(csv_path, name_map, do_tickets=True, do_labels=True):
+def migrate_issues(csv_path, 
+                   name_map, 
+                   do_tickets = True, 
+                   do_labels  = True):
     """
        Migrate redmine issues from a csv file to github issues. 
     """
