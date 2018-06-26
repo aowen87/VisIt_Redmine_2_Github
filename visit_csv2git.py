@@ -150,7 +150,7 @@ def create_github_label(name,
             create_github_label(name, 
                                 color, 
                                 description, 
-                                attempts++)
+                                attempts + 1)
 
 
 def close_github_issue(issue_url, 
@@ -182,7 +182,7 @@ def close_github_issue(issue_url,
             print "Will try again in %i seconds" % WAIT_TIME
             sleep(WAIT_TIME)
             close_github_issue(issue_url, 
-                               attempts++)
+                               attempts + 1)
 
 
 def create_github_issue(title, 
@@ -232,7 +232,7 @@ def create_github_issue(title,
                                 milestone, 
                                 labels, 
                                 state,
-                                attempts++)
+                                attempts + 1)
         else:
             return
 
@@ -305,9 +305,6 @@ def migrate_issues(csv_path,
                     body = body_template % (desc, author, 
                         created, updated, t_num)
  
-                    print body
-                    print "\n\n\n"
-
                     create_github_issue(title, 
                                         body, 
                                         assignees, 
