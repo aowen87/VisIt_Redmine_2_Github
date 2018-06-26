@@ -1,0 +1,9 @@
+Some tools to help with migrating VisIt redmine tickets 
+to github issues. 
+
+Instructions:
+    1. Save the Redmine tickets in csv format, and move all csv files to
+       a clean directory. 
+    2. Fill out info in authentication_empty.py and change name to 
+       authentication.py
+    3. Run visit_csv2git.py
