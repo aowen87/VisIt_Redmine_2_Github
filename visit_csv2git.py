@@ -16,17 +16,39 @@ import requests
 import csv
 from time import sleep
 import argparse
-from create_git_labels import *
 from authentication import *
 
-WAIT_TIME  = 1800 
-BLOCK_FLAG = "temporarily blocked from content"
+MAX_ATTEMPTS = 5
+WAIT_TIME    = 1800 
+BLOCK_FLAG   = "temporarily blocked from content"
+
+
+def label_color_mapper(label):
+    """
+        Map colors to VisIt labels. If the label has a scale 
+        associated with it (such as severity), it will be given
+        a color from a heat map. Otherwise, it's given a random
+        'calm' color.  
+    """
+    hot_colors   = ["3df5f3", "f5ea3d", "fa8561", "f68f09", "f91515"]
+    nice_colors  = ["6bd2db", "0ea7b5", "0c457d", "008080", "0000ff", 
+                    "800080", "ffb6c1", "003366", "20b2aa", "660066",
+                    "31698a", "6dc066"]
+    if "-" in label:
+        digits = [int(d) for d in label.split() if d.isdigit()]
+        if len(digits) > 1:
+            print "ERROR: multiple digits found in color prospect!"
+            print label
+            exit(1)
+        return hot_colors[digits[0]-1]
+    else:
+        return nice_colors[random.randint(0, len(nice_colors)-1)]
+
 
 def extract_labels(row, found):
     """
         Extract and format labels from VisIt redmine tickets. 
     """
-
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
         'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group', 'Target version']
@@ -92,7 +114,47 @@ def extract_labels(row, found):
     return out_labels
 
 
-def close_github_issue(issue_url):
+def create_github_label(name, 
+                        color, 
+                        description = None, 
+                        attempts    = 0):
+    """
+        Create a label on github issues. 
+    """
+    url = 'https://api.github.com/repos/%s/%s/labels' % (REPO_OWNER, REPO_NAME)
+    session = requests.Session()
+    session.auth = (USERNAME, PASSWORD)
+    issue = {'name': name,
+             'color': color,
+             'description': description}
+
+    sleep(3)
+    reciever = session.post(url, json.dumps(issue))
+    if reciever.status_code == 201:
+        print 'Successfully created label "%s"' % name
+    else:
+        print 'ERROR: Could not create label "%s"' % name
+        print 'Response:', reciever.content
+
+        if BLOCK_FLAG in response.content:
+            if attempts >= MAX_ATTEMPTS:
+                print "ERROR: reached maximum attempts. Exiting..."
+                exit(1)
+            #
+            # Github only allows a certain amount of 
+            # contact before it needs some space. 
+            #
+            print "Attempting to wait out the block..."
+            print "Will try again in %i seconds" % WAIT_TIME
+            sleep(WAIT_TIME)
+            create_github_label(name, 
+                                color, 
+                                description, 
+                                attempts++)
+
+
+def close_github_issue(issue_url, 
+                       attempts = 0):
     """
         Close a github issue.
     """
@@ -103,12 +165,15 @@ def close_github_issue(issue_url):
     issue = {'state': "closed"}
     response = session.post(issue_url, json.dumps(issue))
     if response.status_code == 200:
-        print('Successfully closed issue')
+        print 'Successfully closed issue'
     else:
-        print('Could not close issue')
-        print('Response:', response.content)
+        print 'ERROR: Could not close issue'
+        print 'Response:', response.content
 
         if BLOCK_FLAG in response.content:
+            if attempts >= MAX_ATTEMPTS:
+                print "ERROR: reached maximum attempts. Exiting..."
+                exit(1)
             #
             # Github only allows a certain amount of 
             # contact before it needs some space. 
@@ -116,7 +181,8 @@ def close_github_issue(issue_url):
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % WAIT_TIME
             sleep(WAIT_TIME)
-            close_github_issue(issue_url)
+            close_github_issue(issue_url, 
+                               attempts++)
 
 
 def create_github_issue(title, 
@@ -124,7 +190,8 @@ def create_github_issue(title,
                         assignees = None, 
                         milestone = None, 
                         labels    = None, 
-                        state     = "open"):
+                        state     = "open",
+                        attempts  = 0):
     """
         Create a new github issue. If the issue is closed, close it after 
         its creation. 
@@ -142,13 +209,16 @@ def create_github_issue(title,
     issue_url = ""
     response = session.post(main_url, json.dumps(issue))
     if response.status_code == 201:
-        print('Successfully created Issue "%s"' % title)
+        print 'Successfully created Issue "%s"' % title
         issue_url = json.loads(response.content)['url']
     else:
-        print('Could not create Issue "%s"' % title)
-        print('Response:', response.content)
+        print 'ERROR: Could not create Issue "%s"' % title
+        print 'Response:', response.content
 
         if BLOCK_FLAG in response.content:
+            if attempts >= MAX_ATTEMPTS:
+                print "ERROR: reached maximum attempts. Exiting..."
+                exit(1)
             #
             # Github only allows a certain amount of 
             # contact before it needs some space. 
@@ -156,7 +226,13 @@ def create_github_issue(title,
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % WAIT_TIME
             sleep(WAIT_TIME)
-            create_github_issue(title, body, assignees, milestone, labels, state)
+            create_github_issue(title, 
+                                body, 
+                                assignees, 
+                                milestone, 
+                                labels, 
+                                state,
+                                attempts++)
         else:
             return
 
@@ -197,7 +273,7 @@ def migrate_issues(csv_path,
                     f_labels.extend(extract_labels(row, fin_labels))
                     fin_labels.extend(f_labels)
                 for label in f_labels:
-                    create_github_labels(label, label_color_mapper(label))
+                    create_github_label(label, label_color_mapper(label))
                 print "Finished ceating labels!"
 
             if do_tickets:
@@ -226,17 +302,26 @@ def migrate_issues(csv_path,
                     updated     = row['Updated']
                     t_num       = row['#']
 
-                    body = body_template % (desc, author, created, updated, t_num)
+                    body = body_template % (desc, author, 
+                        created, updated, t_num)
  
                     print body
                     print "\n\n\n"
 
-                    create_github_issue(title, body, assignees, milestone, labels, state)
+                    create_github_issue(title, 
+                                        body, 
+                                        assignees, 
+                                        milestone, 
+                                        labels, 
+                                        state)
 
                 print "Finished creating tickets!"
 
 
 if __name__ == '__main__':
+    """
+        Launch the program. 
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument("csv_path", help="path to csv files", type=str)
     parser.add_argument("name_map_file", help="""a json file mapping VisIt 
