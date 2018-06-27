@@ -19,9 +19,16 @@ import random
 import argparse
 from authentication import *
 
-MAX_ATTEMPTS = 5
-WAIT_TIME    = 1800 
-BLOCK_FLAG   = "temporarily blocked from content"
+MAX_ATTEMPTS  = 5
+WAIT_TIME     = 1800 
+BLOCK_FLAGS   = ["temporarily blocked from content", "API rate limit exceeded"]
+
+
+def exeeded_limit(response):
+    for flag in BLOCK_FLAGS:
+        if flag in response.content: 
+            return True
+    return False
 
 
 def milestone_is_open(ms):
@@ -63,7 +70,7 @@ def label_color_mapper(label):
 
 def extract_labels(row, found):
     """
-        Extract and format labels from VisIt redmine tickets. 
+        Extract and format labels from a VisIt redmine ticket csv row. 
     """
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
@@ -161,7 +168,7 @@ def create_github_label(name,
         print 'ERROR: Could not create label "%s"' % name
         print 'Response:', response.content
 
-        if BLOCK_FLAG in response.content:
+        if exceeded_limit(response):
             if attempts >= MAX_ATTEMPTS:
                 print "ERROR: reached maximum attempts. Exiting..."
                 exit(1)
@@ -204,7 +211,7 @@ def create_github_milestone(title,
         print 'ERROR: Could not create milestone "%s"' % title
         print 'Response:', response.content
 
-        if BLOCK_FLAG in response.content:
+        if exceeded_limit(response):
             if attempts >= MAX_ATTEMPTS:
                 print "ERROR: reached maximum attempts. Exiting..."
                 exit(1)
@@ -239,7 +246,7 @@ def close_github_issue(issue_url,
         print 'ERROR: Could not close issue'
         print 'Response:', response.content
 
-        if BLOCK_FLAG in response.content:
+        if exceeded_limit(response):
             if attempts >= MAX_ATTEMPTS:
                 print "ERROR: reached maximum attempts. Exiting..."
                 exit(1)
@@ -289,7 +296,7 @@ def create_github_issue(title,
         print 'ERROR: Could not create Issue "%s"' % title
         print 'Response:', response.content
 
-        if BLOCK_FLAG in response.content:
+        if exceeded_limit(response):
             if attempts >= MAX_ATTEMPTS:
                 print "ERROR: reached maximum attempts. Exiting..."
                 exit(1)
@@ -382,6 +389,9 @@ def migrate_issues(csv_path,
                     t_num       = row['#']
 
                     if t_num in seen_tickets:
+                        msg = ("We've already proccessed ticket %s..."
+                               "Skipping it" % t_num)
+                        print msg 
                         continue
                     seen_tickets.append(t_num)
 
