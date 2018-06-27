@@ -1,0 +1,201 @@
+#,Status,Project,Tracker,Priority,Subject,Assigned to,Category,Target version,Author,Start,Due date,% Done,Estimated time,Created,Updated,Likelihood,Severity,Found in Version,Impact,Expected Use,OS,Support Group,Description
+1513,Resolved,VisIt,Bug,Normal,silo writer doesn't support internal doubles,Kathleen Biagas,"",2.7,Jeremy Meredith,06/24/2013,"",0,2.0,06/24/2013 01:26 pm,08/12/2013 07:05 pm,2 - Rare,4 - Crash / Wrong Results,2.5.1,"","",All,Any,"I tried exporting a VASP CHGCAR file, with the IndexSelect operator applied, through the Silo writer, and it wrote garbage in the array contents.  Took a look at the code in avtSiloWriter, and it's doing a (float*)arr->GetVoidPointer(0).
+
+I know we changed everything to use doubles internally, so I'd think this would occur quite commonly.  Maybe people are not be using the Silo writer much?  
+
+This happened in 2.5.1 and on the 2.7 beta (trunk)."
+1589,Resolved,VisIt,Bug,Normal,full frame correction for vector glyphs appears to be wrong,Jeremy Meredith,"",2.7,Jeremy Meredith,08/22/2013,"",0,"",08/22/2013 02:34 pm,08/22/2013 03:12 pm,2 - Rare,3 - Major Irritation,2.6.3,"","",All,Any,"I made a vector plot of rect2d, set full frame to on, and changed the window size.  
+
+(NOTE: due to a separate bug, you have to redraw the plot after you change the window size!)
+
+Some of the vectors are super-wide, some are too tall, and they're mostly askew.  I see there's code for fixing up the vector glyphs, but I don't think it's working properly."
+1591,Resolved,VisIt,Bug,Normal,3D axis scale distorts vectors,Jeremy Meredith,"",2.7,Jeremy Meredith,08/22/2013,"",0,"",08/22/2013 03:03 pm,08/22/2013 03:33 pm,2 - Rare,2 - Minor Irritation,2.6.3,"","",All,Any,"Open rect3d.silo, make a vector plot.
+Open the 3D view, and enable axis scaling, setting the values to something like (0.1, 1, 1).
+You'll see the vectors are now distorted, squished along with the plot.
+
+We should use the full frame fix for vector glyph distortion (when it's working properly); it should probably work with no modifications here as well."
+988,Resolved,VisIt,Bug,Normal,enabling keyframing reliably crashes viewer,Kathleen Biagas,"",2.5,Jeremy Meredith,03/07/2012,"",0,"",03/07/2012 05:31 pm,05/01/2012 07:37 pm,3 - Occasional,4 - Crash / Wrong Results,2.4.0,"","",All,Any,"I noticed this in the 2.4 RC.  If you turn on keyframing, then as soon as you make a plot, the viewer crashes.  Or, alternatively, make a plot then turn on keyframing.
+
+The culprit seems seems to be in QvisTimeQueryOptionsWidget::GetDatabaseNStates.  It appears to assume that if it got a time slider index, the time slider came from a database (correlation).  When you have the Keyframing time slider, this is a bad assumption and it asks the correlation list for a non-existent correlation.  I reverted this function to its old version (prior to Jan 2012) and the crash went away.
+
+Two other notes: first, we're exploring adding other non-database time sliders (namely one for animation time), so any solution shouldn't assume we might have only one other time slider.  Second, I did not explore whether or not this bad assumption occurs other places, but someone more familiar with database correlations and time queries could probably eyeball that without much effort."
+856,Resolved,VisIt,Bug,Normal,povray export shouldn't use sprintf for colortables due to locale,Jeremy Meredith,"",2.4,Jeremy Meredith,09/23/2011,"",0,"",09/23/2011 10:39 am,10/25/2011 01:24 pm,3 - Occasional,2 - Minor Irritation,2.3.0,"","",All,Any,"original report follows:
+----
+Hi,
+
+I'm toying around with the POV-Ray export of VisIt. I noticed that on
+my system with a German locale (LANG=de_DE.UTF8) POV-Ray would fail to
+parse ""colortables.inc"" because the floats are rendered by VisIt with
+a "","" as the decimal point (an ugly German quirk).
+
+The issue lies within avtDatasetFileWriter::WritePOVRayFamily(). Here
+the color table gets rendered using sprintf, which takes the locale
+into account. A fix would be to use for instance C++' float rendering,
+as in the attached patch.
+"
+797,Resolved,VisIt,Feature,High,"PFLOTRAN new format, time values",Jeremy Meredith,"",2.3.2,Jeremy Meredith,07/27/2011,"",0,"",07/27/2011 11:30 am,09/14/2011 09:49 am,"","","",3 - Medium,4 - Common,All,DOE/SciDAC,"From Peter:
+> There is one new problem we are having with visit
+> recognizing the time associated with each frame. We changed the way
+> PFLOTRAN writes out HDF5 files and now write a separate file for each
+> output time. The HDF5View recognizes the times, but visit gives zero so
+> at the moment we can't use the time slider etc.
+
+It also sounds like the new and old ways will both be used, so we can't just drop support.
+
+I attached two small files Peter sent.
+
+If there's something we can do about it for 2.3.2, we should, even if there's a more correct fix we need for 2.4."
+593,Resolved,VisIt,Bug,High,pick on transformed rectilinear grids doesn't work,Kathleen Biagas,"",2.3,Jeremy Meredith,02/09/2011,"",0,2.0,02/09/2011 03:04 pm,02/24/2011 03:20 pm,3 - Occasional,2 - Minor Irritation,2.0.1,"","",All,Any,"If you open a file with a transformed rectilinear grid, picking on it simply reports that there were no intersections.  
+
+For example, open trunk/data/CHGCAR (it's a sub-format of the VASP reader, but it should choose VASP automatically these days), make a pseudocolor plot, and try zone or node pick, and for the most part it doesn't report any 
+
+I thought I'd made this work before.  If so, I believe it would have been possible to create a pick test case for it, but I don't believe I did.  It would be really smart to add one when we fix this.
+
+If this *didn't* work, then we should probably add support for it, though the priority isn't the same if it's not something that ever worked.
+"
+474,Resolved,VisIt,Bug,Normal,reopen doesn't work when overwriting some files in-place,Jeremy Meredith,"",2.2.2,Jeremy Meredith,11/11/2010,"",0,"",11/11/2010 02:47 pm,03/30/2011 01:44 pm,3 - Occasional,2 - Minor Irritation,2.0.1,"","",OSX,Any,"In this case, the problem was with PFLOTRAN files on OS X.  I have heard reports of this happening with other files, but have always assumed this type of thing was e.g. on Windows where the file locking behavior is different.  Maybe this is simply a case where PFLOTRAN has a bug that it's not re-reading things or not closing the file on a FreeUpResources?"
+379,Resolved,VisIt,Bug,High,"adding ""-o"" or ""-sessionfile"" on the command line for GUI launch fails/crashes regularly",Brad Whitlock,"",2.2.1,Jeremy Meredith,09/03/2010,"",100,"",09/03/2010 03:00 pm,02/24/2011 05:14 am,3 - Occasional,4 - Crash / Wrong Results,2.0.1,"","",All,Any,"This used to be an occasional problem, but now is occurring almost every time I open a file using ""-o"" on the command line.
+
+The symptom varies between:
+(1) the file mostly appears to open, but all plots are still grayed out, so acts like it didn't open
+(2) I get an error saying ""the file /home/jeremy/PickAttributes doesn't exist"" (or some other state object-related string, maybe a memory error?)
+(3) visit immediately crashes
+(4) visit starts to work, and then crashes when you try to do anything with a big glibc memory error trace
+
+And occasionally, it works.  Typically, it will work if I'm starting visit from cold start, i.e. no visit libraries cached.  But if I've just launched visit, then try this (so that the total launch takes only a few seconds), it almost always fails.  This would imply a race condition, but the path of how this delayed-open-launch behavior works is hard to debug since I'm not familiar with it.
+
+Note that I don't see a problem with using the CLI, just the GUI.  This is on linux (where I often use ""-o"").
+
+Also, I believe that ""-sessionfile"" seems to cause problems as well.  This might cause problems with movie making!
+"
+279,Pending,VisIt,Bug,Normal,angle brackets (e.g. in expressions) mess up visit -movie XML parsing,"","","",Jeremy Meredith,07/13/2010,"",0,8.0,07/13/2010 12:05 pm,07/21/2010 01:26 pm,2 - Rare,3 - Major Irritation,2.0.1,"","",All,Any,"I created a conn_cmfe in my expression list which contained our standard chevron / angle bracket / left/right caret variable quoting in its definition, and the existence of these in my session file messed up the parsing inside makemovie.py.  Specifically, it stopped parsing at that point in the .session file, so it never made it to the host launch profile attributes later in the session file.
+
+"
+343,Pending,VisIt,Feature,Normal,CreateBonds could allow cell-centered vars when there are no bonds yet,Jeremy Meredith,"","",Jeremy Meredith,08/11/2010,"",0,1.0,08/11/2010 01:44 pm,04/11/2011 06:36 pm,"","","",2 - Low,2 - Rare,All,Any,"e.g. if we can't get inPD->GetScalars, and npts==ncells, then we should try inCD->GetScalars.
+"
+377,Developer Review,VisIt,Bug,Normal,translucent geometry with large data dimension (1e18) can crash the viewer,"","","",Jeremy Meredith,09/02/2010,"",0,"",09/02/2010 03:50 pm,09/14/2010 04:26 pm,3 - Occasional,2 - Minor Irritation,trunk,"","",Linux,Any,"While investigating the behavior with data larger than 1e18 in spatial dimensions, I noticed if I tried to make my pseudocolor plot anything but 100% opaque, it would crash all of visit.
+
+Specifically:
+open rect3d.silo
+add a pseudcolor plot of p
+add a transform operator, scale by 1e20
+draw
+change opacity to <100% in pseudocolor plot, hit apply
+crash
+
+(This appears to happen with a build which predates hank's 1e+18 scaling fix, and one which includes it.  Not sure what to make of that fact...)
+"
+601,Pending,VisIt,Feature,Normal,initialize tools with values relative to their plot extents,"","","",Jeremy Meredith,02/10/2011,"",0,"",02/10/2011 12:35 pm,02/16/2011 03:39 pm,"","","",2 - Low,3 - Occasional,All,Any,"Open noise.silo
+Add a pseudocolor plot (of something)
+Add the transform operator, with Translate enabled, by 50,50,50.
+Turn on the Plane tool.  It's situated at 0,0,0, well outside the bounding box of the plot.
+Obviously it would be better if the plane tool is sitting somewhere closer to 50,50,50.
+
+There are some real challenges to making this work in any useful way, though: operators can't be initialized by tool values, they can only update from them.  So even if we were to fix this, it wouldn't help at all, unless we could somehow get the operator initialization to cooperate.
+"
+602,Pending,VisIt,Feature,Normal,"threeslice operator, and maybe slice operator, to support unit cell vectors","","","",Jeremy Meredith,02/10/2011,"",0,"",02/10/2011 12:39 pm,02/16/2011 03:38 pm,"","","",3 - Medium,3 - Occasional,All,Any,"If you open some CHGCAR file (like the CHGCAR file in trunk/data), it's actually a regular grid with a linear transformation applied.  In other words, it's like a rectilinear grid in some local coordinate system (not generally orthonormal, by the way).  The slice operators will still work in world coordinates, though, and it might be nice to allow it to work in the local coordinate system.
+"
+605,Pending,VisIt,Bug,Normal,tools don't initialize the first time from operator attributes; you need to toggle them once,"","","",Jeremy Meredith,02/11/2011,"",0,"",02/11/2011 10:19 am,08/09/2013 03:38 pm,4 - Common,3 - Major Irritation,2.2.0,"","",All,Any,"E.g. open noise.silo, add a pseudocolor plot, add Slice (and turn off project to 2D), hit draw.  Turn on the plane tool, and it's oriented along the Z (depth) axis, but the slice is oriented along the Y (height) axis.  Turn off the plane tool and then back on, and it now gets a Y orientation to match the slice operator."
+772,Pending,VisIt,Bug,Normal,"dimensionality ""change"" after 1st timestep not reflected in vis window","","","",Jeremy Meredith,06/29/2011,"",0,"",06/29/2011 01:08 pm,07/06/2011 02:00 pm,3 - Occasional,2 - Minor Irritation,2.3.0,"","",All,Any,"Imagine a 2D surface in 3D space, like a height field, where the Z coordinate is some variable's value.
+But supposed this value -- and thus the Z coordinates -- starts at 0 in the first time step, and change afterward.
+For some file types, like WavefrontOBJ and maybe VTK as well, we guess dimensionality based on the Z coordinate.
+So when we open the first time step, we think it's a 2D spatial and 2D topological mesh.
+But if you make a plot with the first time step, it gives you a 2D window.
+At least for STxD formats, we guess dimensionality (and other things) from the 1st opened time steps.
+So when you change time steps, and you now have nonzero Z depth, but the window remains in 2D, and ""bad things"" happen (such as your geometry hitting clipping planes).
+
+You can see this behavior in the attached file.  Note that ""re-open"" when on a later timestep (one with nonzero Z) fixes the problem for that session until you close the file, I think.
+
+I can think of a few possible improvements, none of which are great:
+- WavefrontOBJ always report 3D spatial dim, but this doesn't fix any other formats like VTK assuming those show the same problem
+- always open all files in a group and take the max dim -- obviously a massive performance hit, and thus a bad idea
+- detect when we got nonzero Z coords in an otherwise-2D problem, and change the window state
+
+This last one seems like it may be the best idea; I don't like that it gets the first timestep ""wrong"", but I can't come up with a good solution to that.
+
+"
+792,Pending,VisIt,Bug,Normal,"build_visit creates .cmake file where python path has an explicit path, not a variable one","","","",Jeremy Meredith,07/22/2011,"",0,"",07/22/2011 04:25 pm,11/30/2011 01:23 pm,3 - Occasional,1 - Not Serious,2.3.0,"","",All,Any,"In the .cmake file for my OS X machine created by build_visit in January 2011:
+VISIT_OPTION_DEFAULT(VISIT_PYTHON_DIR ${VISITHOME}/python/2.6.4/${VISITARCH})
+
+And in the .cmake file I generated July 2011:
+VISIT_OPTION_DEFAULT(VISIT_PYTHON_DIR /apps/visit/python/2.6.4/i386-apple-darwin10_gcc-4.2)
+
+The former seems like the right thing to do.  (VISITARCH is still i386-apple-darwin10_gcc-4.2, so that hasn't changed.)
+
+I'm guessing this is just a case where build_visit did the interpolation while generating the .cmake file instead of quoting it for later interpolation.
+"
+831,Pending,VisIt,Feature,Normal,"Data-defined lineout sampling patterns, e.g. along isolines","","","",Jeremy Meredith,08/29/2011,"",0,"",08/29/2011 02:51 pm,09/16/2011 02:10 pm,"","","",3 - Medium,3 - Occasional,All,Any,"We almost have enough infrastructure to allow lineout along arbitrary curves.
+
+E.g. take a 2D pseudocolor plot of var1, and add an isosurface operator using var2.  All we need to do then is ""unwrap"" or ""flatten"" that into a value-versus distance curve.
+
+The code to stitch 2-point line segments into polylines occurs multiple places inside visit:
+- One is in the tube filter.  No help here.
+- Second is in the avtLineToPolyLine filter.  This gets used *only* in the contour plot, though.  As this user wants to plot one variable against another, he's probably using the Isosurface operator with the Pseudocolor plot, so this won't help.
+- Third version is in the save window routine for Curve data.  This almost works, as you *can* save a window with lines generated by the isosurface *OPERATOR* as a .curve file, however, you don't get the values of the second variable saved into a curve file.
+
+You can save the window as a VTK file, though, and so I wrote a python script which would take a VTK file with a bunch of 2-segment polylines, stitch them together, and output the value of a scalar in the file vs. distance.  See: http://visitusers.org/index.php?title=Creating_curves_from_contours for the details.
+
+However, it would be great to have this inside visit.  I'm not sure the best way.  Options:
+- an operator which creates a new mesh which is applied after the lineout
+- a ""query"" which generates a curve (we can do this now, I think?)
+
+Either way, I believe the avtLineToPolyLine filter is probably the right piece for the stitching, though we would probably also need to stitch across domains.  And then unwrapping is pretty easy.
+"
+868,Pending,VisIt,Bug,High,visit crashes saving window as data when using ray casting and scalable rendering mode disabled,"","","",Jeremy Meredith,10/05/2011,"",0,"",10/05/2011 05:23 pm,10/25/2011 07:15 pm,3 - Occasional,4 - Crash / Wrong Results,trunk,"","",All,Any,"- open noise.silo
+- make a volume plot of hardyglobal
+- (shrink the window)
+- set the volume plot renderer to ray casting
+- in Options -> Rendering, set scalable rendering mode to Never
+- try to save the window as a data format, like VTK or POV
+
+VisIt's viewer then crashes.
+
+(I have not attempted this since the VTK5.8 upgrade, but I don't know of any reason to think it would have changed.)"
+1388,Pending,VisIt,Bug,Normal,"visitconvert in parallel can't launch due to ""-plugindir"" and other arguments","","","",Jeremy Meredith,03/19/2013,"",0,"",03/19/2013 02:38 pm,03/26/2013 01:24 pm,3 - Occasional,4 - Crash / Wrong Results,2.6.1,"","",All,Any,"The internallauncher script adds ""-plugindir"", ""-visithome"", and ""-visitarchhome"" to the command line in, for example, JobSubmitter_mpirun (and others).  The engine knows what to do with these, but other binaries don't.  (Like visitconvert.)
+
+This wouldn't necessarily be a problem, because visitconvert will ignore flags it doens't understand, so assuming the environment variables still work, visitconvert would be happy.
+
+The *real* problem is that JobSubmitter_mpirun (and others) add these arguments before the other args, and visitconvert expects its first argument to be the input file name.  (I.e. it assumes options should go at the end of the command line, not the beginning.)
+
+I don't know if there's any priority in making visitconvert (and other binaries) understand the -plugindir (and similar) flags, and I suspect we don't want to bother making visitconvert parse its input file differently.
+
+This means the easiest solution is to either force those -plugindir (and similar) flags to the end of the command line, or simply to not add them if it's not the engine we're launching.
+
+(I didn't try running 2.6.2 to see if any of this was fixed, but the important pieces of source code are the same as 2.6.1, so I assume it's still a problem.)
+"
+1588,Pending,VisIt,Bug,Normal,"simple transform operator only transforms vectors by rotation, not scale","","","",Jeremy Meredith,08/22/2013,"",0,"",08/22/2013 02:31 pm,09/13/2013 06:49 pm,2 - Rare,2 - Minor Irritation,2.6.3,"","",All,Any,"I'd think the transform checkbox (on the first page of the transform op) would tell it whether or not to apply the x/y/z scale factors to the vector component values.  Looks like it's only using the rotation information.
+
+(I actually think we might need four values, not just two.  The coordinate (second page) transforms of this operator has four options, but instantaneous direction is no different from coordinate displacement for the xforms we do on this first page, so those four options are really three.  I'd take two options, though -- just leave the checkbox and continue to ignore translation.)
+
+To replicate, open rect2d.silo, make a vector plot of vel, add a transform op, set scale X=0.1, Y=1, Z=1, and notice that whether or not you have the transform vectors checkbox checked, there's no change in the plot."
+1590,Pending,VisIt,Bug,Normal,full frame correction for vector glyphs only takes effect on redraws,"","","",Jeremy Meredith,08/22/2013,"",0,"",08/22/2013 02:36 pm,09/13/2013 06:49 pm,2 - Rare,2 - Minor Irritation,2.6.3,"","",All,Any,"I made a vector plot of rect2d, set full frame to on, and changed the window size.  
+
+It appears there's some attempt to fix the vector glyphs to compensate for full frame, but the compensation isn't updated during window resizes.  You have to redraw the plot before it will calculate the new fullframe compensation.
+
+(NOTE: due to a separate bug the glyphs are not properly corrected, but that's a separate problem.  Here, I'm only talking about WHEN it readjusts the vector glyphs based on the window size, not HOW it does so.)
+"
+1695,Pending,VisIt,Feature,Normal,add option to molecule plot to force 3D (or 2D?) rendering,"","","",Jeremy Meredith,01/10/2014,"",0,"",01/10/2014 10:34 am,01/14/2014 08:00 pm,"","","",2 - Low,2 - Rare,All,Any,"Had a use case with a 2D molecule plot, but the desired rendering was to have the atoms be rendered as spheres (with shading) instead of flat circles.  We worked around it with an Elevate-by-zero-height operator, it should be a simple matter to allow the user to force 3D rendering, even for a 2D plot.  (Possibly useful to allow 2D rendering, i.e. circles with no shading, in 3D also.)
+"
+1696,Pending,VisIt,Bug,Normal,disabling a light in the lighting window gives you a warning,"","","",Jeremy Meredith,01/10/2014,"",0,"",01/10/2014 03:50 pm,01/14/2014 08:00 pm,2 - Rare,2 - Minor Irritation,2.7.0,"","",All,Any,"I just enabled light source #2 (as ambient) to play with some things.
+
+I then clicked the checkbox to turn it off, hit apply, and it warned me that I was changing the properties of a disabled light.  No, I wasn't....
+
+Maybe we can check if the applied change was what disabled the light, and if so, skip the warning?
+
+(Alternatively, maybe we need a choice of 4 light source types instead of 3, one of which is 'Disabled', and we remove the checkbox.  I suspect we wouldn't need that warning as much.)"
+1771,Pending,VisIt,Feature,Normal,"Add continuous variance; e.g. area weighted variance, matching variable weighted sum.","","","",Jeremy Meredith,03/12/2014,"",0,"",03/12/2014 05:32 pm,04/15/2014 05:25 pm,"","","",3 - Medium,3 - Occasional,All,Any,"My summary from the Mar 12 2014 user's list:
+--------------------
+An update: The desired variance here was the one approximating the continuous function that we assume the discrete values are sampling.
+
+So in other words, VisIt is probably a the ""variance"" equivalent of the ""variable weighted sum"" query.
+
+Turns out there are two fairly effective workarounds:
+
+1) You can do something pretty close by simply resampling to a regular grid.  I suspect that only works properly if your original data is perfectly covered by rectangular bounds, though.
+
+2) But you can actually just use the ""Variable Weighted Sum"" (VWS for short) query directly using the alternative formulation for variance.  Specifically, run the VWS query on your variable, then run it again on the square of your variable, then subtract the square of the first from the second.  In other words the continuous variance of x = VWS(x^2) - VWS(x)^2.
+"
+2157,Pending,VisIt,Bug,Normal,-launchengine hostname seems to always try to launch a local engine,"","","",Jeremy Meredith,02/23/2015,"",0,"",02/23/2015 10:23 am,02/24/2015 07:54 pm,3 - Occasional,2 - Minor Irritation,2.8.2,"","",All,Any,"Is it just me, or does -launchengine no longer use the hostname argument?
+
+(When I pass it, I *do* get a VCL, but it's not trying to connect to the host I tell it.)
+"

@@ -1,0 +1,27 @@
+#,Status,Project,Tracker,Priority,Subject,Assigned to,Category,Target version,Author,Start,Due date,% Done,Estimated time,Created,Updated,Likelihood,Severity,Found in Version,Impact,Expected Use,OS,Support Group,Description
+2064,Resolved,VisIt,Bug,Normal,Engine can crash when doing Filled Boundary plot of AMR data,Paul Selby,"",2.8.2,Paul Selby,11/18/2014,"",100,"",11/18/2014 12:31 pm,11/20/2014 09:04 am,3 - Occasional,4 - Crash / Wrong Results,2.8.1,"","",All,Any,"We have hit an issue with 2.8.x/trunk and our internal TyphonIO format where VisIt crashes when carrying out Filled Boundary plots for some patch based AMR datasets without existing ghost cells. I'm not able to provide an example in another format at this time.
+
+It is caused by a long standing issue in avtStructuredDomainBoundaries which has been exposed by the enabling of the AMRStitchCell operator by default in 2.8. It can be worked around by using the -disable-ghosts-for-t-intersections command line flag and made to occur in VisIt 2.7.3 via -create-ghosts-for-t-intersections.
+
+The actual bug is down to the SetExistence function not excluding RECIPENT_NEIGHBOR patches like SetNewBoundaryData does so some cells are incorrectly marked as existing. The same underlying routines are called to generate ghost cell data when carrying out contour plots and, although this has not been observed to be fatal, valgrind confirms that uninitialised memory is accessed.
+
+I have a fix ready to commit (which continues to pass the operators/amr_stitch.py regression test) but unfortunately the SVN server appears to be down at the moment. 
+
+"
+1714,Pending,VisIt,Feature,Normal,Cannot apply transform operator to Time Curve plots,"","","",Paul Selby,01/28/2014,"",0,"",01/28/2014 01:32 pm,02/05/2014 11:26 am,"","","",3 - Medium,3 - Occasional,All,Any,"We have a user who would like to be able to apply the transform operator to Time Curve plots to more easily compare results from different simulations. Unfortunately this isn't currently possible - the operator can be added but an error dialog is displayed when attempting to render.
+
+Presumably this is because the curve isn't a ""real"" data source? The error message seems to be produced by the engine's NetworkManager::AddFilter function 
+
+Similarly it isn't possible to apply operators to lineout curves (see #1085) but in this case ViewerPlot::AddOperator displays a (less cryptic) warning dialog when attempting to add the operator.
+
+Both cases can be worked around by outputting the curve via ""Save Window"" or ""Export Database"" and reading it back in.
+
+Steps to reproduce
+
+# Load wave*.silo database from visit/data
+# Add pressure Pseudocolor plot
+# Tick ""Do Time Curve with next pick"" in ""Time Pick"" tab of Controls->Pick... dialog and Apply
+# Do nodal pick
+# Make Curve Window active and add transform operator to curve
+# Click Draw => get ""Curve: (ImproperUseException) viewer: The pipeline object is being used improperly.""
+"

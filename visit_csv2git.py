@@ -15,12 +15,26 @@ import os
 import requests
 import csv
 from time import sleep
+import random
 import argparse
 from authentication import *
 
 MAX_ATTEMPTS = 5
 WAIT_TIME    = 1800 
 BLOCK_FLAG   = "temporarily blocked from content"
+
+
+def milestone_is_open(ms):
+    """
+        Determine if a milestone should be set to open or not. 
+    """
+    parts = [int(p) for p in str(ms).split('.')]
+    if parts[0] >= 3:
+        return True
+    if len(parts) == 3:
+        if (parts[0] == 2 and parts[2] >= 3):
+            return True
+    return False
 
 
 def label_color_mapper(label):
@@ -51,7 +65,7 @@ def extract_labels(row, found):
     """
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
-        'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group', 'Target version']
+        'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group']
 
     for title in label_titles:
         label = row[title]
@@ -97,10 +111,6 @@ def extract_labels(row, found):
         for i in range(len(label_dict['Support Group'])):
             label_dict['Support Group'][i] = "Support Group: %s" % label_dict['Support Group'][i]
         
-    if 'Target version' in label_dict:
-        for i in range(len(label_dict['Target version'])):
-            label_dict['Target version'][i] = "Target Version: %s" % label_dict['Target version'][i]
-
     if 'OS' in label_dict:
         for i in range(len(label_dict['OS'])):
             label_dict['OS'][i] = "OS: %s" % label_dict['OS'][i]
@@ -112,6 +122,19 @@ def extract_labels(row, found):
                 out_labels.append(label.strip())
 
     return out_labels
+
+
+def extract_milestones(row, found):
+    """
+        Extract the milestone from a row. 
+    """
+    target = 'Target version'
+
+    mile_s = row[target]
+    if mile_s == '' or mile_s in found:
+        return []
+
+    return [mile_s]
 
 
 def create_github_label(name, 
@@ -129,12 +152,12 @@ def create_github_label(name,
              'description': description}
 
     sleep(3)
-    reciever = session.post(url, json.dumps(issue))
-    if reciever.status_code == 201:
+    response = session.post(url, json.dumps(issue))
+    if response.status_code == 201:
         print 'Successfully created label "%s"' % name
     else:
         print 'ERROR: Could not create label "%s"' % name
-        print 'Response:', reciever.content
+        print 'Response:', response.content
 
         if BLOCK_FLAG in response.content:
             if attempts >= MAX_ATTEMPTS:
@@ -151,6 +174,50 @@ def create_github_label(name,
                                 color, 
                                 description, 
                                 attempts + 1)
+
+
+def create_github_milestone(title, 
+                            state       = 'open',
+                            description = None, 
+                            due_on      = None,
+                            attempts    = 0):
+    """
+        Create a label on github issues. 
+    """
+    url = 'https://api.github.com/repos/%s/%s/milestones' % (REPO_OWNER, REPO_NAME)
+    session = requests.Session()
+    session.auth = (USERNAME, PASSWORD)
+    issue = {'title': title,
+             'state': state,
+             'description': description,
+             'due_on': due_on}
+
+    sleep(3)
+    response = session.post(url, json.dumps(issue))
+    if response.status_code == 201:
+        print 'Successfully created milestone "%s"' % title
+        return json.loads(response.content)['number']
+        
+    else:
+        print 'ERROR: Could not create milestone "%s"' % title
+        print 'Response:', response.content
+
+        if BLOCK_FLAG in response.content:
+            if attempts >= MAX_ATTEMPTS:
+                print "ERROR: reached maximum attempts. Exiting..."
+                exit(1)
+            #
+            # Github only allows a certain amount of 
+            # contact before it needs some space. 
+            #
+            print "Attempting to wait out the block..."
+            print "Will try again in %i seconds" % WAIT_TIME
+            sleep(WAIT_TIME)
+            create_github_milestone(title, 
+                                    state, 
+                                    description, 
+                                    due_on, 
+                                    attempts + 1)
 
 
 def close_github_issue(issue_url, 
@@ -245,13 +312,17 @@ def create_github_issue(title,
 
 def migrate_issues(csv_path, 
                    name_map, 
-                   do_tickets = True, 
-                   do_labels  = True):
+                   do_tickets    = True, 
+                   do_labels     = True,
+                   do_milestones = True):
     """
        Migrate redmine issues from a csv file to github issues. 
     """
-    csv_files  = os.path.join(csv_path, "*.csv")
-    fin_labels = []
+    csv_files      = os.path.join(csv_path, "*.csv")
+    fin_labels     = []
+    fin_mile_s     = []
+    mile_s_numbers = {}
+    seen_tickets   = []
 
     body_template = ("%s\n\n\n\n"
          "-----------------------REDMINE MIGRATION-----------------------\n"
@@ -276,23 +347,24 @@ def migrate_issues(csv_path,
                     create_github_label(label, label_color_mapper(label))
                 print "Finished ceating labels!"
 
+            if do_milestones:
+                print "\nCreating milestones"
+                csvfile.seek(0)
+                next(reader)
+                mile_s = []
+                for row in reader:
+                    mile_s.extend(extract_milestones(row, fin_mile_s))
+                    fin_mile_s.extend(mile_s)
+                for ms in mile_s:
+                    state = 'open' if milestone_is_open(ms) else 'closed'
+                    mile_s_numbers[ms] = create_github_milestone(ms, state)
+                print "Finished ceating milestones!"
+
             if do_tickets:
                 print "\nCreating tickets"
                 csvfile.seek(0)
+                next(reader)
                 for row in reader:
-                    closed      = ["Rejected", "Resolved"]
-
-                    #FIXME: this needs uncommenting once accounts are added to git. 
-                    #assignees   = [name_map[assignee] if assignee in name_map else "" 
-                    #    for assignee in row['Assigned to'].split(",")]
-                    assignees   = ["aowen87"]
-
-                    title       = row['Subject']
-                    desc        = row['Description']
-                    state       = "closed" if row['Status'] in closed else "open"
-                    labels      = []
-                    milestone   = None
-    
                     #
                     # Retrieve redmine specific info that will need to be 
                     # added to the description. 
@@ -302,6 +374,33 @@ def migrate_issues(csv_path,
                     updated     = row['Updated']
                     t_num       = row['#']
 
+                    if t_num in seen_tickets:
+                        continue
+                    seen_tickets.append(t_num)
+
+                    closed      = ["Rejected", "Resolved", "Expired"]
+
+                    #FIXME: this needs uncommenting once accounts are added to git. 
+                    #assignees   = [name_map[assignee] if assignee in name_map else "" 
+                    #    for assignee in row['Assigned to'].split(",")]
+                    assignees   = ["aowen87"]
+
+                    title       = row['Subject']
+                    desc        = row['Description']
+                    state       = "closed" if str(row['Status']) in closed else "open"
+                    labels      = []
+     
+                    #TODO: If we're not creating milestones, we need to somehow
+                    #      get their numbers from github...
+                    milestone   = None
+                    
+                    if row['Target version'] != '':
+                        if row['Target version'] not in mile_s_numbers:
+                            print "ERROR: unable to find number for milestone!"
+                            print "Aborting this ticket!"
+                            continue
+                        milestone = mile_s_numbers[row['Target version']]
+    
                     body = body_template % (desc, author, 
                         created, updated, t_num)
  
@@ -327,10 +426,13 @@ if __name__ == '__main__':
         action="store_true") 
     parser.add_argument("--no_labels", help="don't create labels", default=False,
         action="store_true") 
+    parser.add_argument("--no_milestones", help="don't create milestones", default=False,
+        action="store_true") 
     args = parser.parse_args()
 
-    do_tickets = True
-    do_labels  = True
+    do_tickets    = True
+    do_labels     = True
+    do_milestones = True
 
     with open(args.name_map_file, 'r') as json_f:
         name_map = json.load(json_f)
@@ -344,5 +446,12 @@ if __name__ == '__main__':
     if args.no_labels:
         do_labels = False
 
-    migrate_issues(args.csv_path, name_map, do_tickets, do_labels)
+    if args.no_milestones:
+        do_milestones = False
+
+    migrate_issues(args.csv_path, 
+                   name_map, 
+                   do_tickets, 
+                   do_labels,
+                   do_milestones)
 
