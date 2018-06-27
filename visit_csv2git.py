@@ -32,7 +32,9 @@ def milestone_is_open(ms):
     if parts[0] >= 3:
         return True
     if len(parts) == 3:
-        if (parts[0] == 2 and parts[2] >= 3):
+        if (parts[0] == 2 and 
+            parts[1] >= 13 and
+            parts[2] >= 3):
             return True
     return False
 
@@ -278,6 +280,11 @@ def create_github_issue(title,
     if response.status_code == 201:
         print 'Successfully created Issue "%s"' % title
         issue_url = json.loads(response.content)['url']
+    #
+    # FIXME: if we can't create an issue because the user
+    #        isn't associated with the project, then re-send
+    #        the ticket with a blank assignee (they'll be in the notes)
+    #
     else:
         print 'ERROR: Could not create Issue "%s"' % title
         print 'Response:', response.content
@@ -388,7 +395,7 @@ def migrate_issues(csv_path,
                     title       = row['Subject']
                     desc        = row['Description']
                     state       = "closed" if str(row['Status']) in closed else "open"
-                    labels      = []
+                    labels      = extract_labels(row, [])
      
                     #TODO: If we're not creating milestones, we need to somehow
                     #      get their numbers from github...
