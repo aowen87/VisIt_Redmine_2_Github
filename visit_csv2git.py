@@ -24,7 +24,7 @@ WAIT_TIME     = 1800
 BLOCK_FLAGS   = ["temporarily blocked from content", "API rate limit exceeded"]
 
 
-def exeeded_limit(response):
+def exceeded_limit(response):
     for flag in BLOCK_FLAGS:
         if flag in response.content: 
             return True
