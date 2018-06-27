@@ -19,8 +19,13 @@ import random
 import argparse
 from authentication import *
 
+#FIXME: create a limit checker?
+#       once limit is about to be exceeded, wait. 
+
+
+SHORT_WAIT    = 10
 MAX_ATTEMPTS  = 5
-WAIT_TIME     = 1800 
+LONG_WAIT     = 3605
 BLOCK_FLAGS   = ["temporarily blocked from content", "API rate limit exceeded"]
 
 
@@ -29,6 +34,16 @@ def exceeded_limit(response):
         if flag in response.content: 
             return True
     return False
+
+
+def invalid_assignee(response):
+    errors = json.loads(response.content)["errors"]
+    field  = errors[0]["field"]
+    code   = errors[0]["code"]
+    if "assignees" in field and "invalid" in code:
+        return True
+    return False
+    
 
 
 def milestone_is_open(ms):
@@ -160,7 +175,7 @@ def create_github_label(name,
              'color': color,
              'description': description}
 
-    sleep(3)
+    sleep(SHORT_WAIT)
     response = session.post(url, json.dumps(issue))
     if response.status_code == 201:
         print 'Successfully created label "%s"' % name
@@ -177,8 +192,8 @@ def create_github_label(name,
             # contact before it needs some space. 
             #
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % WAIT_TIME
-            sleep(WAIT_TIME)
+            print "Will try again in %i seconds" % LONG_WAIT
+            sleep(LONG_WAIT)
             create_github_label(name, 
                                 color, 
                                 description, 
@@ -201,7 +216,7 @@ def create_github_milestone(title,
              'description': description,
              'due_on': due_on}
 
-    sleep(3)
+    sleep(SHORT_WAIT)
     response = session.post(url, json.dumps(issue))
     if response.status_code == 201:
         print 'Successfully created milestone "%s"' % title
@@ -220,8 +235,8 @@ def create_github_milestone(title,
             # contact before it needs some space. 
             #
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % WAIT_TIME
-            sleep(WAIT_TIME)
+            print "Will try again in %i seconds" % LONG_WAIT
+            sleep(LONG_WAIT)
             create_github_milestone(title, 
                                     state, 
                                     description, 
@@ -234,7 +249,7 @@ def close_github_issue(issue_url,
     """
         Close a github issue.
     """
-    sleep(3)
+    sleep(SHORT_WAIT)
     print "Setting state to closed"
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)
@@ -255,17 +270,17 @@ def close_github_issue(issue_url,
             # contact before it needs some space. 
             #
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % WAIT_TIME
-            sleep(WAIT_TIME)
+            print "Will try again in %i seconds" % LONG_WAIT
+            sleep(LONG_WAIT)
             close_github_issue(issue_url, 
                                attempts + 1)
 
 
 def create_github_issue(title, 
                         body      = None, 
-                        assignees = None, 
+                        assignees = [], 
                         milestone = None, 
-                        labels    = None, 
+                        labels    = [], 
                         state     = "open",
                         attempts  = 0):
     """
@@ -281,17 +296,12 @@ def create_github_issue(title,
              'milestone': milestone,
              'labels': labels}
 
-    sleep(3)
+    sleep(SHORT_WAIT)
     issue_url = ""
     response = session.post(main_url, json.dumps(issue))
     if response.status_code == 201:
         print 'Successfully created Issue "%s"' % title
         issue_url = json.loads(response.content)['url']
-    #
-    # FIXME: if we can't create an issue because the user
-    #        isn't associated with the project, then re-send
-    #        the ticket with a blank assignee (they'll be in the notes)
-    #
     else:
         print 'ERROR: Could not create Issue "%s"' % title
         print 'Response:', response.content
@@ -305,8 +315,8 @@ def create_github_issue(title,
             # contact before it needs some space. 
             #
             print "Attempting to wait out the block..."
-            print "Will try again in %i seconds" % WAIT_TIME
-            sleep(WAIT_TIME)
+            print "Will try again in %i seconds" % LONG_WAIT
+            sleep(LONG_WAIT)
             create_github_issue(title, 
                                 body, 
                                 assignees, 
@@ -314,6 +324,20 @@ def create_github_issue(title,
                                 labels, 
                                 state,
                                 attempts + 1)
+
+        elif invalid_assignee(response):
+            #
+            # The assignee can't be mapped on github, so 
+            # just leave it blank. 
+            #
+            create_github_issue(title, 
+                                body, 
+                                [], 
+                                milestone, 
+                                labels, 
+                                state,
+                                attempts + 1)
+            
         else:
             return
 
