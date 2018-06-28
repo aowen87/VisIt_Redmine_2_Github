@@ -23,9 +23,9 @@ from authentication import *
 #       once limit is about to be exceeded, wait. 
 
 
-SHORT_WAIT    = 10
+SHORT_WAIT    = 3
 MAX_ATTEMPTS  = 5
-LONG_WAIT     = 3605
+LONG_WAIT     = 3700
 BLOCK_FLAGS   = ["temporarily blocked from content", "API rate limit exceeded"]
 
 
@@ -61,6 +61,10 @@ def milestone_is_open(ms):
     return False
 
 
+#FIXME: Priority doesn't have a number associated with it, 
+#       but we should still assign colors from the heat map. 
+#       Let's manually add that mapping. 
+#       Let's also give "Bug" the hottest color. 
 def label_color_mapper(label):
     """
         Map colors to VisIt labels. If the label has a scale 
@@ -176,7 +180,7 @@ def create_github_label(name,
              'description': description}
 
     sleep(SHORT_WAIT)
-    response = session.post(url, json.dumps(issue))
+    response = session.post(url, json.dumps(issue, encoding='latin1'))
     if response.status_code == 201:
         print 'Successfully created label "%s"' % name
     else:
@@ -217,7 +221,7 @@ def create_github_milestone(title,
              'due_on': due_on}
 
     sleep(SHORT_WAIT)
-    response = session.post(url, json.dumps(issue))
+    response = session.post(url, json.dumps(issue, encoding='latin1'))
     if response.status_code == 201:
         print 'Successfully created milestone "%s"' % title
         return json.loads(response.content)['number']
@@ -254,7 +258,7 @@ def close_github_issue(issue_url,
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)
     issue = {'state': "closed"}
-    response = session.post(issue_url, json.dumps(issue))
+    response = session.post(issue_url, json.dumps(issue, encoding='latin1'))
     if response.status_code == 200:
         print 'Successfully closed issue'
     else:
@@ -298,7 +302,7 @@ def create_github_issue(title,
 
     sleep(SHORT_WAIT)
     issue_url = ""
-    response = session.post(main_url, json.dumps(issue))
+    response = session.post(main_url, json.dumps(issue, encoding='latin1'))
     if response.status_code == 201:
         print 'Successfully created Issue "%s"' % title
         issue_url = json.loads(response.content)['url']
@@ -330,6 +334,7 @@ def create_github_issue(title,
             # The assignee can't be mapped on github, so 
             # just leave it blank. 
             #
+            print "Re-submitting ticket with blank assignee."
             create_github_issue(title, 
                                 body, 
                                 [], 
@@ -350,9 +355,10 @@ def create_github_issue(title,
 
 def migrate_issues(csv_path, 
                    name_map, 
-                   do_tickets    = True, 
-                   do_labels     = True,
-                   do_milestones = True):
+                   do_tickets       = True, 
+                   do_labels        = True,
+                   do_milestones    = True, 
+                   ignore_assignees = False):
     """
        Migrate redmine issues from a csv file to github issues. 
     """
@@ -373,6 +379,7 @@ def migrate_issues(csv_path,
 
     for f_pth in glob.glob(csv_files):
         with open(f_pth, "r") as csvfile:
+            print "\nOpening file: %s" % csvfile
             reader = csv.DictReader(csvfile)
 
             if do_labels:
@@ -422,9 +429,11 @@ def migrate_issues(csv_path,
                     closed      = ["Rejected", "Resolved", "Expired"]
 
                     #FIXME: this needs uncommenting once accounts are added to git. 
-                    #assignees   = [name_map[assignee] if assignee in name_map else "" 
-                    #    for assignee in row['Assigned to'].split(",")]
-                    assignees   = ["aowen87"]
+                    if ignore_assignees:
+                        assignees = []
+                    else:
+                        assignees   = [name_map[assignee] if assignee in name_map else "" 
+                            for assignee in row['Assigned to'].split(",")]
 
                     title       = row['Subject']
                     desc        = row['Description']
@@ -434,8 +443,8 @@ def migrate_issues(csv_path,
                     #TODO: If we're not creating milestones, we need to somehow
                     #      get their numbers from github...
                     milestone   = None
-                    
-                    if row['Target version'] != '':
+
+                    if row['Target version'] != '' and do_milestones:
                         if row['Target version'] not in mile_s_numbers:
                             print "ERROR: unable to find number for milestone!"
                             print "Aborting this ticket!"
@@ -453,6 +462,7 @@ def migrate_issues(csv_path,
                                         state)
 
                 print "Finished creating tickets!"
+    print "Finished all files in: %s" % csv_path
 
 
 if __name__ == '__main__':
@@ -469,11 +479,14 @@ if __name__ == '__main__':
         action="store_true") 
     parser.add_argument("--no_milestones", help="don't create milestones", default=False,
         action="store_true") 
+    parser.add_argument("--ignore_assignees", help="ignore assignees", default=False,
+        action="store_true") 
     args = parser.parse_args()
 
-    do_tickets    = True
-    do_labels     = True
-    do_milestones = True
+    do_tickets       = True
+    do_labels        = True
+    do_milestones    = True
+    ignore_assignees = False
 
     with open(args.name_map_file, 'r') as json_f:
         name_map = json.load(json_f)
@@ -490,9 +503,14 @@ if __name__ == '__main__':
     if args.no_milestones:
         do_milestones = False
 
+    if args.ignore_assignees:
+        ignore_assignees = True
+
     migrate_issues(args.csv_path, 
                    name_map, 
                    do_tickets, 
                    do_labels,
-                   do_milestones)
+                   do_milestones,
+                   ignore_assignees)
+
 
