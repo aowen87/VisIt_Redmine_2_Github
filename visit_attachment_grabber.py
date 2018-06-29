@@ -61,6 +61,8 @@ if __name__ == "__main__":
     parser.add_argument("out_dir", type=str)
     args = parser.parse_args()
     out_dir = args.out_dir
+    start   = args.start_ticket
+    stop    = args.stop_ticket
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
@@ -72,6 +74,7 @@ if __name__ == "__main__":
         raw_html    = simple_get(html)
         if raw_html == None:
             print "Ticket #%i was not found" % issue
+            continue
         html_parser = BeautifulSoup(raw_html, 'html.parser')
 
         links = html_parser.find_all('a', {'class': 'icon icon-attachment'})
