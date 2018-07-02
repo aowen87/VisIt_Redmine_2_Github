@@ -5,4 +5,4 @@ authentication.py
 migration.out
 attachments/*
 *.out
-redmint_attachments.tar
+redmine_attachments.tar
