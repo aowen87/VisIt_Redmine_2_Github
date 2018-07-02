@@ -1,0 +1,2004 @@
+#,Status,Project,Tracker,Priority,Subject,Assigned to,Category,Target version,Author,Start,Due date,% Done,Estimated time,Created,Updated,Likelihood,Severity,Found in Version,Impact,Expected Use,OS,Support Group,Description
+2505,Resolved,VisIt,Bug,Normal,Thresholding scatter plots from curve data (from csv file),Kevin Griffin,"",2.13.1,Jim Eliot,01/11/2016,"",100,"",01/11/2016 04:23 am,02/13/2018 12:59 pm,3 - Occasional,4 - Crash / Wrong Results,2.10.0,"","",All,Any,"When using the threshold operator with a scatter plot created from curve data (from a csv file), using the 'Zones from input' option gives weird results.
+
+Here is how I can reproduce the issue:
+
+- The source data is a csv file with three columns that correspond to x_coordinate, y_coordinate and a value.
+- I open the csv file using the Plaintext reader. I DO NOT use the option to specify columns 0 and 1 as the x and y coordinates.
+- I then create an expression called 'unnamed1' with Definition 'var02'. This will be used for thresholding.
+- I create a scatter plot using var00 and var01 as x and y, and var02 as the Color Variable.
+- I then apply a threshold operator using the scalar 'unnamed1'.
+- When applying the threshold operator, there is an option to output mesh as 'Zones from input' or 'Point mesh'.
+  - When using the 'Zones from input' option, the threshold operator outputs weird results.
+  - Changing the output to 'Point mesh' gives expected results.
+
+When opening the file, if I use the options of the Plaintext reader to specify that columns 0 and 1 are the x and y coordinates, VisIt creates a point mesh and the thresholding works fine with both threshold output options ('Zones from input' or 'Point mesh').
+
+- I have created a simple .csv file and .session file that reproduces the issue.
+- The .session file contains two plots, one that thresholds using 'Zones from input' the other using 'Point mesh'.
+- The thresholded plots are different
+
+
+Having to tick the 'Point Mesh' button in the threshold dialog is not a big deal, but I have encountered some plots where the incorrect method has been used without realising that the output was wrong."
+2774,Resolved,VisIt,Bug,Normal,Segfault when plotting large rectilinear grid,Mark Miller,"",2.13.1,Paul Melis,02/24/2017,"",0,"",02/24/2017 09:22 am,03/02/2018 04:25 pm,3 - Occasional,4 - Crash / Wrong Results,2.12.1,"","",Linux,Any,"We have a user that is trying to visualize a 1536x1536x1297 rectilinear grid, specified using an Xdmf file and two HDF5 files (one for grid coordinates and one for the volume data itself).
+
+Loading in Visit 2.12.2 (official binary) works fine, but two cases cause a segfault, in different places as far as I can tell from the logs:
+
+1. Add Mesh plot -> thetacut; Draw
+2. Add Volume plot -> Azimuthal Velocity; disable lighting in the volume properties; Draw
+
+I've added set of log files for both cases. Also a dummy xdmf file using the original grid coordinate HDF5 file and a script to generate dummy volume data (I can't share the data itself).
+
+The viz node I'm running this on has 64G memory, and I don't see the usage getting close to the limit."
+2924,Resolved,VisIt,Bug,High,VisIt Time Query Pick causes crash when Curve Plot plugin is disabled,Kathleen Biagas,"",2.13.1,Jim Eliot,10/02/2017,"",100,1.0,10/02/2017 05:59 am,03/01/2018 04:37 pm,1 - Exceptional,4 - Crash / Wrong Results,2.12.3,"","",All,Any,"When using the 'Do Time Query' option of the Pick Query, VisIt will crash if the Curve Plot plugin has been disabled.
+
+A better result would be a message indicating that the Curve plot is disabled.
+
+The crash can be avoided by re-enabling the Curve Plot plugin, so is not a big problem.
+
+
+To reproduce:
+- Disable Curve Plot in Plugin Manager, Save Settings and restart VisIt.
+- Load a geometry with multiple time steps
+- Create a pseudocolor plot
+- Navigate to the Query dialog -- Controls --> Query
+- Select Pick then tick the 'Do Time Query' option
+- Click Query
+
+A dialog pops up with ""VisIt could not create the desired plot"" and then VisIt exits."
+2929,Resolved,VisIt,Bug,Normal,Package tarball contains invalid symlinks,Eric Brugger,"",2.13.1,Paul Melis,10/03/2017,"",100,4.0,10/03/2017 07:11 am,03/13/2018 05:41 pm,2 - Rare,2 - Minor Irritation,2.12.3,"","",Linux,Any,"Using the build_visit 2.12.3 script, followed by ""make package"" in visit2.12.3/src results in a tarball that has symlinks pointing to non-existent directories:
+<pre>
+[paulm@gcn3 VisIt]$ tar tvf visit2_12_3.linux-x86_64.tar.gz|grep icons
+lrwxrwxrwx paulm/paulm       0 2017-10-03 11:12 visit2_12_3.linux-x86_64/2.12.3/linux-x86_64/include/visit/gui/icons -> ../common/icons
+lrwxrwxrwx paulm/paulm       0 2017-10-03 11:13 visit2_12_3.linux-x86_64/2.12.3/linux-x86_64/include/visit/viewer/main/icons -> ../../common/icons
+[paulm@gcn3 VisIt]$ 
+</pre>
+
+There is no common/icons dir in the tarball. When untarring the resulting binaries seem to work fine and I don't seem to miss any icons, but EasyBuild trips over the missing symlink destinations when trying to unpack and copy the tarball contents."
+2868,Resolved,VisIt,Bug,Normal,SeedMe python module missing from VisIt 2.12.1 onwards on all platform builds,Eric Brugger,"",2.13.0,Amit Chourasia,07/21/2017,"",100,4.0,07/21/2017 12:55 pm,09/06/2017 02:20 pm,4 - Common,4 - Crash / Wrong Results,2.12.1,"","",All,Any,"Hello,
+The seedme.py module is NOT installed from VisIt 2.12.1 onwards on all platforms builds. This breaks the SeedMe widget and corresponding functionality.
+I see that the requests module which is needed by SeedMe is installed, so I suspect something goes wrong in the build process.
+
+I verified missing module by inspecting the following paths on builds 
+Linux: visit/2.12.X/linux-x86_64/lib/python/lib/python2.7/site-packages/ 
+Mac: /Applications/VisIt.app/Contents/Resources/2.12.X/darwin-x86_64/lib/python/lib/python2.7/site-packages/ 
+Windows: C:/Program Files/LLNL/VisIt 2.12.X/lib/python/lib/site-packages/
+
+In my personal linux build for 2.12.1 the SeedMe module was built correctly. So seems like the pre packed build has some issue.
+
+
+"
+2623,Resolved,VisIt,Bug,Normal,VisIt won't plot cell centered vector data from xdmf files,Kathleen Biagas,"",2.12.3,Amos Manneschmidt,05/31/2016,"",100,1.0,05/31/2016 02:02 pm,06/13/2017 02:10 pm,2 - Rare,4 - Crash / Wrong Results,2.10.0,"","",All,Any,"When trying to import XDMF vectors VisIt does not behave according to the spec. Attached are two XDMF files. One works with VisIt (a 1x1x2 grid with two 3d vector elements stored in a 1x6 array) and the second file does not work with VisIt although it is the same except the grid is expanded out by one cell and one more vector is added on. Both files display properly in Paraview. If one tries to display the vector in the second file the following error appears:  
+<pre>
+Vector:  ()
+viewer: An invalid variable (TESTvariable) was specified.
+</pre>
+
+When displaying properly as in Paraview it should appear as below.
+!proper_display!"
+2672,Resolved,VisIt,Bug,High,No parallel hardware acceleration with existing X servers,Mark Miller,"",2.12.0,John Plate,08/30/2016,"",0,"",08/30/2016 11:45 am,10/25/2016 01:44 pm,5 - Always,4 - Crash / Wrong Results,2.10.3,"","",Linux,Any,"It is not possible to get parallel hardware acceleration with existing X servers.
+
+The bug is in the file engine/main/XDisplay.C in function XDisplay::Initialize:
+[...]
+    //updated: enabling new logic
+    if(!this->launch || (this->xserver = xinit(this->display, user_args)) == -1)
+    //if(this->launch && (this->xserver = xinit(this->display, user_args)) == -1)
+    {
+      return false;
+    }
+[...]
+
+The ""new logic"" causes the function to fail if no X server should be launched or if the X server fails to launch. The ""old logic"" caused the function to fail if a X server should be launched and it fails.
+
+So this function always fails when existing X servers should be used. This causes that no attempt is made to connect to the display server, see function Engine::SetupDisplay in engine/main/Engine.C. As a result, the parallel engine fails or falls back to software rendering.
+
+My tests with the ""old logic"" were successful, so I propose to simply revoke the ""new logic"".
+"
+2412,Resolved,VisIt,Bug,Normal,build_visit_BGQ,Kathleen Biagas,"",2.10.2,Jens Henrik Goebbert,10/12/2015,"",0,"",10/12/2015 09:18 am,03/23/2016 03:40 pm,4 - Common,3 - Major Irritation,2.9.2,"","",All,Any,"Hi,
+
+we build VisIt for JUQUEEN and had to fix the following small issues in build_visit_BGQ.
+
+@@ -466,11 +466,11 @@
+     fi
+     CFLAGSARGS=""""
+     if test -n ""$BG_C_OPT_FLAGS"" ; then
+-        CFLAGSARGS=""--cflag $BG_C_OPT_FLAGS""
++        CFLAGSARGS=""--cflag \""${BG_C_OPT_FLAGS}\""""
+     fi
+     CXXFLAGSARGS=""""
+     if test -n ""$BG_CXX_OPT_FLAGS"" ; then
+-        CXXFLAGSARGS=""--cxxflag $BG_CXX_OPT_FLAGS""
++        CXXFLAGSARGS=""--cxxflag \""${BG_CXX_OPT_FLAGS}\""""
+     fi
+ 
+     # Build some packages that require GNU compilers.
+@@ -517,11 +517,11 @@
+     fi
+     CFLAGSARGS=""""
+     if test -n ""$BG_C_OPT_FLAGS"" ; then
+-        CFLAGSARGS=""--cflags $BG_C_OPT_FLAGS""
++        CFLAGSARGS=""--cflags \""$BG_C_OPT_FLAGS\""""
+     fi
+     CXXFLAGSARGS=""""
+     if test -n ""$BG_CXX_OPT_FLAGS"" ; then
+-        CXXFLAGSARGS=""--cxxflags $BG_CXX_OPT_FLAGS""
++        CXXFLAGSARGS=""--cxxflags \""$BG_CXX_OPT_FLAGS\""""
+     fi
+ 
+     # Form extra arguments that we'll pass to cmake for VTK.
+@@ -577,11 +577,11 @@
+     fi
+     CFLAGSARGS=""""
+     if test -n ""$BG_C_OPT_FLAGS"" ; then
+-        CFLAGSARGS=""--cflag $BG_C_OPT_FLAGS""
++        CFLAGSARGS=""--cflag \""$BG_C_OPT_FLAGS\""""
+     fi
+     CXXFLAGSARGS=""""
+     if test -n ""$BG_CXX_OPT_FLAGS"" ; then
+-        CXXFLAGSARGS=""--cxxflag $BG_CXX_OPT_FLAGS""
++        CXXFLAGSARGS=""--cxxflag \""$BG_CXX_OPT_FLAGS\""""
+     fi
+ 
+     # Call build_visit just to build Ice-T. Use the gnu compilers to build
+@@ -652,11 +652,11 @@
+     fi
+     CFLAGSARGS=""""
+     if test -n ""$BG_C_OPT_FLAGS"" ; then
+-        CFLAGSARGS=""--cflag $BG_C_OPT_FLAGS""
++        CFLAGSARGS=""--cflag \""$BG_C_OPT_FLAGS\""""
+     fi
+     CXXFLAGSARGS=""""
+     if test -n ""$BG_CXX_OPT_FLAGS"" ; then
+-        CXXFLAGSARGS=""--cxxflag $BG_CXX_OPT_FLAGS""
++        CXXFLAGSARGS=""--cxxflag \""$BG_CXX_OPT_FLAGS\""""
+     fi
+ 
+     # Build some packages that require GNU compilers.
+@@ -698,7 +698,7 @@
+         --installation-build-dir ""${INSTALLATION_BUILD_DIR}_BGQ"" \
+         --cc $BG_CC $CFLAGSARGS \
+         --cxx $BG_CXX $CXXFLAGSARGS $MAKEARGS \
+-        --no-thirdparty --no-boost --zlib $IO_PACKAGES \
++        --no-thirdparty --boost --zlib $IO_PACKAGES \
+         --parallel --cmake --icet \
+         --group $GROUP \
+         --database-plugins $VISIT_SELECTED_DATABASE_PLUGINS
+@@ -764,7 +764,7 @@
+         --installation-build-dir $INSTALLATION_BUILD_DIR \
+         --cc $CC $CFLAGSARGS \
+         --cxx $CXX $CXXFLAGSARGS $MAKEARGS \
+-        --no-thirdparty --no-boost --cmake --vtk $IO_PACKAGES --python \
++        --no-thirdparty --boost --cmake --vtk $IO_PACKAGES --python \
+         --group $GROUP \
+         --database-plugins $VISIT_SELECTED_DATABASE_PLUGINS
+     if [[ $? != 0 ]] ; then
+@@ -923,8 +923,8 @@
+                 bggnucc) BG_GNU_CC=""${arg}"";;
+                 bggnucxx) BG_GNU_CXX=""${arg}"";;
+ 
+-                append-bgmpicflags) BG_C_OPT_FLAGS=""${BG_MPI_C_OPT_FLAGS} ${arg}"";;
+-                append-bgmpicxxflags) BG_CXX_OPT_FLAGS=""${BG_MPI_CXX_OPT_FLAGS} ${arg}"";;
++                append-bgmpicflags) BG_MPI_C_OPT_FLAGS=""${BG_MPI_C_OPT_FLAGS} ${arg}"";;
++                append-bgmpicxxflags) BG_MPI_CXX_OPT_FLAGS=""${BG_MPI_CXX_OPT_FLAGS} ${arg}"";;
+                 bgmpicflags) BG_MPI_C_OPT_FLAGS=""${arg}"";;
+                 bgmpicxxflags) BG_MPI_CXX_OPT_FLAGS=""${arg}"";;
+                 bgmpicc) BG_MPI_CC=""${arg}"";;
+@@ -1060,5 +1060,5 @@
+     return 0
+ }
+ 
+-main $@
+-exit 0
++main ""$@""
++exit 0
+\ No newline at end of file
+"
+2429,Resolved,VisIt,Bug,Normal,"VisIt engine cannot connect back to viewer, if ...",Brad Whitlock,"",2.10.1,Jens Henrik Goebbert,10/26/2015,"",100,"",10/26/2015 06:03 am,10/27/2015 02:18 pm,3 - Occasional,2 - Minor Irritation,2.9.2,"","",All,Any,"Hi everyone,
+
+VisIt engine cannot connect back to viewer, if login-node is known by different names and IPs for external connections (clients) and internal connections (compute nodes).
+
+The problem has been discussed on the ""VisIt - User Mailing List"" and Brad suggested a fix:
+https://elist.ornl.gov/pipermail/visit-users/2015-October/017961.html
+This fix works perfect on the JUQUEEN and I hope it can become part of the official VisIt release.
+
+It introduces the command line argument ""-socket-bridge-host"" to set the socket bridge host instead of using ""gethostname(""localhost"").
+
+Attached you find the implementation in common/comm/LaunchService.C for VisIt version 2.9.2.
+It works fine on the BlueGene/Q JUQUEEN at Juelich Research Centre in Germany.
+
+Best,
+Jens Henrik
+"
+2432,Resolved,VisIt,Bug,Normal,memory leak in visitgetenv() ,Brad Whitlock,"",2.10.1,Jens Henrik Goebbert,10/27/2015,"",100,"",10/27/2015 11:17 am,10/27/2015 02:30 pm,4 - Common,4 - Crash / Wrong Results,trunk,"","",All,Any,"Hi,
+
+I came across a problem using libsimV2+Fortran+visitgetenv().
+
+It is about the line 427 in visitfortransimV2interface.c:
+    sz = (len < *lenv) ? (sz - 1) : (*lenv - 1);
+
+IMHO, it should look like this:
+    sz = (len < *lenv) ? (len) : (sz - 1);
+
+
+From Fortran I call visitgetenv() like this:
+      character(len=4096) :: env
+      integer :: env_len = 4096
+      if (mpi_proc_id == 0) then
+        ierr = visItGetEnv(env,env_len); CHKWARN1(ierr, VISIT_OKAY)
+      end if  
+
+Hence, it has to ensured, that the string written to env must not be larger than env_len.   
+In  visitgetenv() the string to copy is 'src' and its length 'len'.
+
+=> if 'len' is smaller than '*lenv', we can use memcpy to fill 'env'.
+else we should not copy anything to 'env'.
+
+Best,
+Jens Henrik
+
+"
+2461,Resolved,VisIt,Bug,Normal,.visit file generated on windows does not work on Linux,"","",2.10.1,Jim Eliot,11/18/2015,"",100,"",11/18/2015 05:42 am,12/03/2015 02:13 pm,3 - Occasional,3 - Major Irritation,2.10.0,"","",Linux,Any,".visit files that were generated on Windows (i.e. that contain CR, \r newline characters) fail to open in VisIt on Linux. An error message is printed in the Information window that says ""This database cannot handle more than 0 files"".
+
+This bug is very easy to reproduce on Linux - just run unix2dos on a .visit file and then try opening it.
+
+It appears that a change in behavior was introduced between VisIt versions 2.7.3 and 2.8.0 and persists until the current version.
+
+I have tracked down the source of the bug to avtDatabase::GetFileListFromTextFile in src/avt/Database/Database/avtDatabase.C and I have a fix that works on Linux. I will commit it to the repository."
+1724,Resolved,VisIt,Bug,Normal,Adding an Arrowhead to a 2D Annotation line makes the line disappear,Kathleen Biagas,"",2.10,Matthew Wheeler,01/31/2014,"",0,100.0,01/31/2014 07:19 am,07/01/2015 12:24 pm,3 - Occasional,2 - Minor Irritation,2.7.0,"","",All,Any,"Starting with VisIt 2.7.0 - you can draw an annotation line on a Plot but as soon as you add a Begin or End Arrow the line disappears.
+
+The feature seems to work in 2.6.3 and earlier. It seems to fail in 2.7.1 and 2.8.
+"
+2281,Resolved,VisIt,Feature,Normal,Please update bundled HDF5 to at least 1.8.11,Mark Miller,"",2.10,Lucas Vella,05/25/2015,"",0,"",05/25/2015 06:11 pm,09/01/2015 06:14 pm,"","","",3 - Medium,3 - Occasional,All,Any,"I am using a functionality introduced in HDF 1.8.11 for compressing my datasets with an externally loaded filter. The HDF5 Dynamically Loaded Filters is described here: https://www.hdfgroup.org/HDF5/doc/Advanced/DynamicallyLoadedFilters/HDF5DynamicallyLoadedFilters.pdf
+
+Can you please update the version of HDF5 distributed alongside Visit in the binary bundles for Linux, so external filters will be available?"
+2245,Resolved,VisIt,Bug,Normal,build_visit_BGQ,Kathleen Biagas,"",2.9.2,Jens Henrik Goebbert,04/27/2015,"",100,0.5,04/27/2015 09:44 am,05/07/2015 01:13 pm,4 - Common,2 - Minor Irritation,2.9.0,"","",All,Any,"Hi,
+
+we build VisIt for JUQUEEN lately and had to fix the following small issue:
+
+in builds_static_BGQ/src/databases/CMakeLists.txt
+<                     LIST(FIND TMP_THIRDPARTY_IO_LIB ""${${dep_lib_dir}}"" findVar)
+---
+>                     LIST(FIND TMP_THIRDPARTY_IO_LIB ${${dep_lib_dir}} findVar)
+"
+2249,Resolved,VisIt,Bug,Normal,define F77_ID for BlueGene/Q in VisItFortran.h,Brad Whitlock,"",2.9.2,Jens Henrik Goebbert,04/30/2015,"",100,"",04/30/2015 11:43 am,05/20/2015 01:16 pm,2 - Rare,4 - Crash / Wrong Results,2.8.2,"","",All,Any,"Hi,
+
+VisItFortran.h defines the macro F77_ID for name mangling in libsimV2
+
+On BlueGene/Q this macro results in functions with an additional underscore at the function name.
+This behavior is correct for gfortran, but not for applications compiled with the default IBM xlf compiler,
+which does not expect underscores.
+
+I would suggest to have no underscores for BlueGene/Q as default.
+
+  6 /* F77_ID - attempt a uniform naming of FORTRAN 77 functions which
+  7  *        - gets around loader naming conventions
+  8  *        -
+  9  *        - F77_ID(foo_, foo, FOO)(x, y, z)
+ 10  */
+ 11 #ifndef F77_ID
+ 12 #ifdef _INT_MAX_46              /* UNICOS */
+ 13 #define F77_ID(x_, x, X)  X
+ 14 #endif
+ 15 #ifdef _H_LIMITS                /* AIX */
+ 16 #define F77_ID(x_, x, X)  x
+ 17 #endif
+ 18 #ifdef _INCLUDE_HPUX_SOURCE     /* HPUX */
+ 19 #define F77_ID(x_, x, X)  x
+ 20 #endif
+ 21 #ifdef VISIT_BLUE_GENE_Q        /* BlueGene/Q */
+ 22 #define F77_ID(x_, x, X)  x
+ 23 #endif
+ 24 #ifndef F77_ID
+ 25 #define F77_ID(x_, x, X)  x_
+ 26 #endif
+ 27 #endif
+"
+2253,Resolved,VisIt,Bug,Normal,Index Select operator's Wrap option problem in parallel mode,Kathleen Biagas,"",2.9.2,Amit Chourasia,05/06/2015,"",100,"",05/06/2015 03:50 pm,06/09/2015 09:43 pm,3 - Occasional,4 - Crash / Wrong Results,2.8.1,"","",All,Any,"I am having a problem with Index Select operator’s wrap option. It works on desktop(serial mode) but fails on cluster (stampede) (parallel mode) 
+ 
+See left images without wrap option works fine on both desktop and cluster, but the right images one with wrap option shows artifacts on cluster only
+http://users.sdsc.edu/~amit/forums/index_operator_wrap.png
+ 
+Here is the data and session file to reproduce the issue (cannot upload here as it is 7mb)
+http://users.sdsc.edu/~amit/forums/index-select-operator.zip
+
+Here is the debug log from stampede 
+http://users.sdsc.edu/~amit/forums/log_index_operator_wrap.tar.gz
+ 
+Background: I am transforming a rectilinear grid to spherical, then use index operator to wrap on one axis. "
+2283,Resolved,VisIt,Bug,Normal,Incorrect cell coordinates in label plot of mesh with varying chunk dimensions,Kathleen Biagas,"",2.9.2,Jim Eliot,05/26/2015,"",100,2.0,05/26/2015 04:40 am,06/03/2015 03:09 pm,3 - Occasional,4 - Crash / Wrong Results,2.9.0,"","",All,Any,"When a label plot is created for a mesh with chunk dimensions that vary between chunks, it appears that the cell coordinates are generated using the width of the first chunk encountered. For subsequent chunks, if the chunk dimensions differ to those of the first chunk, the generated cell coordinates are incorrect.
+
+Attached is a plot where chunk 0 is 7 cells wide and chunk 1 is 6 cells wide. In the second chunk, the first column of the second row is incorrectly labelled 6,0 where it should actually be 0,1. If chunk 0 is excluded using a SIL restriction, the labelling in chunk 1 is correct but the labelling in chunk 2 is still wrong.
+
+I have attached a very-simple multi-chunk vtk file that can be used to show the issue.
+
+This behavior was spotted in version 2.9.0 but was also found in versions 2.7.2 and 2.5.2 (and presumably others)."
+2057,Resolved,VisIt,Bug,Normal,VTU reader no longer tolerates duplicated vertices,Kathleen Biagas,"",2.9,Wolfgang Bangerth,11/10/2014,"",0,"",11/10/2014 05:35 pm,12/22/2014 03:24 pm,3 - Occasional,4 - Crash / Wrong Results,2.8.0,"","",All,Any,"In the deal.II library (http://www.dealii.org), we frequently output data fields of which some are continuous and some are not. We do this by duplicating every vertex as many times as there are adjacent cells and simply outputting everything as if they were discontinuous fields. This used to work with the VTU reader up to VisIt 2.7.x but is apparently broken in 2.8.x. For example, the attached file simply consists of four squares with values 0...3 but it leads to the following error upon displaying the ""solution"" variable:
+
+  The compute engine running on host down.math.tamu.edu issued the following warning: In domain 0, your nodal variable ""solution"" has 16 values, but it should have 9.  Some values were removed to ensure VisIt runs smoothly.
+
+Not surprisingly, the output after removing nodal values is wrong as can be seen by comparing with the output produced by 2.7.x. Curiously, the same problem does not seem to happen with the corresponding VTK file (also attached).
+
+Severity: Affects those among the several hundred deal.II users that use VisIt (~50%).
+
+
+Possibly related (but with other data format readers):
+- https://elist.ornl.gov/pipermail/visit-users/2014-February/015528.html
+- http://visitbugs.ornl.gov/issues/1931"
+2084,Resolved,VisIt,Bug,Normal,2.8.2: :qblem due to error in build_visit2_8_2 installation script,Kevin Griffin,"",2.9,Samuel Fux,12/09/2014,"",100,1.0,12/09/2014 08:54 am,03/11/2015 03:19 pm,3 - Occasional,2 - Minor Irritation,2.8.2,"","",All,Any,"gcc -m64 -fPIC  -O2  -I.. -o cgnslist cgnslist.o getargs.o ../lib/libcgns.so /cluster/apps/visit/2.8.2/installation_directory/visit2.8.2/src/visit/hdf5/1.8.7/linux-x86_64_gcc-4.8/lib/libhdf5.so /cluster/apps/visit/2.8.2/installation_directory/visit2.8.2/src/visit/szip/2.1/linux-x86_64_gcc-4.8   -lm
+*/cluster/apps/visit/2.8.2/installation_directory/visit2.8.2/src/visit/szip/2.1/linux-x86_64_gcc-4.8: file not recognized: Is a directory*
+collect2: error: ld returned 1 exit status
+make[1]: *** [cgnslist] Error 1
+
+Caused by lines 5981/5982 in build_visit2_8_2:
+
+5981:        if [[ ""$DO_SZIP"" == ""yes"" ]] ; then
+5982:            H5ARGS=""$H5ARGS *--with-szip=$VISITDIR/szip/$SZIP_VERSION/$VISITARCH*""
+
+The --with-szip option of the CGNS configure script requires the path to the szip library itself and not to the directory:
+
+[sfux@euler01 src]$ pwd
+/cluster/apps/visit/2.8.2/installation_directory/visit2.8.2/src
+[sfux@euler01 src]$ cd cgnslib_3.2.1/src
+[sfux@euler01 src]$ ./configure --help | grep szip
+  --with-szip*[=LIB]*       use szip with HDF5 [default=no]
+
+
+"
+2128,Resolved,VisIt,Bug,Normal,Contour plot inverted color table not read and saved in session file and Contour properties settings,Brad Whitlock,"",2.9,Amit Chourasia,02/05/2015,"",100,"",02/05/2015 12:23 pm,02/05/2015 01:57 pm,4 - Common,2 - Minor Irritation,2.8.1,"","",All,Any,"The color table setting for contour plot with inverted color table is not being read and saved in session file or even with properties save option.
+Even if I add the invert option manually in the .session file or .xml file and reload in visit, invert option is ignored.
+
+I tried this in VisIt 2.8.1, 2.71., 2.5.2, another user confirmed this problem with 2.9.0 Beta
+
+Steps to reproduce
+1) Open noise.silo
+2) Add contour plot to any variable
+3) Open Contour plot setting, check invert Color table option.
+4) Save Session
+5) Now Restore this session, the invert option is not there. Confirms invert option was not written 
+
+6) Hack the session file and add the following below the Color Table option
+<Field name=""invertColorTable"" type=""bool"">true</Field>
+7) Restore again from session, the invert option is still not there. Confirms invert option is ignored 
+
+You could do the same with saving contour properties and XML. The invert option gets ignored, even if you add that by hand. 
+The read parser and write factory are ignoring invert property 
+
+Here is the mailist link https://elist.ornl.gov/pipermail/visit-users/2015-February/016979.html"
+2008,Resolved,VisIt,Bug,Normal,Preferences menu crashes VisIt,Brad Whitlock,"",2.8.1,klo uo,09/30/2014,"",0,"",09/30/2014 06:08 pm,10/08/2014 04:21 pm,3 - Occasional,2 - Minor Irritation,2.8.0,"","",Windows,Any,"VisIt 2.8.0 on Windows 7 32 bit
+
+If I select Menu > Options > Preferences VisIt reproducibly crashes"
+1918,Resolved,VisIt,Bug,Normal,visual studio 9 build issue ,Mark Miller,"",2.8,Burlen Loring,07/22/2014,"",0,"",07/22/2014 05:44 pm,08/26/2014 04:28 pm,3 - Occasional,2 - Minor Irritation,trunk,"","",All,Any,"On windows Visual Studio 9, with MSVC id'd by cmake as MSVC 15.0.30729.1 the build errors out in PVLD database due to use of unsupported C++11 features. for example.
+
+databases\PVLD\pvldReader.C(243) : error C2039: 'data' : is not a member of 'std::vector<_Ty>'
+
+instead of std::vector::data() take the address of zero'th element. "
+1926,Resolved,VisIt,Bug,Normal,Bug in Default Molecule Plot,Kathleen Biagas,"",2.8,Tony Saad,07/26/2014,"",0,"",07/26/2014 08:04 pm,08/26/2014 04:24 pm,3 - Occasional,2 - Minor Irritation,2.7.3,"","",All,Any,"There is a bug in the Molecule plot in Visit.
+create a molecule plot
+open up the Molecule plot attributes.
+To set the size of molecules based on a scalar variable: for ""Radius based on"" choose ""Scalar variable""
+The variable for atom radius​ will now be enabled and will be set to ""Default"". This causes visit to throw an error.
+However, this should be ""default"" (lower case).
+"
+1938,Resolved,VisIt,Bug,High,Precision of threshold operator ranges is forced to single,Brad Whitlock,"",2.8,Trevor Anderson,08/04/2014,"",100,"",08/04/2014 03:07 pm,08/18/2014 04:19 pm,5 - Always,4 - Crash / Wrong Results,2.7.3,"","",All,DOD,"When thresholding on values with a large precision, the input ranges appear to be rounded to single precision. The result is that the plot does not show all of the requested elements."
+1973,Resolved,VisIt,Bug,High,build_visit2_8_0 script has wrong SVN_THIRDPARTY_PATH,Eric Brugger,"",2.8,Jens Henrik Goebbert,09/04/2014,"",100,2.0,09/04/2014 04:30 am,09/10/2014 10:43 am,3 - Occasional,3 - Major Irritation,trunk,"","",All,Any,"export SVN_THIRDPARTY_PATH=${SVN_THIRDPARTY_PATH-""tags/2.8.0/src/third_party""}
+should be
+export SVN_THIRDPARTY_PATH=${SVN_THIRDPARTY_PATH-""tags/2.8.0/third_party""}"
+1789,Resolved,VisIt,Bug,Normal,Silo arbitrary polyhedrons: Mesh Edges missing in version 2.6-2.7.2,Mark Miller,"",2.7.3,David Neusius,03/26/2014,"",0,"",03/26/2014 11:26 am,04/10/2014 09:00 pm,3 - Occasional,2 - Minor Irritation,2.7.1,"","",Linux,Any,"The following example which results the appended file ""sample.silo"" creates 2 polyhedral elements with different numbers of faces. 
+If it is viewed in a Visit version newer than 2.5.2. all edges of the larger polyhedron are not displayed if one plots the mesh! Version 2.5.2. shows it correctly without any problems. 
+Simply changing the ordering in the zonelist (first the small polyhedron, than the large polyhedron) ""fixes"" this problem, yet I do not know what is the ""correct"" ordering for larger examples! Sorting all polyhedrons by number of faces does not work in general (neither descending nor ascending).
+
+
+#include <string.h>
+#include ""silo.h""   //Silo-4.9.1-bsd
+int main()
+{
+    DBfile *file = 0;
+    file= DBCreate(""sample.silo"", DB_CLOBBER, DB_LOCAL, ""3D polyhedra test file"", DB_PDB);
+    int nzones=2;
+
+    int lzonelist=45+22;
+    int zonelist[] = {
+        8, 6,5,6,15,16,17,14, 3,6,9,15, 3,16,17,18, 6,2,9,15,16,18,13, 4,1,5,14,12, 5,14,17,18,13,12, 4,1,2,13,12, 5,1,2,9,6,5,
+        5, 4,0,4,8,3, 3,4,0,11, 3,8,4,11, 3,3,8,11, 3,0,3,11,
+                     };
+    int nzshapes=1;
+    int zshapecnt[]={nzones};
+    int zshapesize[]={lzonelist};
+    int zshapetype[]={DB_ZONETYPE_POLYHEDRON};
+
+    (void)DBPutZonelist2(file, ""zl1"", nzones, 3, zonelist, lzonelist, 0,
+                               0, 0, zshapetype, zshapesize,
+                               zshapecnt, nzshapes, NULL);
+
+    float * var1=new float[nzones];
+    char          *var1name;
+    float         *vars[ 1];
+    char          *varnames[ 1];
+    var1name=strdup(""TestVariable"");
+    vars[ 0] = var1;
+    varnames[ 0] = var1name;
+
+    const float t = 0.75;
+    int nnodes=19;
+    // node ids   0  1  2  3  4  5  6  7  8  9  10   11     12 13 14 15    16    17  18
+    float x[] =  {0, 0, 1, 1, 0, 0, t, 1, 1, 1, 0.5, 0.5,   0, 1 ,0, 1,    1,    t,  1};
+    float y[] =  {0, 0, 0, 0, 1, 1, 1, 1, 1, t, 1+t, -t,    0, 0, 1, 1,    1,    1,  t};
+    float z[] =  {0, 1, 1, 0, 0, 1, 1, t, 0, 1, 0.5, 0.5,   2, 2, 2, 2-t,  1+t,  2,  2};
+    float *coords[ 3]={x, y, z};
+
+    DBfacelist    *fl   = DBCalcExternalFacelist2(zonelist, nnodes, 0, 0, 0,
+                                 zshapetype, zshapesize, zshapecnt, nzshapes,
+                                  0,0);
+
+    (void)DBPutFacelist(file, ""fl1"", fl->nfaces, 3, fl->nodelist, fl->lnodelist, 0,
+                        fl->zoneno, fl->shapesize, fl->shapecnt, fl->nshapes,
+                        NULL, NULL, 0);
+
+    char          *meshname=strdup(""mesh"");
+
+    (void)DBPutUcdmesh(file, meshname, 3, 0, coords,
+                       nnodes, nzones, ""zl1"", ""fl1"", DB_FLOAT, 0);
+
+    (void)DBPutUcdvar(file, var1name, meshname, 1, varnames, vars,
+                      nzones, NULL, 0, DB_FLOAT, DB_ZONECENT, 0);
+    DBClose(file);
+}"
+1839,Resolved,VisIt,Bug,Normal,"nek5000/jl/lob_bnd.c: Assignment between restrict pointers ""br"" and ""br_"" is not allowed",Kathleen Biagas,"",2.7.3,Jens Henrik Goebbert,05/09/2014,"",0,1.0,05/09/2014 10:37 am,05/22/2014 03:44 pm,3 - Occasional,2 - Minor Irritation,trunk,"","",All,Any,"Hello,
+
+while compiling VisIt for BlueGene/Q with IBM�s xlc/xlC I came across this error.
+
+""/homea/jhpc09/jhpc0901/build_2.7.2_bgq_test1/builds_static_BGQ/visit2.7.2/src/third_party_builtin/nek5000/jl/lob_bnd.c"", line 153.29:
+   1506-1418 (E) Assignment between restrict pointers ""br"" and ""br_"" is not allowed. Only outer-to-inner scope assignments between restrict pointers are allowed.
+
+static void lob_bnd_ext(
+  double *restrict b_,
+  const double *restrict z, const double *restrict Q, const double *restrict h,
+  const double *restrict lbnp, unsigned n, unsigned m,
+  const double *restrict br_, unsigned mr,
+  double *restrict a)
+{
+  const double *restrict br = br_;         
+  double *restrict b = b_;
+"
+1450,Resolved,VisIt,Bug,Normal,Linking error Openmpi on Mac OSX 10.8.3 ,Eric Brugger,"",2.7.2,Marcus Naschke,05/08/2013,"",100,2.0,05/08/2013 05:54 am,02/28/2014 07:49 pm,3 - Occasional,5 - Very Serious,trunk,"","",OSX,DOD,"Visit buld script aborts build with following entry:
+
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtSourceFromNullData.C.o
+Linking CXX shared library ../../lib/libavtpipeline_par.dylib
+Undefined symbols for architecture x86_64:
+  ""MPI::Win::Free()"", referenced from:
+      vtable for MPI::Winin avtDataObjectInformation.C.o
+      vtable for MPI::Winin avtFacelist.C.o
+      vtable for MPI::Winin avtHistogramSpecification.C.o
+      vtable for MPI::Winin avtImagePartition.C.o
+      vtable for MPI::Winin avtIntervalTree.C.o
+      vtable for MPI::Winin avtParallel.C.o
+      vtable for MPI::Winin avtCompactTreeFilter.C.o
+      ...
+  ""MPI::Comm::Comm()"", referenced from:
+      MPI::Intercomm::Merge(bool) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Clone() constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Create(MPI::Group const&) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Split(int, int) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Create_cart(int, int const*, bool const*, bool) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Create_graph(int, int const*, int const*, bool) constin avtDataObjectInformation.C.o
+      MPI::Cartcomm::Clone() constin avtDataObjectInformation.C.o
+      ...
+  ""MPI::Datatype::Free()"", referenced from:
+      vtable for MPI::Datatypein avtDataObjectInformation.C.o
+      vtable for MPI::Datatypein avtFacelist.C.o
+      vtable for MPI::Datatypein avtHistogramSpecification.C.o
+      vtable for MPI::Datatypein avtImagePartition.C.o
+      vtable for MPI::Datatypein avtIntervalTree.C.o
+      vtable for MPI::Datatypein avtParallel.C.o
+      vtable for MPI::Datatypein avtCompactTreeFilter.C.o
+      ...
+  ""_ompi_mpi_cxx_op_intercept"", referenced from:
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtDataObjectInformation.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtFacelist.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtHistogramSpecification.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtImagePartition.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtIntervalTree.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtParallel.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtCompactTreeFilter.C.o
+      ...
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+make[2]: *** [lib/libavtpipeline_par.dylib] Error 1
+make[1]: *** [avt/Pipeline/CMakeFiles/avtpipeline_par.dir/all] Error 2
+make: *** [all] Error 2
+
+The system was freshly installed, openmpi 1.6.4 was compiled from source.
+gcc version:
+
+dhcp113:visit macadmin$ gcc -v
+Using built-in specs.
+Target: i686-apple-darwin11
+Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
+Thread model: posix
+gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
+
+I patched the source files of visit from the current trunk, because there was a fix to gmv applied in it we requested.
+
+I also tried to compile it on another mac pc, where I set the -m64 option in the openmpi configure script.
+
+I either need to know what env variables I have to set or with what option openmpi should be compiled.
+
+
+Attached are the build_visit_2_6_2_log log file and the visit2.6.2/src/avt/Pipeline/CMakeFiles/avtpipeline_par.dir/link.txt file."
+1711,Resolved,VisIt,Bug,Normal,visit 2.7.1: fresh windows7 install will not open .okc files by 2.6.3 will. ,Kathleen Biagas,"",2.7.2,Richard Woodruff,01/27/2014,"",0,"",01/27/2014 01:04 pm,02/12/2014 11:14 am,5 - Always,3 - Major Irritation,2.7.0,"","",All,Any,"I was in need to plot some large data set and found visit.
+
+I did a download/install to windows7-professional-service-pack-1 and found 2.7.1 would launch but  not open files.  It gives error about no matching plugin found.  Based on old mail lists I tried old simple formerly working examples and found they would not also open.
+
+Next, I downloaded the 2.6.3 release and found it would load all examples and also my data set.
+
+I notice if I launch visit 2.7.1 gui from its install directory and not shortcut it hangs during plugin initialization. I suspect they are not loading properly.
+
+I notice->open ""set default open options..."" button is grayed out and not usable.  On a re-install of visit 2.7.1 I did try selecting xmdv (okc type) as default file opening type but it made no difference."
+1772,Resolved,VisIt,Bug,High,Onion Peel with global seed and Filled Boundary/Mesh displays wrong cell(s) in VisIt 2.7.1,Eric Brugger,"",2.7.2,Matthew Wheeler,03/13/2014,"",100,2.0,03/13/2014 12:13 pm,03/14/2014 07:31 pm,3 - Occasional,4 - Crash / Wrong Results,2.7.1,"","",All,Any,"We have encountered a bug in VisIt 2.7.1 with the Onion Peel Operator applied to a Filled Boundary (or a Mesh) Plot of a Multi-domain dataset where a seed is specified by a global cell id. This can be demonstrated with the global_node.silo test dataset by applying the OnionPeel operator with a global id seed to a Filled Boundary Plot or a Mesh Plot
+
+To reproduce:
+
+  OpenDatabase(""global_node.silo"", 0)
+  AddPlot(""Pseudocolor"", ""p"", 1, 1)
+  AddPlot(""FilledBoundary"", ""mat"", 1, 1)
+  AddPlot(""Mesh"", ""mesh"", 1, 1)
+    #
+  SetActivePlots((0, 1, 2))
+  AddOperator(""OnionPeel"", 1)
+  OnionPeelAtts = OnionPeelAttributes()
+  OnionPeelAtts.adjacencyType = OnionPeelAtts.Node
+  OnionPeelAtts.useGlobalId = 1
+  OnionPeelAtts.index = (2000) # (or whatever)
+  OnionPeelAtts.seedType = OnionPeelAtts.SeedCell
+  SetOperatorOptions(OnionPeelAtts, 1)
+    #
+  DrawPlots()
+  SaveWindow()
+  
+
+You will see that the selected Pseudocolor cell is in the right place but the Filled Boundary and Mesh cell is not at the seed specified. In serial you will see two highlighted cells – the correct Pseudocolor one and the Filled Boundary/Mesh cell which looks as if it is at cell 0 of the first processor domain. Note also that the result you get seems to depend on how many processors you use with the multi-domain dataset e.g. with -np 16 processors specified you get cell 0 on each of the first(?) 16 processors displayed.
+The Operator seems to work as required in VisIt 2.7.0 but not in VisIt 2.7.1.
+  
+So we suspect this may be related to the changes made to avtOnionPeelFilter.C at revisions 22330 and 22332 which follow on from Bug #1645"
+1554,Resolved,VisIt,Bug,Low,"YoungsMIR::getDataset returns NULL when mats is empty, unlike ZooMIR",Kathleen Biagas,"",2.7.1,Walter Nissen,08/02/2013,"",0,0.25,08/02/2013 08:23 pm,12/18/2013 02:30 pm,3 - Occasional,2 - Minor Irritation,2.6.2,"","",All,Any,"YoungsMIR::GetDataset does not return anything when parameter std::vector<int> mats is not filled out.
+<pre>
+    if (mats.size() == 0)
+        return NULL;
+</pre>
+ZooMIR::getDataset does something different. It returns all materials when presented with an empty mats.
+<pre>
+    bool doAllMats = mats.empty();
+[snip]
+        for (int i = 0; i < nMaterials+1; i++)
+            matFlag[i] = true;
+</pre>
+If the behavior doesn't change, an error message would be extraordinarily helpful."
+1324,Resolved,VisIt,Bug,Normal,visit launcher dies without X (but -nowin given),Kathleen Biagas,"",2.7,Frank L�ffler,01/25/2013,"",0,"",01/25/2013 10:43 pm,06/18/2013 09:02 pm,3 - Occasional,3 - Major Irritation,2.5.0,"","",Linux,Any,"Following the example in the documentation of LaunchNowin() I do (adding the debug option for information what actually goes wrong):
+
+<pre>
+$ python
+Python 2.7.2 (default, Oct 27 2011, 01:40:22) 
+[GCC 4.6.1 20111003 (Red Hat 4.6.1-10)] on linux2
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import visit
+>>> visit.AddArgument(""-geometry"")
+>>> visit.AddArgument(""1024x1024"")
+>>> visit.AddArgument(""-debug"")
+>>> visit.AddArgument(""5"")
+>>> visit.LaunchNowin()
+Running: viewer2.5.0 -host 127.0.0.1 -port 5600 -noint -geometry 1024x1024 -debug 5 -nowin
+xdpyinfo:  unable to open display """".
+Error: unable to open display 
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+visit.VisItException: VisIt's viewer has terminated abnormally!
+</pre>
+
+Note that I indeed don't have DISPLAY set, as this is (intentionally) remotely, using ""ssh -x"". This is intentional because eventually this should run in the background without DISPLAY as well.
+
+If I try the same with correct DISPLAY set this succeeds. Actually doing something however is very slow, as this is a slow, remote connection and visit seems to be using the local (local to me) DISPLAY for something.
+
+What I would expect instead is that visit doesn't touch DISPLAY if -nowin is given. No window should be created (and none is, if DISPLAY is set). This would enable remote/background renderings.
+"
+1376,Resolved,VisIt,Bug,Normal,Defective import of GMV cell type 'general' if all points lie in the same plane,Brad Whitlock,"",2.7,Karl K�nig,03/12/2013,"",100,"",03/12/2013 04:45 pm,05/03/2013 06:24 pm,2 - Rare,4 - Crash / Wrong Results,2.6.1,"","",Linux,Any,"VisIt 2.6.1 (and earlier releases) incorrectly imports the attached file in GMV ASCII format, 2dexample.hangingnodes.gmv.
+
+It seems GMV cell type 'general', if consisting of merely 1 face, is treated wrongly: non-convex elements are created, some elements are even missing. See snapshot (visit0000.png) attached.
+
+The file itself has valid syntax and the original GMV viewer version 4.5 imports it correctly. See snapshot file correct.rendering.png
+"
+1551,Resolved,VisIt,Bug,Normal,build_visit fails to configure silo correctly wrt Qt,Mark Miller,"",2.7,Paul Melis,07/31/2013,"",0,"",07/31/2013 04:35 am,08/07/2013 07:14 pm,4 - Common,2 - Minor Irritation,2.6.3,"","",All,Any,"This seems to be unrelated to #1332.
+
+We build VisIt using the following script:
+
+#!/bin/sh
+export PAR_COMPILER=/sara/sw/openmpi/gnu/1.6.3/bin/mpic++
+export PAR_INCLUDE=-I/sara/sw/openmpi/gnu/1.6.3/include
+
+./build_visit2_6_3 \
+    --parallel \
+    --python \
+    --h5part --hdf4 --hdf5 --netcdf --xdmf --silo \
+    --console \
+    --makeflags ""-j4""
+
+With this configuration I've been seeing errors wrt Silo and detection of Qt, even though the build_visit script builds its own Qt:
+
+...
+Building Silo (~2 minutes)
+Unzipping/Untarring silo-4.9.1.tar.gz . . .
+Configuring Silo . . .
+...
+checking for Qt... yes:
+QT_CXXFLAGS=-I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/Qt -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtCore -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtGui
+QT_DIR=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7
+QT_LIBS=-L/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib -lQtGui  -lSM -lICE  -lX11 -lXext -lXmu -lXt -lXi
+QT_UIC=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/uic
+QT_MOC=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/moc
+QT_LRELEASE=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/lrelease
+QT_LUPDATE=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/lupdate
+checking correct functioning of Qt installation... failure
+configure: error: Failed to find matching components of a complete
+                  Qt installation. Try using more options,
+                  see ./configure --help.
+
+Checking silo-4.9.1/config for what went wrong:
+
+...
+configure:27431: checking for Qt
+configure:27966: result: yes:
+QT_CXXFLAGS=-I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/Qt -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtCore -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtGui
+QT_DIR=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7
+QT_LIBS=-L/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib -lQtGui  -lSM -lICE  -lX11 -lXext -lXmu -lXt -lXi
+QT_UIC=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/uic
+QT_MOC=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/moc
+QT_LRELEASE=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/lrelease
+QT_LUPDATE=/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/lupdate
+configure:27997: checking correct functioning of Qt installation
+configure:28031: /opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/bin/moc ax_qt_test.h -o moc_ax_qt_test.c >/dev/null 2>/dev/null
+configure:28034: $? = 0
+configure:28042: g++ -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/Qt -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtCore -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtGui -c  -m64 -fPIC  -O2 -o moc_ax_qt_test.o moc_ax_qt_test.c >/dev/null 2>/dev/null
+configure:28045: $? = 0
+configure:28053: g++ -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/Qt -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtCore -I/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/include/QtGui -c  -m64 -fPIC  -O2 -o ax_qt_main.o ax_qt_main.c >/dev/null 2>/dev/null
+configure:28056: $? = 0
+configure:28064: g++ -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o -L/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib -lQtGui  -lSM -lICE  -lX11 -lXext -lXmu -lXt -lXi  -lz >/dev/null 2>/dev/null
+configure:28067: $? = 1
+
+configure:28079: result: failure
+configure:28084: error: Failed to find matching components of a complete
+                  Qt installation. Try using more options,
+                  see ./configure --help.
+...
+
+Redoing the failed command:
+
+paulm@v40-5:/opt/compiles/visit-2.6.3/silo-4.9.1$ g++ -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o -L/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib -lQtGui  -lSM -lICE  -lX11 -lXext -lXmu -lXt -lXi  -lz
+/usr/bin/ld: moc_ax_qt_test.o: undefined reference to symbol '_ZN7QObject10timerEventEP11QTimerEvent'
+/usr/bin/ld: note: '_ZN7QObject10timerEventEP11QTimerEvent' is defined in DSO /opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib/libQtCore.so.4 so try adding it to the linker command line
+/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib/libQtCore.so.4: could not read symbols: Invalid operation
+collect2: error: ld returned 1 exit status
+
+Seems it's missing -lQtCore, with libQtCore added the test compile succeeds:
+
+paulm@v40-5:/opt/compiles/visit-2.6.3/silo-4.9.1$ g++ -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o -L/opt/compiles/visit-2.6.3/visit/qt/4.8.3/linux-x86_64_gcc-4.7/lib -lQtCore -lQtGui  -lSM -lICE  -lX11 -lXext -lXmu -lXt -lXi  -lz
+
+So I guess adding -lQtCore in the right place would fix that part of the problem.
+
+
+However, I would expect a second run of the build_visit script (without fixing the Silo configuration) to again produce the Silo configuration error, but to my surpise Silo now gets configured without Qt:
+
+paulm@v40-5:/opt/compiles/visit-2.6.3$ /sara/sw/build/scripts/visit-2.6.3.sh
+...
+Configuring Silo . . .
+Invoking command to configure Silo
+./configure CXX=""g++"" CC=""gcc""         CFLAGS="" -m64 -fPIC  -O2"" CXXFLAGS="" -m64 -fPIC  -O2""         --disable-fortran --prefix=""/opt/compiles/visit-2.6.3/visit/silo/4.9.1/linux-x86_64_gcc-4.7"" ""--with-hdf5=/opt/compiles/visit-2.6.3/visit/hdf5/1.8.7/linux-x86_64_gcc-4.7/include,/opt/compiles/visit-2.6.3/visit/hdf5/1.8.7/linux-x86_64_gcc-4.7/lib"" ""--with-szlib=/opt/compiles/visit-2.6.3/visit/szip/2.1/linux-x86_64_gcc-4.7"" ""--disable-silex""         --enable-install-lite-headers --without-readline
+gcc-4.7/include,/opt/compiles/visit-2.6.3/visit/hdf5/1.8.7/linux-x86_64_gcc-4.7/lib"" ""--with-szlib=/opt/compiles/visit-2.6.3/visit/szip/2.1/linux-x86_64_gcc-4.7"" ""--disable-silex""         --enable-install-lite-headers --without-readline
+Building Silo . . . (~2 minutes)
+Installing Silo
+Done with Silo
+Done building Silo
+...
+
+"
+1486,Resolved,VisIt,Bug,Normal,VisIt cannot be launched from terminal in MacOs,Eric Brugger,"",2.6.3,Leopold Talirz,06/05/2013,"",100,2.0,06/05/2013 10:04 am,06/26/2013 06:08 pm,3 - Occasional,2 - Minor Irritation,2.6.2,"","",OSX,Any,"I am running VisIt 2.6.2 under MacOs 10.8.3 on a MacBook Pro.
+
+While double-clicking the VisIt.app bundle in finder opens the gui correctly, 
+trying to launch VisIt via the terminal commands
+
+  open /Applications/VisIt.app
+open -a VisIt
+
+has no effect.
+
+The reason is that my platform is incorrectly identified as @darwin-i386@,
+as revealed by
+
+  /Applications/VisIt.app/Contents/Resources/bin/frontendlauncher
+Version 2.6.2 of gui does not exist for the architecture darwin-i386.
+
+This error message also appears, when trying to launch the command-line interface from within the gui, which makes this problem a bit more serious.
+
+The culprit is found in the @internallauncher@ script (lines 1860 and beyond) located in @/Applications/VisIt.app/Contents/Resources/2.6.2/bin@.
+
+The script uses the output of @uname -a@ to determine the architecture of the system. On my Macbook Pro, the output from @uname -a@ is
+
+  Darwin ddm03588.empa.emp-eaw.ch 12.3.0 Darwin Kernel Version 12.3.0: Sun Jan  6 22:37:10 PST 2013; root:xnu-2050.22.13~1/RELEASE_X86_64 x86_64 i386 MacBookPro10,1 Darwin
+
+so the variable @all_uname[-1]@ contains @darwin@ instead of @x86_64@, leading the script to the assumption that my architecture only supports @i386@.
+
+
+This problem may be solved by searching for @x86_64@ in the output of @uname -a@ instead of assuming that it must be at the last position. For example using the @string@ module:
+
+  #if all_uname[-1] == ""x86_64"":
+if string.find(self.uname(""-a""), 'x86_64') != -1:
+
+
+P.S. I have not figured out, why this problem does *not* occur, when double-clicking the VisIt.app folder in the finder."
+332,Resolved,VisIt,Feature,Normal,Have cmake log how it was invoked,Cyrus Harrison,"",2.6.1,John Cary,08/05/2010,"",0,"",08/05/2010 01:57 pm,01/10/2013 02:43 pm,"","","",3 - Medium,4 - Common,All,Any,"To be able to build supercleanly, it is nice to be able to
+blow away everything in the build directory and then redo
+the cmake.  For that it would be nice to have cmake put
+out a file containing the full command line used to run
+cmake.  In autotools, this was given by ""head config.log""."
+878,Resolved,VisIt,Bug,Normal,CGNS reader incorrectly interprets files with boundary face/edge geometry ,Brad Whitlock,"",2.6,Andrew Corrigan,10/21/2011,"",100,"",10/21/2011 07:07 am,09/11/2012 01:43 pm,3 - Occasional,4 - Crash / Wrong Results,2.3.0,"","",All,Any,"When I try to view CGNS data which includes boundary element geometry (boundary ""sections"" in CGNS terms) in VisIt with a pseudocolor plot, VisIt gives a warning that ""The compute engine running on host ... issued the following warning: In domain 0, your zonal variable ""Density"" has 10000 values, but it should have 12020.  Extra 0.'s were added to ensure VisIt runs smoothly.""    The plotted data is then displayed incorrectly.   The correct behavior would be to have no warning, as zonal variable data logically could be associated with only the internal cells, and not necessarily the boundary elements.  TecPlot does not have this issue and can plot these data sets correctly.
+
+I have attached two files, both of a 2D data quadrilateral mesh data set: one contains the boundary face geometry, the other does not.  The one with boundary faces exhibits the problem described, the other works perfectly."
+760,Resolved,VisIt,Bug,Normal,LaunchNowin() is not available upon initial import of visit module,Brad Whitlock,"",2.5.2,Jakob van Bethlehem,06/23/2011,"",100,"",06/23/2011 06:10 am,07/24/2012 02:04 pm,5 - Always,2 - Minor Irritation,2.2.2,"","",All,Any,"Steps to reproduce:
+$ python
+>>> import visit
+>>> dir(visit)
+['AddArgument', 'GetDebugLevel', 'Launch', 'SetDebugLevel', '__doc__', '__file__', '__name__', '__package__']
+
+The same happens when using the 'from ..' paradigm:
+$ python
+>>> from visit import *
+>>> dir()
+['AddArgument', 'GetDebugLevel', 'Launch', 'SetDebugLevel', '__builtins__', '__doc__', '__name__', '__package__']
+
+The 'LaunchNowin()' function is not there. I think there are two possible ways to think about this:
+- it should not be there; just do AddArgument('-nowin') and then Launch(). In this case it is extremely confusing that after this call of Launch() the LaunchNowin() function in fact does appear in the namespace and that the LaunchNowin() version is also present in the documentation through help(Launch)
+- it should be there; nothing further to add - probably it is missing somewhere in the package description"
+826,Resolved,VisIt,Bug,Normal,VisIt does not record SaveWindow() command.,Brad Whitlock,"",2.5.2,Iuri Prilepov,08/23/2011,"",100,1.0,08/23/2011 05:33 pm,07/23/2012 08:25 pm,5 - Always,2 - Minor Irritation,trunk,"","",All,Any,"Instead of recording SaveWindow() when a screenshot is taken, the commands window only records all the save attributes. Reproducible in 2.3.1 and trunk, haven't checked other versions."
+1049,Resolved,VisIt,Bug,Normal,H5Part Database Plugin clang complains about unknown type (unsigned int64_t),Cyrus Harrison,"",2.5.1,Christoph Statz,05/07/2012,"",0,"",05/07/2012 09:01 am,06/18/2012 07:06 pm,3 - Occasional,2 - Minor Irritation,2.4.2,"","",OSX,Any,"The compilation of visit 2.4.2 with clang on OSX with H5Part enabled fails with clang complaining about unknown type in databases/H5Part/timestep.C:
+
+/path_to_visit_build/visit2.4.2/src/databases/H5Part/timestep.C:799:58: error: expected ')'
+    bool berr = h5file_.getBitmapSize(strname, (unsigned int64_t)(timeval),
+                                                                                       ^
+/path_to_visit_build/visit/visit2.4.2/src/databases/H5Part/timestep.C:799:48: note: to match this '('
+    bool berr = h5file_.getBitmapSize(strname, (unsigned int64_t)(timeval),
+                                                                        ^
+int64_t is usually defined as ""signed __int64"" which prevents clang from recognizing unsigned as a prefix.
+The bugfix might be to use uint64_t instead of unsigned int64_t.
+
+See patch attached. 
+"
+949,Resolved,VisIt,Bug,High,compilation is failing on fedora-14,"","",2.5,Alexander Pletzer,02/01/2012,"",100,"",02/01/2012 10:54 pm,02/02/2012 07:29 pm,5 - Always,3 - Major Irritation,trunk,"","",All,Any,"Need to add
+
+#include <cstring>
+
+to visit/sim/V2/runtime/simv2_DomainBoundaries.C in order to resolve memcpy."
+851,Rejected,VisIt,Bug,Urgent,Inverting colormap of Pseudocolor produces two PseudocolorAttributes() events,Brad Whitlock,"",2.4,Jakob van Bethlehem,09/20/2011,"",0,"",09/20/2011 09:10 am,10/04/2011 12:52 am,5 - Always,4 - Crash / Wrong Results,2.3.0,"","",All,Any,"Upon registering the 'PseudocolorAttributes' in the Python CLI I noticed that there are 2 of such events generated when just changing the 'invertColorMap' property. This is true both when changing this property through the VisIt GUI and when explicitly switching it through the Python CLI using visit.SetPlotOptions(). The ultimate effect is an infinite loop of these events when eg trying to synchronize these between windows.
+
+Just to make sure it is clear what I mean, here is some script to reproduce:
+def pc(att):
+&gt;&gt;print ""PseudocolorAttributes""
+
+visit.Launch()
+visit.RegisterCallback('PseudocolorAttributes', pc)
+# now open a database either through the script, or through the GUI after visit.OpenGUI()
+# and create a Pseudocolor plot
+
+pa = visit.PseudocolorAttributes()
+pa.invertColorTable = not pa.invertColorTable
+visit.SetPlotOptions(pa)
+
+# output:
+PseudocolorAttributes
+PseudocolorAttributes
+
+Any other change (I have tested) will produce just (the expected) one event."
+776,Resolved,VisIt,Bug,Normal,"Streamline plot of doesn't respect ""distance in y"" setting",Hank Childs,"",2.3.1,Paisa Seeluangsawat,07/07/2011,"",100,"",07/07/2011 10:30 am,08/05/2011 07:41 pm,3 - Occasional,2 - Minor Irritation,2.3.0,"","",All,Any,"Draw a streamline plot.
+Choose source type ""Plane""
+The setting ""Distance in Y"" doesn't seem to do anything.
+VisIt uses the setting ""Distance in X"" for both X and Y.
+
+This happens in both VisIt 2.2.2 and 2.3.0."
+643,Resolved,VisIt,Bug,Normal,PFLOTRAN reader not able to read new file,Jeremy Meredith,"",2.2.2,Peter Lichtner,03/05/2011,"",0,"",03/05/2011 04:29 pm,03/30/2011 01:43 pm,5 - Always,3 - Major Irritation,2.0.1,"","",All,DOE/SciDAC,"After opening a file and plotting it, it is not possible to delete the plot and close the file and open a new file. I get the original file opened at the beginning of the session. This is on a Mac running Mac OS X, but also occurs with linux, so I suspect there is a problem with the reader. Attached are two visit files pflotran1.h5 and pflotran.h5. I am not able to open pflotran.h5 after first opening pflotran1.h5 and then closing the file and trying to open pflotran.h5. It is necessary to quit visit and then open pflotran.h5.
+...Peter"
+336,Resolved,VisIt,Bug,Normal,Engine crash on query over time,Kathleen Biagas,"",2.2.1,Jay Carlton,08/09/2010,"",0,2.0,08/09/2010 09:54 am,02/03/2011 07:32 pm,3 - Occasional,4 - Crash / Wrong Results,2.0.1,"","",All,Any,"To reproduce:
+1. Open a Silo database with multiple time steps.
+2. Add a plot or two. I used Filled Boundary (Material) and Mesh
+3. Use the Zone pick button to select a zone.
+4. In the pick dialog, select ""Create time curve with next pick""
+5. Hit Repeat Pick.
+
+This gives me a Windows crash dialog saying ""engine_ser.exe has encountered a problem nad needs to close."" There should be some log files earlier in the thread. I've also had this problem when using Controls->Query->PickRelated->PickByZone and selecting Query, then Time Curve. Note that I am still able to do time queries on one variable at a time successfully."
+491,Resolved,VisIt,Bug,Normal,CreateBonds does not accept Silo point meshes,Jeremy Meredith,"",2.2.1,Sebastian Steiger,11/23/2010,"",0,"",11/23/2010 11:49 am,02/22/2011 10:09 pm,2 - Rare,3 - Major Irritation,2.1.0,"","",All,Any,"Hi,
+
+Jeremy suggested putting this in as a bug report.
+
+I am reading in a .silo Pointmesh and would like to first do a Molecule plot and then use the CreateBonds operator on it. Right now the Molecule plot works, but when I apply CreateBonds directly it gives me the following error:
+
+Molecule:  ()
+viewer: The pipeline object is being used improperly: Expected a vtkPolyData in the avtCreateBondsFilter.
+
+Jeremy then suggested adding the 'External Surface' operator beforehand, which resolves the problem.
+
+However, as a user I would not have found out about this by myself and maybe you could automatize the underlying process such that I only need to apply the CreateBonds operator.
+
+Best
+Sebastian
+"
+571,Resolved,VisIt,Bug,Normal,Curve plot axis labels and units issues when used w/ Data Binning Operator,Cyrus Harrison,"",2.2.1,Michael Reuter,01/26/2011,"",0,"",01/26/2011 11:22 am,02/15/2011 04:51 pm,5 - Always,2 - Minor Irritation,2.1.2,"","",Linux,Any,"I found a strange behavior in the presentation of the Curve plot axis titles. I'm attaching an example of what I see. In the example, I'm creating a Curve plot of the Qx variable with counts as the Reduction variable. I would expect to see counts or Sum(counts) on the y axis of the plot, but instead I see another variable (a coordinate) that is contained within my data set. Also, my Qx variable has units (1/A) that are in the DB metadata but they don't seem to be displayed on the x axis of the plot."
+575,Resolved,VisIt,Bug,Normal,caching problems with FLASH data - a small reproducer,Brad Whitlock,"",2.2.1,Andrew Szymkowiak,01/31/2011,"",100,"",01/31/2011 02:54 pm,02/24/2011 03:03 am,3 - Occasional,2 - Minor Irritation,2.1.0,"","",All,Any,"I have produced a small FLASH file which can be used to investigate this bug.  Take the attached file, chk_0000.flash, and also copy it to the name chk_0001.flash.  Using smart grouping, open the database of these two files.  Choose a pseudocolor of the first variable, ""dens"", and also choose a single slice operator.  Press the draw button.  Then move the time slider to the right.  You probably will find that the right half of the plot has disappeared. Move the time slider back to step 0.  Go back and forth 2 more times, and the compute engine will abort.  This was with a downloaded x86_64 executable of version 2.2.0.  I believe it has been doing this for a while, though.  As Tomasz Plewa pointed out of the visit-users list, these problems can be avoided by hitting the ""Clear Cache"" button before moving the time slider.  (On the visit-developers list, Brad (https://email.ornl.gov/pipermail/visit-developers/2011-January/008783.html) asked if this may be a symptom of reuse of a cached domain nesting object.)
+
+P.S. - Out of a foolish consistency, I would suggest editting signalhandler_core in src/common/misc/DebugStreamFull.C to say ""SIGABRT"" instead of ""SIGBRT""...
+
+P.P.S. - During these tests, I noticed that there is no <FilePatterns> section in FLASH.xml, so that there is no way to auto-recognize FLASH files by extension.  This might be intended, since the FLASH program does not, by default append an extension...  "
+295,Resolved,VisIt,Bug,Normal,New Viewer Window requires Reopening Database,"","",2.2,Jay Carlton,07/29/2010,"",0,"",07/29/2010 10:51 am,01/14/2011 04:18 am,4 - Common,2 - Minor Irritation,2.0.1,"","",All,Any,"If I have a database open and have plots drawn in an active viewer window, and then add a second window, I must hit ReOpen in Sources before I can add a plot to that viewer window with the context/right-click menu (the Plots submenu is disabled). The Add button under the Plots section of the main gui pane works without reopening, however.
+
+I expected to be able to plot immediately in the new window, and for the Plots context menu to be available whenever hte Plots->Add button in the main gui was active."
+457,Resolved,VisIt,Bug,Urgent,Eval* functions in Python-interface import wrongly,Cyrus Harrison,"",2.2,Jakob van Bethlehem,11/01/2010,"",0,"",11/01/2010 11:04 am,01/06/2011 01:42 pm,5 - Always,3 - Major Irritation,< 1.12,"","",All,Any,"Suppose I want to do the following:
+
+import visit
+visit.Launch()
+# ..... lot's of other code
+visit.EvalCubicSpline(...)
+
+The result will be:
+Traceback (most recent call last):
+  File ""cubictest.py"", line 8, in <module>
+    visit.EvalCubicSpline()
+AttributeError: 'module' object has no attribute 'EvalCubicSpline'
+
+The function -is- imported into the main namespace however, but since I'm telling Python to import the visit module and keep it as a named module, this is clearly not what I want (and actually, it makes it impossible to use this function in separate source files without being forced to do a visit.Launch() in each and everyone of these sources - I think)
+"
+506,Resolved,VisIt,Bug,Normal,problem with contour colours for small data values,Kathleen Biagas,"",2.2,jonathan mackey,12/09/2010,"",0,2.0,12/09/2010 05:34 pm,01/04/2011 03:23 pm,2 - Rare,2 - Minor Irritation,2.0.1,"","",Linux,Any,"When I make a contour plot (2D data, rectilinear uniform mesh) with 'colorByMultipleColors' of data whose values are very small (e.g. density values of 1.0e-24), then all contours use the lowest contour's colour.  So they are all red in the default scheme.  The only way around this is to rescale the density so that the values are of order unity.  I guess there must be some floating point problem where the colour value is rounding down to zero.  The actual contours display fine in the correct location -- their position is unaffected by the rescaling.
+"
+447,Resolved,VisIt,Bug,Normal,Save Movie Memory Usage,Brad Whitlock,"",2.1.2,Jay Carlton,10/25/2010,"",0,"",10/25/2010 11:37 am,11/19/2010 08:15 pm,3 - Occasional,4 - Crash / Wrong Results,2.1.0,"","",Windows,Any,"When using the Save Movie wizard to export single-frame images only, viewer.exe's memory consumption increases with every frame until there is no memory. I had expected VisIt to free the memory associated with each frame once its corresponding image file is written to disk (although I understand that with a video codec selected this may not be possible or practical).
+
+Specifically, this problem occurred with a Silo database and PNG output selected. There were 300 or so time steps, and each of those is about 80 MB. I'm running 32-bit Windows XP, and the movie wizard seems to have hung with 1.7 GB (private bytes) allocated."
+498,Resolved,VisIt,Bug,Normal,plots followsTime field does not work in python,Brad Whitlock,"",2.1.2,David Camp,12/02/2010,"",0,"",12/02/2010 10:54 am,12/08/2010 08:04 pm,3 - Occasional,2 - Minor Irritation,trunk,"","",Linux,Any,"If I write a python script to disconnect the plot from the time slider by running the following script, you will see that the followTime field will be reset to 1 again in the pp variable after the time slider change and the engine recalculates.
+
+// Open a .visit file with multiple data files from the command line, ""visit -o data.visit""
+AddPlot(""Pseudocolor"",""density"")
+DrawPlots()
+
+p = GetPlotList().GetPlots(0)
+p.SetFollowsTime(0)
+p.Notify()
+
+TimeSliderSetState(2)  # This will cause an update, but it should not because we turn off the follows time.
+
+pp = GetPlotList().GetPlots(0)
+pp # the followsTime field will be 1 again.
+
+"
+380,Resolved,VisIt,Feature,Low,Remove old PATH entries during upgrade installation,Kathleen Biagas,"",2.1.1,Jay Carlton,09/08/2010,"",0,"",09/08/2010 11:18 am,10/28/2010 12:42 pm,"","","",2 - Low,3 - Occasional,Windows,Any,"Currently, the PATH environment variable appears to be prepended to each time I upgrade VisIt, and the entries from previous installations remain until the corresponding version is uninstalled.
+
+For example, my PATH currently starts with
+<pre>
+C:\Program Files\LLNL\VisIt 2.0.2;C:\Program Files\LLNL\VisIt 2.0.1;
+</pre>
+
+I'm not sure what the advantage of having two or more entries is, as earlier matches in the PATH string shadow later ones. The only situation where a match in the 2.0.1 directory would occur would be if an executable was installed there in that version but not any later version. If such a match did occur, the user wouldn't necessarily know which executable was selected. That's a relatively rare occurrence, but if it does happen, it's likely not what the user intended.
+
+
+It looks like an older version could block a newer one if the older version were installed more recently. I don't know how common that situation is, though.
+
+An option to remove all other VisIt entries from the PATH when installing might prevent potential confusion.
+"
+414,Resolved,VisIt,Bug,Normal,'VarLocation' of TecPlot input ,Jeremy Meredith,"",2.1.1,cean wang,10/05/2010,"",0,"",10/05/2010 07:17 pm,10/26/2010 05:55 pm,5 - Always,2 - Minor Irritation,2.1.0,"","",All,Any,"The Tecplot file loader need to be updated.
+
+At the moment it only supports like:
+VarLocation=(Nodal, Nodal,CellCentered,CellCentered)
+
+but not: 
+VarLocation=([1,2]=Nodal,[3-4]=CellCentered)
+"
+415,Resolved,VisIt,Bug,Normal,GUI Bug with Subset Panel,Brad Whitlock,"",2.1.1,Bob Corey,10/06/2010,"",0,1.0,10/06/2010 07:37 pm,10/12/2010 03:04 pm,3 - Occasional,2 - Minor Irritation,2.0.1,"","",All,Any,"With Auto Apply selected, the All Sets and Selected Sets buttons do not cause 
+an update of the render window. The sets are checked or unchecked but no change
+in the render window. The render window will update if you do not use the All
+or Selected Sets buttons."
+434,Resolved,VisIt,Bug,Normal,Problem with new Python function RenamPickLabel(),Brad Whitlock,"",2.1.1,Bob Corey,10/19/2010,"",0,"",10/19/2010 02:36 pm,10/29/2010 02:50 pm,4 - Common,3 - Major Irritation,2.1.0,"","",All,Any,"This function is new to version 2.1. The function will only let me rename the label one time. All calls after the first call
+result in no change to the label. There will be cases where we want to change the label over time (i.e. put up a result
+value as part of the label)."
+296,Resolved,VisIt,Bug,Normal,Update Macros Button Fails,Kathleen Biagas,"",2.1,Jay Carlton,07/29/2010,"",0,"",07/29/2010 02:47 pm,08/05/2010 05:22 pm,4 - Common,2 - Minor Irritation,2.0.1,"","",Windows,Any,"Clicking Update Macros in the Command dialog updates visitrc, but VisIt then fails to source that file, removing all the macro buttons from the Macros dialog until I restart VisIt. There is an error message that says
+<pre>
+>>> Traceback (most recent call last):
+  File ""<string>"", line 2, in <module>
+visit.VisItException: Could not find file C:\Users\car300875\My Documents\VisIt
+2.0.1♂isitrc for sourcing.
+</pre>
+
+
+Restarting VisIt loads the updated Macros correctly."
+300,Resolved,VisIt,Feature,Normal,Function Name error discards recorded steps,Brad Whitlock,"",2.1,Jay Carlton,08/02/2010,"",0,2.0,08/02/2010 11:55 am,08/18/2010 05:33 pm,"","","",2 - Low,3 - Occasional,All,Any,"After completing a macro recording, if I select Make Macro but then fail to satisfy the function naming requirements, all of the recorded steps are discarded. It would be nice if after displaying the error message, I could simply enter a name matching the criteria and not have to re-record the macro.
+
+<pre>
+ERROR: Function names may only contain letters, numbers, and underscores.  Please try again with only those characters.
+</pre>"
+301,Resolved,VisIt,Bug,Low,Annotation dialog font settings don't match current plot fonts,Brad Whitlock,"",2.1,Jay Carlton,08/03/2010,"",0,"",08/03/2010 11:42 am,08/26/2010 07:21 pm,4 - Common,2 - Minor Irritation,2.0.1,"","",All,Any,"When making a change in an Annotation dialog, all the fonts for the active window are changed form their present state to Courier bold & italic. This occurs even for unrelated changes like turning the grid on or adding an additional annotation object. I believe this is because the controls for those values are not initialized to the settings on the current plot when the dialog is opened.
+
+Also, the initial font selections (Courier, bold, italic) are different from the default for new plots (Arial)."
+333,Resolved,VisIt,Bug,Normal,Please apply the following patch to VTK,Eric Brugger,"",2.1,John Cary,08/05/2010,"",100,"",08/05/2010 02:02 pm,08/26/2010 03:47 pm,4 - Common,3 - Major Irritation,trunk,"","",All,Any,"This is needed for VTK to build correctly on OS X 
+and with newer versions of g++ that require cstring
+instead of string.  It also removes an obsolete include
+of GL/glaux.h.  It also exports StreamArray methods
+defined in the cxx file.  It also corrects 
+CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS and friends for
+current versions of OS X, and it fixes a library for
+ftgl."
+334,Resolved,VisIt,Bug,Normal,"OS X dylibs have the wrong dylib names after installation, sometimes the wrong name",Brad Whitlock,"",2.1,John Cary,08/05/2010,"",0,"",08/05/2010 02:12 pm,08/31/2010 03:20 pm,5 - Always,3 - Major Irritation,trunk,"","",OSX,Any,"When building VisIt on OS X against QT previously installed elsewhere,
+the names inside many of the plugins end up incorrect, like:
+
+@executable_path@executable_path/../lib/QtGui.framework/Versions/4/QtGui @executable_path@executable_path/../lib/QtOpenGL.framework/Versions/4/QtOpenGL @executable_path@executable_path/../lib/QtCore.framework/Versions/4/QtCore, 
+
+in /volatile/visit-r12128-ser/2.1.0/darwin-i386/plugins/plots/libVWellBorePlot.dylib.
+
+Attached is a file that shows all of the corrections that have to be made
+on the installed dylibs.
+
+I suspect some overzealous script in VisIt is doing this, but I don't
+know where."
+274,Resolved,VisIt,Bug,Normal,Can't use libsim V2 from C++ code,Eric Brugger,"",2.0.2,Cihan Altinay,07/08/2010,"",0,"",07/08/2010 08:13 pm,07/21/2010 12:48 pm,5 - Always,2 - Minor Irritation,trunk,"","",All,Any,"It appears g++ doesn't like a semicolon after the '}' in the libsim V2 header files which end in:
+  #ifdef __cplusplus
+  };
+  #endif
+
+These files are affected:
+sim/V2/lib/VisIt_CommandMetaData.h
+sim/V2/lib/VisIt_CurveMetaData.h
+sim/V2/lib/VisIt_ExpressionMetaData.h
+sim/V2/lib/VisIt_MaterialMetaData.h
+sim/V2/lib/VisIt_MeshMetaData.h
+sim/V2/lib/VisIt_NameList.h
+sim/V2/lib/VisIt_SpeciesData.h
+sim/V2/lib/VisIt_SpeciesMetaData.h
+sim/V2/lib/VisIt_VariableMetaData.h
+
+Patch is attached.
+"
+289,Resolved,VisIt,Bug,Normal,Gui crash on Refresh File List,Kathleen Biagas,"",2.0.2,Jay Carlton,07/23/2010,"",100,1.0,07/23/2010 10:02 am,07/29/2010 09:14 pm,4 - Common,4 - Crash / Wrong Results,< 1.12,"","",Windows,Any,"When I have a silo database open, selecting Refresh File List crashes gui.exe.
+
+Originally discovered in 1.11.1; still present in 2.0.1."
+756,Pending,VisIt,Feature,High,Symbols in legend,"","",3.0,Jason Shire,06/22/2011,"",0,"",06/22/2011 12:35 am,12/15/2016 12:59 pm,"","","",3 - Medium,3 - Occasional,All,Any,"On a curve plot, have the lines in the legend have the same markers as the lines on the plot.  This would be very helpful for black and white printouts and color blind people."
+2158,Pending,VisIt,Bug,Normal,Changing mesh attributes from Point to Box freezes my computer,"","",3.0,Sveta Shasharina,02/23/2015,"",0,"",02/23/2015 05:01 pm,06/30/2015 07:18 pm,3 - Occasional,4 - Crash / Wrong Results,2.8.2,"","",OSX,Any,"I downloaded 2.8.2 on OS X 10.9.5 (Intel, Maverick).
+Opened file emPtclInCell_electrons_2.h5 (attached) using Vs plugin.
+Added mesh ""electrons"" and drew it.  Opened mesh attributes dialog.  Switched from Point to Box.
+The computer froze and activity monitor showed viwer not responding.  I had to restart the computer as could not
+switch to terminal to kill the process.   I am attaching some logs.  Please let me know if you want me send more data."
+2544,Pending,VisIt,Bug,Normal,"X,Y log scale issues",Kevin Griffin,"",3.0,Graham Lopez,03/03/2016,"",0,"",03/03/2016 01:23 pm,03/15/2016 07:55 pm,3 - Occasional,3 - Major Irritation,2.10.0,"","",OSX,Any,"When scaling the X and/or Y axes to log scaling using the ""View"" controls, a couple of things don't work correctly:
+
+1) When zooming or otherwise navigating the plot, the axis tic marks disappear or convert to incorrect numbers. 
+
+2) The lineout tool doesn't work at all, always reporting that the plot has not data."
+265,Developer Review,VisIt,Feature,Normal,Better initialization for Resample,Dave Pugmire,"","",Don Spong,07/06/2010,"",0,"",07/06/2010 03:50 pm,07/20/2010 01:23 pm,"","","",3 - Medium,4 - Common,All,DOE/SciDAC,"I use resample often and always find that I always need to go in and manually reset its parameters to be appropriate to the dataset I'm using. For example if I'm working with 2D data, resample comes up with 3D box checked, and I have to uncheck that. Also, it does not get the range of the independent variables right. It generally seems to clip things off at the edges and I have to go in and put the min/max values in manually. Finally, the resolution (I think the default is 10)  for the resampling is always to coarse for the data I'm working with. One usually wants a resolution that's finer than the dataset one is using.
+Could the defaults for resample be made a little more intelligent so that better guesses are made based on the properties of the data stream going into it? This would save the user from having to go in and tweak things each time."
+266,Developer Review,VisIt,Feature,Low,Whitespace removal,"","","",Don Spong,07/06/2010,"",0,"",07/06/2010 03:59 pm,07/20/2010 01:23 pm,"","","",2 - Low,3 - Occasional,All,DOE/SciDAC,"In the save image/set save options menu item, it would be helpful if Visit would provide the option of removing surrounding whitespace from the saved image. i.e., if one is saving an image whose aspect ratio is different from Visit's standard square viewing window, then I tend to usually have crop it later to get rid of the un-needed whitespace. Having Visit take care of this as it saves the image would be a good time-saver."
+271,Developer Review,VisIt,Bug,Normal,axis label precision,"","","",Katie Boyle,07/07/2010,"",0,"",07/07/2010 06:48 pm,07/21/2010 01:30 pm,5 - Always,3 - Major Irritation,2.0.0,"","",Linux,Any,"x-axis labels are only 5 characters long, with no decimal precision. y-axis labels are 7 characters long, with 4 digits of decimal precision.
+
+x-axis values range from -118.953 to -118.932
+y-axis values range from 39.7629 to 39.773448
+
+e.g on the final plot, the x-axis just has 10 tickmarks, all of which say '-119.'"
+278,Developer Review,VisIt,Feature,Normal,Enhance Spreadsheet,"","","",Michael Barad,07/13/2010,"",0,"",07/13/2010 11:25 am,07/20/2010 07:15 pm,"","","",3 - Medium,3 - Occasional,All,DOE/SciDAC,"In the spreadsheet, let the user select the two coordinates, where coordinates can be two of: i, j, k, and the variable vector. This would allow the user to slice and dice the data in arbitrary directions in the spreadsheet. In particular, this will enable dumping out all the variable data at a single i,j,k location (without much manual effort via python or query).
+
+Thanks!!
+Mike
+mbarad@gmail.com
+"
+283,Developer Review,VisIt,Feature,Normal,Slider controls in Threshold operator,"","","",Steve Jackson,07/15/2010,"",0,"",07/15/2010 03:04 pm,07/21/2010 01:25 pm,"","","",3 - Medium,3 - Occasional,All,Any,"VisIt makes it possible to interactively explore through data along spatial dimensions (using the interactive controls with the various slicing operators).  It is also possible to explore through the time dimension using the animation controls.  However, interactively exploring through other dimensions is difficult.
+
+In my case, I have mesh data with scalar variables set upon mesh elements.  I want to be able to explore this data by displaying only those elements for which a scalar variable T takes on values in [n,m].  I can do this by using the Threshold operator, but this operator requires me to type in values for n and m, and retype the values if I want to change them.  It's a cumbersome process if I want to vary the threshold quickly.
+
+The process could be improved by allowing the lower and upper bound settings of the threshold operator to be controlled by sliders.  Note that a special case exists when the user wants to see data taking on exactly one discrete value (i.e. when n=m).  In this case, it may be desirable to have a single interactive slider to control the value of the threshold.  
+
+(Posted at the request of Mark Miller after discussion over email.)"
+285,Developer Review,VisIt,Bug,Normal,Menus won't scroll using VisIt 2.0.1 binary on Mac OS X 10.5.8,"","","",charles reid,07/21/2010,"",0,"",07/21/2010 08:07 pm,08/03/2010 03:54 pm,5 - Always,3 - Major Irritation,2.0.1,"","",OSX,Any,"When running the VisIt 2.0.1 binary installed on Mac OS X 10.5.8, I create a plot.  I want to select a variable to plot.  I click Add > Pseudocolor, and I see a long list of variables - longer than the size of the menu - so the list is truncated nad has a down-facing arrow at the bottom.  I try to scroll using either the scroll function on my mouse, or by hovering the mouse over the down arrow at the bottom of the menu, but neither work.  I am also unable to use the arrow keys, once the menu is open, to highlight an element or move through the list of elements.  I can use the mouse to first highlight a particular element of the list, and then use the arrow keys to move the selection down to the end of the list, but I cannot use the arrow keys without first highlighting a list element with the mouse.
+
+I see the same behavior and problems with all long lists - if I click the Variable button to change the variable being plotted, or if I try to create other types of plots, I see the same issue with those menus as well.
+
+The expected behavior of large menus is as follows:
+1. If I open the large menu, and move the mouse over the down arrow at the bottom of the menu, I expect the menu to scroll down through elements of the list (this functionality worked fine in the Visit 1.11 and 1.12 binaries for the same OS, Mac 10.5.8).
+2. If I open the large menu, and scroll up or down using the mouse, I expect the menu to scroll up or down through the elements of the list (this functionality also worked fine in Visit 1.11 and 1.12 binaries).
+3. If I open the large menu, and push the up arrow, I expect the highlighter to highlight the last item in the list and move up through the list as I press the up button.  
+4. If I open the large menu and push the down arrow, I expect the highlighter to highlight the first item in the list and move down through the list as I press the down button."
+286,Developer Review,VisIt,Feature,Normal,Anonymized Log File,"","","",Jay Carlton,07/22/2010,"",0,"",07/22/2010 02:54 pm,07/28/2010 12:52 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Currently, vlog files contain information on hostname, database name, various paths and other pieces of information that may be personally identifiable or sensitive for other reasons. It could be advantageous to output a log file without any potentially sensitive or identifying information."
+287,Developer Review,VisIt,Feature,Normal,Postable Python CLI Window,"","","",Jay Carlton,07/22/2010,"",0,"",07/22/2010 03:25 pm,07/28/2010 12:52 pm,"","","",3 - Medium,3 - Occasional,All,Any,Allow the Python command window to be posted along with dialog boxes.
+288,Developer Review,VisIt,Feature,Normal,User-configurable Keyboard Shortcuts,"","","",Jay Carlton,07/23/2010,"",0,"",07/23/2010 09:46 am,07/28/2010 12:51 pm,"","","",3 - Medium,3 - Occasional,All,Any,"It could be handy to assign keyboard shortcuts to common actions and macros, or to reassign some of the current defaults. For example, I might want
+* ctrl-F6 - cycle viewer windows
+* ctrl-0 - activate main gui window
+* alt-f4 - quit (overriding ctrl-X, which is easily confused with Cut on other programs)
+* ctrl +/- - zoom in & out (from center of current view)
+* ctrl-<number> - launch macro #<number>
+* <arrow key> - pan view
+* Page Up/Down - move time step forward/back
+
+Ideally, a user would be able to edit & save these options without rebuilding the application."
+290,Resolved,VisIt,Bug,Normal,Gui crash on Refresh File List,"","","",Jay Carlton,07/23/2010,"",0,"",07/23/2010 10:03 am,07/29/2010 09:14 pm,4 - Common,4 - Crash / Wrong Results,< 1.12,"","",Windows,Any,"When I have a silo database open, selecting Refresh File List crashes gui.exe.
+
+Originally discovered in 1.11.1; still present in 2.0.1."
+292,Developer Review,VisIt,Bug,High,Menus won't scroll using VisIt 2.1.0 build on Mac OS X 10.6,"","","",charles reid,07/21/2010,"",0,"",07/26/2010 02:50 pm,08/03/2010 03:54 pm,5 - Always,3 - Major Irritation,trunk,"","",OSX,Any,"When running the VisIt 2.1.0 build installed on Mac OS X 10.6, I create a plot.  I want to select a variable to plot.  I click Add > Pseudocolor, and I see a long list of variables - longer than the size of the menu - so the list is truncated and has a down-facing arrow at the bottom.  I try to scroll using either the scroll function on my mouse, or by hovering the mouse over the down arrow at the bottom of the menu, but neither work.  I am also unable to use the arrow keys, once the menu is open, to highlight an element or move through the list of elements.  I can use the mouse to first highlight a particular element of the list, and then use the arrow keys to move the selection down to the end of the list, but I cannot use the arrow keys without first highlighting a list element with the mouse.
+
+I see the same behavior and problems with all long lists - if I click the Variable button to change the variable being plotted, or if I try to create other types of plots, I see the same issue with those menus as well.
+
+The expected behavior of large menus is as follows:
+1. If I open the large menu, and move the mouse over the down arrow at the bottom of the menu, I expect the menu to scroll down through elements of the list (this functionality worked fine in the Visit 1.11 and 1.12 binaries for the same OS, Mac 10.6).
+2. If I open the large menu, and scroll up or down using the mouse, I expect the menu to scroll up or down through the elements of the list (this functionality also worked fine in Visit 1.11 and 1.12 binaries).
+3. If I open the large menu, and push the up arrow, I expect the highlighter to highlight the last item in the list and move up through the list as I press the up button.  
+4. If I open the large menu and push the down arrow, I expect the highlighter to highlight the first item in the list and move down through the list as I press the down button.
+"
+342,Pending,VisIt,Feature,Normal,GetPickOutput() Enhancement,"","","",Bob Corey,08/11/2010,"",0,"",08/11/2010 01:32 pm,08/31/2010 12:10 pm,"","","",3 - Medium,3 - Occasional,All,Any,"We are implementing a CLI in Python where one of the operations is ""select zone n"" which translates to a pick call in the Visit Python
+API. A user could also perform a pick using the mouse which we would want to capture in our application. We could do this with a
+callback, but it would be much more efficient if we had a capability to GetPickOutput() for all picks, not just the last pick. "
+355,Expired,VisIt,Bug,Urgent,Incorrect file loading on Windows Vista,"","","",Guoning Chen,08/23/2010,"",0,"",08/23/2010 05:35 pm,04/02/2014 05:19 pm,5 - Always,4 - Crash / Wrong Results,trunk,"","",Windows,Any,"I encountered an issue for data loading using VisIt 2.1 (trunk) under Windows Vista. Previously, I worked on VisIt 2.0 and loaded the magnetic field data using the format 'H5NIMROD'. After I downloaded VisIt 2.1 from the trunk and compiled it, it can not correctly load the same data anymore. The file information shows that the data have been correctly loaded. However, VisIt 2.1 thinks that there are 5487 time steps for the data which should be only 116. This inaccurate information causes the followup computation and analysis failed. Any idea on what could change under Windows Vista? "
+382,Resolved,VisIt,Feature,Normal,Add capability to hilite picked zones,"","","",Bob Corey,09/09/2010,"",0,"",09/09/2010 05:52 pm,09/19/2016 02:12 pm,"","","",3 - Medium,4 - Common,All,Any,"Currently Visit draws a line pointing to the Zone. It would be nice if there were an operator on the Pick to control the representation of the picked object, such as changing the color or thickness of the zones edges. With this feature, the picked zones will better stand out.
+
+I found a workaround to get the same visual result using a Python script, but it could be expensive if I have more than a few
+picks. The workaround requires me to add a new plot, then do an Onion-Peel, leaving the picked zone, then change the color or 
+thickness of the zones edges."
+393,Pending,VisIt,Feature,Normal,Add multi-line text for text  annotation objects (2D and 3D),"","","",Bob Corey,09/15/2010,"",0,"",09/15/2010 05:26 pm,09/22/2010 01:29 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Creating multi-line text objects requires creating a new object for each line and placing each line.
+
+I would like to place a control character in the line (ie \n) to have a single text object with multiple
+lines - a justify option would also be nice (left/center/right)"
+401,Developer Review,VisIt,Bug,Normal,molecule plot / display lists / md dataset,"","","",John Schreiner,09/21/2010,"",0,"",09/21/2010 06:46 pm,11/02/2010 02:56 pm,3 - Occasional,2 - Minor Irritation,2.0.1,"","",All,Any,"I have run into an issue when using a molecule plot on a MD dataset.  I believe it happens when visit decides to use display lists.  If I have a mocule plot with atoms in different domains, sometimes only the atoms of certain domains will show up (maybe just either the first or last domain?).  I've found three ways to work around it:
+
+- tell visit to never use display lists
+- tell visit to always use scalable rendering
+- set the molecule plot to use impostors for the atoms
+
+"
+408,Pending,VisIt,Bug,Normal,VisIt hangs while trying to list a directory while opening or saving a session file,Eric Brugger,"","",Daniel Laney,09/28/2010,"",0,"",09/28/2010 06:55 pm,11/02/2010 02:59 pm,3 - Occasional,2 - Minor Irritation,2.0.1,"","",All,Any,"On alastor.llnl.gov, I was able to make VisIt 2.0.X hang by attempting to *save* a session file.  I generated some pseudocolor plots, then clicked save session, the save dialog comes up but never activates.  It appears VisIt is trying to list the directory contents.
+
+This also happens when trying to read a session file. 
+I have attached the session file I was using."
+412,Pending,VisIt,Bug,Normal,Surfaces with negative values are not rendered at the correct height.,"","","",mark connolly,10/04/2010,"",0,"",10/04/2010 01:46 pm,03/28/2011 06:40 pm,3 - Occasional,2 - Minor Irritation,2.0.1,"","",All,Any,"VisIt 2.02, svn revision 12113
+Ubuntu 10.04
+Kernel 2.6.32-25-generic
+GCC 4.4.3 (i486-linux-gnu)
+
+Consider the dataset below (copy and paste)
+Read in the data as PlainText, data layout 1D Columns, skip 0 lines, first row has variable names, X = 0, Y = 1, Z = -1.
+
+Add surface plot for variable krige.  Rendered surface in positive Z region, though all values of krige are negative.
+
+Add surface plot using variable bmin (constant negative value). Add surface plot using variable tmax (constant negative value). First surface plot should be between these, but is shifted into positive z space.  Interestingly, they variables are plotted correctly.
+
+Workaround
+
+Set surface plot attributes for first surface (variable krige).  Check Minimum with default 0 value. Surface shifts to where it belongs.
+
+x        y   krige bmin tmax
+740320.3 181328.7 -361.01 -365 -355
+740320.3 181331.8 -360.98 -365 -355
+740320.3 181335.0 -360.95 -365 -355
+740320.3 181338.2 -360.92 -365 -355
+740320.3 181341.4 -360.89 -365 -355
+740320.3 181344.5 -360.86 -365 -355
+740320.3 181347.7 -360.82 -365 -355
+740324.6 181328.7 -361.28 -365 -355
+740324.6 181331.8 -361.25 -365 -355
+740324.6 181335.0 -361.22 -365 -355
+740324.6 181338.2 -361.19 -365 -355
+740324.6 181341.4 -361.15 -365 -355
+740324.6 181344.5 -361.12 -365 -355
+740324.6 181347.7 -361.09 -365 -355
+740328.8 181328.7 -361.56 -365 -355
+740328.8 181331.8 -361.53 -365 -355
+740328.8 181335.0 -361.50 -365 -355
+740328.8 181338.2 -361.47 -365 -355
+740328.8 181341.4 -361.44 -365 -355
+740328.8 181344.5 -361.40 -365 -355
+740328.8 181347.7 -361.37 -365 -355
+740333.1 181328.7 -361.86 -365 -355
+740333.1 181331.8 -361.83 -365 -355
+740333.1 181335.0 -361.80 -365 -355
+740333.1 181338.2 -361.77 -365 -355
+740333.1 181341.4 -361.73 -365 -355
+740333.1 181344.5 -361.70 -365 -355
+740333.1 181347.7 -361.67 -365 -355
+740337.4 181328.7 -362.17 -365 -355
+740337.4 181331.8 -362.14 -365 -355
+740337.4 181335.0 -362.11 -365 -355
+740337.4 181338.2 -362.08 -365 -355
+740337.4 181341.4 -362.05 -365 -355
+740337.4 181344.5 -362.02 -365 -355
+740337.4 181347.7 -361.99 -365 -355"
+428,Pending,VisIt,Feature,Normal,CSG Specify Bounding Box,"","","",Scott McKinley,10/14/2010,"",0,"",10/14/2010 06:57 pm,03/28/2011 06:48 pm,"","","",3 - Medium,3 - Occasional,All,Any,"I have been doing a lot of visualization of a human phantom using the CSG format. I think a good feature would be for me to edit the bounding box that gets read in. Sometimes I would like to focus on one organ without having to write out a new graphics file just to set the bounding box. I would include it in the Mesh Management options to specify min/max in x,y and z.
+"
+430,Pending,VisIt,Bug,Normal,Can't rename directory that contains previously opened database in Windows,Eric Brugger,"","",Jay Carlton,10/15/2010,"",0,"",10/15/2010 10:14 am,09/21/2011 04:18 pm,3 - Occasional,2 - Minor Irritation,2.1.0,"","",Windows,Any,"If I have a databse open and then close it, VisIt prevents me from deleting or renaming the directory containing that database for the duration of the session. I expected the lock on the directory to be released when all databases in that directory and all dialogs with it open are closed.
+
+To reproduce:
+1. Make a scratch directory.
+2. Copy curv3d.silo there.
+3. Open that copy of curv3d.silo in VisIt.
+4. Add a plot
+5. Try to rename curv3d.silo and observe that this is impossible currently.
+6. Delete the plot.
+7. Close the database, leaving VisIt open.
+8. Note that it's now possible to rename or move the database.
+9. Try to rename the scratch directory, and observe this does not work.
+"
+432,Pending,VisIt,Feature,Normal,Enable TearOff option for pulldown menus,"","","",Bob Corey,10/15/2010,"",0,"",10/15/2010 04:54 pm,11/03/2010 01:27 pm,"","","",3 - Medium,3 - Occasional,All,Any,"TearOff menus are a nice time saving feature that can be implemented with
+minimal coding - at least with Qt. Would be nice to see enabled for top
+level menus and the Plot menus."
+433,Pending,VisIt,Bug,Normal,Viewer Crash with Multiple Linked Windows,Kathleen Biagas,"","",Jay Carlton,10/18/2010,"",0,"",10/18/2010 10:52 am,02/07/2011 01:14 pm,3 - Occasional,4 - Crash / Wrong Results,2.1.0,"","",Windows,Any,"I'm crashing the viewer fairly regularly when I have multiple viewer windows up and linked by view and timestep. I've got a Silo database, and this usually occurs when I let it cycle across all the timesteps a few times. VisIt is usually stable for several minutes before the crash, depending on how much mouse manipulation there is.
+
+Log files for a recent crash are attached."
+452,Developer Review,VisIt,Feature,Low,Incremental Sampling and Plotting of Query Over Time,"","","",Jay Carlton,10/29/2010,"",0,"",10/29/2010 10:31 am,11/03/2010 12:17 pm,"","","",3 - Medium,3 - Occasional,All,Any,"When doing a time query on a Silo database, currently no curves are shown until the entire query is complete. It would be useful to show a coarse version of the time curve first, then successively higher resolution versions of the curve as more plot files are read. For example, if my database's time resolution is 2 microseconds, it could show every 100, 20, then every 10, then every 2, filling in more points and updating the display after each sample.
+
+The primary advantage would be for interactive exploration of several points. I might know everything I'm interested in from a relatively low resolution time curve, and thus abandon that query in favor of one at another point."
+453,Developer Review,VisIt,Feature,Normal,Distinguish Window Icons by Type,"","","",Jay Carlton,10/29/2010,"",0,"",10/29/2010 11:06 am,11/03/2010 12:16 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Currently, when managing VisIt windows, the window icons in the task switcher and task bar are all the same. It would assist navigation to have distinct icons for the various categories:
+* GUI
+* Viewer Windows (ideally with a separate icon for each window number)
+* unposted dialog boxes
+* command line windows
+"
+469,Pending,VisIt,Bug,Normal,makemoviemain.py script fails to load local modules,"","","",Jakob van Bethlehem,11/10/2010,"",0,"",11/10/2010 06:27 am,12/01/2010 02:58 pm,1 - Exceptional,3 - Major Irritation,2.1.0,"","",All,Any,"Suppose one wants to script a movie, to be ran by 'visit -movie' for creating the required output. Also suppose that I want to separate out pieces of code in order to keep the main script readable.
+So I create some script, say filtermovie.py, in which I import functions/classes that take care of the animation from another file, say filter_mover.py:
+in filtermovie.py:
+from filter_mover import *
+
+This is correct Python and the script will run as well. However, when run under visit -movie, the following error results:
+--<output cut---
+/data/users/jakobb/linux/64/comp_packs/visit2.1.0/2.1.0/linux-x86_64/bin/makemoviemain.py:3: RuntimeWarning: Parent module 'filtermovie' not found while handling absolute import
+  ###############################################################################
+/data/users/jakobb/linux/64/comp_packs/visit2.1.0/2.1.0/linux-x86_64/bin/makemoviemain.py:6: RuntimeWarning: Parent module 'filtermovie' not found while handling absolute import
+  # Purpose:    This is the main function for the program.
+/data/users/jakobb/linux/64/comp_packs/visit2.1.0/2.1.0/linux-x86_64/bin/makemoviemain.py:7: RuntimeWarning: Parent module 'filtermovie' not found while handling absolute import
+  #
+Traceback (most recent call last):
+  File ""filtermovie.py.mangled"", line 7, in <module>
+    from filter_mover import *
+ImportError: No module named filter_mover
+--output cut>---
+
+The errors suggest that the actual script filtermovie.py can not even be found, but the traceback suggests that the main cause of the problem is that the filter_mover.py module can not be found.
+
+A work-around is to add the current directory to the PYTHONPATH environment variable: (for (t)csh):
+$ setenv PYTHONPATH $PWD
+or
+$ setenv PYTHONPATH ""$PWD:$PYTHONPATH""
+(first case when PYTHONPATH is not already defined, the second when it is)
+For bash it will be something similar with the 'export' command.
+
+Even though a work-around is available, this problem should be dealt with by the makemovie script 
+(it could eg explicitly add the directory where visit -movie was started to sys.path)"
+470,Pending,VisIt,Bug,Normal,movie generator fails to consistently work with directories,"","","",Jakob van Bethlehem,11/10/2010,"",0,"",11/10/2010 09:07 am,12/01/2010 03:02 pm,2 - Rare,3 - Major Irritation,2.1.0,"","",All,Any,"The visit -movie has tremendous problems in different non-standard and standard situations in dealing with directories; here I report two different versions that fail:
+
+1.
+Suppose I have written a script that explicitly sets the directory for output when calling SaveWindow():
+swa = SaveWindowAttributes()
+swa.outputToCurrentDirectory = False
+swa.outputDirectory = ""some/dir""
+
+Now when this script is ran with 'visit -movie', the frames will be written to 'some/dir', yet the makemovie.py script doesn't notice. It just creates a directory [outputname]-# (with outputname defaulting to 'movie') and after rendering all frames, it calls ffmpeg with -i [outputname]-#/mpeg_link%04d.format  (with format the extension corresponding to swa.format - this attribute IS correctly passed on)
+There are two problems here: 
+- the filename mismatches (I didn't do anything do it, so frames called 'some/dir/visit%04d.format' where created)
+- it's the wrong directory
+
+Clearly ffmpeg will fail, with:
+/path/to/script/movie-0/mpeg_link%04d.jpeg: No such file or directory
+
+2.
+So let's leave everything to default and run the script:
+- still all output files are created in the current directory, instead of the [outputname]-#/ directory
+Hence, again: the ffmpeg will fail, which is again directed to files [outputname]-#/mpeg_link%04d.format
+
+"
+495,Pending,VisIt,Feature,Normal,saved view management,"","","",Michael Barad,12/01/2010,"",0,"",12/01/2010 12:33 pm,12/14/2010 04:50 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Please add the capability of deleting a single saved view (without having to delete all views). If this could be done with a right mouse click option, that would be nice.
+
+Thanks!
+Mike
+
+"
+564,Pending,VisIt,Feature,Normal,"Prompting for ""Save Settings"" if settings have been changed during run","","","",Andrew Szymkowiak,01/24/2011,"",0,"",01/24/2011 04:18 pm,02/03/2011 11:52 am,"","","",2 - Low,3 - Occasional,All,Any,"I think it would be a useful enhancement, if VisIt would give the user an option to do the ""Save Settings"" action, if settings data has been entered during the session, but ""Save Settings"" was not invoked.  In particular, I tend to lose both ""Host Profiles"" and recorded command sequences by exiting without remembering to do the save.  This could be a global action, for all settings data, checked once at shutdown, or could be done per kind of setting, when the particular window is dismissed or closed.  (Frequent users are probably over this minor annoyance, but I think I may not be the only newbie to have been tripped up by this)."
+603,Pending,VisIt,Bug,Low,Sphere impostors with SR in windows,"","","",John Schreiner,02/10/2011,"",0,"",02/10/2011 05:41 pm,02/16/2011 03:37 pm,3 - Occasional,2 - Minor Irritation,2.2.0,"","",Windows,Any,"To recreate the issue:
+- installed binary 2.2.0 release on windows
+- loaded the galaxy0000.silo visit simple dataset
+- create a molecule plot of mass
+- in the plot options, drop the atom size down and change to sphere impostors 
+
+At this point it looks fine since it's using local hardware rendering - the imposters have correct z values when they intersect each other.  If you change it to always use scalable rendering, you get the old impostors that are just 2d billboards that stack over each other instead of intersecting correctly.
+
+This bug seems to only appear when using scalable rendering with localhost on windows.  Using a windows client with linux compute nodes appears to work correctly, and linux with localhost SR also seem to work.
+
+Possibly related to bug 166.
+"
+667,Pending,VisIt,Bug,Normal,Spreadsheet first column width not always working (VisIt 2.2.0),"","","",Michael Barad,03/29/2011,"",0,"",03/29/2011 12:47 pm,03/31/2011 03:40 pm,3 - Occasional,2 - Minor Irritation,2.2.0,"","",All,Any,"In the spreadsheet, sometimes the first column (the one with the j index in 2D) truncates the data. Please see attached screenshot."
+689,Pending,VisIt,Feature,Normal,Ability to delete individual saved views,"","","",Michael Barad,04/14/2011,"",0,"",04/14/2011 12:04 pm,05/13/2011 07:44 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Instead of just the ""Clear saved views"" button, it would be nice to delete individual views.
+
+Thanks!"
+703,Pending,VisIt,Bug,Normal,Streamlines - Single seed point can create multiple IC,"","","",David Camp,05/10/2011,"",0,"",05/10/2011 02:15 pm,05/17/2011 07:36 pm,3 - Occasional,4 - Crash / Wrong Results,trunk,"","",All,Any,"Streamlines - Single seed point can create multiple IC. If you have a mult-domain data set and a seed point hits a boundary during the avtPICSFilter::CreateIntegralCurvesFromSeeds function it will report the seed is in mult-domains and create an IC object for each domain touched. This causes no problem in the code, we just use more memory and cpu, but will cause problems when doing any analysis with Streamlines or Pathlines because your number of starting seeds/ICs will be large then you entered. I think this will cause problems with multi-level data sets too. I have not test this."
+730,Pending,VisIt,Feature,Normal,Allow opacity settings in Contour 'Multiple Color' selection to be linked,Eric Brugger,"","",Jakob van Bethlehem,05/27/2011,"",0,"",05/27/2011 05:37 am,09/21/2011 04:22 pm,"","","",3 - Medium,3 - Occasional,All,Any,"While using Contour Plot to visualize datasets, when manually selecting the colors in the 'Multiple' section in the 'Contour plot attributes' dialog, one also is forced to manually set all the individual opacities. This works fine when fine-tuning a visualization, but is rather cumbersome while trying to get a first, rough idea of the effect of changing opacities. 
+
+What I really would like to be able to do, is to switch on a checkbox that links all opacities, such that when I slide one of the colors, all the others change the same amount (note that I'm explicitly not saying that the other sliders should have the same value) 
+
+A more elaborate scheme would be to have a checkbox with each slider and link the sliders that are checked. In this case possibly an additional checkbox could be added that allows switching all slider-checkboxes, or maybe toggle them all (although I don't think the latter will be of much practical use)
+
+"
+731,Pending,VisIt,Feature,Normal,Ability to manually edit legend title text in gui,Eric Brugger,"","",Michael Barad,05/27/2011,"",0,"",05/27/2011 02:03 pm,09/21/2011 04:21 pm,"","","",3 - Medium,3 - Occasional,All,Any,"For example, in a legend I want to be able to change:
+
+Pseudocolor 
+Var: Velo
+
+to:
+
+Velocity (m/s)
+
+"
+759,Pending,VisIt,Bug,Normal,Databases don't propagate to other windows when opened from other windows than the first,"","","",Jakob van Bethlehem,06/23/2011,"",0,"",06/23/2011 06:01 am,07/06/2011 02:07 pm,5 - Always,2 - Minor Irritation,2.2.2,"","",All,Any,"Steps to reproduce (either GUI or cli):
+- launch visit
+- change to some non-trivial Window-layout (eg 2x1)
+- change to any window that's not Window 1
+- Open some database
+- change to another window
+- Add a plot
+ -> this will result in the error: 'Cannot create a plot until a database has been opened.'
+
+The database that was opened does show up as the 'active source' in all windows. Also, when the database was opened through Window 1 and then a plot is made in any other window, there is no problem. It seems that Window 1 is somehow special in this regard, which is highly confusing."
+761,Pending,VisIt,Bug,Low,Python documentation strings of 'startup' functions are not available,"","","",Jakob van Bethlehem,06/23/2011,"",0,"",06/23/2011 06:16 am,07/06/2011 02:04 pm,5 - Always,1 - Not Serious,2.2.2,"","",All,Any,"When using the Python visit-module in some script, the following produces an empty string:
+$ python
+>>> import visit
+>>> help(Launch)
+Help on built-in function Launch in module visit:
+
+Launch(...)
+(END)
+
+The same is true for the other functions that are available only initially. Upon calling Launch(), the full documentation string appears:
+>>> Launch()
+>>> help(Launch)
+Launch(...)
+    Launch
+    -Launches VisIt's viewer
+
+
+    Synopsis:
+
+..... etc
+
+This documentation really should be available already before the Launch()-command is issued"
+762,Resolved,VisIt,Bug,Normal,The second argument to AddOperatorRPC callback is always 1,"","","",Jakob van Bethlehem,06/23/2011,"",0,"",06/23/2011 06:29 am,07/06/2011 02:04 pm,3 - Occasional,3 - Major Irritation,2.2.2,"","",All,Any,"Suppose we register a callback function for 'AddOperatorRPC' (assuming all other pieces of needed Python-code are there):
+
+def visit_ao(arg1, arg2):
+> print arg1, arg2
+
+RegisterCallback('AddOperatorRPC', visit_ao)
+
+From the documentation I'd guess that the first argument is the index of the operator into OperatorPlugins() and the second argument is True when the operator is to be added to all plots and False otherwise. However the callback function always gets True when working from the GUI, irrespective of the setting in the GUI (haven't tested when calling AddOperator() from the Python-shell.... but that's kind of redundant anyway)
+
+So either there is a bug in the code that creates this event, or there is some problem in the documentation for AddOperator() (well, to be honest, or on my assumption that the parameters that the callback function gets are exactly the parameters the function got that triggered the callback)
+"
+764,Pending,VisIt,Feature,Normal,It would be nice to have a 'GetActiveWindow()' function in the Python CLI,"","","",Jakob van Bethlehem,06/24/2011,"",0,"",06/24/2011 03:17 am,07/06/2011 02:03 pm,"","","",1 - Very Low,3 - Occasional,All,Any,I guess the subject says it all.
+775,Rejected,VisIt,Bug,Normal,GetPlotInformation() function returns None,"","","",Jakob van Bethlehem,07/05/2011,"",0,"",07/05/2011 07:38 am,08/16/2011 02:05 pm,5 - Always,2 - Minor Irritation,2.3.0,"","",All,Any,"The subject-line pretty much sums it up. Open a database, create a plot and call GetPlotInformation() - using both the GUI -> Commands and in a Python script directly will do. The function returns None instead of a dictionary."
+785,Developer Review,VisIt,Bug,Normal,volume raytracing returns garbage,"","","",Tom Haber,07/12/2011,"",0,"",07/12/2011 06:03 pm,08/05/2011 07:36 pm,5 - Always,4 - Crash / Wrong Results,trunk,"","",Linux,Any,"I tried to visualize a volume using the raytracing methods, but both of them return garbage (random data).
+This seems the case for data loaded from different types of files."
+786,Pending,VisIt,Bug,Normal,Superfluous SetActivePlotsRPC generation in VisIt CLI,"","","",Jakob van Bethlehem,07/15/2011,"",0,"",07/15/2011 05:36 am,08/05/2011 07:36 pm,5 - Always,2 - Minor Irritation,2.2.2,"","",All,Any,"When making different, single plots active from the GUI, there is always one additional SetActivePlotsRPC generated with both the previous and new plot indices. See the attached script to make things more precise. Steps:
+ - run the script
+ - create at least two plots (optionally draw them)
+ - use the mouse to change the active plots
+
+Output when making the second plot active:
+SetActivePlotsRPC catched : (0L, 1L)
+SetActivePlotsRPC catched : (1L,)
+
+Output when switching to the first plot:
+SetActivePlotsRPC catched : (0L, 1L)
+SetActivePlotsRPC catched : (0L,)
+
+Output when activating both plots:
+SetActivePlotsRPC catched : (0L, 1L)
+
+The first line that keeps appearing when activating just a single plot, should not be there I think. Of course the callback function for this event should be simple and quick. Nevertheless the superfluous calls to the callback function could slow down and worsen the responsiveness of scripts that make use of it.
+
+I have confirmed the bug to be present both in version 2.2.2 and 2.3.0. Some machines at our institute still run 1.10.0. The bug doesn't seem to be present there, but I have to run over SSH there using X-forwarding. If this bug is somehow related to some synchronization issues, it may be that using SSH suppresses the bug.
+"
+803,Pending,VisIt,Feature,Normal,Compute and display distances using two node picks,"","","",Michael Barad,08/03/2011,"",0,"",08/03/2011 03:04 pm,08/16/2011 02:01 pm,"","","",3 - Medium,3 - Occasional,All,Any,"I would like to be able to compute distances between two ""picks"". Preferably, when a new node pick is made, it is compared to the previous pick, and distance is displayed somewhere in the pick gui.
+
+Thanks!
+Mike
+"
+804,Pending,VisIt,Feature,Normal,equation of state plotting,"","","",Doug Reeder,08/06/2011,"",0,"",08/06/2011 06:32 pm,08/16/2011 02:41 pm,"","","",4 - High,4 - Common,All,Any,"I would like to be able to plot equation of state (EOS) surfaces, with linear and log axes. I would also like to be able to read sets of 3-tuples and have them plotted as 3D curves on the surface. The 3-tuples would be written by the simulation code. Plotting them will show the trajectory that a tracer point took thru the EOS.This is a functionality similar to the PRISM plug-ins in paraview."
+828,Pending,VisIt,Bug,Normal,VisIt does not record Annotation Objects.,"","","",Iuri Prilepov,08/23/2011,"",0,"",08/23/2011 08:35 pm,09/16/2011 02:11 pm,5 - Always,2 - Minor Irritation,2.3.0,"","",Linux,Any,"When recording user activity, adding an annotation object (text, time slider, etc..) the Commands record window doesn't save this information, it saves the annotation settings from the other tabs in the annotations window, but not from Objects tab."
+830,Pending,VisIt,Feature,Normal,Creating curves from contours,"","","",Daniel PINO,08/29/2011,"",0,"",08/29/2011 05:24 am,09/16/2011 02:11 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Hello,
+
+After having some troubles to trace a LinoOut along a line defined from an isovalue, Jeremy Meredith suggests me to use a python script to solve my problem. The script can be found here: http://visitusers.org/index.php?title=Creating_curves_from_contours
+
+
+I think it could be useful to add a tool allowing to do so within VisIt. The idea I have in mind, is to add an operator that can create the a curve out of the different isosurfaces previously defined. If there are multiple isosurfaces the operator may create multiple curves as well.
+
+The reference points used to calculate the distace could be highlighted by putting a dot or something like that on the isosurfaces.
+
+Thank you,
+
+  Daniel
+
+"
+834,Pending,VisIt,Bug,Normal,Multi-window snapshot dimensions are wrong,"","","",Iuri Prilepov,08/31/2011,"",0,"",08/31/2011 02:05 pm,09/16/2011 02:09 pm,5 - Always,3 - Major Irritation,trunk,"","",Linux,Any,"When doing a multi-window save, placing three windows 1024x1024 at lower-left corner positions (0,0), (1024,0), (2048,0) the resulting image turns out to be (3072,2886) instead of the desired (3072, 1024)."
+844,Pending,VisIt,Bug,Normal,Very confusing of the *Attributes-events in the Python CLI,"","","",Jakob van Bethlehem,09/19/2011,"",0,"",09/19/2011 11:44 am,10/03/2011 03:13 pm,2 - Rare,2 - Minor Irritation,2.3.0,"","",All,Any,"I have come across a peculiar behavior of the *Attributes-events for the plot-plugins in the Python CLI that I would refer to as a bug. At the very least it is confusing and annoying. Here are the steps to reproduce:
+- Create a very simple script, something like:
+import visit
+def any_event(*args):
+&gt;&gt;print ""VisIt callback "" + args[-1]
+
+events = ['PseudocolorAttributes', 'MeshAttributes'] # add any *Attributes you want for Plot-plugins
+for e in events:
+&gt;&gt;visit.RegisterCallback(e, any_event, e)
+
+visit.OpenGUI()
+
+Now create a plot of the type you registered, eg a Mesh-plot of some dataset. Now try to change the attributes through the GUI. Two things can happen:
+ - you just change something - immediately an event is generated with the new set of attributes and the callback function is activated. However, the actual new set of Attributes is NOT applied to the plot.
+   In other words: the callback-function would have to do this.
+ - hit 'Apply' - this will result in yet another *Attributes event, activating the callback function. But this time the set of Attributes IS applied. The callback-function doesn't have to do it again.
+
+My problem is that inside the callback function it is impossible to find out which of the above cases caused the function to run (well..... maybe there is a way through some more global attributes - that would be a solution to this bug) Hence the callback function can't tell if there is a need to explicitly set the attributes it received. It is not a big issue, but it is quite different from the *Attributes from the Operator-plugins for which only events are generated upon clicking the 'Apply'-button. IMHO the latter is to be preferred."
+845,Pending,VisIt,Bug,Normal,SmoothOperatorAttributes() function in Python CLI has wrong name,"","","",Jakob van Bethlehem,09/19/2011,"",0,"",09/19/2011 11:53 am,10/03/2011 03:12 pm,2 - Rare,3 - Major Irritation,2.3.0,"","",All,Any,"In the Python CLI all *Attributes() functions corresponding to either plot- or operator-plugins get the standard name 'PluginNameAttributes()'. The Smooth-operator however appears as 'Smooth' in the list obtained from OperatorPlugins() while the *Attributes() function is named SmoothOperatorAttributes(). This breaks the above standard naming convention, which is quite irritating when looping over plugins.
+
+The same problem appears for the corresponding callback-event. According to the OperatorPlugins()-list one should expect an 'SmoothAttributes'-event, but instead one gets a 'SmoothOperatorAttributes'-event.
+
+I guess there are two ways to solve the issue: either rename the name of the plugin to 'SmoothOperator' or rename the corresponding Attributes-function and event to SmoothAttributes (which IMHO would be preferable, because that is more in line with the naming convention used for the other plugins)
+"
+853,Pending,VisIt,Feature,Normal,Allow symmetric data limits (i.e.  min = -max),"","","",Paisa Seeluangsawat,09/21/2011,"",0,"",09/21/2011 01:55 pm,09/22/2011 11:39 am,"","","",3 - Medium,3 - Occasional,All,Any,"Hi,
+
+In a pseudocolor plot, when a data contain both positive and negative values, I would like to specify the color of value zero.  For example, I want to plot zero as white, positive values as blue, and negative values as red (with different shades of blue/red for varying values of the data).
+
+One way to achieve this is to set data limit min/max such that min = -max.  Then use a color table that has a color gradient red-white-blue.  The drawback of this approach is that I have to manually set min/max.  I might not know these values before hand.  
+
+In pseudocolor plot's attributes, it would be nice to be able to automatically set the data limits such that min = -max.  For example, if the data is in range  -3.4 ... 5.2, then visit set the data limits as min = -5.2 and max = 5.2.  This would solve the problem mentioned above.
+
+Here is one possible user interface.  I realize that it is more cluttered than before.  Someone might be able to come up with a simpler UI.
+
+Min/Max:
+[ ] automatic
+[o] symmetric
+[ ] min [____] max [____]
+"
+880,Pending,VisIt,Bug,Normal,hollow geometry when applying node mask,"","","",Alexander Pletzer,10/25/2011,"",0,"",10/25/2011 12:24 pm,10/25/2011 07:08 pm,3 - Occasional,2 - Minor Irritation,2.3.0,"","",All,Any,"Hi: 
+
+The geometry filter does not render correctly when applying a nodal mask to data. Attached is the Vs file and the corresponding scene obtain using pseudocolor. As can be seen, the geometry appears erroneously hollow. 
+
+Thanks for fixing."
+886,Pending,VisIt,Bug,Urgent,Visit can read Silo files with different blocks number (mrgtree),"","","",Ronglin Jiang,11/04/2011,"",0,"",11/04/2011 09:58 pm,11/09/2011 12:42 pm,2 - Rare,4 - Crash / Wrong Results,2.3.2,"","",All,Any,"I use VisIt to read the Silo files with mrgtree, but there is a problem 
+when read the silo files attached in this report. 
+
+If I read all three files together (file grouping = smart), the visualization of data0000.silo is
+OK but that of data0001.silo and data0002.silo are not correct. However, if I only open
+data0001.silo or data0002.silo (file grouping = off), the visualization is no problem. The silo fils only
+include the meshes without variables in order to reduce the size of these files to mail.
+
+Another question, I write my data into the format of ""vtu"" using the appended data and Visit can
+not read the ""offset"" value correctly when the size of my data is larger than about 2GB. I guess that 
+the variable Visit used to read the ""offset"" is int32 not int64. Am I right? (the ""offset"" in my data is int64)
+
+"
+1044,Developer Review,VisIt,Bug,Normal,MacOS Lion cannot 'import visit' in python language,"","","",chen wang,05/05/2012,"",0,"",05/05/2012 10:47 am,05/24/2012 11:56 am,1 - Exceptional,5 - Very Serious,2.4.2,"","",OSX,Any,"I installed visit2.4.2 on my mac lion, the GUI is OK. However when I want to use visit through python language, it get error message."
+1160,Developer Review,VisIt,Bug,Normal,Volume renderer corruption after using SLIVR,"","","",Cameron Christensen,08/09/2012,"",0,"",08/09/2012 04:24 pm,09/26/2012 09:29 pm,5 - Always,2 - Minor Irritation,2.4.2,"","",All,Any,"The output of the other OpenGL volume renderers (Splatting and 3D Texture) gets corrupted after using SLIVR.
+
+This bug was introduced sometime between versions 2.3.2 and 2.4.2.
+
+SLIVR works on Linux for all these versions and a fix for OSX has been submitted to latest trunk. The corruption occurs on both platforms.
+
+Reproduce: just create a volume render using SLIVR then change to Splatting or 3D Texturing."
+1161,Pending,VisIt,Bug,Low,render window does not show up in dock (OSX),"","","",Cameron Christensen,08/09/2012,"",0,"",08/09/2012 04:40 pm,08/15/2012 03:12 pm,5 - Always,2 - Minor Irritation,2.3.2,"","",OSX,Any,"Around version 2.3.2, the main render window stopped showing up in the dock or being accessible by CMD-tab (or CMD-` as an associated application window).
+
+This is an annoyance for users with multiple windows open.
+
+The ideal behavior would be for all VisIt application windows to be switchable using CMD-`, but even the old behavior of having the rendering windows show up separately in the dock (as if it were another application entirely) is preferable to the current state where it is only accessible by uncovering it and clicking on it directly.
+
+"
+1207,Pending,VisIt,Bug,Low,"Multiple plugins with same name can exist in lists, causing confusion","","","",Rich Cook,10/01/2012,"",0,"",10/01/2012 06:23 pm,10/04/2012 05:24 pm,3 - Occasional,2 - Minor Irritation,2.5.2,"","",All,Any,"When I created version 2.0 of the Miranda reader and built it and installed it in my home directory, I expected it to overshadow the Miranda reader in /usr/gapps/visit, but because the old reader was version 1.0, both appeared in the lists.  
+The result was confusing because the version is not mentioned in error messages or other dialogs.  For example, in the Plugin manager, both are simply listed as ""Miranda"".  Some disambiguation would be helpful.  Also, I saw this dialog when using visit -o data/plot.mir:  ""VisIt: Warning - Multiple file format reader plugins (Miranda, Miranda, and RAW) matched the filename and would have been able to successfully open the file.""  etc. 
+"
+1218,Expired,VisIt,Bug,Normal,Movie Maker template,"","","",Daniel Smith,10/17/2012,"",0,"",10/17/2012 06:47 pm,05/07/2015 06:50 pm,5 - Always,3 - Major Irritation,2.5.2,"","",All,Any,"when I attempt  to create a movie using any of the save movie wizard templates i receive the following error: /homes/dasmith/Desktop/VisIt.app/Contents/Resources/bin/visit -movie -v 2.5.2 -format ppm -geometry 643x579 -output ""/homes/dasmith/visit sessions/test videos/video2/4screenmovie"" -fps 10 -start 0 -end 55 -templatefile current.opt -psn_0_1163548 
+
+
+This is using a mac os x version 10.6.8"
+1323,Pending,VisIt,Bug,Normal,visit does not honor multiple paths in LIBPATH,"","","",Frank L�ffler,01/24/2013,"",0,"",01/24/2013 11:48 am,02/19/2013 04:15 pm,5 - Always,3 - Major Irritation,2.5.0,"","",All,Any,"Problem: visit does not honor multiple paths in LIBPATH, deliminated by colons "":""
+
+I found this in 2.5.0, but the code seems to have not changed in that regard in 2.6.0 (but I didn't try).
+
+A patch is applied. It splits LIBPATH and tries all parts in order, returning the first successful find of the visit python module. It applies to 2.5.0, but the change is so minor that it could be done by hand if need be (if it doesn't apply cleanly to the svn-version to which I don't have access)."
+1329,Pending,VisIt,Bug,Low,"Changing background color, ""parallel rendering"" text switches color early","","","",Casey Stark,02/01/2013,"",0,"",02/01/2013 05:14 pm,02/19/2013 04:02 pm,3 - Occasional,1 - Not Serious,2.6.0,"","",OSX,Any,"I was updating a volume rendering that was using parallel rendering. When I switched the background color from black to white, the ""waiting for parallel rendering"" text switched to black before the image updated, so I couldn't see it. Once the image updates to a white background, the black text is fine. The only fix is to leave the text color the same until the background color switch is done."
+1339,Pending,VisIt,Bug,Normal,How do I track why VisIt fails to start?,"","","",Sergiy Bubin,02/15/2013,"",0,"",02/15/2013 07:13 pm,03/06/2013 12:28 pm,3 - Occasional,4 - Crash / Wrong Results,2.5.2,"","",Linux,Any,"Hi,
+I have been using Visit 2.5.2 and 2.3.2 and they both worked fine on my Kubuntu 12.04 64-bit machine. Then some time ago I started getting the following:
+
+Running: gui2.5.2
+Running: viewer2.5.2 -host 127.0.0.1 -port 5600 -geometry 1285x1163+635+0 -borders 24,8,8,8 -shift 8,24 -preshift 0,0 -defer
+Running: mdserver2.5.2 -host 127.0.0.1 -port 5601
+Aborted (core dumped)
+
+The VisIt sceen appears for a short time but then it closes. Where do I look to find out why exactly it fails to start?
+The executables for both versions I have been using were downloaded from VisIt's website (Ubuntu 11.04, ubuntu1104-64.llnl.gov 2.6.38-8-generic #42-Ubuntu SMP, gcc 4.5.2), I did not compile them.
+
+Thanks,
+Sergiy"
+1349,Pending,VisIt,Bug,Normal,BOV database plugin - fix for large file support on Linux,"","","",Sebastian Ohlmann,02/25/2013,"",50,"",02/25/2013 05:09 am,06/19/2013 03:04 pm,3 - Occasional,4 - Crash / Wrong Results,2.6.0,"","",Linux,Any,"The BOV reader plugin under Linux cannot handle file offsets larger than 2GB. This is due to the use of fseek, which in turn uses only a long int (32 bit) for the offset. 
+The solution is to use under Linux the functions fseeko or fseeko64, which use (depending on the comiler options) off64_t (or off_t), thus enabling large file support.
+
+The fix consists in using the macro definition FSEEK and defining it to be fseeko64 for linux, see attached patch file."
+1350,Pending,VisIt,Bug,High,Opacity in mesh plots using scalable rendering,"","","",Trevor Anderson,02/25/2013,"",0,"",02/25/2013 05:06 pm,03/06/2013 07:52 pm,3 - Occasional,4 - Crash / Wrong Results,2.6.0,"","",Linux,Any,"I am running into issues when trying to plot mesh plots with less than 100% opacity while using scalable rendering...
+
+Some objects show through the mesh and some don't... Odd highlighting of some edges and some mesh sections occurs..."
+1383,Pending,VisIt,Bug,Normal,Subset selection nonfunctional,"","","",Patrick Glomski,03/15/2013,"",0,"",03/15/2013 06:58 pm,05/02/2013 12:16 pm,4 - Common,2 - Minor Irritation,2.6.1,"","",All,Any,"I use subset selection in VisIt to show and hide different parts in a VLD file (in parallel). Every time I save and restore the .session file, the selection is restored with everything on. In essence, subset selection is never properly restored under my usage when restoring a .session file. The only way to get around this is to make many of the same plot and use part id thresholding to select ranges of parts that I DO want to see. The session then restores the view properly because I am not using subset selection. However, this is a big PITA if I have a lot of unrelated parts in the model to turn off."
+1576,Pending,VisIt,Bug,Normal,Request to be able to independently disable or control lighting for each plot,"","","",Rich Cook,08/14/2013,"",0,"",08/14/2013 06:49 pm,08/22/2013 02:53 pm,2 - Rare,2 - Minor Irritation,2.6.3,"","",All,Any,"This would be a killer feature and I do not know if it's possible to implement.  But if I could light some objects more strongly than others, my movies would turn out incredibly much better for many purposes.  This level of control would be fantastic.  It's not a ""severe"" issue, in fact it's a feature request.  I don't know how to rate this one. "
+1726,Pending,VisIt,Bug,Normal,silo doesn't build with system qt,"","","",Burlen Loring,02/03/2014,"",0,"",02/03/2014 04:21 pm,02/10/2014 07:53 pm,3 - Occasional,2 - Minor Irritation,2.7.1,"","",All,Any,when running build_visit with the --system-qt the silo step fails. The issue were bad qt includes/libs paths set on its configure line by build_visit. The solution was to remove these configure options and let the configure script locate qt on its own.
+1727,Pending,VisIt,Bug,Normal,build_visit infinite looping in CMake projects,"","","",Burlen Loring,02/03/2014,"",0,"",02/03/2014 04:40 pm,07/07/2014 01:21 pm,3 - Occasional,2 - Minor Irritation,2.7.1,"","",All,Any,"build_visit can cause CMake to go into an infinite loop. I've seen this in both IceT and VTK projects on mac. Apparently, the cause is bv setting
+
+-DCMAKE_CXX_COMPILER=g++ 
+-DCMAKE_C_COMPILER=gcc
+
+when I change those to the full path or 
+
+export C_COMPILER=`which gcc`
+export CXX_COMPILER=`which g++`
+
+in the shell before starting build_visit the issue went away."
+1728,Pending,VisIt,Feature,Low,Add material naming support to VTK database plugin,"","","",Rich Cook,02/03/2014,"",0,"",02/03/2014 06:47 pm,02/10/2014 07:53 pm,"","","",2 - Low,4 - Common,All,Any,"It would be very nice to have the ability to add material sets to a VTK file that understand the names of the materials in them.  
+
+
+On Feb 3, 2014, at 3:21 PM, ""Biagas, Kathleen"" <biagas2@llnl.gov>
+ wrote:
+
+Thanks Rich, can you enter a ticket into our tracking system?  You could then assign it to yourself.
+Our tentative release for VisIt 2.8 is May, so that may get a good target version.
+ 
+Some ideas on implementation off the top of my head:
+ 
+Perhaps ‘material_names’ as a non-cell/non-point associated FIELD  array (stored before the POINTS or COORDINATE arrays in an ascii vtk file).
+ 
+We would need to know how to associate with material ‘id’.  I don’t think we should assume that materials id’s start with 0 and increase incrementally by 1 J  So we would probably need another array that associates material_names index with material ‘id’.
+ 
+Though I’ve never stored ‘strings’ in a vtk file (or at least haven’t attempted it in a very long while).
+ 
+Kathleen
+ 
+ 
+ 
+ 
+From: Cook, Rich [mailto:cook47@llnl.gov] 
+Sent: Monday, February 03, 2014 3:09 PM
+To: VisIt Developers
+Subject: Re: [visit-developers] material in a vtk file?
+ 
+Do you think adding such a mechanism would be difficult?  
+I might be doing more in the VisIt development space in the near-ish future, maybe this is a good project for me to look at.  I'll place it in my queue for a month or three down the road… 
+-- Rich 
+ 
+On Feb 3, 2014, at 3:02 PM, ""Biagas, Kathleen"" <biagas2@llnl.gov>
+ wrote:
+
+
+Nope, only if the name is ‘material’ or ‘avtSubsets’.
+ 
+Kathleen
+ 
+ 
+From: Miller, Mark C. [mailto:miller86@llnl.gov] 
+Sent: Monday, February 03, 2014 2:58 PM
+To: VisIt Developers
+Subject: Re: [visit-developers] material in a vtk file?
+ 
+Actually, In looking at the VTK reader's source code, it looks like it may attempt to load any VTK data array that is cell centered, of type VTK_INT and one component as an avtMaterial thingy.
+ 
+Mark
+ 
+ 
+From: <Biagas>, Kathleen <biagas2@llnl.gov>
+Reply-To: VisIt Developers <visit-developers@elist.ornl.gov>
+Date: Monday, February 3, 2014 2:32 PM
+To: VisIt Developers <visit-developers@elist.ornl.gov>
+Subject: Re: [visit-developers] material in a vtk file?
+ 
+Hi Rich,
+ 
+I may be wrong, but it doesn’t look like we currently support mapping of material names from a VTK file.
+ 
+Kathleen
+ 
+From: Cook, Rich [mailto:cook47@llnl.gov] 
+Sent: Monday, February 03, 2014 2:27 PM
+To: VisIt Developers
+Subject: Re: [visit-developers] material in a vtk file?
+ 
+How then to assign meaning to each material value?  For example, make 0=""NOVALUE"", 10=""PPP"", 11=""PPM"", etc...
+Thanks
+-- Rich 
+ 
+On Feb 3, 2014, at 2:24 PM, ""Biagas, Kathleen"" <biagas2@llnl.gov>
+ wrote:
+
+
+
+
+Hi Rich,
+ 
+I think you can simply name the scalar ‘material’.
+ 
+Kathleen
+ 
+From: Cook, Rich [mailto:cook47@llnl.gov] 
+Sent: Monday, February 03, 2014 2:18 PM
+To: VisIt Developers
+Subject: [visit-developers] material in a vtk file?
+ 
+Folks, 
+Is there a way to specify a material in a VTK file for VisIt?  I am writing a scalar to a vtk file that is properly interpreted as an integer where each value has a meaning which fits the notion of ""material"" well, even though it isn't. Right now I just make it a scalar field. 
+Can this be done?  
+thanks. 
+"
+1748,Pending,VisIt,Bug,Low,Can no longer include special characters in VisIt Text Annotation - since VisIt 2.7.0,"","","",Matthew Wheeler,02/24/2014,"",0,"",02/24/2014 11:14 am,03/25/2014 12:41 pm,2 - Rare,2 - Minor Irritation,2.7.0,"","",Linux,Any,"The ability to produce certain special characters such as � (mu) seems to have
+disappeared with VisIt 2.7.0 (which moved to VTK 6.0), and in later versions.
+
+With VisIt 2.6.3 and before, there were a few different ways to get certain
+special characters (32-255) into a Text Annotation.
+
+
+e.g.
+
+1) In a Python script using the hex representation of the character.
+   (see for example xfd)
+
+      Txt2D = CreateAnnotationObject(""Text2D"")
+      Txt2D.text = ""size 10\xb5m""
+
+    would produce:
+
+      size 10�m
+
+
+2)  You could also get the same result using a Unicode specification:
+
+      TxtU2D = CreateAnnotationObject(""Text2D"")
+      TxtU2D.text = ""size 10""+  u'\N{MICRO SIGN}'.encode('latin-1') + ""m""
+
+
+3)  Using a combination of keystrokes to type in the special character:
+
+    On my keyboard at least, I can get mu by typing the right hand AltGr and m
+        -> �
+
+    This character can either be:
+
+    3a) Typed directly into the Text field of an Annotation Object.
+
+      or:
+
+    3b) Typed into a script.
+        (Note however that you then also need to put a special encoding comment
+        into the top of the script so that the Python pre-processor will 
+        interpret the source file correctly.)
+
+      # -*- coding: latin-1 -*-
+        ...
+      TxtM2D = CreateAnnotationObject(""Text2D"")
+      TxtM2D.text = ""size 10�m""
+
+
+With the newer versions of VisIt (2.7.0 onwards), whatever method you use,
+the special character just seems to get filtered out and the string closes up.
+
+(With a future development version, the whole string seems to disappear if a
+special character is found in it)
+
+We are wondering if the ability was lost with the move to VTK 6.0.
+(Could it be as simple a some extra configuration flag ?)
+
+"
+1905,Pending,VisIt,Bug,Normal,test diff.py Skipped,"","","",Burlen Loring,07/09/2014,"",0,"",07/09/2014 04:10 pm,08/26/2014 04:32 pm,3 - Occasional,3 - Major Irritation,trunk,"","",All,Any,"the databases diff.py test is skipped everywhere. It needs to be updated to work with newer testsuite, and or dependency scripts moved into cli. See the following conversation from VisIt Developers list:
+
+
+Hi  Burlen,
+
+It runs visit in “-diff” mode & relies on some paths that wouldn’t work for out of source builds. 
+
+Because it was an odd test --  when I switched the test suite to python it didn’t fully survive. I am sure we could resurrect it.
+
+ However, the “-diff” mode really just leverages a fancy python script.  I have long felt we should support what it does as part of the main visit python module. 
+
+
+-Cyrus
+
+On Jul 9, 2014, at 11:07 AM, Burlen Loring <bloring@lbl.gov> wrote:
+
+> Hi All,
+>
+> I'm looking into the test failures reported on cdash. The database diff test is failing. The test report shows that python functions it needs aren't loaded. The test source indicates that it needs a special command line to run. This test is skipped on edge. What's the story with this test? Did it ever run? Why is it disabled? Is it worth reviving?
+>
+> Thanks
+> Burlen
+"
+1913,Pending,VisIt,Bug,Normal,QT 4 regression on OS X,"","","",Josef N,07/21/2014,"",0,"",07/21/2014 02:49 pm,08/26/2014 04:30 pm,3 - Occasional,3 - Major Irritation,2.7.3,"","",All,Any,"I get the exact same error as described in the ticket below when launching VisIt 2.7.3 on OS X 10.9.4. By the looks of it, it's fixed in QT 5.x but QT 4.x won't be patched.
+
+<pre>
+2014-07-21 04:10:26.249 gui[78874:507] modalSession has been exited prematurely - check for a reentrant call to endModalSession:
+</pre>
+
+Details can be found here: https://bugreports.qt-project.org/browse/QTBUG-37699"
+1927,Pending,VisIt,Bug,Normal,Undrawn plot refreshes with Libsim,"","","",Josef N,07/27/2014,"",0,"",07/27/2014 02:35 am,08/26/2014 04:24 pm,2 - Rare,4 - Crash / Wrong Results,2.7.3,"","",All,Any,"Connecting to a running simulation using Libsim with auto-update enabled, I can add plots but I can't change the settings the plots or their underlying operators like slices, because when VisIt is alerted of a new time-slice being completed, it resets the settings UI - _even for plots that are not yet drawn_! The behaviour makes some sense for plots that are actually being drawn every time slice, but having the option to properly configure a _new_ plot _before_ drawing without getting interrupted by the time slices would make a lot more sense, regardless of whether the simulation is running and auto-updating or not.
+
+Of course, this can be circumvented by halting the simulation, plotting and then starting the simulation again, but it feels rather tedious and un-intuitive."
+1928,Pending,VisIt,Bug,Normal,VisItUI_clicked requires ControlCommandCallback ,"","","",Josef N,07/28/2014,"",0,"",07/28/2014 01:45 am,08/26/2014 04:23 pm,3 - Occasional,4 - Crash / Wrong Results,2.7.3,"","",All,Any,"I'm not using stdin/sockets instead passing -1 to VisItDetectInput, and I'm only using the custom UI using my own .ui-file. Though binding VisItUI_clicked should be enough on its own, to trigger the events, I need to create a ""dummy"" of ControlCommandCallback, for example as follows:
+
+<pre>
+void ControlCommandCallback(const char *cmd, const char *args, void *cbdata)
+{
+    simulation_data *sim = (simulation_data *)cbdata;
+}
+
+/* Later setting callback... */
+VisItSetCommandCallback(ControlCommandCallback, (void*)&sim);
+</pre>
+
+So, by commenting out VisItSetCommandCallback, VisItUI_clicked-callbacks no longer work. Not knowing this makes debugging time consuming, and it doesn't make sense to a regular developer."
+1929,Pending,VisIt,Bug,Normal,VisItSaveWindow saves blank images,"","","",Josef N,07/28/2014,"",0,"",07/28/2014 02:23 am,08/26/2014 04:23 pm,3 - Occasional,4 - Crash / Wrong Results,2.7.3,"","",All,Any,"Using the example code by Brad Whitlock to automatically save images in-situ actually saves blank images.
+
+An example snippet below, VISIT_IMAGEFORMAT_JPEG behaves the same way.
+
+<pre>
+if(sim->savingFiles) {
+    char filename[100];
+    sprintf(filename, ""sim_%04d.png"", sim->time_step++);
+    if(VisItSaveWindow(filename, 1024, 1024, VISIT_IMAGEFORMAT_PNG) == VISIT_OKAY)
+        message(""Saved %s\n"", filename);
+    else
+        message(""The image could not be saved to %s\n"", filename);
+}
+</pre>
+
+Realized that others have had the problem before me. Further discussion between Marc Buffat and Brad Whitlock in this thread: http://visitusers.org/forum/YaBB.pl?num=1399897912"
+1937,Pending,VisIt,Bug,Normal,"VisIt.app not in PATH, OS X","","","",Josef N,08/02/2014,"",0,"",08/02/2014 01:20 pm,08/26/2014 04:23 pm,2 - Rare,3 - Major Irritation,2.7.3,"","",All,Any,"It's common for apps on OS X to be installed only by dragging the app to the Applications folder, but VisIt wants to be in the PATH as well (for @visit -env@ calls with Libsim I suspect). I suggest checking if VisIt is in the PATH on the first startup, and if not, the user would be prompted, asking if she would like it added. This is particularly important with Libsim, where connecting to a simulation without adding VisIt to the path first will just cause it to fail (@VisIt did not connect: Failed to open the VisIt library: (null)@). This is tested and verified on 2.7.3 and a 2.8.0b trunk snapshot from yesterday running on OS X 10.9.4.
+
+Personally I just added VisIt to /etc/paths, but it may not need to be that invasive, likely using bash_profile will work as well, on a user-level instead of globally.
+
+These seemingly small things can take quite a while to figure out for an uninitiated developer (took me a little while), as the error doesn't exactly say ""go add VisIt to your path!"" but rather something obscure you can't make out the reason of."
+1953,Pending,VisIt,Bug,Normal,Building Libsim in a cluster fails,"","","",Josef N,08/19/2014,"",0,"",08/19/2014 10:52 pm,08/28/2014 12:13 pm,2 - Rare,3 - Major Irritation,trunk,"","",Linux,Any,"There are build issues with QCLucene when I'm trying to deploy Libsim with MPI in a cluster running Linux 2.6 on the Lustre file system.
+
+Jeremy Meredith did the following to get around the issue, which luckily worked for me too:
+- when the Qt build fails, cd into the Qt directory and type ""make install""
+- this appears to immediately start putting the libraries in the installation location even though the build ""failed""
+- as soon as it's put the libQCLucene stuff into the installation location, kill the build
+- now type ""make"", and it will finish building successfully
+- and when it's done, type ""make install"" and it will finish installing
+
+Jeremy Meredith solution URL: https://elist.ornl.gov/pipermail/visit-users/2010-November/008541.html
+My investigation in the forum, with logs and further details: http://visitusers.org/forum/YaBB.pl?num=1408499307"
+1958,Pending,VisIt,Bug,High,Using --parallel with OpenMPI,"","","",Josef N,08/22/2014,"",0,"",08/22/2014 01:54 pm,08/28/2014 12:11 pm,3 - Occasional,3 - Major Irritation,trunk,"","",All,Any,"Using --parallel with OpenMPI, the build script successfully locates mpicc and writes the following to the site config:
+
+<pre>
+##
+## Parallel Build Setup.
+##
+VISIT_OPTION_DEFAULT(VISIT_PARALLEL ON TYPE BOOL)
+## (configured w/ mpi compiler wrapper)
+VISIT_OPTION_DEFAULT(VISIT_MPI_COMPILER /usr/local/bin/mpicc TYPE FILEPATH)
+</pre>
+
+The build passes, but crashes at runtime with OpenMPI, despite compiled with OpenMPI wrappers using --parallel. This issue is described in ParallelPorting on the Wiki, but is kind of confusing given the automatic option --parallel.
+
+For me it takes quite a while to build VisIt on my local machine (even longer for the cluster), and it would have saved me a lot of time both compiling (once instead of twice) and investigating, if the build_script checked if I had OpenMPI and added the following missing lines to begin with:
+
+<pre>
+VISIT_OPTION_DEFAULT(VISIT_MPI_C_FLAGS ""-DOMPI_SKIP_MPICXX"")
+VISIT_OPTION_DEFAULT(VISIT_MPI_CXX_FLAGS ""-DOMPI_SKIP_MPICXX"")
+</pre>
+
+OpenMPI comes with the ompi_info utility, stored in the same directory as mpicc (seemingly by convention, confirmed both on Mac and Linux), which could be used as one indicator of whether the MPI setup warrants the additional lines in the cmake site configuration. By using the same path as the current mpicc, it would also be more likely that the existence of the ompi_util is not a false positive, found elsewhere but not related to the active mpicc.
+
+It might be nasty of me to call this a bug, but I believe some simple heuristics in the build script could save many of us mere mortals a lot of time in the future."
+1959,Pending,VisIt,Feature,Low,Added VisItUI-functionality,"","","",Josef N,08/26/2014,"",0,"",08/26/2014 07:00 pm,09/09/2014 01:42 pm,"","","",2 - Low,3 - Occasional,All,Any,"Currently, VisItUI_setValue* is only exposing setters I and S for strings and integers. In comparison, VisIt_VariableData_setData* exposes C, I, F, D. It would be nice if there was some feature parity.
+
+Personally I would like to pass a double but can't..."
+1966,Pending,VisIt,Feature,Normal,Allow unstructured meshes of only one geometry,"","","",Josef N,08/27/2014,"",0,"",08/28/2014 12:05 am,09/23/2014 05:06 pm,"","","",3 - Medium,3 - Occasional,All,Any,"It would be nice of unstructured meshes could support a single geometry.
+
+We use tetrahedral meshes (only tetrahedral), thus we store our data as such:
+Vertices: {x,y,z,x,y,z,...}
+Tetrahedrons/connections: {v1,v2,v3,v4,v1,v2,v3,v4,...}
+
+VisIt wants VISIT_CELL_TET for every set of four tetrahedrons causing either an overhead of N/4 elements.
+
+There are two options to get around this:
+- What we currently do: copy the connections and att VISIT_CELL_TET where needed (introduces a memory overhead)
+- Modify our internal representation of the connections to fit VisIt (would make our simulation code platform-dependent and introduces a slight memory overhead)
+
+My guess is that meshes of mixed geometries are far more rare than meshes of only one geometry.
+
+The ideal solution would allow for both mixed geometries and passing a list (such as our list of connections described above) and a single VISIT_CELL_TET passed in a separate variable, which would solve the issues with both options above.
+
+As Brad Whitlock suggests, doing this internally might be a solution, but it would also mask the overhead to the end user. Another option, if possible, would be to implement this in VisIt as well, to truly allow for the connectivity to be passed without memory overhead. 
+
+Briefly discussed here: http://visitusers.org/forum/YaBB.pl?num=1405092511"
+1971,Pending,VisIt,Bug,Normal,Can not launch PySide GUI on Windows,"","","",klo uo,08/28/2014,"",0,"",08/28/2014 11:32 pm,09/24/2014 03:51 pm,3 - Occasional,2 - Minor Irritation,2.7.3,"","",All,Any,"Example session:
+
+<pre>
+C:\Programs\LLNL\VisIt 2.7.3>python
+Python 2.7.8 (default, Jun 30 2014, 16:08:48) [MSC v.1500 64 bit (AMD64)] on win32
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+>>> import sys
+>>> sys.path.append('c:/Programs/LLNL/VisIt 2.7.3/lib/site-packages')
+>>> import visit
+>>> visit.LaunchPySide()
+ERROR: Could not execute VisIt to determine proper env settings!
+Is VisIt in your shell's PATH?
+False
+>>>
+</pre>
+
+This doesn't show PySide window, however calling ""visit.LaunchPySide()"" launches ""visit.exe"" and ""mdserver.exe"" processes which eats whole CPU core doing apparently nothing. Eating thread has this address: ""MSVCR90.dll!endthreadex+0x64""
+
+It could be that VisIt 2.7.3 includes a custom Python 2.7.5 distribution that was compiled with Visual Studio 2010, while official Python and modules on my system Python are build with Visual Studio 2008.
+
+
+OTOH, if I open my system Python interpreter in other location then visit's root folder, I get this exception:
+
+<pre>
+>>> visit.LaunchPySide()
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""c:/Programs/LLNL/VisIt 2.7.3/lib/site-packages\visit\frontend.py"", line 91, in LaunchPySide
+    ret = pyside_support.LaunchPyViewer(args)
+  File ""c:/Programs/LLNL/VisIt 2.7.3/lib/site-packages\visit\pyside_support.py"", line 117, in LaunchPyViewer
+    pyside_hook.SetHook()
+NameError: global name 'pyside_hook' is not defined
+</pre>
+
+which I guess happens because ""c:\Programs\LLNL\VisIt 2.7.3\lib\site-packages\visit\pyside_hook.pyd"" is linked to ""c:\Programs\LLNL\VisIt 2.7.3\shiboken-python2.7.dll"" and it could not be found regardless if I insert VisIt's root folder to sys.path or if I append the folder to system PATH.
+"
+1974,Pending,VisIt,Feature,Low,Single window mode,"","","",Josef N,09/07/2014,"",0,"",09/07/2014 01:24 pm,09/24/2014 03:51 pm,"","","",4 - High,5 - Always,All,Any,"A single window mode would be very nice. Although it's not a visualization tool Photoshop could serve as a very neat example, with its dark shading also being very easy on the eyes. GIMP has followed suit and among other image processing tools like Pixelmator it's one of the most requested features.
+
+If several plots are visualized, a tabbed view could be used, rather than keeping multiple windows open. This would also make window handling easier and more consistent across platforms, avoiding bugs like http://visitbugs.ornl.gov/issues/1840."
+1980,Pending,VisIt,Feature,Normal,call usleep(..) inside VisItDetectInputWithTimeout(..),Mark Miller,"","",Jens Henrik Goebbert,09/11/2014,"",0,"",09/11/2014 11:07 am,09/24/2014 03:49 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Hi VisIt,
+
+I am using VisIt for In-Situ Visualization via libsimV2 (thanks for that great feature).
+
+A call of VisItDetectInputWithTimeout(1,0,-1) for blocking mode results in 100% cpu load of each mpi process.
+Internally VisIt is probably running an busy-wait loop and to test for new input.
+
+I would love to see a 4th parameter to that function with the millisecounds to wait after each loop.
+This way the 100% can be dropped dramatically ... any chance for that?
+
+Best
+Jens Henrik
+"
+2061,Pending,VisIt,Bug,Normal,Central meridian produces overlapping geometry in cartographic projection operator,"","","",Pavol Klacansky,11/14/2014,"",0,"",11/14/2014 10:45 am,11/19/2014 01:29 pm,3 - Occasional,2 - Minor Irritation,2.8.1,"","",All,Any,"If the central meridian setting is used, the connectivity of points is kept, but the location is changed.
+The common case is when the points on the far left are moved to the right without updating underlying triangulation.
+I have built prototype in Python using Delaunay triangulation in VTK to recreate geometry from the points, however
+I do not know how to do the same in the operator.
+
+The patch submitted resolves the issue with dividing by inf in the rescaling (if some points are projected on the boundry).
+http://visitusers.org/forum/YaBB.pl?num=1395159825/0"
+2123,Pending,VisIt,Bug,High,Unable to set data file format with RestoreSessionWithDifferentSources  ,"","","",Amit Chourasia,01/26/2015,"",0,"",01/26/2015 06:33 pm,02/17/2015 04:26 pm,4 - Common,2 - Minor Irritation,2.7.1,"","",All,Any,"When using RestoreSessionWithDifferentSources method in python script, VisIt errors out complaining that it cannot open the file using SILO, Plain readers.
+A discussion about this issue is located here   https://elist.ornl.gov/pipermail/visit-users/2015-January/016938.html
+
+It would be nice to have a way to provide the file format/plugin like in OpenDatabase method
+
+Specifically, SetPreferredFileFormats method is does not override defaults and VisIt continues to use 'SILO' with RestoreSessionWithDifferentSources method
+
+There are three potential solutions 
+a)  add an ability to specify assume_format argument in RestoreSessionWithDifferentSources method
+b) make SetPreferredFileFormats method work with RestoreSessionWithDifferentSources 
+c) add a new method SetFileFormat which adds the provided format as the first format that VisIt will try
+
+As a work around I am passing -assume_format 'NETCDF' at command line % visit -cli -assume_format 'NETCDF' -s render.py
+
+Additionally, provide an ability to set the data path as wild card in RestoreSessionWithDifferentSources method? Looks like one can provide multiple files as a tuple, but why not allow wildcards also, as they seem to be used in .session files internally
+
+
+
+
+
+
+
+
+"
+2129,Pending,VisIt,Feature,High,Write and import custom color maps to session files,"","","",Amit Chourasia,02/05/2015,"",0,"",02/05/2015 12:29 pm,02/17/2015 04:24 pm,"","","",4 - High,3 - Occasional,All,Any,"Often custom color maps are used in various visualizations. 
+Taking these color maps from one machine to another is painful, specially to clusters, where the .visit home directory may not be accessible from compute nodes during batch style rendering.
+
+Two features are recommended for addition
+a) Write custom color maps to session file. (Like it is done with expressions)
+b) Add an option to import color maps in Controls > Color Table (Why not, as all other widgets allow, saving/loading/reset) "
+2267,Pending,VisIt,Bug,Normal,segfault in GetHomeDirectory(),"","","",Jens Henrik Goebbert,05/09/2015,"",0,"",05/09/2015 01:37 pm,05/12/2015 06:28 pm,3 - Occasional,2 - Minor Irritation,2.8.2,"","",All,Any,"Hi VisIt developer,
+
+on BlueGene/Q VisIt/libsimV2 crashes on initialization in line 1469 of file VisItControlInterface_V2.c.
+This seems to be because $HOME is not set and getpwuid(getuid()) returns an empty struct.
+
+Best,
+Jens Henrik
+
+1460 #else
+1461     const char *home = NULL;
+1462 
+1463     LIBSIM_API_ENTER(GetHomeDirectory);
+1464     home = getenv(""HOME"");
+1465     if(home == NULL)
+1466     {
+1467         struct passwd *users_passwd_entry = NULL;
+1468         users_passwd_entry = getpwuid(getuid());
+1469         home = users_passwd_entry->pw_dir;
+1470     }
+1471     LIBSIM_API_LEAVE1(GetHomeDirectory, ""homedir=%s"", home);
+1472 
+1473     return home;
+1474 #endif
+"
+2282,Pending,VisIt,Bug,Normal,Non-ASCII filenames are not properly displayed on file browser,"","","",Lucas Vella,05/25/2015,"",0,"",05/25/2015 06:26 pm,05/26/2015 06:34 pm,3 - Occasional,2 - Minor Irritation,2.8.2,"","",All,Any,"When I click ""Open"" button and browse through files, the non-ASCII characters are displayed incorrectly. Pretty much every modern Linux uses UTF-8 for file name encoding, as well as mine, but the names are being interpreted and rendered as Latin1 (ISO-8859-1). So, if I have a file named 'sa�da_visualiza��o.vtk', it is displayed by Visit as 'saída_visualização.vtk'. Not only on file browser, but the wrong name is displayed in error messages as well. This is the output when I tried to open an empty file named 'sa�da_visualiza��o.vtk':
+
+VisIt could not read from the file ""/home/lvella/saída_visualização.vtk"".
+
+The generated error message was:
+
+There was an error opening /home/lvella/saída_visualização.vtk. It may be an invalid file.
+VisIt tried using the following file format readers to open the file: VTK, Silo
+
+If you know the specific format reader VisIt should use to
+read this data, you can use Open As... (GUI) or
+'-o <file>,<plugin> (CL arg.) and identify that specific reader
+for VisIt to try. This will possibly give more information on
+the exact error."
+2396,Pending,VisIt,Bug,High,Incorrect rendering of arbitrary polyhedral meshes,"","","",Daryl Hawkins,09/25/2015,"",0,"",09/25/2015 11:54 am,10/08/2015 01:30 pm,3 - Occasional,3 - Major Irritation,2.9.2,"","",All,Any,"We are generating a polyhedral mesh that's a polygonal mesh extruded in the third dimension.  If we write a ucd mesh using silo's DBPutZonelist2 method, VisIt fails to correctly render polyhedra with more than 6 sides.  We always end up with missing mesh lines.  If, instead of DBPutZonelist2, we use DBPutPHZonelist, the 3D mesh rendering looks correct, but a 2D slice includes extra internal structure that shouldn't be there.  Looking at the internal mesh reveals what appear to be tetrahedral structures that include vertices that are not part of the true mesh.  It would also appear that some of this structure is being projected onto the 2D slice.  An example silo file is included."
+2431,Pending,VisIt,Feature,Normal,Adaptive Bayesian Binning in Histogram Plots,"","","",Philipp Gast,10/27/2015,"",0,8.0,10/27/2015 06:09 am,10/27/2015 06:49 pm,"","","",3 - Medium,3 - Occasional,All,Any,"Hi Visit-team,
+
+I am going to make heavy use of the histogram plot option from visit. However, I feel a little restricted with the provided options of data binning. As the binning is effectively a smoothing it takes a lot of testing to figure out a good value for it. It would be nice if the code could use an adaptive technique like the one proposed here:
+https://jakevdp.github.io/blog/2012/09/12/dynamic-programming-in-python/
+The link already includes a python example how to implement the requested feature.
+
+Thank you for your time.
+Philipp"
+2442,Pending,VisIt,Bug,Normal,LibsimV2 Fortran-interface is missing hidden arguments,"","","",Jens Henrik Goebbert,11/02/2015,"",0,"",11/02/2015 11:06 am,11/03/2015 07:00 pm,3 - Occasional,2 - Minor Irritation,trunk,"","",All,Any,"Hi everyone,
+
+if one calls a C-function from Fortran and it includes a CHARACTER argument
+Fortran will call that function with an additional hidden argument for the length of the CHARACTER at the end of the argument list
+(as long as you are not using BIND(C), which is part of Fortran2003).
+Example:
+  CHARACTER(len=64) :: name = ""foo""
+  INTEGER :: arg2, arg3
+  [...]
+  call foo_C_function(name, arg2, arg3)
+Required function definition in C-lib:
+  void foo_C_function(char* name, int* arg2, int* arg3, int name_f77len)
+
+Currently this is not considered in the VisIt Fortran interface.
+Hence, with each function call from Fortran to VisIt an additional int is written to the stack, which is not expected. 
+This can lead to unexpected errors, which are hard to track.
+
+It can be solved for all functions defined in visitfortransimV2interface.c easily.
+I attached a fix, which works fine for me. It changes all function definitions expecting on or more CHARACTER arguments in Fortran.
+Example:
+
+FORTRAN
+F_VISITSETDIRECTORY(VISIT_F77STRING dir, VISIT_F77_MIXED_STRLEN(dir) int *ldir VISIT_F77_END_STRLEN(dir))
+
+with VISIT_F77_MIXED_STRLEN and VISIT_F77_END_STRLEN defined in VisItFortran.h like this:
+
+#ifdef USE_VISIT_F77_MIXED_STRLEN
+#define VISIT_F77_MIXED_STRLEN(a)   ,int a ## _f77hiddenlen
+#define VISIT_F77_MIXED_STRLEN_DECL ,int
+#define VISIT_F77_END_STRLEN(a)
+#define VISIT_F77_END_STRLEN_DECL
+#else
+#define VISIT_F77_MIXED_STRLEN(a)
+#define VISIT_F77_MIXED_STRLEN_DECL
+#define VISIT_F77_END_STRLEN(a)     ,int a ## _f77hiddenlen
+#define VISIT_F77_END_STRLEN_DECL   ,int
+#endif
+
+
+This is the common approach for Fortran77 interfaces you can find for example in MPICH:
+http://compbio.cs.toronto.edu/repos/snowflock/mpich-1.2.7/mpid/ch_nt/nt_ipvishm/include/mpidefs.h
+ MPI_GET_PROCESSOR_NAME( char * FORT_MIXED_LEN_DECL, MPI_Fint *, MPI_Fint * FORT_END_LEN_DECL );
+http://sourcecodebrowser.com/mpich2/1.2.1/mpi__fortimpl_8h_source.html
+ #define FORT_MIXED_LEN_DECL, #define FORT_END_LEN_DECL
+
+more:
+ * https://gcc.gnu.org/onlinedocs/gfortran/Argument-passing-conventions.html
+ * Microsoft Fortran adds the argument not at the end, but just after the CHARACTER arg - hence, FORT_MIXED_LEN_* is also provided, but just for completeness."
+2472,Pending,VisIt,Bug,Normal,Sphere Geometry cannot be colored by variable,"","","",Rich Cook,12/07/2015,"",0,"",12/07/2015 05:50 pm,12/15/2015 06:40 pm,2 - Rare,4 - Crash / Wrong Results,2.10.0,"","",All,Any,See attached image.  Why can't I color the spheres?  There is a legend but all spheres are white.  
+2477,Pending,VisIt,Bug,High,Contour Wireframe Plot Error: Database Unknown,"","","",Elizabeth Hicks,12/08/2015,"",0,"",12/08/2015 06:51 pm,12/15/2015 06:48 pm,2 - Rare,3 - Major Irritation,2.10.0,"","",Linux,Any,"When making a contour plot using the wireframe option, I get this error in the plot window:
+
+******************************
+DB: <unknown>
+
+Contour
+Var: temperature
+Unable to compute levels
+******************************
+
+This only happens when I am using large files (13GB each) and lots of wireframe contours (number of contours > 14).  I only get the error in interactive mode (python scripting to produce the same plot works fine).  I only get the error when I use the wireframe option (regular contours plot fine). 
+
+VisIt Version:  VisIt 2.10 on my Linux machine in client-server mode with VisIt 2.9.1 on Cooley at ANL. 
+OS:  My computer is running CentOS 6.6; I'm not sure about Cooley
+Running in Parallel
+Data Type:  Nek5000
+Visit Plots being used: contour plot with wireframes
+
+
+
+
+
+ "
+2480,Pending,VisIt,Bug,Normal,build_visit download-only flag doesn't download PIL and others,"","","",Jim Eliot,12/11/2015,"",0,"",12/11/2015 09:34 am,12/15/2015 06:59 pm,3 - Occasional,2 - Minor Irritation,2.10.0,"","",Linux,Any,"Running build_visit with the --download-only flag doesn't download some optional components, for example PIL.
+
+In a normal build (i.e. without the --download-only flag) these are downloaded later in the build process -- after python has been built. Should these optional components be downloaded at the beginning of the build processes with the rest of the packages?"
+2579,Pending,VisIt,Feature,Normal,Minimal working libsim example using MPI,"","","",Josef N,04/02/2016,"",0,"",04/02/2016 11:46 am,04/06/2016 10:33 am,"","","",3 - Medium,3 - Occasional,All,Any,"The mandelbrot code example is nice to verify that libsim is actually working, but it would be nice with a similar example to execute in parallel as well (to rule out any issues with ones own simulation software). Sometimes in-situ works just fine on one process, but not on several."
+2645,Pending,VisIt,Bug,Normal,Save Window crashes if you have Plots from two platforms displayed,"","","",Matthew Wheeler,07/13/2016,"",0,"",07/13/2016 11:53 am,07/19/2016 07:02 pm,3 - Occasional,4 - Crash / Wrong Results,2.10.2,"","",All,Any,"If you generate a plot from a remote machine in the same Window as a plot from the local machine, the result on screen may look fine but VisIt crashes almost instantly if you try to save the image with ""Save Window"".
+ 
+There are no obvious clues in the -debug logs perhaps because it fails so quickly (SocketLostConnectionException).
+ 
+Use-case: Comparing an experimental image on a local machine with the results of a simulation on a supercomputer.
+
+If both datasets are on the same machine it will work.
+A Save Window using the Screen-Capture option will also generally work.
+
+Further debugging hints at the problem being caused by a NULL ZBuffer.
+(/null pointer dereference)
+
+avtWholeImageCompositeWithZ::Execute
+  calling  GetZBuffer()
+
+One of the images (presumably the remote one) has a NULL ZBuffer.
+
+Further investigation suggests that the problem is related to a couple of previously reported bugs:
+
+VisIt Bug #180
+""SR mode with local geometry crashes after save window""
+
+  and
+VisIt Bug #639
+
+See these for further details.
+
+
+Problem found in VisIt 2.10.2, (and 2.10.3) and there also appear to be related problems in previous versions.
+ 
+"
+2651,Pending,VisIt,Bug,Normal,xdmf join function only supports 10 arguments,"","","",Amos Manneschmidt,07/22/2016,"",0,"",07/22/2016 02:21 pm,07/26/2016 07:29 pm,3 - Occasional,2 - Minor Irritation,2.10.2,"","",All,Any,"If one uses a function dataitem whose function argument is set to ""JOIN( $0 ; $1 ; $2 ; $3 ; $4 ; $5 ; $6 ; $7 ; $8 ; $9 )"" everything works fine.  Try with one more element, IE ""JOIN( $0 ; $1 ; $2 ; $3 ; $4 ; $5 ; $6 ; $7 ; $8 ; $9 ; $10)"" and it won't work at all. This is not documented anywhere as best I can tell and there's nothing in the XDMF spec that say the join function can only handle 10 items. "
+2786,Pending,VisIt,Bug,Normal,Inconsistent output from getQueryString and getQueryObject ,"","","",Philipp Gast,03/17/2017,"",0,"",03/17/2017 09:49 am,04/21/2017 07:26 am,3 - Occasional,4 - Crash / Wrong Results,2.10.3,"","",Linux,Any,"if one does a simple MINMAX Query on some data, the getQueryString and getQueryObject will show a domain ID different by 1:
+@
+>>> Query('MinMax')
+'\nlog_density -- Min = -22.4984 (node 34 in domain 263 at coord <-3.25e+17, 1.875e+16, -286102>)\nlog_density -- Max = -10.437 (node 657 in domain 18159 at coord <2.29536e+17, -286102, 1.14398e+16>)\n\n'
+@
+here the domains are correct: 18159 and 263
+
+@
+>>> GetQueryOutputObject()
+{'min': -22.498430252075195, 'max': -10.436952590942383, 'max_element_num': 657, 'min_coord': (-3.25e+17, 1.875e+16, -286102.294921875), 'max_coord': (2.2953605651855437e+17, -286102.294921875, 1.1439800262451172e+16), 'max_domain': 18158, 'min_element_num': 34, 'min_domain': 262}
+@
+But here they are wrong 18158 and 262...
+We checked this with the PickByNode function.
+
+Thanks."
+2802,Pending,VisIt,Bug,Normal,Unable to read IEEEFP TIFF,Kathleen Biagas,"","",Migle Surblyte,04/06/2017,"",0,"",04/06/2017 04:31 pm,05/30/2017 09:22 pm,3 - Occasional,4 - Crash / Wrong Results,2.12.1,"","",Windows 7,Any,"VisIt is unable to read in IEEEFP TIFF files. It is, however, able to read in the same TIFF files once the bit depth is reduced."
+2856,Pending,VisIt,Bug,Normal,XDMF Reader does not preserve grid names in a spatial collection ,"","","",Andrey Andreyev,06/28/2017,"",0,"",06/28/2017 03:28 pm,07/11/2017 06:56 pm,3 - Occasional,2 - Minor Irritation,2.12.1,"","",All,Any,"Hi all,
+
+I am playing around with the idea of of converting our internal code data format to Xdmf. However, before touching the code, I generated a very simple XDMF grid split up by parts. Visit does not seem to respect the part names and just names them blockxxxx. I loaded the same file into Paraview, and it seemed to read it just fine. Any help would be appreciated. 
+
+Thank you!
+Andrey Andreyev
+andrey.andreyev@corvidtec.com
+
+
+"
+3158,Pending,VisIt,Bug,Normal,Slow reading of CarpetIOHDF5 data in visit 2.13,Mark Miller,"","",Yosef Zlochower,06/12/2018,"",0,"",06/12/2018 11:50 am,06/19/2018 07:00 pm,3 - Occasional,3 - Major Irritation,2.13.0,"","",Linux,Any,"  I was trying to load CarpetIOHDF5 2D data with visit 2.10 and 2.13. I compiled both on an SL7 box using the build_visit scripts with the --hdf5 option. The 2.13 takes much longer to load.
+
+I loaded up files containing 3,4,5,6,7, 10, and 13 timelevels, respectively. I then measured the time it took from hitting the ""OK"" button of the open file dialog until the main window responded. Here's what I found.
+
+For 2.10.3, it takes about a second to open any of the files.
+
+For 2.13 the time seems to increase at least quadratically with  the number of timelevels
+
+# timelevels   #time to load in seconds
+3             5
+4             9
+5             15
+6             25
+7             38
+10            114
+13            220
+
+Any ideas of what could be happening? While I am using the CarpetIOHDF5 data format, these are 2d data sets.
+
+I ran these tests using a Scientific Linux 7 box, but first noticed the problem on a windows 10 machine using the precompiled binaries available on the visit website.
+
+I have data sets that can be used to show the slowdown, but they exceed the 5MB upload limit. You can download them at
+https://drive.google.com/drive/folders/1cDccAQB3UzGM3menKDeeXdeeArrELcO6?usp=sharing
+"

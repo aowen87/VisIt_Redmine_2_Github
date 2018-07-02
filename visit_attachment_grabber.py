@@ -67,7 +67,7 @@ if __name__ == "__main__":
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    base  = "https://visitbugs.ornl.gov"
+    base = "https://visitbugs.ornl.gov"
 
     for issue in range(start, stop): 
         html        = "%s/issues/%i" % (base, issue)
@@ -84,4 +84,5 @@ if __name__ == "__main__":
             url   = "%s%s" % (base, ref)
             urllib.urlretrieve(url, out_f)
 
+    print "FINISHED GRABBING ATTACHMENTS!"
     

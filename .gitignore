@@ -3,3 +3,6 @@ authentication.py
 *.swp
 .nfs*
 migration.out
+attachments/*
+*.out
+redmint_attachments.tar
