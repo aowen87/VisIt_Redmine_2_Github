@@ -45,6 +45,39 @@ def invalid_assignee(response):
     return False
     
 
+def close_milestones(milestones, number_map, attempts=0):
+    """
+    """
+    for ms in milestones:
+        url = 'https://api.github.com/repos/%s/%s/milestones/%s' % (REPO_OWNER, 
+            REPO_NAME, number_map[ms])
+        session = requests.Session()
+        session.auth = (USERNAME, PASSWORD)
+        issue = {'state': 'closed'}
+
+        sleep(SHORT_WAIT)
+        response = session.post(url, json.dumps(issue, encoding='latin1'))
+        if response.status_code == 200:
+            print 'Successfully close milestone "%s"' % ms
+        else:
+            print 'ERROR: Could not close milestone "%s"' % ms
+            print 'Response:', response.content
+
+            if exceeded_limit(response):
+                if attempts >= MAX_ATTEMPTS:
+                    print "ERROR: reached maximum attempts. Exiting..."
+                    exit(1)
+                #
+                # Github only allows a certain amount of 
+                # contact before it needs some space. 
+                #
+                print "Attempting to wait out the block..."
+                print "Will try again in %i seconds" % LONG_WAIT
+                sleep(LONG_WAIT)
+                close_milestones([ms], 
+                                 number_map, 
+                                 attempts + 1)
+    
 
 def milestone_is_open(ms):
     """
@@ -367,6 +400,7 @@ def migrate_issues(csv_path,
     fin_mile_s     = []
     mile_s_numbers = {}
     seen_tickets   = []
+    closed_ms      = []
 
     body_template = ("%s\n\n\n\n"
          "-----------------------REDMINE MIGRATION-----------------------\n"
@@ -400,9 +434,13 @@ def migrate_issues(csv_path,
                 for row in reader:
                     mile_s.extend(extract_milestones(row, fin_mile_s))
                     fin_mile_s.extend(mile_s)
+                #FIXME: close milestones last (after entire migration). Otherwise, 
+                #       ticket's can't seem to be associated with them.  
                 for ms in mile_s:
-                    state = 'open' if milestone_is_open(ms) else 'closed'
-                    mile_s_numbers[ms] = create_github_milestone(ms, state)
+                    #state = 'open' if milestone_is_open(ms) else 'closed'
+                    if not milestone_is_open(ms):
+                        closed_ms.append(ms)
+                    mile_s_numbers[ms] = create_github_milestone(ms, 'open')
                 print "Finished ceating milestones!"
 
             if do_tickets:
@@ -428,7 +466,6 @@ def migrate_issues(csv_path,
 
                     closed      = ["Rejected", "Resolved", "Expired"]
 
-                    #FIXME: this needs uncommenting once accounts are added to git. 
                     if ignore_assignees:
                         assignees = []
                     else:
@@ -463,6 +500,9 @@ def migrate_issues(csv_path,
 
                 print "Finished creating tickets!"
     print "Finished all files in: %s" % csv_path
+    print "Closing appropriate milestones"
+    close_milestones(closed_ms, mile_s_numbers)
+    print "FINISHED!"
 
 
 if __name__ == '__main__':
