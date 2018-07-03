@@ -17,6 +17,7 @@ from contextlib import closing
 from bs4 import BeautifulSoup
 import urllib
 import re
+import json
 
 def simple_get(url):
     """
@@ -87,17 +88,22 @@ if __name__ == "__main__":
             issue_comments[issue] = []
 
         comments = html_parser.findAll('div', {'id': 'history'})
-        changes  = comments[0].findAll('div', {'id' : re.compile('change-*')})
+        
+        if len(comments) > 0:
+            changes  = comments[0].findAll('div', {'id' : re.compile('change-*')})
 
-        for change in changes:
-            para = change.findAll('p') 
-            full = ""
-            for each in para:
-                full += each.text.encode('utf-8')
-            if full != "":
-                issue_comments[issue].append(full)
+            for change in changes:
+                para = change.findAll('p') 
+                full = ""
+                for each in para:
+                    full += each.text.encode('utf-8')
+                if full != "":
+                    issue_comments[issue].append(full)
 
-
+    out_f = os.path.join(out_dir, "comments.json")
+    with open(out_f, "w") as outf:
+        json.dump(issue_comments, outf)
+    
     #for key in issue_comments:
     #    print "issue: ", str(key)
     #    print "comments: "
