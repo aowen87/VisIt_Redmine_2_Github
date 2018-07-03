@@ -1,9 +1,0 @@
-#,Status,Project,Tracker,Priority,Subject,Assigned to,Category,Target version,Author,Start,Due date,% Done,Estimated time,Created,Updated,Likelihood,Severity,Found in Version,Impact,Expected Use,OS,Support Group,Description
-273,Developer Review,VisIt,Bug,Normal,crash in vtkPNGWriter::WriteSlice at large image size,"","","",Paul Navratil,07/08/2010,"",0,"",07/08/2010 01:58 pm,07/21/2010 01:30 pm,5 - Always,4 - Crash / Wrong Results,2.0.1,"","",Linux,Any,"When saving a large (> 2K) image in PNG format, the viewer crashes.  A backtrace shows the crash is happening in vtkPNGWriter::WriteSlice.  The issue appears to be unique to PNG, as other formats can be saved at high resolution (4K tested) without issue.
-
-"
-903,Resolved,VisIt,Bug,Urgent,contour transparency/opacity broken in 2.4.0,"","","",Paul Navratil,11/23/2011,"",0,"",11/23/2011 03:55 pm,04/03/2014 11:48 am,3 - Occasional,4 - Crash / Wrong Results,trunk,"","",Linux,Any,"version 2.4.0 isn't a selection yet, so selecting 'trunk'
-
-This happens on a trivial dataset for my builds of 2.4.0 on both TACC lonestar and longhorn systems.  I create a contour plot with three value surfaces and set the outer two to 25% opacity (the third is at 100%) and in the plot, all three contours are at 100% opacity.
-
-Pictures attached of 2.4.0 behavior and 2.3.0 (correct) behavior"
