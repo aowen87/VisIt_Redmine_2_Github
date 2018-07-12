@@ -19,8 +19,8 @@ import random
 import argparse
 from authentication import *
 
-#FIXME: create a limit checker?
-#       once limit is about to be exceeded, wait. 
+#TODO: create a limit checker?
+#      once limit is about to be exceeded, wait. 
 
 
 SHORT_WAIT    = 3
@@ -30,6 +30,10 @@ BLOCK_FLAGS   = ["temporarily blocked from content", "API rate limit exceeded"]
 
 
 def exceeded_limit(response):
+    """
+        Check an API response from github to determine if we've 
+        exceeded our communication limit. 
+    """
     for flag in BLOCK_FLAGS:
         if flag in response.content: 
             return True
@@ -37,16 +41,77 @@ def exceeded_limit(response):
 
 
 def invalid_assignee(response):
+    """
+        Determine if an API response notifies us that our
+        assignee is invalid. 
+    """
     errors = json.loads(response.content)["errors"]
     field  = errors[0]["field"]
     code   = errors[0]["code"]
     if "assignees" in field and "invalid" in code:
         return True
     return False
-    
+
+
+def create_redmine_tag(row, comment_map):
+    """
+        Create a tag which contains all information from the
+        original redmine ticket. 
+        Note: attachments can't be added through the git API, 
+        so they are not included in this. 
+    """
+    template = ("\n\n\n\n"
+         "-----------------------REDMINE MIGRATION-----------------------\n"
+         "This ticket was migrated from Redmine. As such, not all \n"
+         "information was able to be captured in the transition. Below is\n" 
+         "a complete record of the original redmine ticket.\n"
+         "\n"
+         "Ticket number: %s\n"
+         "Status: %s\n"
+         "Project: %s\n"
+         "Tracker: %s\n"
+         "Priority: %s\n"
+         "Subject: %s\n"
+         "Assigned to: %s\n"
+         "Category: %s\n"
+         "Target version: %s\n"
+         "Author: %s\n"
+         "Start: %s\n"
+         "Due date: %s\n"
+         "%% Done: %s\n"
+         "Estimated time: %s\n"
+         "Created: %s\n"
+         "Updated: %s\n"
+         "Likelihood: %s\n"
+         "Severity: %s\n"
+         "Found in version: %s\n"
+         "Impact: %s\n"
+         "Expected Use: %s\n"
+         "OS: %s\n"
+         "Support Group: %s\n"
+         "Description:\n %s\n\n"
+         "Comments:\n%s\n" 
+          )
+    ticket_num = row['#']
+    comments   = ""
+    if ticket_num in comment_map:
+        for com in comment_map[ticket_num]:
+            comments += "%s\n" % str(com)
+
+    return  template % (ticket_num, row['Status'], row['Project'], 
+                        row['Tracker'], row['Priority'], row['Subject'],
+                        row['Assigned to'], row['Category'], row['Target version'],
+                        row['Author'], row['Start'], row['Due date'], 
+                        row['% Done'], row['Estimated time'], row['Created'],
+                        row['Updated'], row['Likelihood'], row['Severity'],
+                        row['Found in Version'], row['Impact'], row['Expected Use'],
+                        row['OS'], row['Support Group'], row['Description'], 
+                        comments)
+
 
 def close_milestones(milestones, number_map, attempts=0):
     """
+        Close a list of milestones. 
     """
     for ms in milestones:
         url = 'https://api.github.com/repos/%s/%s/milestones/%s' % (REPO_OWNER, 
@@ -94,43 +159,64 @@ def milestone_is_open(ms):
     return False
 
 
-#FIXME: Priority doesn't have a number associated with it, 
-#       but we should still assign colors from the heat map. 
-#       Let's manually add that mapping. 
-#       Let's also give "Bug" the hottest color. 
+def label_to_index(label):
+    """
+        A very simple map which returns an integer
+        for a given label. This is used to categorize 
+        labels and assign indicies. 
+    """
+    lower_label = label.lower()
+    if 'bug' in lower_label:
+        return 0
+    if 'docs' in lower_label:
+        return 1
+    if 'expected use' in lower_label:
+        return 2
+    if 'feature' in lower_label:
+        return 3
+    if 'impact' in lower_label:
+        return 4
+    if 'likelihood' in lower_label:
+        return 5
+    if 'priority' in lower_label:
+        return 6
+    if 'severity' in lower_label:
+        return 7
+    if 'support group' in lower_label:
+        return 8
+
+
 def label_color_mapper(label):
     """
-        Map colors to VisIt labels. If the label has a scale 
-        associated with it (such as severity), it will be given
-        a color from a heat map. Otherwise, it's given a random
-        'calm' color.  
+        Map categorical VisIt labels to colors. 
     """
     hot_colors   = ["3df5f3", "f5ea3d", "fa8561", "f68f09", "f91515"]
-    nice_colors  = ["6bd2db", "0ea7b5", "0c457d", "008080", "0000ff", 
-                    "800080", "ffb6c1", "003366", "20b2aa", "660066",
-                    "31698a", "6dc066"]
-    if "-" in label:
-        digits = [int(d) for d in label.split() if d.isdigit()]
-        if len(digits) > 1:
-            print "ERROR: multiple digits found in color prospect!"
-            print label
-            exit(1)
-        return hot_colors[digits[0]-1]
-    else:
-        return nice_colors[random.randint(0, len(nice_colors)-1)]
+    blues        =  ["111E6C", "81D8D0", "003152", "0E4D92", "0F52BA",
+                    "008ECC", "008081", "4682B4", "73C2FB"]
+
+    return blues[label_to_index(label)]
 
 
 def extract_labels(row, found):
     """
         Extract and format labels from a VisIt redmine ticket csv row. 
     """
+
+    #
+    # Labels that contain these words will not be migrated. 
+    #
+    exclusion_flags = ['any', 'all']
+
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
-        'Found in Version', 'Impact', 'Expected Use', 'OS', 'Support Group']
+        'Impact', 'Expected Use', 'Support Group']
 
     for title in label_titles:
         label = row[title]
         if label == '' or label in found:
+            continue
+
+        if filter(lambda x: x in label.lower(), exclusion_flags):
             continue
 
         if title not in label_dict:
@@ -147,10 +233,6 @@ def extract_labels(row, found):
     if 'Severity' in label_dict:
         for i in range(len(label_dict['Severity'])):
             label_dict['Severity'][i] = "Severity: %s" % label_dict['Severity'][i]
-
-    if 'Found in Version' in label_dict:    
-        for i in range(len(label_dict['Found in Version'])):
-            label_dict['Found in Version'][i] = "version: %s" % label_dict['Found in Version'][i]
         
     if 'Likelihood' in label_dict:
         for i in range(len(label_dict['Likelihood'])):
@@ -172,10 +254,6 @@ def extract_labels(row, found):
         for i in range(len(label_dict['Support Group'])):
             label_dict['Support Group'][i] = "Support Group: %s" % label_dict['Support Group'][i]
         
-    if 'OS' in label_dict:
-        for i in range(len(label_dict['OS'])):
-            label_dict['OS'][i] = "OS: %s" % label_dict['OS'][i]
-
     out_labels = []
     for key in label_dict:
         for label in label_dict[key]:
@@ -375,7 +453,6 @@ def create_github_issue(title,
                                 labels, 
                                 state,
                                 attempts + 1)
-            
         else:
             return
 
@@ -388,12 +465,13 @@ def create_github_issue(title,
 
 def migrate_issues(csv_path, 
                    name_map, 
+                   comment_map,
                    do_tickets       = True, 
                    do_labels        = True,
                    do_milestones    = True, 
                    ignore_assignees = False):
     """
-       Migrate redmine issues from a csv file to github issues. 
+        Migrate redmine issues from a csv file to github issues. 
     """
     csv_files      = os.path.join(csv_path, "*.csv")
     fin_labels     = []
@@ -402,14 +480,6 @@ def migrate_issues(csv_path,
     seen_tickets   = []
     closed_ms      = []
 
-    body_template = ("%s\n\n\n\n"
-         "-----------------------REDMINE MIGRATION-----------------------\n"
-         "This ticket was migrated from Redmine. The following information\n"
-         "could not be accurately captured in the new ticket:\n\n"
-         "Original author: %s\n"
-         "Original creation: %s\n"
-         "Original update: %s\n"
-         "Ticket number: %s")
 
     for f_pth in glob.glob(csv_files):
         with open(f_pth, "r") as csvfile:
@@ -422,6 +492,7 @@ def migrate_issues(csv_path,
                 for row in reader:
                     f_labels.extend(extract_labels(row, fin_labels))
                     fin_labels.extend(f_labels)
+
                 for label in f_labels:
                     create_github_label(label, label_color_mapper(label))
                 print "Finished ceating labels!"
@@ -434,10 +505,7 @@ def migrate_issues(csv_path,
                 for row in reader:
                     mile_s.extend(extract_milestones(row, fin_mile_s))
                     fin_mile_s.extend(mile_s)
-                #FIXME: close milestones last (after entire migration). Otherwise, 
-                #       ticket's can't seem to be associated with them.  
                 for ms in mile_s:
-                    #state = 'open' if milestone_is_open(ms) else 'closed'
                     if not milestone_is_open(ms):
                         closed_ms.append(ms)
                     mile_s_numbers[ms] = create_github_milestone(ms, 'open')
@@ -488,8 +556,7 @@ def migrate_issues(csv_path,
                             continue
                         milestone = mile_s_numbers[row['Target version']]
     
-                    body = body_template % (desc, author, 
-                        created, updated, t_num)
+                    body = "%s\n\n%s" % (desc, create_redmine_tag(row, comment_map))
  
                     create_github_issue(title, 
                                         body, 
@@ -513,6 +580,8 @@ if __name__ == '__main__':
     parser.add_argument("csv_path", help="path to csv files", type=str)
     parser.add_argument("name_map_file", help="""a json file mapping VisIt 
         redmine names to their github account names""", type=str)
+    parser.add_argument("comments_file", help="""a json file mapping redmine
+        ticket numbers to their comments""", type=str)
     parser.add_argument("--no_tickets", help="don't create tickets", default=False,
         action="store_true") 
     parser.add_argument("--no_labels", help="don't create labels", default=False,
@@ -531,6 +600,9 @@ if __name__ == '__main__':
     with open(args.name_map_file, 'r') as json_f:
         name_map = json.load(json_f)
 
+    with open(args.comments_file, 'r') as json_f:
+        comment_map = json.load(json_f)
+
     for key, value in name_map.iteritems():
         name_map[key] = str(value)
 
@@ -548,6 +620,7 @@ if __name__ == '__main__':
 
     migrate_issues(args.csv_path, 
                    name_map, 
+                   comment_map,
                    do_tickets, 
                    do_labels,
                    do_milestones,
