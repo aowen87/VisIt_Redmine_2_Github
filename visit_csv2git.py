@@ -92,21 +92,36 @@ def create_redmine_tag(row, comment_map):
          "Description:\n %s\n\n"
          "Comments:\n%s\n" 
           )
-    ticket_num = row['#']
+    ticket_num = row['#'].encode('utf-8')
     comments   = ""
     if ticket_num in comment_map:
         for com in comment_map[ticket_num]:
             comments += "%s\n" % str(com)
 
-    return  template % (ticket_num, row['Status'], row['Project'], 
-                        row['Tracker'], row['Priority'], row['Subject'],
-                        row['Assigned to'], row['Category'], row['Target version'],
-                        row['Author'], row['Start'], row['Due date'], 
-                        row['% Done'], row['Estimated time'], row['Created'],
-                        row['Updated'], row['Likelihood'], row['Severity'],
-                        row['Found in Version'], row['Impact'], row['Expected Use'],
-                        row['OS'], row['Support Group'], row['Description'], 
-                        comments)
+    return  template % (ticket_num, row['Status'].encode('utf-8'),  
+                        row['Project'].encode('utf-8'), 
+                        row['Tracker'].encode('utf-8'), 
+                        row['Priority'].encode('utf-8'), 
+                        row['Subject'].encode('utf-8'),
+                        row['Assigned to'].encode('utf-8'), 
+                        row['Category'].encode('utf-8'), 
+                        row['Target version'].encode('utf-8'),
+                        row['Author'].encode('utf-8'), 
+                        row['Start'].encode('utf-8'), 
+                        row['Due date'].encode('utf-8'), 
+                        row['% Done'].encode('utf-8'), 
+                        row['Estimated time'].encode('utf-8'), 
+                        row['Created'].encode('utf-8'),
+                        row['Updated'].encode('utf-8'), 
+                        row['Likelihood'].encode('utf-8'), 
+                        row['Severity'].encode('utf-8'),
+                        row['Found in Version'].encode('utf-8'), 
+                        row['Impact'].encode('utf-8'), 
+                        row['Expected Use'].encode('utf-8'),
+                        row['OS'].encode('utf-8'), 
+                        row['Support Group'].encode('utf-8'), 
+                        row['Description'].encode('utf-8'), 
+                        comments.encode('utf-8'))
 
 
 def close_milestones(milestones, number_map, attempts=0):
@@ -483,7 +498,7 @@ def migrate_issues(csv_path,
 
     for f_pth in glob.glob(csv_files):
         with open(f_pth, "r") as csvfile:
-            print "\nOpening file: %s" % csvfile
+            print "\nOpening file: %s" % f_path
             reader = csv.DictReader(csvfile)
 
             if do_labels:
