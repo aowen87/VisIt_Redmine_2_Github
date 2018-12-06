@@ -198,24 +198,20 @@ def label_to_index(label):
         labels and assign indicies. 
     """
     lower_label = label.lower()
-    if 'bug' in lower_label:#FIXME: just use github's
-        return 0
     if 'docs' in lower_label:
-        return 1
+        return 0
     if 'expected use' in lower_label:
-        return 2
-    if 'feature' in lower_label:
-        return 3
+        return 1
     if 'impact' in lower_label:
-        return 4
+        return 2
     if 'likelihood' in lower_label:
-        return 5
+        return 3
     if 'priority' in lower_label:
-        return 6
+        return 4
     if 'severity' in lower_label:
-        return 7
-    if 'support group' in lower_label:
-        return 8
+        return 5
+    if 'support' in lower_label:
+        return 6
 
 
 def label_color_mapper(label):
@@ -233,7 +229,6 @@ def extract_labels(row, exclude):
     """
         Extract and format labels from a VisIt redmine ticket csv row. 
     """
-
     #
     # Labels that contain these words will not be migrated. 
     #
@@ -241,7 +236,7 @@ def extract_labels(row, exclude):
 
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
-        'Expected Use', 'Support Group']
+        'Expected Use', 'Support Group', 'Status']
 
     for title in label_titles:
         label = row[title]
@@ -252,10 +247,7 @@ def extract_labels(row, exclude):
             continue
 
         if title not in label_dict:
-            label_dict[title] = []
-
-        if label not in label_dict[title]:
-             label_dict[title].append(label.lower())
+            label_dict[title] = label.lower().strip()
 
     out_labels = []
     #
@@ -263,64 +255,61 @@ def extract_labels(row, exclude):
     # add the new ones to our outgoing list. 
     #
     for key in label_dict.iterkeys():
-        if key == 'Severity':
-            added = []
-            for i in range(len(label_dict[key])):
-                num = label_dict[key][i].strip()[0]
-                if num not in added:
-                    sev = map_gradation(num)
-                    new_label = "severity %s" % sev
-                    if new_label not in exclude:
-                        out_labels.append(new_label)
-                    added.append(num)
+
+        if key == 'Status':
+            if label_dict[key] != 'new':
+                new_label = 'reviewed'
+                if new_label not in exclude:
+                    out_labels.append(new_label)
+            if label_dict[key] == "expired":
+                new_label = "invalid"
+                if new_label not in exclude:
+                    out_labels.append(new_label)
+            if label_dict[key] == "rejected":
+                new_label = "wontfix"
+                if new_label not in exclude:
+                    out_labels.append(new_label)
+            
+        elif key == 'Severity':
+            num = label_dict[key].strip()[0]
+            sev = map_gradation(num)
+            new_label = "severity %s" % sev
+            if new_label not in exclude:
+                out_labels.append(new_label)
 
         elif key == 'Likelihood':
-            added = []
-            for i in range(len(label_dict[key])):
-                num = label_dict[key][i].strip()[0]
-                if num not in added:
-                    sev = map_gradation(num)
-                    new_label = "likelihood %s" % sev
-                    if new_label not in exclude:
-                        out_labels.append(new_label)
-                    added.append(num)
+            num = label_dict[key].strip()[0]
+            sev = map_gradation(num)
+            new_label = "likelihood %s" % sev
+            if new_label not in exclude:
+                out_labels.append(new_label)
 
         #TODO: this breaks the rule of only one space. Check with team
         elif key == 'Expected Use':
-            added = []
-            for i in range(len(label_dict[key])):
-                num = label_dict[key][i].strip()[0]
-                if num not in added:
-                    sev = map_gradation(num)
-                    new_label = "expected use %s" % sev
-                    if new_label not in exclude:
-                        out_labels.append(new_label)
-                    added.append(num)
+            num = label_dict[key].strip()[0]
+            sev = map_gradation(num)
+            new_label = "expected use %s" % sev
+            if new_label not in exclude:
+                out_labels.append(new_label)
 
         elif key == 'Priority':
-            #
-            # We only have one mapping for priority. If we find a
-            # keeper, that's the only instance we need to add. 
-            #
-            for i in range(len(label_dict[key])):
-                keepers = ["high", "urgent", "immediate"]
-                if label_dict[key][i] in keepers:
-                    new_label = "priority" 
-                    label_dict[key] = []
-                    if new_label not in exclude:
-                        out_labels.append(new_label)
-                    break
-        
-        elif key == "Support Group":
-            for i in range(len(label_dict[key])):
-                new_label = "%s support" % label_dict['Support Group'][i].lower()
+            keepers = ["high", "urgent", "immediate"]
+            if label_dict[key] in keepers:
+                new_label = "priority" 
                 if new_label not in exclude:
                     out_labels.append(new_label)
+        
+        elif key == "Support Group":
+            new_label = "%s support" % label_dict[key].lower()
+            if new_label not in exclude:
+                out_labels.append(new_label)
 
         else:
-            for label in label_dict[key]:
-                if label.strip() != "" and label.strip() not in exclude:
-                    out_labels.append(label.strip())
+            f_lab = label_dict[key].strip()
+            if f_lab == "feature":
+                f_lab = "enhancement" 
+            if f_lab != "" and f_lab not in exclude:
+                out_labels.append(f_lab)
 
     return out_labels
 
@@ -536,7 +525,13 @@ def migrate_issues(csv_path,
         Migrate redmine issues from a csv file to github issues. 
     """
     csv_files      = os.path.join(csv_path, "*.csv")
-    fin_labels     = []
+    #
+    # fin_labels contains labels we've alread added or don't need to
+    # create because they're on github already. excludes are labels
+    # we don't want to include. 
+    #
+    fin_labels     = ["bug", "enhancement", "expired", "rejected"]
+    excludes       = ["developer review", "pending", "new"]
     fin_mile_s     = []
     mile_s_numbers = {}
     seen_tickets   = []
@@ -551,89 +546,88 @@ def migrate_issues(csv_path,
             if do_labels:
                 print "\nCreating labels "
                 f_labels = []
+                full_excludes = excludes + fin_labels 
                 for row in reader:
                     f_labels.extend(extract_labels(row, fin_labels))
                     fin_labels.extend(f_labels)
 
                 for label in f_labels:
-                    print label
-           #     for label in f_labels:
-           #         create_github_label(label, label_color_mapper(label))
-           #     print "Finished ceating labels!"
+                    create_github_label(label, label_color_mapper(label))
+                print "Finished ceating labels!"
 
-           # if do_milestones:
-           #     print "\nCreating milestones"
-           #     csvfile.seek(0)
-           #     next(reader)
-           #     mile_s = []
-           #     for row in reader:
-           #         mile_s.extend(extract_milestones(row, fin_mile_s))
-           #         fin_mile_s.extend(mile_s)
-           #     for ms in mile_s:
-           #         if not milestone_is_open(ms):
-           #             closed_ms.append(ms)
-           #         mile_s_numbers[ms] = create_github_milestone(ms, 'open')
-           #     print "Finished ceating milestones!"
+            if do_milestones:
+                print "\nCreating milestones"
+                csvfile.seek(0)
+                next(reader)
+                mile_s = []
+                for row in reader:
+                    mile_s.extend(extract_milestones(row, fin_mile_s))
+                    fin_mile_s.extend(mile_s)
+                for ms in mile_s:
+                    if not milestone_is_open(ms):
+                        closed_ms.append(ms)
+                    mile_s_numbers[ms] = create_github_milestone(ms, 'open')
+                print "Finished ceating milestones!"
 
-           # if do_tickets:
-           #     print "\nCreating tickets"
-           #     csvfile.seek(0)
-           #     next(reader)
-           #     for row in reader:
-           #         #
-           #         # Retrieve redmine specific info that will need to be 
-           #         # added to the description. 
-           #         #
-           #         author      = row['Author']               
-           #         created     = row['Created']               
-           #         updated     = row['Updated']
-           #         t_num       = row['#']
+            if do_tickets:
+                print "\nCreating tickets"
+                csvfile.seek(0)
+                next(reader)
+                for row in reader:
+                    #
+                    # Retrieve redmine specific info that will need to be 
+                    # added to the description. 
+                    #
+                    author      = row['Author']               
+                    created     = row['Created']               
+                    updated     = row['Updated']
+                    t_num       = row['#']
 
-           #         if t_num in seen_tickets:
-           #             msg = ("We've already proccessed ticket %s..."
-           #                    "Skipping it" % t_num)
-           #             print msg 
-           #             continue
-           #         seen_tickets.append(t_num)
+                    if t_num in seen_tickets:
+                        msg = ("We've already proccessed ticket %s..."
+                               "Skipping it" % t_num)
+                        print msg 
+                        continue
+                    seen_tickets.append(t_num)
 
-           #         closed      = ["Rejected", "Resolved", "Expired"]
+                    closed      = ["Rejected", "Resolved", "Expired"]
 
-           #         if ignore_assignees:
-           #             assignees = []
-           #         else:
-           #             assignees   = [name_map[assignee] if assignee in name_map else "" 
-           #                 for assignee in row['Assigned to'].split(",")]
+                    if ignore_assignees:
+                        assignees = []
+                    else:
+                        assignees   = [name_map[assignee] if assignee in name_map else "" 
+                            for assignee in row['Assigned to'].split(",")]
 
-           #         title       = row['Subject']
-           #         desc        = row['Description']
-           #         state       = "closed" if str(row['Status']) in closed else "open"
-           #         labels      = extract_labels(row, [])
+                    title       = row['Subject']
+                    desc        = row['Description']
+                    state       = "closed" if str(row['Status']) in closed else "open"
+                    labels      = extract_labels(row, excludes)
      
-           #         #TODO: If we're not creating milestones, we need to somehow
-           #         #      get their numbers from github...
-           #         milestone   = None
+                    #TODO: If we're not creating milestones, we need to somehow
+                    #      get their numbers from github...
+                    milestone   = None
 
-           #         if row['Target version'] != '' and do_milestones:
-           #             if row['Target version'] not in mile_s_numbers:
-           #                 print "ERROR: unable to find number for milestone!"
-           #                 print "Aborting this ticket!"
-           #                 continue
-           #             milestone = mile_s_numbers[row['Target version']]
+                    if row['Target version'] != '' and do_milestones:
+                        if row['Target version'] not in mile_s_numbers:
+                            print "ERROR: unable to find number for milestone!"
+                            print "Aborting this ticket!"
+                            continue
+                        milestone = mile_s_numbers[row['Target version']]
     
-           #         body = "%s\n\n%s" % (desc, create_redmine_tag(row, comment_map))
+                    body = "%s\n\n%s" % (desc, create_redmine_tag(row, comment_map))
  
-           #         create_github_issue(title, 
-           #                             body, 
-           #                             assignees, 
-           #                             milestone, 
-           #                             labels, 
-           #                             state)
+                    create_github_issue(title, 
+                                        body, 
+                                        assignees, 
+                                        milestone, 
+                                        labels, 
+                                        state)
 
                 print "Finished creating tickets!"
     print "Finished all files in: %s" % csv_path
-    #print "Closing appropriate milestones"
-    #close_milestones(closed_ms, mile_s_numbers)
-    #print "FINISHED!"
+    print "Closing appropriate milestones"
+    close_milestones(closed_ms, mile_s_numbers)
+    print "FINISHED!"
 
 
 if __name__ == '__main__':
