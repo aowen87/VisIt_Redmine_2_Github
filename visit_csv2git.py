@@ -200,18 +200,25 @@ def label_to_index(label):
     lower_label = label.lower()
     if 'docs' in lower_label:
         return 0
-    if 'expected use' in lower_label:
-        return 1
     if 'impact' in lower_label:
-        return 2
+        return 1
     if 'likelihood' in lower_label:
-        return 3
+        return 2
     if 'priority' in lower_label:
-        return 4
+        return 3
     if 'severity' in lower_label:
+        return 4
+    if 'reviewed' in lower_label:
         return 5
-    if 'support' in lower_label:
+    if 'vtk8' in lower_label:
         return 6
+    if 'crash' in lower_label:
+        return 7
+    if 'wrong results' in lower_label:
+        return 8
+    else:
+        # all groups
+        return 9
 
 
 def label_color_mapper(label):
@@ -220,7 +227,7 @@ def label_color_mapper(label):
     """
     hot_colors   = ["3df5f3", "f5ea3d", "fa8561", "f68f09", "f91515"]
     blues        =  ["111E6C", "81D8D0", "003152", "0E4D92", "0F52BA",
-                    "008ECC", "008081", "4682B4", "73C2FB"]
+                    "008ECC", "008081", "4682B4", "73C2FB", "00ACC1"]
 
     return blues[label_to_index(label)]
 
@@ -236,7 +243,7 @@ def extract_labels(row, exclude):
 
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
-        'Expected Use', 'Support Group', 'Status']
+        'Support Group', 'Status', 'Description']
 
     for title in label_titles:
         label = row[title]
@@ -276,19 +283,19 @@ def extract_labels(row, exclude):
             new_label = "severity %s" % sev
             if new_label not in exclude:
                 out_labels.append(new_label)
+            #
+            # For severity level 4, we also add crash and wrong results
+            # labels. 
+            #
+            if num == "4":
+                if "crash" not in exclude and "wrong results" not in exclude:
+                   out_labels.append("crash")
+                   out_labels.append("wrong results")
 
         elif key == 'Likelihood':
             num = label_dict[key].strip()[0]
             sev = map_gradation(num)
             new_label = "likelihood %s" % sev
-            if new_label not in exclude:
-                out_labels.append(new_label)
-
-        #TODO: this breaks the rule of only one space. Check with team
-        elif key == 'Expected Use':
-            num = label_dict[key].strip()[0]
-            sev = map_gradation(num)
-            new_label = "expected use %s" % sev
             if new_label not in exclude:
                 out_labels.append(new_label)
 
@@ -299,10 +306,24 @@ def extract_labels(row, exclude):
                 if new_label not in exclude:
                     out_labels.append(new_label)
         
-        elif key == "Support Group":
-            new_label = "%s support" % label_dict[key].lower()
+        elif key == 'Support Group':
+            sglab = label_dict[key] 
+            new_label = sglab.split('/')[1].strip() if '/' in sglab else sglab
             if new_label not in exclude:
                 out_labels.append(new_label)
+
+        #
+        # Special case: if VTK-8 is mentioned in the descrption, 
+        # assign a new vtk-8 label. 
+        #
+        elif key == 'Description':
+            if "vtk8" not in exclude:
+                content = label_dict[key] 
+                variations = ['vtk8', 'vtk-8', 'vtk 8']
+                for var in variations:
+                    if var in content:
+                        out_labels.append("vtk8")
+                        break
 
         else:
             f_lab = label_dict[key].strip()
@@ -530,8 +551,11 @@ def migrate_issues(csv_path,
     # create because they're on github already. excludes are labels
     # we don't want to include. 
     #
-    fin_labels     = ["bug", "enhancement", "expired", "rejected"]
-    excludes       = ["developer review", "pending", "new"]
+    fin_labels     = ["bug", "enhancement", "expired", "rejected", 
+                      "wontfix", "invalid"]
+    excludes       = ["developer review", "pending", "new", "doe", "dod",
+                      "neams", "ale3d"]
+    full_excludes  = excludes + fin_labels 
     fin_mile_s     = []
     mile_s_numbers = {}
     seen_tickets   = []
@@ -546,10 +570,10 @@ def migrate_issues(csv_path,
             if do_labels:
                 print "\nCreating labels "
                 f_labels = []
-                full_excludes = excludes + fin_labels 
                 for row in reader:
-                    f_labels.extend(extract_labels(row, fin_labels))
-                    fin_labels.extend(f_labels)
+                    extracts = extract_labels(row, full_excludes)
+                    f_labels.extend(extracts)
+                    full_excludes.extend(extracts)
 
                 for label in f_labels:
                     create_github_label(label, label_color_mapper(label))
