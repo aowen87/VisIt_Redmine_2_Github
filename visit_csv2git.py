@@ -243,7 +243,7 @@ def extract_labels(row, exclude):
 
     label_dict = {}
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
-        'Support Group', 'Status', 'Description']
+        'Support Group', 'Status', 'Description', 'Subject']
 
     for title in label_titles:
         label = row[title]
@@ -313,10 +313,10 @@ def extract_labels(row, exclude):
                 out_labels.append(new_label)
 
         #
-        # Special case: if VTK-8 is mentioned in the descrption, 
-        # assign a new vtk-8 label. 
+        # Special cases for descripton and subject: 
+        # if VTK-8 is mentioned in either, assign a new vtk-8 label. 
         #
-        elif key == 'Description':
+        elif key == 'Description' or key == 'Subject':
             if "vtk8" not in exclude:
                 content = label_dict[key] 
                 variations = ['vtk8', 'vtk-8', 'vtk 8']
