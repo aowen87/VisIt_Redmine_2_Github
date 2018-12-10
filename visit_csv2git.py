@@ -60,6 +60,74 @@ def invalid_assignee(response):
     return False
 
 
+#TODO: map links appropriately. 
+def cleanup_text(text):
+    """
+        Cleanup the text from redmine. 
+
+        There are instances where a redmine symbol does not map
+        correctly to github. So we replace those symbols here. 
+    """
+    #
+    # We need to replace redmine markings with their
+    # github equivalents, if available. If not, they 
+    # are replace with empty strings.
+    #
+    redmine_markings = ["@", "*", "+", "-"]
+    github_mappings  = ["`", "**", "", ""]
+    num_marks        = len(redmine_markings)
+    count            = [0] * num_marks
+    indicies = {}
+    for sym in github_mappings:
+        indicies[sym] = []
+
+    #
+    # First, we should remove all non ascii characters.
+    #
+    text_chars = [i for i in text if ord(i) < 128] 
+
+    #
+    # We only want to replace PAIRS of redmine markings 
+    # that are not separated by a new line. 
+    # The algorithm:
+    # Find all indicies for each pair of redmine marking
+    # not separated by a new line. 
+    # Replace all characters at these indicies with their
+    # github mappings. 
+    #
+
+    #
+    # Iterate through the characters. 
+    #
+    for i in range(len(text_chars)):
+        #
+        # Iterate through the redming markings. 
+        #
+        for j in range(num_marks):
+            if text_chars[i] == redmine_markings[j]:
+                indicies[github_mappings[j]].append(i)
+                count[j] += 1
+            #
+            # If we've encountered a new line character, 
+            # we need to remove the last non-pair elements. 
+            #
+            elif text_chars[i] == '\n':
+                for c in range(len(count)):
+                    if (count[c] % 2) > 0:
+                        indicies[github_mappings[c]].pop()
+                        count[c] -= 1
+
+    for sym in indicies.keys():
+        _max = len(indicies[sym])
+        i = 1
+        while i < _max:
+            text_chars[indicies[sym][i]]   = sym
+            text_chars[indicies[sym][i-1]] = sym
+            i += 2
+
+    return ''.join(text_chars)
+
+
 def create_redmine_tag(row, comment_map):
     """
         Create a tag which contains all information from the
@@ -191,6 +259,29 @@ def map_gradation(num):
     return GRADATION_MAP[num] 
 
 
+#NOTE: the github api's ability to add descriptions
+#      to labels appears to be broken. 
+def label_descriptions(label):
+    """
+        Map some descriptions to labels. 
+    """
+    if 'asc' in label: 
+        return "related to an asc funded project"
+    if 'grizit' in label:
+        return "related to the grizit project"
+    if 'likelihood high' in label:
+        return "high likelihood a user would encounter"
+    if 'likelihood low' in label:
+        return "low likelihood a user would encounter"
+    if 'likelihood medium' in label:
+        return "medium likelihood a user would encounter"
+    if 'scidac' in label:
+        return "related to a scidac funded project"
+    if 'vtk8' in label:
+        return "related to the vtk8 migration"
+    return ""
+
+
 def label_to_index(label):
     """
         A very simple map which returns an integer
@@ -241,9 +332,18 @@ def extract_labels(row, exclude):
     #
     exclusion_flags = ['any', 'all']
 
-    label_dict = {}
+ 
+    #
+    # Standar labels must undergo exclusion testing. 
+    #
     label_titles = ['Tracker', 'Priority', 'Category', 'Likelihood', 'Severity',
-        'Support Group', 'Status', 'Description', 'Subject']
+        'Support Group', 'Status']
+    #
+    # Special cases are exempt from exclusion checking. 
+    #
+    special_cases = ['Description', 'Subject']
+
+    label_dict   = {}
 
     for title in label_titles:
         label = row[title]
@@ -255,6 +355,9 @@ def extract_labels(row, exclude):
 
         if title not in label_dict:
             label_dict[title] = label.lower().strip()
+
+    for title in special_cases:
+        label_dict[title] = row[title].lower().strip()
 
     out_labels = []
     #
@@ -576,9 +679,11 @@ def migrate_issues(csv_path,
                     full_excludes.extend(extracts)
 
                 for label in f_labels:
-                    create_github_label(label, label_color_mapper(label))
+                    create_github_label(label, 
+                                        label_color_mapper(label), 
+                                        label_descriptions(label))
                 print "Finished ceating labels!"
-
+      
             if do_milestones:
                 print "\nCreating milestones"
                 csvfile.seek(0)
@@ -622,8 +727,8 @@ def migrate_issues(csv_path,
                         assignees   = [name_map[assignee] if assignee in name_map else "" 
                             for assignee in row['Assigned to'].split(",")]
 
-                    title       = row['Subject']
-                    desc        = row['Description']
+                    title       = cleanup_text(row['Subject'])
+                    desc        = cleanup_text(row['Description'])
                     state       = "closed" if str(row['Status']) in closed else "open"
                     labels      = extract_labels(row, excludes)
      
