@@ -18,11 +18,8 @@ import sys
 from time import sleep
 import random
 import argparse
+import re
 from authentication import *
-
-#TODO: create a limit checker?
-#      once limit is about to be exceeded, wait. 
-
 
 SHORT_WAIT    = 3
 MAX_ATTEMPTS  = 5
@@ -60,7 +57,47 @@ def invalid_assignee(response):
     return False
 
 
-#TODO: map links appropriately. 
+def url_link_map(text):
+    """
+        In redmine, url links are of the form "linkname":url
+        In github, url links are of the form [linkname](url)
+
+        Given some text, this function will replace all of the 
+        redmine style links with github style links. 
+    """
+    words = text.split()
+
+    for i in range(len(words)):
+        block = words[i]
+        url_links = [(sub.start(), sub.end()) for sub in
+                     re.finditer("(?P<url>https?://[^\s]+)", block)
+                     if sub.start() >= 0 and block[sub.start()-1] == ':']
+
+        for idxs in url_links:
+            start, stop = idxs
+            #
+            # The first block is of the form 
+            #    foo"linkname":
+            # we want this to become foo[linkname]
+            #
+            block_a = block[:start-2].rsplit('"', 1)
+            block_a = "[".join(block_a) + "]"
+
+            #
+            # url, once isolated, just needs parens.
+            #
+            url     = "(" + block[start:stop] + ")"
+
+            #
+            # Last section, if present, is unchanged. 
+            #
+            block_b = block[stop:]
+
+            words[i] = block_a + url + block_b
+
+    return ' '.join(words)
+
+
 def cleanup_text(text):
     """
         Cleanup the text from redmine. 
@@ -125,7 +162,12 @@ def cleanup_text(text):
             text_chars[indicies[sym][i-1]] = sym
             i += 2
 
-    return ''.join(text_chars)
+    #
+    # The final stage is to map redmine style url links to 
+    # github style. 
+    #
+    return url_link_map(''.join(text_chars))
+
 
 
 def create_redmine_tag(row, comment_map):
@@ -177,7 +219,7 @@ def create_redmine_tag(row, comment_map):
                         row['Project'], 
                         row['Tracker'], 
                         row['Priority'], 
-                        row['Subject'],
+                        cleanup_text(row['Subject']),
                         row['Assigned to'], 
                         row['Category'], 
                         row['Target version'],
@@ -195,8 +237,8 @@ def create_redmine_tag(row, comment_map):
                         row['Expected Use'],
                         row['OS'], 
                         row['Support Group'], 
-                        row['Description'], 
-                        comments)
+                        cleanup_text(row['Description']), 
+                        cleanup_text(comments))
 
 
 def close_milestones(milestones, number_map, attempts=0):
@@ -592,6 +634,7 @@ def create_github_issue(title,
     if response.status_code == 201:
         print 'Successfully created Issue "%s"' % title
         issue_url = json.loads(response.content)['url']
+        
     else:
         print 'ERROR: Could not create Issue "%s"' % title
         print 'Response:', response.content
@@ -637,6 +680,8 @@ def create_github_issue(title,
             return
         close_github_issue(issue_url)
 
+    return json.loads(response.content)['number']
+
 
 def migrate_issues(csv_path, 
                    name_map, 
@@ -663,6 +708,7 @@ def migrate_issues(csv_path,
     mile_s_numbers = {}
     seen_tickets   = []
     closed_ms      = []
+    ticket_map     = {}
 
 
     for f_pth in glob.glob(csv_files):
@@ -700,6 +746,7 @@ def migrate_issues(csv_path,
 
             if do_tickets:
                 print "\nCreating tickets"
+
                 csvfile.seek(0)
                 next(reader)
                 for row in reader:
@@ -710,14 +757,14 @@ def migrate_issues(csv_path,
                     author      = row['Author']               
                     created     = row['Created']               
                     updated     = row['Updated']
-                    t_num       = row['#']
+                    old_t_num   = row['#']
 
-                    if t_num in seen_tickets:
+                    if old_t_num in seen_tickets:
                         msg = ("We've already proccessed ticket %s..."
-                               "Skipping it" % t_num)
+                               "Skipping it" % old_t_num)
                         print msg 
                         continue
-                    seen_tickets.append(t_num)
+                    seen_tickets.append(old_t_num)
 
                     closed      = ["Rejected", "Resolved", "Expired"]
 
@@ -745,17 +792,28 @@ def migrate_issues(csv_path,
     
                     body = "%s\n\n%s" % (desc, create_redmine_tag(row, comment_map))
  
-                    create_github_issue(title, 
-                                        body, 
-                                        assignees, 
-                                        milestone, 
-                                        labels, 
-                                        state)
-
+                    new_t_num = create_github_issue(title, 
+                                                    body, 
+                                                    assignees, 
+                                                    milestone, 
+                                                    labels, 
+                                                    state)
+                    #
+                    # Map our redmine ticket number to github ticket numbers. 
+                    #
+                    ticket_map[old_t_num] = str(new_t_num)
+ 
                 print "Finished creating tickets!"
     print "Finished all files in: %s" % csv_path
     print "Closing appropriate milestones"
     close_milestones(closed_ms, mile_s_numbers)
+
+    #
+    # Save our ticket map. 
+    #
+    with open("ticket_map.json", "w") as out_f:
+        json.dump(ticket_map, out_f)
+
     print "FINISHED!"
 
 
