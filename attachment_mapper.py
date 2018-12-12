@@ -1,4 +1,5 @@
 import os
+import json
 import shutil
 import argparse
 
@@ -26,7 +27,7 @@ def map_red_to_git(red_dir, ticket_map):
 
 
 
-if "__name__" == __main__:
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()    
     parser.add_argument("ticket_map", type=str, help="""json file mapping redmine ticket 
         numbers to github ticket numbers""")

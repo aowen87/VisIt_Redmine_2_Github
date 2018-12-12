@@ -628,12 +628,16 @@ def create_github_issue(title,
              'milestone': milestone,
              'labels': labels}
 
+    ticket_number = -1
+
     sleep(SHORT_WAIT)
     issue_url = ""
     response = session.post(main_url, json.dumps(issue, encoding='latin1'))
     if response.status_code == 201:
         print 'Successfully created Issue "%s"' % title
-        issue_url = json.loads(response.content)['url']
+        rcont         = json.loads(response.content)
+        issue_url     = rcont['url']
+        ticket_number = rcont['number'] 
         
     else:
         print 'ERROR: Could not create Issue "%s"' % title
@@ -650,13 +654,13 @@ def create_github_issue(title,
             print "Attempting to wait out the block..."
             print "Will try again in %i seconds" % LONG_WAIT
             sleep(LONG_WAIT)
-            create_github_issue(title, 
-                                body, 
-                                assignees, 
-                                milestone, 
-                                labels, 
-                                state,
-                                attempts + 1)
+            ticket_number = create_github_issue(title, 
+                                                body, 
+                                                assignees, 
+                                                milestone, 
+                                                labels, 
+                                                state,
+                                                attempts + 1)
 
         elif invalid_assignee(response):
             #
@@ -664,23 +668,23 @@ def create_github_issue(title,
             # just leave it blank. 
             #
             print "Re-submitting ticket with blank assignee."
-            create_github_issue(title, 
-                                body, 
-                                [], 
-                                milestone, 
-                                labels, 
-                                state,
-                                attempts + 1)
+            ticket_number = create_github_issue(title, 
+                                                body, 
+                                                [], 
+                                                milestone, 
+                                                labels, 
+                                                state,
+                                                attempts + 1)
         else:
-            return
+            return ticket_number
 
     if state == 'closed':
         if issue_url == "":
             print "ERROR: failed to retrieve issue url"
-            return
+            return ticket_number
         close_github_issue(issue_url)
 
-    return json.loads(response.content)['number']
+    return ticket_number
 
 
 def migrate_issues(csv_path, 
