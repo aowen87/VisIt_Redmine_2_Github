@@ -743,8 +743,14 @@ def migrate_issues(csv_path,
                     mile_s.extend(extract_milestones(row, fin_mile_s))
                     fin_mile_s.extend(mile_s)
                 for ms in mile_s:
-                    if not milestone_is_open(ms):
-                        closed_ms.append(ms)
+                    if ms == '-':
+                        continue
+                    clean_ms = ms
+                    if 'HDF5' in ms:
+                         clean_ms = ms.split('-')[-1]
+                            
+                    if not milestone_is_open(clean_ms):
+                        closed_ms.append(clean_ms)
                     mile_s_numbers[ms] = create_github_milestone(ms, 'open')
                 print "Finished ceating milestones!"
 

@@ -70,7 +70,6 @@ if __name__ == "__main__":
     start   = args.start_ticket
     stop    = args.stop_ticket
 
-    log = open("redmine_ticket_numbers.log", "w")
 
     base = "https://visitbugs.ornl.gov"
 
@@ -89,11 +88,11 @@ if __name__ == "__main__":
             if raw_html == None:
                 print "Ticket #%i was not found" % issue
                 continue
-            log.write(str(issue))
             html_parser = BeautifulSoup(raw_html, 'html.parser')
 
             row_dict = {}
 
+            row_dict["#"]       = issue
             title               = html_parser.find('title').text
             row_dict["Tracker"] = title.split("#")[0].split()[-1]
             row_dict["Subject"] = title.split(":", 1)[1].rsplit("-", 1)[-2]
@@ -154,11 +153,11 @@ if __name__ == "__main__":
             #
             for key in row_dict:
                 value         = row_dict[key]
-                row_dict[key] = [char for char in value if ord(char) < 128]
+                row_dict[key] = ''.join([char for char in value if ord(char) < 128])
 
+    
             writer.writerow(row_dict)
 
 
     print "FINISHED GRABBING ATTACHMENTS!"
-    log.close()
     
