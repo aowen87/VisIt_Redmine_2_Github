@@ -74,7 +74,7 @@ if __name__ == "__main__":
     base = "https://visitbugs.ornl.gov"
 
     with open('redmine_tickets.csv', mode='w') as out_csv:
-        fields = ["Status", "Tracker", "Priority", "Subject", "Assigned to", 
+        fields = ["#", "Status", "Tracker", "Priority", "Subject", "Assigned to", 
                   "Category", "Target version", "Author", "Start", "Due date", 
                   "% Done", "Estimated time", "Created", "Updated", "Likelihood",
                   "Severity", "Found in Version", "Impact", "Expected Use",
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
             row_dict = {}
 
-            row_dict["#"]       = issue
+            row_dict["#"]       = str(issue)
             title               = html_parser.find('title').text
             row_dict["Tracker"] = title.split("#")[0].split()[-1]
             row_dict["Subject"] = title.split(":", 1)[1].rsplit("-", 1)[-2]

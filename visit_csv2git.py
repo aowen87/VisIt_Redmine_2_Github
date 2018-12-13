@@ -216,7 +216,7 @@ def create_redmine_tag(row, comment_map):
             comments += "%s\n" % com.encode('utf-8')
 
     return  template % (ticket_num, row['Status'],  
-                        row['Project'], 
+                        "VisIt", 
                         row['Tracker'], 
                         row['Priority'], 
                         cleanup_text(row['Subject']),
@@ -389,7 +389,7 @@ def extract_labels(row, exclude):
 
     for title in label_titles:
         label = row[title]
-        if label == '' or label in exclude:
+        if label == '' or label == '-' or label in exclude:
             continue
 
         if filter(lambda x: x in label.lower(), exclusion_flags):
