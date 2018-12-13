@@ -32,6 +32,16 @@ GRADATION_MAP.update(dict.fromkeys(['3'], 'medium'))
 GRADATION_MAP.update(dict.fromkeys(['4', '5'], 'high'))
 
 
+def refine_target_version(tv):
+    """
+        There are a couple of very old target versions that
+        are in a format no longer used. We need to convert 
+        these for github to accept. 
+    """
+    if 'HDF5' in tv:
+         return tv.split('-')[-1]
+    return tv
+
 
 def exceeded_limit(response):
     """
@@ -281,13 +291,8 @@ def milestone_is_open(ms):
         Determine if a milestone should be set to open or not. 
     """
     parts = [int(p) for p in str(ms).split('.')]
-    if parts[0] >= 3:
+    if parts[0] == 3:
         return True
-    if len(parts) == 3:
-        if (parts[0] == 2 and 
-            parts[1] >= 13 and
-            parts[2] >= 3):
-            return True
     return False
 
 
@@ -487,7 +492,7 @@ def extract_milestones(row, exclude):
     target = 'Target version'
 
     mile_s = row[target]
-    if mile_s == '' or mile_s in exclude:
+    if mile_s == '' or mile_s == '-' or mile_s in exclude:
         return []
 
     return [mile_s]
@@ -743,15 +748,10 @@ def migrate_issues(csv_path,
                     mile_s.extend(extract_milestones(row, fin_mile_s))
                     fin_mile_s.extend(mile_s)
                 for ms in mile_s:
-                    if ms == '-':
-                        continue
-                    clean_ms = ms
-                    if 'HDF5' in ms:
-                         clean_ms = ms.split('-')[-1]
-                            
-                    if not milestone_is_open(clean_ms):
-                        closed_ms.append(clean_ms)
-                    mile_s_numbers[ms] = create_github_milestone(ms, 'open')
+                    refined = refine_target_version(ms)
+                    if not milestone_is_open(refined):
+                        closed_ms.append(refined)
+                    mile_s_numbers[refined] = create_github_milestone(refined, 'open')
                 print "Finished ceating milestones!"
 
             if do_tickets:
@@ -781,7 +781,7 @@ def migrate_issues(csv_path,
                     if ignore_assignees:
                         assignees = []
                     else:
-                        assignees   = [name_map[assignee] if assignee in name_map else "" 
+                        assignees = [name_map[assignee] if assignee in name_map else "" 
                             for assignee in row['Assigned to'].split(",")]
 
                     title       = cleanup_text(row['Subject'])
@@ -793,12 +793,14 @@ def migrate_issues(csv_path,
                     #      get their numbers from github...
                     milestone   = None
 
-                    if row['Target version'] != '' and do_milestones:
-                        if row['Target version'] not in mile_s_numbers:
-                            print "ERROR: unable to find number for milestone!"
+                    tv = refine_target_version(row['Target version'])
+                    if tv != '' and tv != '-' and do_milestones:
+                        if tv not in mile_s_numbers:
+                            msg = "unable to find milestone for %s !" % tv
+                            print "ERROR: %s" % msg
                             print "Aborting this ticket!"
                             continue
-                        milestone = mile_s_numbers[row['Target version']]
+                        milestone = mile_s_numbers[tv]
     
                     body = "%s\n\n%s" % (desc, create_redmine_tag(row, comment_map))
  
