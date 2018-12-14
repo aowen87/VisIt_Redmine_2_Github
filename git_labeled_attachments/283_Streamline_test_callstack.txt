@@ -1,274 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>VisIt - Streamline_test_callstack.txt - VisIt Bugs</title>
-<meta name="description" content="Redmine" />
-<meta name="keywords" content="issue,bug,tracker" />
-<link href="/stylesheets/application.css?1267352889" media="all" rel="stylesheet" type="text/css" />
-<script src="/javascripts/prototype.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/effects.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/dragdrop.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/controls.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/application.js?1267352889" type="text/javascript"></script>
-<link href="/stylesheets/jstoolbar.css?1267352889" media="screen" rel="stylesheet" type="text/css" />
-<!--[if IE]>
-    <style type="text/css">
-      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
-      body {behavior: url(/stylesheets/csshover.htc?1267352889);}
-    </style>
-<![endif]-->
+>	avtivp.dll!celltree_builder::split(unsigned int index=0, float * min=0x00dab308, float * max=0x00dab2f4)  Line 418 + 0xf bytes	C++
+ 	avtivp.dll!celltree_builder::build(celltree & ct={...}, vtkDataSet * ds=0x04d700e8)  Line 473	C++
+ 	avtivp.dll!avtCellLocatorBIH::Build()  Line 572	C++
+ 	avtivp.dll!avtCellLocatorBIH::avtCellLocatorBIH(vtkDataSet * ds=0x04d700e8)  Line 522	C++
+ 	avtfilters_ser.dll!avtPICSFilter::SetupLocator(const DomainType & domain={...}, vtkDataSet * ds=0x04d700e8)  Line 1204 + 0x32 bytes	C++
+ 	avtfilters_ser.dll!avtPICSFilter::PointInDomain(avtVector & pt={...}, DomainType & domain={...})  Line 1361 + 0x10 bytes	C++
+ 	avtfilters_ser.dll!avtICAlgorithm::PointInDomain(avtVector & pt={...}, DomainType & dom={...})  Line 132 + 0x36 bytes	C++
+ 	avtfilters_ser.dll!avtSerialICAlgorithm::AddIntegralCurves(std::vector<avtIntegralCurve *,std::allocator<avtIntegralCurve *> > & ics=[1](0x04d51720 {serializeFlags=0 sequenceCnt=0 historyMask='' ...}))  Line 176 + 0x1a bytes	C++
+ 	avtfilters_ser.dll!avtSerialICAlgorithm::Initialize(std::vector<avtIntegralCurve *,std::allocator<avtIntegralCurve *> > & seedPts=[1](0x04d51720 {serializeFlags=0 sequenceCnt=0 historyMask='' ...}))  Line 112 + 0x13 bytes	C++
+ 	avtfilters_ser.dll!avtPICSFilter::Execute()  Line 814 + 0x1f bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 273 + 0x13 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtTerminatingSink::Execute(ref_ptr<avtContract> contract={...})  Line 209	C++
+ 	avtplotter_ser.dll!avtPlot::Execute(ref_ptr<avtDataObject> input={...}, ref_ptr<avtContract> contract={...}, const WindowAttributes * atts=0x04ce3d58, const bool combinedExecute=false)  Line 553	C++
+ 	avtplotter_ser.dll!avtPlot::Execute(ref_ptr<avtDataObject> input={...}, ref_ptr<avtContract> contract={...}, const WindowAttributes * atts=0x04ce3d58)  Line 398 + 0x5a bytes	C++
+ 	enginelib_ser.dll!DataNetwork::GetWriter(ref_ptr<avtDataObject> dob={...}, ref_ptr<avtContract> contract={...}, WindowAttributes * atts=0x04ce3d58)  Line 191 + 0xa6 bytes	C++
+ 	enginelib_ser.dll!NetworkManager::GetOutput(bool respondWithNullData=false, bool calledForRender=false, float * cellCountMultiplier=0x00daf7c8)  Line 1985 + 0x67 bytes	C++
+ 	enginelib_ser.dll!RPCExecutor<ExecuteRPC>::Execute(ExecuteRPC * rpc=0x04461448)  Line 966 + 0x3b bytes	C++
+ 	enginelib_ser.dll!RPCExecutor<ExecuteRPC>::Update(Subject * s=0x04461460)  Line 68	C++
+ 	visitcommon.dll!Subject::Notify()  Line 193 + 0x29 bytes	C++
+ 	visitcommon.dll!AttributeSubject::Notify()  Line 103	C++
+ 	visitcommon.dll!Xfer::Process()  Line 420 + 0x2f bytes	C++
+ 	enginelib_ser.dll!Engine::ProcessInput()  Line 1646 + 0x17 bytes	C++
+ 	enginelib_ser.dll!Engine::EventLoop()  Line 1595	C++
+ 	engine_ser.exe!main(int argc=4, char * * argv=0x044557a8)  Line 314 + 0xb bytes	C++
+ 	engine_ser.exe!__tmainCRTStartup()  Line 597 + 0x17 bytes	C
+ 	kernel32.dll!7c817077() 	
+ 	[Frames below may be incorrect and/or missing, no symbols loaded for kernel32.dll]	
 
-<!-- page specific tags -->
-    <link href="/stylesheets/scm.css?1267352889" media="screen" rel="stylesheet" type="text/css" /></head>
-<body>
-<div id="wrapper">
-<div id="top-menu">
-    <div id="account">
-        <ul><li><a href="/login" class="login">Sign in</a></li>
-<li><a href="/account/register" class="register">Register</a></li></ul>    </div>
-    
-    <ul><li><a href="/" class="home">Home</a></li>
-<li><a href="/projects" class="projects">Projects</a></li>
-<li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul></div>
-      
-<div id="header">
-    <div id="quick-search">
-        <form action="/search/index/visit" method="get">
-        
-        <a href="/search/index/visit" accesskey="4">Search</a>:
-        <input accesskey="f" class="small" id="q" name="q" size="20" type="text" />
-        </form>
-        
-    </div>
-    
-    <h1>VisIt</h1>
-    
-    <div id="main-menu">
-        <ul><li><a href="/projects/visit" class="overview">Overview</a></li>
-<li><a href="/projects/visit/activity" class="activity">Activity</a></li>
-<li><a href="/projects/visit/roadmap" class="roadmap">Roadmap</a></li>
-<li><a href="/projects/visit/issues" class="issues">Issues</a></li></ul>
-    </div>
-</div>
-
-<div class="nosidebar" id="main">
-    <div id="sidebar">        
-        
-        
-    </div>
-    
-    <div id="content">
-				
-        <h2>Streamline_test_callstack.txt</h2>
-
-<div class="attachments">
-<p>
-   <span class="author">Kathleen Biagas, 10/05/2010 03:42 pm</span></p>
-<p><a href="/attachments/download/14/Streamline_test_callstack.txt">Download</a>   <span class="size">(4.7 KB)</span></p>
-
-</div>
-&nbsp;
-<div class="autoscroll">
-<table class="filecontent CodeRay">
-<tbody>
-
-
-<tr><th class="line-num" id="L1"><a href="#L1">1</a></th><td class="line-code"><pre>&gt;	avtivp.dll!celltree_builder::split(unsigned int index=0, float * min=0x00dab308, float * max=0x00dab2f4)  Line 418 + 0xf bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L2"><a href="#L2">2</a></th><td class="line-code"><pre> 	avtivp.dll!celltree_builder::build(celltree &amp; ct={...}, vtkDataSet * ds=0x04d700e8)  Line 473	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L3"><a href="#L3">3</a></th><td class="line-code"><pre> 	avtivp.dll!avtCellLocatorBIH::Build()  Line 572	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L4"><a href="#L4">4</a></th><td class="line-code"><pre> 	avtivp.dll!avtCellLocatorBIH::avtCellLocatorBIH(vtkDataSet * ds=0x04d700e8)  Line 522	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L5"><a href="#L5">5</a></th><td class="line-code"><pre> 	avtfilters_ser.dll!avtPICSFilter::SetupLocator(const DomainType &amp; domain={...}, vtkDataSet * ds=0x04d700e8)  Line 1204 + 0x32 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L6"><a href="#L6">6</a></th><td class="line-code"><pre> 	avtfilters_ser.dll!avtPICSFilter::PointInDomain(avtVector &amp; pt={...}, DomainType &amp; domain={...})  Line 1361 + 0x10 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L7"><a href="#L7">7</a></th><td class="line-code"><pre> 	avtfilters_ser.dll!avtICAlgorithm::PointInDomain(avtVector &amp; pt={...}, DomainType &amp; dom={...})  Line 132 + 0x36 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L8"><a href="#L8">8</a></th><td class="line-code"><pre> 	avtfilters_ser.dll!avtSerialICAlgorithm::AddIntegralCurves(std::vector&lt;avtIntegralCurve *,std::allocator&lt;avtIntegralCurve *&gt; &gt; &amp; ics=[1](0x04d51720 {serializeFlags=0 sequenceCnt=0 historyMask='' ...}))  Line 176 + 0x1a bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L9"><a href="#L9">9</a></th><td class="line-code"><pre> 	avtfilters_ser.dll!avtSerialICAlgorithm::Initialize(std::vector&lt;avtIntegralCurve *,std::allocator&lt;avtIntegralCurve *&gt; &gt; &amp; seedPts=[1](0x04d51720 {serializeFlags=0 sequenceCnt=0 historyMask='' ...}))  Line 112 + 0x13 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L10"><a href="#L10">10</a></th><td class="line-code"><pre> 	avtfilters_ser.dll!avtPICSFilter::Execute()  Line 814 + 0x1f bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L11"><a href="#L11">11</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 273 + 0x13 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L12"><a href="#L12">12</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 131 + 0x33 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L13"><a href="#L13">13</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr&lt;avtContract&gt; spec={...})  Line 157 + 0x73 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L14"><a href="#L14">14</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 249 + 0x42 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L15"><a href="#L15">15</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 131 + 0x33 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L16"><a href="#L16">16</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr&lt;avtContract&gt; spec={...})  Line 157 + 0x73 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L17"><a href="#L17">17</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 249 + 0x42 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L18"><a href="#L18">18</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 131 + 0x33 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L19"><a href="#L19">19</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr&lt;avtContract&gt; spec={...})  Line 157 + 0x73 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L20"><a href="#L20">20</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 249 + 0x42 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L21"><a href="#L21">21</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 131 + 0x33 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L22"><a href="#L22">22</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr&lt;avtContract&gt; spec={...})  Line 157 + 0x73 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L23"><a href="#L23">23</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 249 + 0x42 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L24"><a href="#L24">24</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 131 + 0x33 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L25"><a href="#L25">25</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr&lt;avtContract&gt; spec={...})  Line 157 + 0x73 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L26"><a href="#L26">26</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 249 + 0x42 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L27"><a href="#L27">27</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr&lt;avtContract&gt; contract={...})  Line 131 + 0x33 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L28"><a href="#L28">28</a></th><td class="line-code"><pre> 	avtpipeline_ser.dll!avtTerminatingSink::Execute(ref_ptr&lt;avtContract&gt; contract={...})  Line 209	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L29"><a href="#L29">29</a></th><td class="line-code"><pre> 	avtplotter_ser.dll!avtPlot::Execute(ref_ptr&lt;avtDataObject&gt; input={...}, ref_ptr&lt;avtContract&gt; contract={...}, const WindowAttributes * atts=0x04ce3d58, const bool combinedExecute=false)  Line 553	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L30"><a href="#L30">30</a></th><td class="line-code"><pre> 	avtplotter_ser.dll!avtPlot::Execute(ref_ptr&lt;avtDataObject&gt; input={...}, ref_ptr&lt;avtContract&gt; contract={...}, const WindowAttributes * atts=0x04ce3d58)  Line 398 + 0x5a bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L31"><a href="#L31">31</a></th><td class="line-code"><pre> 	enginelib_ser.dll!DataNetwork::GetWriter(ref_ptr&lt;avtDataObject&gt; dob={...}, ref_ptr&lt;avtContract&gt; contract={...}, WindowAttributes * atts=0x04ce3d58)  Line 191 + 0xa6 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L32"><a href="#L32">32</a></th><td class="line-code"><pre> 	enginelib_ser.dll!NetworkManager::GetOutput(bool respondWithNullData=false, bool calledForRender=false, float * cellCountMultiplier=0x00daf7c8)  Line 1985 + 0x67 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L33"><a href="#L33">33</a></th><td class="line-code"><pre> 	enginelib_ser.dll!RPCExecutor&lt;ExecuteRPC&gt;::Execute(ExecuteRPC * rpc=0x04461448)  Line 966 + 0x3b bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L34"><a href="#L34">34</a></th><td class="line-code"><pre> 	enginelib_ser.dll!RPCExecutor&lt;ExecuteRPC&gt;::Update(Subject * s=0x04461460)  Line 68	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L35"><a href="#L35">35</a></th><td class="line-code"><pre> 	visitcommon.dll!Subject::Notify()  Line 193 + 0x29 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L36"><a href="#L36">36</a></th><td class="line-code"><pre> 	visitcommon.dll!AttributeSubject::Notify()  Line 103	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L37"><a href="#L37">37</a></th><td class="line-code"><pre> 	visitcommon.dll!Xfer::Process()  Line 420 + 0x2f bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L38"><a href="#L38">38</a></th><td class="line-code"><pre> 	enginelib_ser.dll!Engine::ProcessInput()  Line 1646 + 0x17 bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L39"><a href="#L39">39</a></th><td class="line-code"><pre> 	enginelib_ser.dll!Engine::EventLoop()  Line 1595	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L40"><a href="#L40">40</a></th><td class="line-code"><pre> 	engine_ser.exe!main(int argc=4, char * * argv=0x044557a8)  Line 314 + 0xb bytes	C++
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L41"><a href="#L41">41</a></th><td class="line-code"><pre> 	engine_ser.exe!__tmainCRTStartup()  Line 597 + 0x17 bytes	C
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L42"><a href="#L42">42</a></th><td class="line-code"><pre> 	kernel32.dll!7c817077() 	
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L43"><a href="#L43">43</a></th><td class="line-code"><pre> 	[Frames below may be incorrect and/or missing, no symbols loaded for kernel32.dll]	
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L44"><a href="#L44">44</a></th><td class="line-code"><pre>
-</pre></td></tr>
-
-
-</tbody>
-</table>
-</div>
-
-
-
-
-
-        
-				<div style="clear:both;"></div>
-    </div>
-</div>
-
-<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
-	
-<div id="footer">
-    Powered by <a href="http://www.redmine.org/">Redmine</a> &copy; 2006-2010 Jean-Philippe Lang
-</div>
-</div>
-
-</body>
-</html>

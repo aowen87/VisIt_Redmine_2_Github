@@ -1,626 +1,132 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>VisIt - visit_libraries.txt - VisIt Bugs</title>
-<meta name="description" content="Redmine" />
-<meta name="keywords" content="issue,bug,tracker" />
-<link href="/stylesheets/application.css?1267352889" media="all" rel="stylesheet" type="text/css" />
-<script src="/javascripts/prototype.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/effects.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/dragdrop.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/controls.js?1267352889" type="text/javascript"></script>
-<script src="/javascripts/application.js?1267352889" type="text/javascript"></script>
-<link href="/stylesheets/jstoolbar.css?1267352889" media="screen" rel="stylesheet" type="text/css" />
-<!--[if IE]>
-    <style type="text/css">
-      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
-      body {behavior: url(/stylesheets/csshover.htc?1267352889);}
-    </style>
-<![endif]-->
-
-<!-- page specific tags -->
-    <link href="/stylesheets/scm.css?1267352889" media="screen" rel="stylesheet" type="text/css" /></head>
-<body>
-<div id="wrapper">
-<div id="top-menu">
-    <div id="account">
-        <ul><li><a href="/login" class="login">Sign in</a></li>
-<li><a href="/account/register" class="register">Register</a></li></ul>    </div>
-    
-    <ul><li><a href="/" class="home">Home</a></li>
-<li><a href="/projects" class="projects">Projects</a></li>
-<li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul></div>
-      
-<div id="header">
-    <div id="quick-search">
-        <form action="/search/index/visit" method="get">
-        
-        <a href="/search/index/visit" accesskey="4">Search</a>:
-        <input accesskey="f" class="small" id="q" name="q" size="20" type="text" />
-        </form>
-        
-    </div>
-    
-    <h1>VisIt</h1>
-    
-    <div id="main-menu">
-        <ul><li><a href="/projects/visit" class="overview">Overview</a></li>
-<li><a href="/projects/visit/activity" class="activity">Activity</a></li>
-<li><a href="/projects/visit/roadmap" class="roadmap">Roadmap</a></li>
-<li><a href="/projects/visit/issues" class="issues">Issues</a></li></ul>
-    </div>
-</div>
-
-<div class="nosidebar" id="main">
-    <div id="sidebar">        
-        
-        
-    </div>
-    
-    <div id="content">
-				
-        <h2>visit_libraries.txt</h2>
-
-<div class="attachments">
-<p>
-   <span class="author">Kevin Griffin, 02/01/2018 10:59 am</span></p>
-<p><a href="/attachments/download/480/visit_libraries.txt">Download</a>   <span class="size">(13.3 KB)</span></p>
-
-</div>
-&nbsp;
-<div class="autoscroll">
-<table class="filecontent CodeRay">
-<tbody>
-
-
-<tr><th class="line-num" id="L1"><a href="#L1">1</a></th><td class="line-code"><pre>~/Downloads/visit2.13.0/src/exe&gt; ldd viewer
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L2"><a href="#L2">2</a></th><td class="line-code"><pre>        linux-vdso.so.1 (0x00007ffeeb3f9000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L3"><a href="#L3">3</a></th><td class="line-code"><pre>        libviewer.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libviewer.so (0x00007f269c920000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L4"><a href="#L4">4</a></th><td class="line-code"><pre>        libviewercore_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libviewercore_ser.so (0x00007f269c5c5000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L5"><a href="#L5">5</a></th><td class="line-code"><pre>        libviewerrpc.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libviewerrpc.so (0x00007f269c3a3000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L6"><a href="#L6">6</a></th><td class="line-code"><pre>        libmdserverproxy.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libmdserverproxy.so (0x00007f269c19f000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L7"><a href="#L7">7</a></th><td class="line-code"><pre>        libmdserverrpc.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libmdserverrpc.so (0x00007f269bf72000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L8"><a href="#L8">8</a></th><td class="line-code"><pre>        libvclproxy.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvclproxy.so (0x00007f269bd6e000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L9"><a href="#L9">9</a></th><td class="line-code"><pre>        libvclrpc.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvclrpc.so (0x00007f269bb66000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L10"><a href="#L10">10</a></th><td class="line-code"><pre>        libengineproxy.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libengineproxy.so (0x00007f269b958000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L11"><a href="#L11">11</a></th><td class="line-code"><pre>        libenginerpc.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libenginerpc.so (0x00007f269b722000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L12"><a href="#L12">12</a></th><td class="line-code"><pre>        libavtwriter_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtwriter_ser.so (0x00007f269b507000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L13"><a href="#L13">13</a></th><td class="line-code"><pre>        libvtkIOPLY-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOPLY-6.1.so.1 (0x00007f269b2f2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L14"><a href="#L14">14</a></th><td class="line-code"><pre>        libvtkIOGeometry-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOGeometry-6.1.so.1 (0x00007f269afde000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L15"><a href="#L15">15</a></th><td class="line-code"><pre>        libavtqtviswindow.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtqtviswindow.so (0x00007f269adcb000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L16"><a href="#L16">16</a></th><td class="line-code"><pre>        libavtviswindow_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtviswindow_ser.so (0x00007f269aaf6000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L17"><a href="#L17">17</a></th><td class="line-code"><pre>        libavtplotter_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtplotter_ser.so (0x00007f269a6e1000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L18"><a href="#L18">18</a></th><td class="line-code"><pre>        libavtfilters_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtfilters_ser.so (0x00007f269a2f6000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L19"><a href="#L19">19</a></th><td class="line-code"><pre>        libavtview.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtview.so (0x00007f269a0ec000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L20"><a href="#L20">20</a></th><td class="line-code"><pre>        libavtdatabase_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtdatabase_ser.so (0x00007f2699df0000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L21"><a href="#L21">21</a></th><td class="line-code"><pre>        libavtmir_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtmir_ser.so (0x00007f2699b96000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L22"><a href="#L22">22</a></th><td class="line-code"><pre>        libavtpipeline_ser.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtpipeline_ser.so (0x00007f26997f6000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L23"><a href="#L23">23</a></th><td class="line-code"><pre>        libavtmath.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtmath.so (0x00007f26995e8000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L24"><a href="#L24">24</a></th><td class="line-code"><pre>        libvisit_verdict.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvisit_verdict.so (0x00007f26993ba000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L25"><a href="#L25">25</a></th><td class="line-code"><pre>        libtess2.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libtess2.so (0x00007f26991af000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L26"><a href="#L26">26</a></th><td class="line-code"><pre>        libvtkFiltersHybrid-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersHybrid-6.1.so.1 (0x00007f2698f08000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L27"><a href="#L27">27</a></th><td class="line-code"><pre>        libvtkImagingSources-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingSources-6.1.so.1 (0x00007f2698cc8000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L28"><a href="#L28">28</a></th><td class="line-code"><pre>        libvisitGLEW.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvisitGLEW.so (0x00007f2698a33000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L29"><a href="#L29">29</a></th><td class="line-code"><pre>        libvisit_vtk.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvisit_vtk.so (0x00007f26986ec000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L30"><a href="#L30">30</a></th><td class="line-code"><pre>        libvtkFiltersFlowPaths-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersFlowPaths-6.1.so.1 (0x00007f269849a000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L31"><a href="#L31">31</a></th><td class="line-code"><pre>        liblightweight_visit_vtk.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/liblightweight_visit_vtk.so (0x00007f269822a000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L32"><a href="#L32">32</a></th><td class="line-code"><pre>        libvtkIOLegacy-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOLegacy-6.1.so.1 (0x00007f2697fad000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L33"><a href="#L33">33</a></th><td class="line-code"><pre>        libvtkFiltersModeling-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersModeling-6.1.so.1 (0x00007f2697d60000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L34"><a href="#L34">34</a></th><td class="line-code"><pre>        libvtkqt.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvtkqt.so (0x00007f2697b54000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L35"><a href="#L35">35</a></th><td class="line-code"><pre>        libvtkRenderingFreeTypeOpenGL-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingFreeTypeOpenGL-6.1.so.1 (0x00007f269794a000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L36"><a href="#L36">36</a></th><td class="line-code"><pre>        libvtkRenderingFreeType-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingFreeType-6.1.so.1 (0x00007f2697698000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L37"><a href="#L37">37</a></th><td class="line-code"><pre>        libvtkftgl-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkftgl-6.1.so.1 (0x00007f269748c000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L38"><a href="#L38">38</a></th><td class="line-code"><pre>        libvtkfreetype-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkfreetype-6.1.so.1 (0x00007f26971ff000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L39"><a href="#L39">39</a></th><td class="line-code"><pre>        libvtkGUISupportQtOpenGL-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkGUISupportQtOpenGL-6.1.so.1 (0x00007f2696fef000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L40"><a href="#L40">40</a></th><td class="line-code"><pre>        libvtkGUISupportQt-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkGUISupportQt-6.1.so.1 (0x00007f2696db2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L41"><a href="#L41">41</a></th><td class="line-code"><pre>        libvtkRenderingOpenGL-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingOpenGL-6.1.so.1 (0x00007f2696a37000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L42"><a href="#L42">42</a></th><td class="line-code"><pre>        libGLU.so.1 =&gt; /usr/lib64/libGLU.so.1 (0x00007f26967b8000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L43"><a href="#L43">43</a></th><td class="line-code"><pre>        libGL.so.1 =&gt; /usr/lib64/libGL.so.1 (0x00007f269654c000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L44"><a href="#L44">44</a></th><td class="line-code"><pre>        libSM.so.6 =&gt; /usr/lib64/libSM.so.6 (0x00007f2696344000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L45"><a href="#L45">45</a></th><td class="line-code"><pre>        libICE.so.6 =&gt; /usr/lib64/libICE.so.6 (0x00007f2696127000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L46"><a href="#L46">46</a></th><td class="line-code"><pre>        libX11.so.6 =&gt; /usr/lib64/libX11.so.6 (0x00007f2695de9000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L47"><a href="#L47">47</a></th><td class="line-code"><pre>        libXext.so.6 =&gt; /usr/lib64/libXext.so.6 (0x00007f2695bd7000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L48"><a href="#L48">48</a></th><td class="line-code"><pre>        libXt.so.6 =&gt; /usr/lib64/libXt.so.6 (0x00007f2695970000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L49"><a href="#L49">49</a></th><td class="line-code"><pre>        libvtkImagingHybrid-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingHybrid-6.1.so.1 (0x00007f2695728000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L50"><a href="#L50">50</a></th><td class="line-code"><pre>        libvtkInteractionStyle-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkInteractionStyle-6.1.so.1 (0x00007f26954ec000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L51"><a href="#L51">51</a></th><td class="line-code"><pre>        libvtkRenderingCore-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingCore-6.1.so.1 (0x00007f2695142000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L52"><a href="#L52">52</a></th><td class="line-code"><pre>        libvtkFiltersGeometry-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersGeometry-6.1.so.1 (0x00007f2694ee0000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L53"><a href="#L53">53</a></th><td class="line-code"><pre>        libvtkFiltersSources-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersSources-6.1.so.1 (0x00007f2694c67000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L54"><a href="#L54">54</a></th><td class="line-code"><pre>        libvtkFiltersExtraction-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersExtraction-6.1.so.1 (0x00007f26949af000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L55"><a href="#L55">55</a></th><td class="line-code"><pre>        libvtkFiltersGeneral-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersGeneral-6.1.so.1 (0x00007f26944f2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L56"><a href="#L56">56</a></th><td class="line-code"><pre>        libvtkFiltersCore-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersCore-6.1.so.1 (0x00007f2693fa0000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L57"><a href="#L57">57</a></th><td class="line-code"><pre>        libvtkCommonComputationalGeometry-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonComputationalGeometry-6.1.so.1 (0x00007f2693d7f000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L58"><a href="#L58">58</a></th><td class="line-code"><pre>        libvtkFiltersStatistics-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersStatistics-6.1.so.1 (0x00007f2693b10000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L59"><a href="#L59">59</a></th><td class="line-code"><pre>        libvtkImagingFourier-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingFourier-6.1.so.1 (0x00007f26938ef000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L60"><a href="#L60">60</a></th><td class="line-code"><pre>        libvtkalglib-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkalglib-6.1.so.1 (0x00007f26936cb000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L61"><a href="#L61">61</a></th><td class="line-code"><pre>        libvtkImagingCore-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingCore-6.1.so.1 (0x00007f26932d3000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L62"><a href="#L62">62</a></th><td class="line-code"><pre>        libvtkIOImage-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOImage-6.1.so.1 (0x00007f2692f96000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L63"><a href="#L63">63</a></th><td class="line-code"><pre>        libvtkpng-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkpng-6.1.so.1 (0x00007f2692d6b000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L64"><a href="#L64">64</a></th><td class="line-code"><pre>        libvtktiff-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtktiff-6.1.so.1 (0x00007f2692b07000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L65"><a href="#L65">65</a></th><td class="line-code"><pre>        libvtkjpeg-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkjpeg-6.1.so.1 (0x00007f26928d8000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L66"><a href="#L66">66</a></th><td class="line-code"><pre>        libvtkIOCore-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOCore-6.1.so.1 (0x00007f2692669000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L67"><a href="#L67">67</a></th><td class="line-code"><pre>        libvtkCommonExecutionModel-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonExecutionModel-6.1.so.1 (0x00007f26923d5000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L68"><a href="#L68">68</a></th><td class="line-code"><pre>        libvtkCommonDataModel-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonDataModel-6.1.so.1 (0x00007f2691ee2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L69"><a href="#L69">69</a></th><td class="line-code"><pre>        libvtkCommonMisc-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonMisc-6.1.so.1 (0x00007f2691ccf000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L70"><a href="#L70">70</a></th><td class="line-code"><pre>        libvtkCommonSystem-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonSystem-6.1.so.1 (0x00007f2691abc000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L71"><a href="#L71">71</a></th><td class="line-code"><pre>        libvtkCommonTransforms-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonTransforms-6.1.so.1 (0x00007f269188e000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L72"><a href="#L72">72</a></th><td class="line-code"><pre>        libvtkCommonMath-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonMath-6.1.so.1 (0x00007f269166e000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L73"><a href="#L73">73</a></th><td class="line-code"><pre>        libvtkCommonCore-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonCore-6.1.so.1 (0x00007f26910b0000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L74"><a href="#L74">74</a></th><td class="line-code"><pre>        libvtkzlib-6.1.so.1 =&gt; /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkzlib-6.1.so.1 (0x00007f2690e99000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L75"><a href="#L75">75</a></th><td class="line-code"><pre>        libwinutil.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libwinutil.so (0x00007f2690c5b000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L76"><a href="#L76">76</a></th><td class="line-code"><pre>        libavtdbatts.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libavtdbatts.so (0x00007f26909c3000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L77"><a href="#L77">77</a></th><td class="line-code"><pre>        libvisitcommon.so =&gt; /home/udt/Downloads/visit2.13.0/src/lib/libvisitcommon.so (0x00007f269039b000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L78"><a href="#L78">78</a></th><td class="line-code"><pre>        libz.so.1 =&gt; /lib64/libz.so.1 (0x00007f2690185000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L79"><a href="#L79">79</a></th><td class="line-code"><pre>        libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007f268ff81000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L80"><a href="#L80">80</a></th><td class="line-code"><pre>        libQt5X11Extras.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5X11Extras.so.5 (0x00007f268fd7d000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L81"><a href="#L81">81</a></th><td class="line-code"><pre>        libQt5PrintSupport.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5PrintSupport.so.5 (0x00007f268fb18000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L82"><a href="#L82">82</a></th><td class="line-code"><pre>        libQt5OpenGL.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5OpenGL.so.5 (0x00007f268f8bf000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L83"><a href="#L83">83</a></th><td class="line-code"><pre>        libQt5Widgets.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Widgets.so.5 (0x00007f268f055000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L84"><a href="#L84">84</a></th><td class="line-code"><pre>        libQt5Gui.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Gui.so.5 (0x00007f268e8bb000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L85"><a href="#L85">85</a></th><td class="line-code"><pre>        libQt5Network.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Network.so.5 (0x00007f268e562000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L86"><a href="#L86">86</a></th><td class="line-code"><pre>        libQt5Core.so.5 =&gt; /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Core.so.5 (0x00007f268deaa000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L87"><a href="#L87">87</a></th><td class="line-code"><pre>        libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007f268dc8d000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L88"><a href="#L88">88</a></th><td class="line-code"><pre>        libstdc++.so.6 =&gt; /usr/lib64/libstdc++.so.6 (0x00007f268d904000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L89"><a href="#L89">89</a></th><td class="line-code"><pre>        libm.so.6 =&gt; /lib64/libm.so.6 (0x00007f268d607000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L90"><a href="#L90">90</a></th><td class="line-code"><pre>        libgcc_s.so.1 =&gt; /lib64/libgcc_s.so.1 (0x00007f268d3f0000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L91"><a href="#L91">91</a></th><td class="line-code"><pre>        libc.so.6 =&gt; /lib64/libc.so.6 (0x00007f268d04d000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L92"><a href="#L92">92</a></th><td class="line-code"><pre>        libvtkjsoncpp-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L93"><a href="#L93">93</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L94"><a href="#L94">94</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L95"><a href="#L95">95</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L96"><a href="#L96">96</a></th><td class="line-code"><pre>        libexpat.so.1 =&gt; /usr/lib64/libexpat.so.1 (0x00007f268ce23000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L97"><a href="#L97">97</a></th><td class="line-code"><pre>        libxcb-dri3.so.0 =&gt; /usr/lib64/libxcb-dri3.so.0 (0x00007f268cc20000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L98"><a href="#L98">98</a></th><td class="line-code"><pre>        libxcb-present.so.0 =&gt; /usr/lib64/libxcb-present.so.0 (0x00007f268ca1d000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L99"><a href="#L99">99</a></th><td class="line-code"><pre>        libxcb-sync.so.1 =&gt; /usr/lib64/libxcb-sync.so.1 (0x00007f268c817000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L100"><a href="#L100">100</a></th><td class="line-code"><pre>        libxshmfence.so.1 =&gt; /usr/lib64/libxshmfence.so.1 (0x00007f268c614000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L101"><a href="#L101">101</a></th><td class="line-code"><pre>        libglapi.so.0 =&gt; /usr/lib64/libglapi.so.0 (0x00007f268c3e5000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L102"><a href="#L102">102</a></th><td class="line-code"><pre>        libXdamage.so.1 =&gt; /usr/lib64/libXdamage.so.1 (0x00007f268c1e2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L103"><a href="#L103">103</a></th><td class="line-code"><pre>        libXfixes.so.3 =&gt; /usr/lib64/libXfixes.so.3 (0x00007f268bfdc000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L104"><a href="#L104">104</a></th><td class="line-code"><pre>        libX11-xcb.so.1 =&gt; /usr/lib64/libX11-xcb.so.1 (0x00007f268bdda000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L105"><a href="#L105">105</a></th><td class="line-code"><pre>        libxcb-glx.so.0 =&gt; /usr/lib64/libxcb-glx.so.0 (0x00007f268bbc2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L106"><a href="#L106">106</a></th><td class="line-code"><pre>        libxcb-dri2.so.0 =&gt; /usr/lib64/libxcb-dri2.so.0 (0x00007f268b9bd000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L107"><a href="#L107">107</a></th><td class="line-code"><pre>        libxcb.so.1 =&gt; /usr/lib64/libxcb.so.1 (0x00007f268b79d000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L108"><a href="#L108">108</a></th><td class="line-code"><pre>        libXxf86vm.so.1 =&gt; /usr/lib64/libXxf86vm.so.1 (0x00007f268b597000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L109"><a href="#L109">109</a></th><td class="line-code"><pre>        libdrm.so.2 =&gt; /usr/lib64/libdrm.so.2 (0x00007f268b386000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L110"><a href="#L110">110</a></th><td class="line-code"><pre>        libuuid.so.1 =&gt; /usr/lib64/libuuid.so.1 (0x00007f268b181000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L111"><a href="#L111">111</a></th><td class="line-code"><pre>        /lib64/ld-linux-x86-64.so.2 (0x00007f269cc3b000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L112"><a href="#L112">112</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L113"><a href="#L113">113</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L114"><a href="#L114">114</a></th><td class="line-code"><pre>        libvtkmetaio-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L115"><a href="#L115">115</a></th><td class="line-code"><pre>        libvtkDICOMParser-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L116"><a href="#L116">116</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L117"><a href="#L117">117</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L118"><a href="#L118">118</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L119"><a href="#L119">119</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L120"><a href="#L120">120</a></th><td class="line-code"><pre>        libvtksys-6.1.so.1 =&gt; not found
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L121"><a href="#L121">121</a></th><td class="line-code"><pre>        libgobject-2.0.so.0 =&gt; /usr/lib64/libgobject-2.0.so.0 (0x00007f268af30000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L122"><a href="#L122">122</a></th><td class="line-code"><pre>        libglib-2.0.so.0 =&gt; /usr/lib64/libglib-2.0.so.0 (0x00007f268ac20000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L123"><a href="#L123">123</a></th><td class="line-code"><pre>        libpng16.so.16 =&gt; /usr/lib64/libpng16.so.16 (0x00007f268a9e3000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L124"><a href="#L124">124</a></th><td class="line-code"><pre>        libicui18n.so.52.1 =&gt; /usr/lib64/libicui18n.so.52.1 (0x00007f268a5cf000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L125"><a href="#L125">125</a></th><td class="line-code"><pre>        libicuuc.so.52.1 =&gt; /usr/lib64/libicuuc.so.52.1 (0x00007f268a250000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L126"><a href="#L126">126</a></th><td class="line-code"><pre>        libicudata.so.52.1 =&gt; /usr/lib64/libicudata.so.52.1 (0x00007f268a04f000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L127"><a href="#L127">127</a></th><td class="line-code"><pre>        libpcre16.so.0 =&gt; /usr/lib64/libpcre16.so.0 (0x00007f2689de9000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L128"><a href="#L128">128</a></th><td class="line-code"><pre>        libgthread-2.0.so.0 =&gt; /usr/lib64/libgthread-2.0.so.0 (0x00007f2689be7000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L129"><a href="#L129">129</a></th><td class="line-code"><pre>        librt.so.1 =&gt; /lib64/librt.so.1 (0x00007f26899df000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L130"><a href="#L130">130</a></th><td class="line-code"><pre>        libXau.so.6 =&gt; /usr/lib64/libXau.so.6 (0x00007f26897db000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L131"><a href="#L131">131</a></th><td class="line-code"><pre>        libffi.so.4 =&gt; /usr/lib64/libffi.so.4 (0x00007f26895d2000)
-</pre></td></tr>
-
-
-<tr><th class="line-num" id="L132"><a href="#L132">132</a></th><td class="line-code"><pre>        libpcre.so.1 =&gt; /usr/lib64/libpcre.so.1 (0x00007f2689363000)
-</pre></td></tr>
-
-
-</tbody>
-</table>
-</div>
-
-
-
-
-
-        
-				<div style="clear:both;"></div>
-    </div>
-</div>
-
-<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
-	
-<div id="footer">
-    Powered by <a href="http://www.redmine.org/">Redmine</a> &copy; 2006-2010 Jean-Philippe Lang
-</div>
-</div>
-
-</body>
-</html>
+~/Downloads/visit2.13.0/src/exe> ldd viewer
+        linux-vdso.so.1 (0x00007ffeeb3f9000)
+        libviewer.so => /home/udt/Downloads/visit2.13.0/src/lib/libviewer.so (0x00007f269c920000)
+        libviewercore_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libviewercore_ser.so (0x00007f269c5c5000)
+        libviewerrpc.so => /home/udt/Downloads/visit2.13.0/src/lib/libviewerrpc.so (0x00007f269c3a3000)
+        libmdserverproxy.so => /home/udt/Downloads/visit2.13.0/src/lib/libmdserverproxy.so (0x00007f269c19f000)
+        libmdserverrpc.so => /home/udt/Downloads/visit2.13.0/src/lib/libmdserverrpc.so (0x00007f269bf72000)
+        libvclproxy.so => /home/udt/Downloads/visit2.13.0/src/lib/libvclproxy.so (0x00007f269bd6e000)
+        libvclrpc.so => /home/udt/Downloads/visit2.13.0/src/lib/libvclrpc.so (0x00007f269bb66000)
+        libengineproxy.so => /home/udt/Downloads/visit2.13.0/src/lib/libengineproxy.so (0x00007f269b958000)
+        libenginerpc.so => /home/udt/Downloads/visit2.13.0/src/lib/libenginerpc.so (0x00007f269b722000)
+        libavtwriter_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtwriter_ser.so (0x00007f269b507000)
+        libvtkIOPLY-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOPLY-6.1.so.1 (0x00007f269b2f2000)
+        libvtkIOGeometry-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOGeometry-6.1.so.1 (0x00007f269afde000)
+        libavtqtviswindow.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtqtviswindow.so (0x00007f269adcb000)
+        libavtviswindow_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtviswindow_ser.so (0x00007f269aaf6000)
+        libavtplotter_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtplotter_ser.so (0x00007f269a6e1000)
+        libavtfilters_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtfilters_ser.so (0x00007f269a2f6000)
+        libavtview.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtview.so (0x00007f269a0ec000)
+        libavtdatabase_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtdatabase_ser.so (0x00007f2699df0000)
+        libavtmir_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtmir_ser.so (0x00007f2699b96000)
+        libavtpipeline_ser.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtpipeline_ser.so (0x00007f26997f6000)
+        libavtmath.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtmath.so (0x00007f26995e8000)
+        libvisit_verdict.so => /home/udt/Downloads/visit2.13.0/src/lib/libvisit_verdict.so (0x00007f26993ba000)
+        libtess2.so => /home/udt/Downloads/visit2.13.0/src/lib/libtess2.so (0x00007f26991af000)
+        libvtkFiltersHybrid-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersHybrid-6.1.so.1 (0x00007f2698f08000)
+        libvtkImagingSources-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingSources-6.1.so.1 (0x00007f2698cc8000)
+        libvisitGLEW.so => /home/udt/Downloads/visit2.13.0/src/lib/libvisitGLEW.so (0x00007f2698a33000)
+        libvisit_vtk.so => /home/udt/Downloads/visit2.13.0/src/lib/libvisit_vtk.so (0x00007f26986ec000)
+        libvtkFiltersFlowPaths-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersFlowPaths-6.1.so.1 (0x00007f269849a000)
+        liblightweight_visit_vtk.so => /home/udt/Downloads/visit2.13.0/src/lib/liblightweight_visit_vtk.so (0x00007f269822a000)
+        libvtkIOLegacy-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOLegacy-6.1.so.1 (0x00007f2697fad000)
+        libvtkFiltersModeling-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersModeling-6.1.so.1 (0x00007f2697d60000)
+        libvtkqt.so => /home/udt/Downloads/visit2.13.0/src/lib/libvtkqt.so (0x00007f2697b54000)
+        libvtkRenderingFreeTypeOpenGL-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingFreeTypeOpenGL-6.1.so.1 (0x00007f269794a000)
+        libvtkRenderingFreeType-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingFreeType-6.1.so.1 (0x00007f2697698000)
+        libvtkftgl-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkftgl-6.1.so.1 (0x00007f269748c000)
+        libvtkfreetype-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkfreetype-6.1.so.1 (0x00007f26971ff000)
+        libvtkGUISupportQtOpenGL-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkGUISupportQtOpenGL-6.1.so.1 (0x00007f2696fef000)
+        libvtkGUISupportQt-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkGUISupportQt-6.1.so.1 (0x00007f2696db2000)
+        libvtkRenderingOpenGL-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingOpenGL-6.1.so.1 (0x00007f2696a37000)
+        libGLU.so.1 => /usr/lib64/libGLU.so.1 (0x00007f26967b8000)
+        libGL.so.1 => /usr/lib64/libGL.so.1 (0x00007f269654c000)
+        libSM.so.6 => /usr/lib64/libSM.so.6 (0x00007f2696344000)
+        libICE.so.6 => /usr/lib64/libICE.so.6 (0x00007f2696127000)
+        libX11.so.6 => /usr/lib64/libX11.so.6 (0x00007f2695de9000)
+        libXext.so.6 => /usr/lib64/libXext.so.6 (0x00007f2695bd7000)
+        libXt.so.6 => /usr/lib64/libXt.so.6 (0x00007f2695970000)
+        libvtkImagingHybrid-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingHybrid-6.1.so.1 (0x00007f2695728000)
+        libvtkInteractionStyle-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkInteractionStyle-6.1.so.1 (0x00007f26954ec000)
+        libvtkRenderingCore-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkRenderingCore-6.1.so.1 (0x00007f2695142000)
+        libvtkFiltersGeometry-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersGeometry-6.1.so.1 (0x00007f2694ee0000)
+        libvtkFiltersSources-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersSources-6.1.so.1 (0x00007f2694c67000)
+        libvtkFiltersExtraction-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersExtraction-6.1.so.1 (0x00007f26949af000)
+        libvtkFiltersGeneral-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersGeneral-6.1.so.1 (0x00007f26944f2000)
+        libvtkFiltersCore-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersCore-6.1.so.1 (0x00007f2693fa0000)
+        libvtkCommonComputationalGeometry-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonComputationalGeometry-6.1.so.1 (0x00007f2693d7f000)
+        libvtkFiltersStatistics-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkFiltersStatistics-6.1.so.1 (0x00007f2693b10000)
+        libvtkImagingFourier-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingFourier-6.1.so.1 (0x00007f26938ef000)
+        libvtkalglib-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkalglib-6.1.so.1 (0x00007f26936cb000)
+        libvtkImagingCore-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkImagingCore-6.1.so.1 (0x00007f26932d3000)
+        libvtkIOImage-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOImage-6.1.so.1 (0x00007f2692f96000)
+        libvtkpng-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkpng-6.1.so.1 (0x00007f2692d6b000)
+        libvtktiff-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtktiff-6.1.so.1 (0x00007f2692b07000)
+        libvtkjpeg-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkjpeg-6.1.so.1 (0x00007f26928d8000)
+        libvtkIOCore-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkIOCore-6.1.so.1 (0x00007f2692669000)
+        libvtkCommonExecutionModel-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonExecutionModel-6.1.so.1 (0x00007f26923d5000)
+        libvtkCommonDataModel-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonDataModel-6.1.so.1 (0x00007f2691ee2000)
+        libvtkCommonMisc-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonMisc-6.1.so.1 (0x00007f2691ccf000)
+        libvtkCommonSystem-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonSystem-6.1.so.1 (0x00007f2691abc000)
+        libvtkCommonTransforms-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonTransforms-6.1.so.1 (0x00007f269188e000)
+        libvtkCommonMath-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonMath-6.1.so.1 (0x00007f269166e000)
+        libvtkCommonCore-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkCommonCore-6.1.so.1 (0x00007f26910b0000)
+        libvtkzlib-6.1.so.1 => /home/udt/Downloads/visit/vtk/6.1.0/linux-x86_64_gcc-4.8/lib/libvtkzlib-6.1.so.1 (0x00007f2690e99000)
+        libwinutil.so => /home/udt/Downloads/visit2.13.0/src/lib/libwinutil.so (0x00007f2690c5b000)
+        libavtdbatts.so => /home/udt/Downloads/visit2.13.0/src/lib/libavtdbatts.so (0x00007f26909c3000)
+        libvisitcommon.so => /home/udt/Downloads/visit2.13.0/src/lib/libvisitcommon.so (0x00007f269039b000)
+        libz.so.1 => /lib64/libz.so.1 (0x00007f2690185000)
+        libdl.so.2 => /lib64/libdl.so.2 (0x00007f268ff81000)
+        libQt5X11Extras.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5X11Extras.so.5 (0x00007f268fd7d000)
+        libQt5PrintSupport.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5PrintSupport.so.5 (0x00007f268fb18000)
+        libQt5OpenGL.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5OpenGL.so.5 (0x00007f268f8bf000)
+        libQt5Widgets.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Widgets.so.5 (0x00007f268f055000)
+        libQt5Gui.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Gui.so.5 (0x00007f268e8bb000)
+        libQt5Network.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Network.so.5 (0x00007f268e562000)
+        libQt5Core.so.5 => /home/udt/Downloads/visit/qt/5.6.1/linux-x86_64_gcc-4.8/lib/libQt5Core.so.5 (0x00007f268deaa000)
+        libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f268dc8d000)
+        libstdc++.so.6 => /usr/lib64/libstdc++.so.6 (0x00007f268d904000)
+        libm.so.6 => /lib64/libm.so.6 (0x00007f268d607000)
+        libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f268d3f0000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007f268d04d000)
+        libvtkjsoncpp-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libexpat.so.1 => /usr/lib64/libexpat.so.1 (0x00007f268ce23000)
+        libxcb-dri3.so.0 => /usr/lib64/libxcb-dri3.so.0 (0x00007f268cc20000)
+        libxcb-present.so.0 => /usr/lib64/libxcb-present.so.0 (0x00007f268ca1d000)
+        libxcb-sync.so.1 => /usr/lib64/libxcb-sync.so.1 (0x00007f268c817000)
+        libxshmfence.so.1 => /usr/lib64/libxshmfence.so.1 (0x00007f268c614000)
+        libglapi.so.0 => /usr/lib64/libglapi.so.0 (0x00007f268c3e5000)
+        libXdamage.so.1 => /usr/lib64/libXdamage.so.1 (0x00007f268c1e2000)
+        libXfixes.so.3 => /usr/lib64/libXfixes.so.3 (0x00007f268bfdc000)
+        libX11-xcb.so.1 => /usr/lib64/libX11-xcb.so.1 (0x00007f268bdda000)
+        libxcb-glx.so.0 => /usr/lib64/libxcb-glx.so.0 (0x00007f268bbc2000)
+        libxcb-dri2.so.0 => /usr/lib64/libxcb-dri2.so.0 (0x00007f268b9bd000)
+        libxcb.so.1 => /usr/lib64/libxcb.so.1 (0x00007f268b79d000)
+        libXxf86vm.so.1 => /usr/lib64/libXxf86vm.so.1 (0x00007f268b597000)
+        libdrm.so.2 => /usr/lib64/libdrm.so.2 (0x00007f268b386000)
+        libuuid.so.1 => /usr/lib64/libuuid.so.1 (0x00007f268b181000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f269cc3b000)
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtkmetaio-6.1.so.1 => not found
+        libvtkDICOMParser-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libvtksys-6.1.so.1 => not found
+        libgobject-2.0.so.0 => /usr/lib64/libgobject-2.0.so.0 (0x00007f268af30000)
+        libglib-2.0.so.0 => /usr/lib64/libglib-2.0.so.0 (0x00007f268ac20000)
+        libpng16.so.16 => /usr/lib64/libpng16.so.16 (0x00007f268a9e3000)
+        libicui18n.so.52.1 => /usr/lib64/libicui18n.so.52.1 (0x00007f268a5cf000)
+        libicuuc.so.52.1 => /usr/lib64/libicuuc.so.52.1 (0x00007f268a250000)
+        libicudata.so.52.1 => /usr/lib64/libicudata.so.52.1 (0x00007f268a04f000)
+        libpcre16.so.0 => /usr/lib64/libpcre16.so.0 (0x00007f2689de9000)
+        libgthread-2.0.so.0 => /usr/lib64/libgthread-2.0.so.0 (0x00007f2689be7000)
+        librt.so.1 => /lib64/librt.so.1 (0x00007f26899df000)
+        libXau.so.6 => /usr/lib64/libXau.so.6 (0x00007f26897db000)
+        libffi.so.4 => /usr/lib64/libffi.so.4 (0x00007f26895d2000)
+        libpcre.so.1 => /usr/lib64/libpcre.so.1 (0x00007f2689363000)

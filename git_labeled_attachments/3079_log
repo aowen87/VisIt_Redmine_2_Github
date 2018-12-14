@@ -1,0 +1,15 @@
+...
+Makefile.Release:2242: warning: overriding commands for target `../../lib/QtGui.framework/Versions/5/Headers/QGenericPlugin'
+Makefile.Release:1874: warning: ignoring old commands for target `../../lib/QtGui.framework/Versions/5/Headers/QGenericPlugin'
+Makefile.Release:2246: warning: overriding commands for target `../../lib/QtGui.framework/Versions/5/Headers/QGenericPluginFactory'
+Makefile.Release:1870: warning: ignoring old commands for target `../../lib/QtGui.framework/Versions/5/Headers/QGenericPluginFactory'
+mac/qfontengine_coretext.mm:833:20: error: qualified reference to 'QFixed' is a constructor name rather than a type in this context
+    return QFixed::QFixed(int(CTFontGetUnitsPerEm(ctfont)));
+                   ^
+1 error generated.
+make[5]: *** [.obj/debug/qfontengine_coretext.o] Error 1
+make[4]: *** [debug-all] Error 2
+make[3]: *** [sub-fontdatabases-make_first] Error 2
+make[2]: *** [sub-platformsupport-make_first] Error 2
+make[1]: *** [sub-src-make_first] Error 2
+make: *** [module-qtbase-make_first] Error 2
