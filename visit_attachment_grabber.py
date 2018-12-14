@@ -8,7 +8,7 @@ Retrive all redmine attachments for visit tickets.
 import os
 import argparse
 from bs4 import BeautifulSoup
-from web_helpers.communcation import *
+from web_helpers.communication import *
 
 
 if __name__ == "__main__":
@@ -35,11 +35,12 @@ if __name__ == "__main__":
         html_parser = BeautifulSoup(raw_html, 'html.parser')
 
         links = html_parser.find_all('a', {'class': 'icon icon-attachment'})
-        for addr in links:
-            ref   = addr['href']
-            out_f = "%s/%i_%s" % (out_dir, issue, ref.split('/')[-1])
-            url   = "%s%s" % (base, ref)
-            urllib.urlretrieve(url, out_f)
+        print links
+        #for addr in links:
+        #    ref   = addr['href']
+        #    out_f = "%s/%i_%s" % (out_dir, issue, ref.split('/')[-1])
+        #    url   = "%s%s" % (base, ref)
+        #    urllib.urlretrieve(url, out_f)
 
     print "FINISHED GRABBING ATTACHMENTS!"
     

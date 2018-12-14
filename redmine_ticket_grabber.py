@@ -9,7 +9,7 @@ import os
 import argparse
 from bs4 import BeautifulSoup
 import csv
-from web_helpers.communcation import *
+from web_helpers.communication import *
 
 
 def bf_find(parser, a, b, c):
