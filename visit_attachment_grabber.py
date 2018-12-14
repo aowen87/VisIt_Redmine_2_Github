@@ -35,8 +35,15 @@ if __name__ == "__main__":
         html_parser = BeautifulSoup(raw_html, 'html.parser')
 
         links = html_parser.find_all('a', {'class': 'icon icon-attachment'})
+        
         for addr in links:
             ref   = addr['href']
+            ref   = ref.split('/')
+            #
+            # Tricky business here. They sometimes hide the attachment
+            # at a different location. 
+            #
+            ref   = '/'.join(ref[:2] + ['download'] + ref[2:])
             out_f = "%s/%i_%s" % (out_dir, issue, ref.split('/')[-1])
             url   = "%s%s" % (base, ref)
             urllib.urlretrieve(url, out_f)
