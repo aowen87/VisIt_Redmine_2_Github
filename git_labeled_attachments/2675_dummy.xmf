@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="2.0">
+<Domain>
+<Grid Name="thetacut" GridType="Uniform">
+<Topology TopologyType="3DRectMesh" NumberOfElements="1536 1536 1297"/>
+<Geometry GeometryType="VXVYVZ">
+<DataItem Dimensions="1297" NumberType="Float" Precision="4" Format="HDF">
+cordin_info.h5:/xc
+</DataItem>
+<DataItem Dimensions="1536" NumberType="Float" Precision="4" Format="HDF">
+cordin_info.h5:/ym
+</DataItem>
+<DataItem Dimensions="1536" NumberType="Float" Precision="4" Format="HDF">
+cordin_info.h5:/zm
+</DataItem>
+</Geometry>
+<Attribute Name="Azimuthal Velocity" AttributeType="Scalar" Center="Node">
+<DataItem Dimensions="1536 1536 1297" NumberType="Float" Precision="4" Format="HDF">
+dummy.h5:/var_f4
+</DataItem>
+</Attribute>
+<Time Value=" 0.12181E+02" />
+</Grid>
+</Domain>
+</Xdmf>
+

@@ -1,0 +1,585 @@
+/Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/bin/engine_ser -host 127.0.0.1 -port 5600 -key fbc9df422d8b8e6fe7dd 
+ENGINE started. pid: 44464
+ParentProcess::Connect: Called with (numRead=1, numWrite=2, argc=7, argv={/Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/bin/engine_ser, -host, 127.0.0.1, -port, 5600, -key, fbc9df422d8b8e6fe7dd})
+ParentProcess::Connect: hostName = 127.0.0.1
+ParentProcess::GetHostInfo: Calling gethostbyname("127.0.0.1")
+ParentProcess::Connect: port = 5600
+ParentProcess::Connect: securityKey = fbc9df422d8b8e6fe7dd
+ParentProcess::Connect: Creating sockets
+ParentProcess::Connect: Creating read sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Creating write sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Exchanging type representations.
+ParentProcess::Connect: done
+Adding plugin search path: /Users/sveta/.visit/2.8.2/darwin-x86_64/plugins/plots
+Adding plugin search path: /Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/plugins/plots
+Successfully loaded info about 21 plot plugins.
+Adding plugin search path: /Users/sveta/.visit/2.8.2/darwin-x86_64/plugins/operators
+Adding plugin search path: /Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/plugins/operators
+Successfully loaded info about 62 operator plugins.
+Adding plugin search path: /Users/sveta/.visit/2.8.2/darwin-x86_64/plugins/databases
+Adding plugin search path: /Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/plugins/databases
+Skipping plugin libISimV2Database.dylib because it is a simulation plugin.
+Successfully loaded info about 113 database plugins.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=2, len=6, type=KeepAliveRPC
+Xfer::Update: Sending: opcode=3, name=VisItRPC::RPCReply (from KeepAliveRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=62, len=1, type=EnginePropertiesRPC
+Executing EnginePropertiesRPC: 
+Xfer::Update: Sending: opcode=63, name=NonBlockingRPC::CompletionData (from EnginePropertiesRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=56, len=11635, type=SetEFileOpenOptionsRPC
+Xfer::Update: Sending: opcode=57, name=VisItRPC::RPCReply (from SetEFileOpenOptionsRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=58, len=6, type=SetPrecisionTypeRPC
+Xfer::Update: Sending: opcode=59, name=VisItRPC::RPCReply (from SetPrecisionTypeRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=60, len=6, type=SetBackendTypeRPC
+Xfer::Update: Sending: opcode=61, name=VisItRPC::RPCReply (from SetBackendTypeRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=36, len=115, type=OpenDatabaseRPC
+Executing OpenDatabaseRPC: db=/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5, time=0
+Loaded full database plugin Vs version 3.0.0
+Loading new database
+avtDatabaseFactory: specifically told to use Vs_3.0.0
+Skipping already loaded database plugin Vs version 3.0.0
+Trying to open the file with the Vs file format, strict mode is off
+HighOrderUnstructuredData::  HighOrderUnstructuredData  30  entering
+avtVsFileFormat::(1)avtVsFileFormat  120  entering
+avtVsFileFormat::(1)avtVsFileFormat  130  VizSchema reader will process data selections
+avtVsFileFormat::(1)avtVsFileFormat  146  float type checks out ok.
+avtVsFileFormat::(1)avtVsFileFormat  158  double type checks out ok.
+avtVsFileFormat::(1)avtVsFileFormat  184  exiting
+avtVsFileFormat::(1)LoadData  4449  Initializing VsReader()
+VsReader::VsReader  45  This VsReader is #1
+VsReader::VsReader  49  VsReader::VsReader(/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5) entering.
+File name is: /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+VsFilter::visitLinks() - looking at object electrons
+VsFilter::visitDataset: node 'electrons' is a dataset.
+VsFilter::visitAttrib(...): getting attribute 'charge'.
+VsObject::addAttribute 'charge', id: 100663296
+VsFilter::visitAttrib(...): getting attribute 'mass'.
+VsObject::addAttribute 'mass', id: 100663297
+VsFilter::visitAttrib(...): getting attribute 'numPtclsInMacro'.
+VsObject::addAttribute 'numPtclsInMacro', id: 100663298
+VsFilter::visitAttrib(...): getting attribute 'numSpatialDims'.
+VsObject::addAttribute 'numSpatialDims', id: 100663299
+VsFilter::visitAttrib(...): getting attribute 'ptclEnds'.
+VsObject::addAttribute 'ptclEnds', id: 100663300
+VsFilter::visitAttrib(...): getting attribute 'time'.
+VsObject::addAttribute 'time', id: 100663301
+VsFilter::visitAttrib(...): getting attribute 'vsLabels'.
+VsObject::addAttribute 'vsLabels', id: 100663302
+VsFilter::visitAttrib(...): getting attribute 'vsLimits'.
+VsObject::addAttribute 'vsLimits', id: 100663303
+VsFilter::visitAttrib(...): getting attribute 'vsNumSpatialDims'.
+VsObject::addAttribute 'vsNumSpatialDims', id: 100663304
+VsFilter::visitAttrib(...): getting attribute 'vsTimeGroup'.
+VsObject::addAttribute 'vsTimeGroup', id: 100663305
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663306
+VsFilter::visitDataset: Returning.
+VsFilter::visitLinks() - looking at object globalGridGlobalLimits
+VsFilter::visitGroup: node 'globalGridGlobalLimits' is a group.
+VsFilter::visitGroup(): Recursing on attributes of group globalGridGlobalLimits
+VsFilter::visitAttrib(...): getting attribute 'vsKind'.
+VsObject::addAttribute 'vsKind', id: 100663307
+VsFilter::visitAttrib(...): getting attribute 'vsLowerBounds'.
+VsObject::addAttribute 'vsLowerBounds', id: 100663308
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663309
+VsFilter::visitAttrib(...): getting attribute 'vsUpperBounds'.
+VsObject::addAttribute 'vsUpperBounds', id: 100663310
+VsFilter::visitGroup(): Recursing on children of group globalGridGlobalLimits
+VsFilter::visitGroup(): Returning.
+VsFilter::visitLinks() - looking at object runInfo
+VsFilter::visitGroup: node 'runInfo' is a group.
+VsFilter::visitGroup(): Recursing on attributes of group runInfo
+VsFilter::visitAttrib(...): getting attribute 'vsBuildHost'.
+VsObject::addAttribute 'vsBuildHost', id: 100663311
+VsFilter::visitAttrib(...): getting attribute 'vsBuildHostType'.
+VsObject::addAttribute 'vsBuildHostType', id: 100663312
+VsFilter::visitAttrib(...): getting attribute 'vsCommandLine'.
+VsObject::addAttribute 'vsCommandLine', id: 100663313
+VsFilter::visitAttrib(...): getting attribute 'vsCxxCompiler'.
+VsObject::addAttribute 'vsCxxCompiler', id: 100663314
+VsFilter::visitAttrib(...): getting attribute 'vsCxxCompilerFlags'.
+VsObject::addAttribute 'vsCxxCompilerFlags', id: 100663315
+VsFilter::visitAttrib(...): getting attribute 'vsCxxCompilerVersion'.
+VsObject::addAttribute 'vsCxxCompilerVersion', id: 100663316
+VsFilter::visitAttrib(...): getting attribute 'vsSciMakeRevision'.
+VsObject::addAttribute 'vsSciMakeRevision', id: 100663317
+VsFilter::visitAttrib(...): getting attribute 'vsSoftware'.
+VsObject::addAttribute 'vsSoftware', id: 100663318
+VsFilter::visitAttrib(...): getting attribute 'vsSwRevision'.
+VsObject::addAttribute 'vsSwRevision', id: 100663319
+VsFilter::visitAttrib(...): getting attribute 'vsSwVersion'.
+VsObject::addAttribute 'vsSwVersion', id: 100663320
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663321
+VsFilter::visitAttrib(...): getting attribute 'vsVsVersion'.
+VsObject::addAttribute 'vsVsVersion', id: 100663322
+VsFilter::visitGroup(): Recursing on children of group runInfo
+VsFilter::visitGroup(): Returning.
+VsFilter::visitLinks() - looking at object time
+VsFilter::visitGroup: node 'time' is a group.
+VsFilter::visitGroup(): Recursing on attributes of group time
+VsFilter::visitAttrib(...): getting attribute 'vsStep'.
+VsObject::addAttribute 'vsStep', id: 100663323
+VsFilter::visitAttrib(...): getting attribute 'vsTime'.
+VsObject::addAttribute 'vsTime', id: 100663324
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663325
+VsFilter::visitGroup(): Recursing on children of group time
+VsFilter::visitGroup(): Returning.
+********** BEGIN VsGroups *********
+globalGridGlobalLimits(33554433)
+runInfo(33554434)
+time(33554435)
+********** END VsGroups *********
+********** BEGIN VsDatasets *********
+electrons(83886080)
+********** END VsDatasets *********
+VsRegistry::buildGroupObjects - Entering.
+VsRegistry::buildGroupObjects - Building object globalGridGlobalLimits
+VsObject::getAttribute vsType 0x7fe6aaf815b0
+VsRegistry::buildGroupObjects - group is of type limits
+VsRegistry::buildGroupObjects - object is of unrecognized type limits
+VsRegistry::buildGroupObjects - Building object runInfo
+VsObject::getAttribute vsType 0x7fe6aaf88670
+VsRegistry::buildGroupObjects - group is of type runInfo
+VsRegistry::loadRunInfo() - not loading any information at this time.
+VsRegistry::buildGroupObjects - Building object time
+VsObject::getAttribute vsType 0x7fe6aaf8a690
+VsRegistry::buildGroupObjects - group is of type time
+VsRegistry::loadTime() - Group is NULL?'0x7fe6aaf89510'
+VsObject::getAttribute vsTime 0x7fe6aaf8a430
+VsRegistry::loadTime() - loaded time: 1.73141e-12
+VsObject::getAttribute vsStep 0x7fe6aaf8a120
+VsRegistry::loadTime() - loaded cycle: 20
+VsRegistry::buildGroupObjects - Returning.
+VsRegistry::buildDatasetObjects() - Entering.
+VsRegistry::buildDatasetObjects() - looking at dataset electrons
+VsObject::getAttribute vsType 0x7fe6aaf7f150
+VsRegistry::buildDatasetObjects() - object is of type variableWithMesh
+VsRegistry::buildDatasetObjects() - VariableWithMesh are built in second pass. Skipping for now.
+VsRegistry::buildDatasetObjects() - looking at varWithMesh dataset electrons
+VsStructuredMesh::initialize  230   entering.
+VsObject::getAttribute: 'vsSpatialIndices' not found
+VsObject::getAttribute: 'vsIndexOrder' not found
+VsStructuredMesh::initialize  278  did not find spatialIndices, trying regular style.
+VsStructuredMesh::initialize  281  Looking for attribute: vsNumSpatialDims
+VsObject::getAttribute vsNumSpatialDims 0x7fe6aaf7e9f0
+VsStructuredMesh::initialize  317  numSpatialDims = 2.
+VsObject::getAttribute vsTimeGroup 0x7fe6aaf7edc0
+VsObject::getAttribute vsLabels 0x7fe6aaf7e2d0
+VsRegistry::loadTime() - Group is NULL?'0x7fe6aaf89510'
+VsObject::getAttribute vsTime 0x7fe6aaf8a430
+VsRegistry::loadTime() - loaded time: 1.73141e-12
+VsObject::getAttribute vsStep 0x7fe6aaf8a120
+VsRegistry::loadTime() - loaded cycle: 20
+VsRegistry::buildDatasetObjects() - Returning.
+VsRegistry::buildMDMeshes() - Entering.
+VsRegistry::buildMDMeshes() - Exiting.
+VsRegistry::buildMDVars() - Entering.
+VsRegistry::buildMDVars() - Returning.
+VsRegistry::buildTransformedMeshes() - Entering.
+VsRegistry::buildTransformedMeshes() - Returning.
+VsRegistry::buildTransformedVariables() - Creating transform names for Variable with Mesh electrons
+VsVariableWithMesh::createTransformedVariableAndMesh() - Creating transformed var name.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsVariableWithMesh::createTransformedVariable() - returning.
+*********** NO MESHES ********
+******** No Expressions *********
+*********** NO VSVARIABLES ********
+********** BEGIN VsVariablesWithMesh *********
+VsStructuredMesh::write  214  electrons  indexOrder = compMinorC  numSpatialDims  = 2  spatialIndices = [0, 1]
+********** END VsVariablesWithMesh *********
+*********** NO MDMESHES ********
+*********** NO MDVARIABLES ********
+VsRegistry::createComponents() - Entering
+VsRegistry::createComponents() - Creating components for Variable With Mesh electrons
+VsStructuredMesh::createComponents  395  Entering
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::registerComponentInfo(electrons_x, electrons, 0) - registration succeeded.
+VsReader::registerComponentInfo(electrons_0, electrons, 0) - registration succeeded.
+VsReader::registerComponentInfo(electrons_y, electrons, 1) - registration succeeded.
+VsReader::registerComponentInfo(electrons_1, electrons, 1) - registration succeeded.
+VsReader::registerComponentInfo(electrons_ux, electrons, 2) - registration succeeded.
+VsReader::registerComponentInfo(electrons_2, electrons, 2) - registration succeeded.
+VsReader::registerComponentInfo(electrons_uy, electrons, 3) - registration succeeded.
+VsReader::registerComponentInfo(electrons_3, electrons, 3) - registration succeeded.
+VsReader::registerComponentInfo(electrons_uz, electrons, 4) - registration succeeded.
+VsReader::registerComponentInfo(electrons_4, electrons, 4) - registration succeeded.
+VsReader::registerComponentInfo(electrons_weight, electrons, 5) - registration succeeded.
+VsReader::registerComponentInfo(electrons_5, electrons, 5) - registration succeeded.
+VsStructuredMesh::createComponents  410  Returning
+VsRegistry::createComponents() - Returning.
+VsReader::VsReader  112  exiting.
+avtVsFileFormat::(1)LoadData  4466  Exiting
+avtVsFileFormat::(1)PopulateDatabaseMetaData  4484  Entering function.
+avtVsFileFormat::(1)RegisterMeshes  3679  Entering function.
+avtVsFileFormat::(1)RegisterMeshes  3691  WARNING: no meshes were found in this file. Returning.
+avtVsFileFormat::(1)RegisterMdMeshes  4120  Entering function.
+avtVsFileFormat::(1)RegisterMdMeshes  4127  WARNING: no md meshes were found in this file. Returning
+avtVsFileFormat::(1)RegisterVarsWithMesh  4194  Entering function.
+avtVsFileFormat::(1)RegisterVarsWithMesh  4207  Found 1 variables with mesh in this file.
+avtVsFileFormat::(1)RegisterVarsWithMesh  4214  Processing varWithMesh 'electrons'.
+VsReader::getComponentInfo(electrons, 0) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_x.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 1) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_y.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 2) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_ux.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 3) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_uy.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 4) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_uz.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 5) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_weight.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4296  Adding point mesh for this variable.
+avtVsFileFormat::(1)setAxisLabels  4558  Entering function.
+avtVsFileFormat::(1)setAxisLabels  4579  Exiting normally.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4321  Exiting normally.
+avtVsFileFormat::(1)RegisterVars  3464  Entering function.
+avtVsFileFormat::(1)RegisterVars  3473  WARNING: No variables were found in this file.  Returning.
+avtVsFileFormat::(1)RegisterMdVars  4015  Entering function.
+avtVsFileFormat::(1)RegisterMdVars  4024  WARNING: No MD variables were found in this file.  Returning.
+avtVsFileFormat::(1)RegisterExpressions  3359  Entering function.
+avtVsFileFormat::(1)RegisterExpressions  3368  WARNING: No expressions found in file. Returning.
+avtVsFileFormat::(1)PopulateDatabaseMetaData  4540  Exiting normally.
+File open appears to be successful.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=42, len=14812, type=SetWinAnnotAttsRPC
+Executing SetWinAnnotAttsRPC 1296x1230
+Creating new VisWindow for id=0
+Forcing GL context initialization...
+Unknown if transparencies exist; recalculating (this requires global communication).
+Xfer::Update: Sending: opcode=43, name=VisItRPC::RPCReply (from SetWinAnnotAttsRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=66, len=6147, type=ExpressionList
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=4, len=250, type=ReadRPC
+Executing ReadRPC
+Skipping already loaded database plugin Vs version 3.0.0
+NetworkManager::AddDB: Adding electrons to the name stack
+Using SIL arrays to improve efficiency
+Xfer::Update: Sending: opcode=5, name=VisItRPC::RPCReply (from ReadRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=11, len=21, type=PreparePlotRPC
+Executing PreparePlotRPC: Mesh_1.0
+Loaded full plot plugin Mesh version 1.0
+Xfer::Update: Sending: opcode=12, name=VisItRPC::RPCReply (from PreparePlotRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=10, len=121, type=MakePlotRPC
+Executing MakePlotRPC: Mesh_1.0
+NetworkManager::MakePlot(): Leaving NetworkManager::MakePlot().
+Xfer::Update: Sending: opcode=13, name=MakePlotRPC::NetworkID (from MakePlotRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=26, len=3, type=ExecuteRPC
+Executing ExecuteRPC with respondWithNullDataObject = 0
+MeshPlot: Did not hit target topological dimension: 2
+Guide function indicated that we should do the first Update on pipeline 1.
+Entered update for avtActualExtentsFilter
+Entered update for avtCompactTreeFilter
+Entered update for avtVertexNormalsFilter
+Entered update for avtCondenseDatasetFilter
+Entered update for avtGhostZoneAndFacelistFilter
+Entered update for avtMeshFilter
+Entered update for avtMissingDataRemovalFilter
+Entered update for avtExpressionEvaluatorFilter
+EEF::ModifyContract: Checking candidates
+EEF::ModifyContract:     candidate: electrons
+EEF::ModifyContract:     not an expression
+Entered update for avtMissingDataFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Using load balancer to reduce data.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Generic database instructing get for var = electrons, timestep = 0 domain = 0
+avtVsFileFormat::(1)GetMesh  389  Entering function.
+avtVsFileFormat::(1)GetMesh  432  Looking for MD mesh with name electrons
+avtVsFileFormat::(1)GetMesh  451  No MD mesh with that name.
+avtVsFileFormat::(1)GetMesh  458  Trying to find regular mesh named: electrons
+avtVsFileFormat::(1)GetMesh  530  Looking for Variable-With-Mesh named electrons.
+avtVsFileFormat::(1)GetMesh  537  Found Variable With Mesh. Loading data and returning.
+avtVsFileFormat::(1)getPointMesh  2146  Entering function.
+avtVsFileFormat::(1)getPointMesh  2164  Getting the number of points.
+avtVsFileFormat::(1)GetSelectionBounds  4807  Dimensions 452599  
+avtVsFileFormat::(1)getPointMesh  2194  Creating the vtkUnstructuredGrid.
+avtVsFileFormat::(1)getPointMesh  2209  Double data
+avtVsFileFormat::(1)getPointMesh  2219  Allocating for 452599 values.
+avtVsFileFormat::(1)getPointMesh  2235  Reading data.
+VsReader::getData  208  about to set up arguments.
+VsReader::getData  377  For i = 0, start = 0, count = 452599, stride = 1
+VsReader::getData  406  After selecting the hyperslab, err is 0
+VsReader::getData  454  Returning 0.
+VsReader::getData  208  about to set up arguments.
+VsReader::getData  377  For i = 0, start = 0, count = 452599, stride = 1
+VsReader::getData  406  After selecting the hyperslab, err is 0
+VsReader::getData  454  Returning 0.
+avtVsFileFormat::(1)getPointMesh  2280  Zeroing data at unused positions.
+avtVsFileFormat::(1)getPointMesh  2358  Allocating 452599 vertices.  If old VTK and this fails, it will just abort.
+avtVsFileFormat::(1)getPointMesh  2376  Allocation succeeded.  Setting mesh to connectivity 'VERTEX'.
+avtVsFileFormat::(1)getPointMesh  2385  Returning data.
+avtTransformManager::NativeToFloat: needNativePrecision=false, admissibleDataTypes={VTK_FLOAT,VTK_DOUBLE,}
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtVsFileFormat::(1)GetCycle  4629  entering for file /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+avtVsFileFormat::(1)GetCycle  4635  The file /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5 supplies cycle: 20
+avtVsFileFormat::(1)GetTime  4696  entering
+avtVsFileFormat::(1)GetTime  4702  The file /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5 supplies time: 1.73141e-12
+Executing avtMissingDataFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Generate missing data enabled
+avtMissingDataFilter::MissingDataBuildMask: start
+avtMissingDataFilter::MissingDataBuildMask: end. missing=false
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtMissingDataFilter
+Done Updating avtMissingDataFilter
+Executing avtExpressionEvaluatorFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtExpressionEvaluatorFilter
+Filter avtMissingDataFilter releasing its data
+Done Updating avtExpressionEvaluatorFilter
+Executing avtMissingDataRemovalFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Remove missing data enabled
+Skipping no-op missing data removal
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtMissingDataRemovalFilter
+Done Updating avtMissingDataRemovalFilter
+Executing avtMeshFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtMeshFilter
+Done Updating avtMeshFilter
+Executing avtGhostZoneAndFacelistFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Not applying ghost zone or facelist filter.
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtGhostZoneAndFacelistFilter
+Filter avtMeshFilter releasing its data
+Done Updating avtGhostZoneAndFacelistFilter
+Executing avtCondenseDatasetFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Relevant points filter forced to execute.
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtCondenseDatasetFilter
+Filter avtGhostZoneAndFacelistFilter releasing its data
+Filter avtGhostZoneFilter releasing its data
+A data object sink's current input was fed back into itself, ignoring...
+Filter avtFacelistFilter releasing its data
+A data object sink's current input was fed back into itself, ignoring...
+Done Updating avtCondenseDatasetFilter
+Executing avtVertexNormalsFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtVertexNormalsFilter
+Filter avtCondenseDatasetFilter releasing its data
+Done Updating avtVertexNormalsFilter
+Executing avtCompactTreeFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtCompactTreeFilter
+Filter avtVertexNormalsFilter releasing its data
+Done Updating avtCompactTreeFilter
+Executing avtActualExtentsFilter
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtActualExtentsFilter
+Filter avtCompactTreeFilter releasing its data
+Done Updating avtActualExtentsFilter
+Memory after first execution was: size = 61357968, rss = 161943552
+Done with iterating Updates on pipeline 1
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+sending 14484290 bytes to the viewer 78 from strings.
+Number of actual direct writes = 2
+Setting cell count for network 0 to 0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=2, len=6, type=KeepAliveRPC
+Xfer::Update: Sending: opcode=3, name=VisItRPC::RPCReply (from KeepAliveRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.

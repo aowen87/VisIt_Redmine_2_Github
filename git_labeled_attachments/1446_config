@@ -1,0 +1,1293 @@
+<?xml version="1.0"?>
+<Object name="VisIt">
+    <Field name="Version" type="string">2.6.2</Field>
+    <Object name="VIEWER">
+        <Object name="DEFAULT_VALUES">
+            <Object name="ColorTableAttributes">
+                <Field name="activeContinuous" type="string">hot</Field>
+                <Field name="activeDiscrete" type="string">levels</Field>
+                <Object name="table00">
+                    <Field name="ctName" type="string">amino_rasmol</Field>
+                    <Field name="equal" type="bool">true</Field>
+                    <Field name="smoothing" type="int">0</Field>
+                    <Field name="discrete" type="bool">true</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 189 159 109 255 0.009 199 199 199 255 0.019 255 105 180 255 0.028 230 230 0 255 0.037 230 9 9 255 0.046 230 9 9 255 0.056 49 49 170 255 0.065 235 235 235 255 0.074 130 130 210 255 0.083 15 130 15 255 0.093 19 90 255 255 0.102 15 130 15 255 0.111 230 230 0 255 0.12 0 220 220 255 0.13 220 149 130 255 0.139 0 220 220 255 0.148 19 90 255 255 0.157 249 149 0 255 0.167 249 149 0 255 0.176 15 130 15 255 0.185 180 90 180 255 0.194 49 49 170 255 0.204 255 105 180 255 </Field>
+                </Object>
+                <Object name="table01">
+                    <Field name="ctName" type="string">amino_shapely</Field>
+                    <Field name="equal" type="bool">true</Field>
+                    <Field name="smoothing" type="int">0</Field>
+                    <Field name="discrete" type="bool">true</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 255 0 255 255 0.009 139 255 139 255 0.019 255 0 255 255 0.028 255 255 111 255 0.037 159 0 66 255 0.046 102 0 0 255 0.056 82 75 82 255 0.065 255 255 255 255 0.074 111 111 255 255 0.083 0 75 0 255 0.093 70 70 184 255 0.102 69 94 69 255 0.111 184 159 66 255 0.12 255 123 111 255 0.13 82 82 82 255 0.139 255 75 75 255 0.148 0 0 123 255 0.157 255 111 66 255 0.167 184 75 0 255 0.176 255 139 255 255 0.185 79 70 0 255 0.194 139 111 75 255 0.204 255 0 255 255 </Field>
+                </Object>
+                <Object name="table02">
+                    <Field name="ctName" type="string">bluehot</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 0 255 0.333 0 0 127 255 0.666 0 127 255 255 1 255 255 255 255 </Field>
+                </Object>
+                <Object name="table03">
+                    <Field name="ctName" type="string">caleblack</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 0 255 0.17 0 0 255 255 0.34 0 255 255 255 0.5 0 255 0 255 0.67 255 255 0 255 0.84 255 0 0 255 1 255 0 255 255 </Field>
+                </Object>
+                <Object name="table04">
+                    <Field name="ctName" type="string">calewhite</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 255 255 255 255 0.17 0 0 255 255 0.34 0 255 255 255 0.5 0 255 0 255 0.67 255 255 0 255 0.84 255 0 0 255 1 255 0 255 255 </Field>
+                </Object>
+                <Object name="table05">
+                    <Field name="ctName" type="string">contoured</Field>
+                    <Field name="equal" type="bool">true</Field>
+                    <Field name="smoothing" type="int">0</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 255 255 0.333 0 255 0 255 0.666 255 255 0 255 1 255 0 0 255 </Field>
+                </Object>
+                <Object name="table06">
+                    <Field name="ctName" type="string">cpk_jmol</Field>
+                    <Field name="equal" type="bool">true</Field>
+                    <Field name="smoothing" type="int">0</Field>
+                    <Field name="discrete" type="bool">true</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 31 31 31 255 0.009 255 255 255 255 0.018 217 255 255 255 0.028 204 128 255 255 0.037 194 255 0 255 0.046 255 181 181 255 0.055 144 144 144 255 0.064 47 80 248 255 0.073 255 13 13 255 0.083 144 223 80 255 0.092 179 226 245 255 0.101 171 92 241 255 0.11 137 255 0 255 0.119 190 166 166 255 0.128 239 199 159 255 0.138 255 128 0 255 0.147 255 255 47 255 0.156 31 239 31 255 0.165 128 209 226 255 0.174 143 64 211 255 0.183 60 255 0 255 0.193 230 230 230 255 0.202 190 194 198 255 0.211 166 166 171 255 0.22 137 153 198 255 0.229 156 121 198 255 0.239 223 102 51 255 0.248 239 144 159 255 0.257 80 208 80 255 0.266 199 128 51 255 0.275 124 128 175 255 0.284 194 143 143 255 0.294 102 143 143 255 0.303 188 128 226 255 0.312 255 160 0 255 0.321 166 41 41 255 0.33 92 184 209 255 0.339 111 45 175 255 0.349 0 255 0 255 0.358 147 255 255 255 0.367 147 223 223 255 0.376 115 194 200 255 0.385 83 181 181 255 0.394 58 158 158 255 0.404 35 143 143 255 0.413 9 124 139 255 0.422 0 105 133 255 0.431 192 192 192 255 0.44 255 217 143 255 0.45 166 117 115 255 0.459 102 128 128 255 0.468 158 98 181 255 0.477 211 121 0 255 0.486 147 0 147 255 0.495 66 158 175 255 0.505 86 22 143 255 0.514 0 200 0 255 0.523 111 211 255 255 0.532 255 255 198 255 0.541 217 255 198 255 0.55 198 255 198 255 0.56 162 255 198 255 0.569 143 255 198 255 0.578 96 255 198 255 0.587 69 255 198 255 0.596 47 255 198 255 0.606 31 255 198 255 0.615 0 255 156 255 0.624 0 230 117 255 0.633 0 211 82 255 0.642 0 190 56 255 0.651 0 171 35 255 0.661 77 194 255 255 0.67 77 166 255 255 0.679 32 147 213 255 0.688 37 124 171 255 0.697 37 102 149 255 0.706 22 83 134 255 0.716 208 208 223 255 0.725 255 209 34 255 0.734 184 184 208 255 0.743 166 83 77 255 0.752 86 88 96 255 0.761 158 79 181 255 0.771 171 92 0 255 0.78 117 79 69 255 0.789 66 130 149 255 0.798 66 0 102 255 0.807 0 124 0 255 0.817 111 171 249 255 0.826 0 185 255 255 0.835 0 160 255 255 0.844 0 143 255 255 0.853 0 128 255 255 0.862 0 107 255 255 0.872 83 92 241 255 0.881 120 92 226 255 0.89 137 79 226 255 0.899 160 54 211 255 0.908 179 31 211 255 0.917 179 31 185 255 0.927 179 13 166 255 0.936 188 13 134 255 0.945 198 0 102 255 0.954 204 0 88 255 0.963 209 0 79 255 0.972 217 0 69 255 0.982 223 0 56 255 0.991 230 0 45 255 1 235 0 37 255 </Field>
+                </Object>
+                <Object name="table07">
+                    <Field name="ctName" type="string">cpk_rasmol</Field>
+                    <Field name="equal" type="bool">true</Field>
+                    <Field name="smoothing" type="int">0</Field>
+                    <Field name="discrete" type="bool">true</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 31 31 31 255 0.009 255 255 255 255 0.018 255 192 202 255 0.028 177 33 33 255 0.037 255 19 146 255 0.046 0 255 0 255 0.055 199 199 199 255 0.064 143 143 255 255 0.073 239 0 0 255 0.083 218 164 31 255 0.092 255 19 146 255 0.101 0 0 255 255 0.11 33 138 33 255 0.119 128 128 144 255 0.128 218 164 31 255 0.138 255 164 0 255 0.147 255 199 49 255 0.156 0 255 0 255 0.165 255 19 146 255 0.174 255 19 146 255 0.183 128 128 144 255 0.193 255 19 146 255 0.202 128 128 144 255 0.211 255 19 146 255 0.22 128 128 144 255 0.229 128 128 144 255 0.239 255 164 0 255 0.248 255 19 146 255 0.257 164 42 42 255 0.266 164 42 42 255 0.275 164 42 42 255 0.284 255 19 146 255 0.294 255 19 146 255 0.303 255 19 146 255 0.312 255 19 146 255 0.321 164 42 42 255 0.33 255 19 146 255 0.339 255 19 146 255 0.349 255 19 146 255 0.358 255 19 146 255 0.367 255 19 146 255 0.376 255 19 146 255 0.385 255 19 146 255 0.394 255 19 146 255 0.404 255 19 146 255 0.413 255 19 146 255 0.422 255 19 146 255 0.431 128 128 144 255 0.44 255 19 146 255 0.45 255 19 146 255 0.459 255 19 146 255 0.468 255 19 146 255 0.477 255 19 146 255 0.486 159 31 239 255 0.495 255 19 146 255 0.505 255 19 146 255 0.514 255 164 0 255 0.523 255 19 146 255 0.532 255 19 146 255 0.541 255 19 146 255 0.55 255 19 146 255 0.56 255 19 146 255 0.569 255 19 146 255 0.578 255 19 146 255 0.587 255 19 146 255 0.596 255 19 146 255 0.606 255 19 146 255 0.615 255 19 146 255 0.624 255 19 146 255 0.633 255 19 146 255 0.642 255 19 146 255 0.651 255 19 146 255 0.661 255 19 146 255 0.67 255 19 146 255 0.679 255 19 146 255 0.688 255 19 146 255 0.697 255 19 146 255 0.706 255 19 146 255 0.716 255 19 146 255 0.725 218 164 31 255 0.734 255 19 146 255 0.743 255 19 146 255 0.752 255 19 146 255 0.761 255 19 146 255 0.771 255 19 146 255 0.78 255 19 146 255 0.789 255 19 146 255 0.798 255 19 146 255 0.807 255 19 146 255 0.817 255 19 146 255 0.826 255 19 146 255 0.835 255 19 146 255 0.844 255 19 146 255 0.853 255 19 146 255 0.862 255 19 146 255 0.872 255 19 146 255 0.881 255 19 146 255 0.89 255 19 146 255 0.899 255 19 146 255 0.908 255 19 146 255 0.917 255 19 146 255 0.927 255 19 146 255 0.936 255 19 146 255 0.945 255 19 146 255 0.954 255 19 146 255 0.963 255 19 146 255 0.972 255 19 146 255 0.982 255 19 146 255 0.991 255 19 146 255 1 255 19 146 255 </Field>
+                </Object>
+                <Object name="table08">
+                    <Field name="ctName" type="string">difference</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 255 255 0.5 255 255 255 255 1 255 0 0 255 </Field>
+                </Object>
+                <Object name="table09">
+                    <Field name="ctName" type="string">gray</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 0 255 1 255 255 255 255 </Field>
+                </Object>
+                <Object name="table10">
+                    <Field name="ctName" type="string">hot</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 255 255 0.25 0 255 255 255 0.5 0 255 0 255 0.75 255 255 0 255 1 255 0 0 255 </Field>
+                </Object>
+                <Object name="table11">
+                    <Field name="ctName" type="string">hot_and_cold</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 255 255 255 0.45 0 0 255 255 0.5 0 0 127 255 0.55 255 0 0 255 1 255 255 0 255 </Field>
+                </Object>
+                <Object name="table12">
+                    <Field name="ctName" type="string">hot_desaturated</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 71 71 219 255 0.143 0 0 91 255 0.285 0 255 255 255 0.429 0 127 0 255 0.571 255 255 0 255 0.714 255 96 0 255 0.857 107 0 0 255 1 224 76 76 255 </Field>
+                </Object>
+                <Object name="table13">
+                    <Field name="ctName" type="string">levels</Field>
+                    <Field name="equal" type="bool">true</Field>
+                    <Field name="smoothing" type="int">0</Field>
+                    <Field name="discrete" type="bool">true</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 255 0 0 255 0.034 0 255 0 255 0.069 0 0 255 255 0.103 0 255 255 255 0.138 255 0 255 255 0.172 255 255 0 255 0.207 255 135 0 255 0.241 255 0 135 255 0.276 168 168 168 255 0.31 255 68 68 255 0.345 99 255 99 255 0.379 99 99 255 255 0.414 40 165 165 255 0.448 255 99 255 255 0.483 255 255 99 255 0.517 255 170 99 255 0.552 170 79 255 255 0.586 150 0 0 255 0.621 0 150 0 255 0.655 0 0 150 255 0.69 0 109 109 255 0.724 150 0 150 255 0.759 150 150 0 255 0.793 150 84 0 255 0.828 160 0 79 255 0.862 255 104 28 255 0.897 0 170 81 255 0.931 68 255 124 255 0.966 0 130 255 255 1 130 0 255 255 </Field>
+                </Object>
+                <Object name="table14">
+                    <Field name="ctName" type="string">orangehot</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 0 0 0 255 0.333 127 0 0 255 0.666 255 127 0 255 1 255 255 255 255 </Field>
+                </Object>
+                <Object name="table15">
+                    <Field name="ctName" type="string">rainbow</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 255 0 255 255 0.2 0 0 255 255 0.4 0 255 255 255 0.6 0 255 0 255 0.8 255 255 0 255 1 255 0 0 255 </Field>
+                </Object>
+                <Object name="table16">
+                    <Field name="ctName" type="string">xray</Field>
+                    <Field name="colorsHaveOpacity" type="bool">true</Field>
+                    <Field name="controlPts" type="floatVector">0 255 255 255 255 1 0 0 0 255 </Field>
+                </Object>
+                <Field name="Ntables" type="int">17</Field>
+            </Object>
+            <Object name="ExpressionList">
+                <Object name="Expression">
+                    <Field name="name" type="string">red</Field>
+                    <Field name="definition" type="string">floor(rgb/(256^2))</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">grn</Field>
+                    <Field name="definition" type="string">floor((rgb-red*(256^2))/256)</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">blu</Field>
+                    <Field name="definition" type="string">floor(rgb-red*256^2-grn*256)</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">color</Field>
+                    <Field name="definition" type="string">"color(red, grn, blu)"</Field>
+                    <Field name="type" type="string">VectorMeshVar</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/ConnectedComponents/Mesh</Field>
+                    <Field name="definition" type="string">"cell_constant(Mesh, 0.)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">ConnectedComponents</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/DataBinning/1D/Mesh</Field>
+                    <Field name="definition" type="string">"cell_constant(Mesh, 0)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">DataBinning</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/DataBinning/2D/Mesh</Field>
+                    <Field name="definition" type="string">"cell_constant(Mesh, 0)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">DataBinning</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/DataBinning/3D/Mesh</Field>
+                    <Field name="definition" type="string">"cell_constant(Mesh, 0)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">DataBinning</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/FTLE/color</Field>
+                    <Field name="definition" type="string">"cell_constant(color, 0.)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">FTLE</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Flux/Mesh</Field>
+                    <Field name="definition" type="string">"cell_constant(Mesh, 0.)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Flux</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lagrangian/color</Field>
+                    <Field name="definition" type="string">"cell_constant(color, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lagrangian</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/bnds</Field>
+                    <Field name="definition" type="string">"cell_constant(\<bnds\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/grn</Field>
+                    <Field name="definition" type="string">"cell_constant(\<grn\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/rgb</Field>
+                    <Field name="definition" type="string">"cell_constant(\<rgb\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/phase</Field>
+                    <Field name="definition" type="string">"cell_constant(\<phase\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/coordx</Field>
+                    <Field name="definition" type="string">"cell_constant(\<coordx\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/coordy</Field>
+                    <Field name="definition" type="string">"cell_constant(\<coordy\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/elem_num_map</Field>
+                    <Field name="definition" type="string">"cell_constant(\<elem_num_map\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/Nodesets</Field>
+                    <Field name="definition" type="string">"cell_constant(\<Nodesets\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/Sidesets</Field>
+                    <Field name="definition" type="string">"cell_constant(\<Sidesets\>, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/red</Field>
+                    <Field name="definition" type="string">"cell_constant(red, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/blu</Field>
+                    <Field name="definition" type="string">"cell_constant(blu, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/area</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/area, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/aspect</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/aspect, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/condition</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/condition, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/jacobian</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/jacobian, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/max_edge_length</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/max_edge_length, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/maximum_angle</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/maximum_angle, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/min_edge_length</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/min_edge_length, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/minimum_angle</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/minimum_angle, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/oddy</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/oddy, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/relative_size</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/relative_size, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/scaled_jacobian</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/scaled_jacobian, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/shape</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/shape, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/shape_and_size</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/shape_and_size, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/shear</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/shear, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/skew</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/skew, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/stretch</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/stretch, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/taper</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/taper, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/mesh_quality/warpage</Field>
+                    <Field name="definition" type="string">"cell_constant(mesh_quality/warpage, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/Mesh_time</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/Mesh_time, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/Mesh_lasttime</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/Mesh_lasttime, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/Mesh_time</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/Mesh_time, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/Mesh_lasttime</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/Mesh_lasttime, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/bnds</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/bnds, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/bnds</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/bnds, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/grn</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/grn, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/grn</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/grn, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/rgb</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/rgb, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/rgb</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/rgb, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/phase</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/phase, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/phase</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/phase, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/coordx</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/coordx, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/coordx</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/coordx, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/coordy</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/coordy, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/coordy</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/coordy, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/conn_based/elem_num_map</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/conn_based/elem_num_map, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/Lineout/time_derivative/pos_based/elem_num_map</Field>
+                    <Field name="definition" type="string">"cell_constant(time_derivative/pos_based/elem_num_map, 0.)"</Field>
+                    <Field name="type" type="string">CurveMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">Lineout</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/ModelFit/model</Field>
+                    <Field name="definition" type="string">"point_constant(Mesh, 0)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">ModelFit</Field>
+                    <Field name="meshName" type="string">Mesh</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/ModelFit/distance</Field>
+                    <Field name="definition" type="string">"point_constant(Mesh, 0)"</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">ModelFit</Field>
+                    <Field name="meshName" type="string">Mesh</Field>
+                </Object>
+                <Object name="Expression">
+                    <Field name="name" type="string">operators/SurfaceNormal/Mesh</Field>
+                    <Field name="definition" type="string">"cell_constant(Mesh, 0.)"</Field>
+                    <Field name="type" type="string">VectorMeshVar</Field>
+                    <Field name="fromOperator" type="bool">true</Field>
+                    <Field name="operatorName" type="string">SurfaceNormal</Field>
+                </Object>
+            </Object>
+            <Object name="AnnotationAttributes">
+                <Object name="backgroundColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 255 255 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="foregroundColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="gradientColor1">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 255 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="gradientColor2">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="ViewCurveAttributes">
+                <Field name="viewportCoords" type="doubleArray" length="4">0.2 0.95 0.15 0.95 </Field>
+            </Object>
+            <Object name="View2DAttributes">
+                <Field name="windowCoords" type="doubleArray" length="4">0 30 0 30 </Field>
+                <Field name="viewportCoords" type="doubleArray" length="4">0.2 0.95 0.15 0.95 </Field>
+                <Field name="windowValid" type="bool">true</Field>
+            </Object>
+            <Object name="View3DAttributes">
+                <Field name="parallelScale" type="double">0.5</Field>
+                <Field name="nearPlane" type="double">-0.5</Field>
+                <Field name="farPlane" type="double">0.5</Field>
+            </Object>
+            <Object name="ViewerWindowManagerAttributes">
+                <Object name="ActionConfigurations">
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Mode</Field>
+                        <Field name="actions" type="stringVector"></Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Tools</Field>
+                        <Field name="actions" type="stringVector"></Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Window</Field>
+                        <Field name="actions" type="stringVector">"SetActiveWindowRPC" "AddWindowRPC" "CloneWindowRPC" "DeleteWindowRPC" "SetWindowLayoutRPC" "ToggleSpinModeRPC" "InvertBackgroundRPC" </Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">View</Field>
+                        <Field name="actions" type="stringVector">"TogglePerspectiveViewRPC" "ResetViewRPC" "RecenterViewRPC" "UndoViewRPC" "RedoViewRPC" "ToggleFullFrameRPC" "SaveViewRPC" "ChooseCenterOfRotationRPC" </Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Animation</Field>
+                        <Field name="actions" type="stringVector">"TimeSliderPreviousStateRPC" "AnimationReversePlayRPC" "AnimationStopRPC" "AnimationPlayRPC" "TimeSliderNextStateRPC" </Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Operators</Field>
+                        <Field name="actions" type="stringVector">"AddOperatorRPC" "RemoveLastOperatorRPC" "RemoveAllOperatorsRPC" </Field>
+                        <Field name="visible" type="bool">false</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Plots</Field>
+                        <Field name="actions" type="stringVector">"AddPlotRPC" "DrawPlotsRPC" "HideActivePlotsRPC" "DeleteActivePlotsRPC" "CopyActivePlotsRPC" "SetPlotFollowsTimeRPC" </Field>
+                        <Field name="visible" type="bool">false</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Clear</Field>
+                        <Field name="actions" type="stringVector">"ClearWindowRPC" "ClearAllWindowsRPC" "ClearPickPointsRPC" "ClearRefLinesRPC" </Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                    <Object name="ActionGroupDescription">
+                        <Field name="name" type="string">Lock</Field>
+                        <Field name="actions" type="stringVector">"ToggleLockViewModeRPC" "ToggleLockTimeRPC" "ToggleLockToolsRPC" "TurnOffAllLocksRPC" </Field>
+                        <Field name="visible" type="bool">true</Field>
+                    </Object>
+                </Object>
+                <Field name="toolbarsVisible" type="bool">true</Field>
+                <Field name="largeIcons" type="bool">false</Field>
+            </Object>
+            <Object name="RenderingAttributes">
+                <Object name="specularColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 255 255 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="FileOpenOptions">
+                <Field name="typeNames" type="stringVector">"Exodus" "AMR" "ANALYZE" "ANSYS" "AUXFile" "Adventure" "AugDecomp" "BATL" "BOV" "Boxlib2D" "Boxlib3D" "CCM" "CEAucd" "CGNS" "CMAT" "CTRL" "Cale" "CaleHDF5" "CarpetHDF5" "Chombo" "Claw" "Cosmos" "CosmosPP" "Cube" "Curve2D" "DDCMD" "Dyna3D" "EnSight" "Enzo" "ExtrudedVol" "FITS" "FLASH" "FT2" "Fluent" "GDAL" "GGCM" "GMV" "GTC" "GULP" "Gadget" "Geqdsk" "H5Nimrod" "H5Part" "Image" "KullLite" "LAMMPS" "Lines" "M3DC1" "M3D" "MFIXCDF" "MFIX" "MM5" "MatrixMarket" "Miranda" "NASTRAN" "NETCDF" "Nek5000" "OVERFLOW" "OpenFOAM" "PATRAN" "PDB" "PFLOTRAN" "PLOT2D" "PLOT3D" "Pixie" "PlainText" "Point3D" "ProteinDataBank" "PuReMD" "RAW" "S3D" "SAMI" "SAMRAI" "SAR" "SAS" "STAR" "STL" "SXRIS" "Shapefile" "Silo" "SimV1" "SimV1Writer" "SimV2" "Spheral" "TFT" "TSurf" "Tecplot" "Tetrad" "TimeVaryingExodus" "UNIC" "VASP" "VCellMTMD" "VTK" "Velodyne" "Vis5D" "Vista" "Vs" "WPPImage" "WavefrontOBJ" "XSF" "XYZ" "Xdmf" "Xmdv" "ZeusMP" "ZipWrapper" "lata" "unv" "volimage" </Field>
+                <Field name="typeIDs" type="stringVector">"Exodus_1.0" "AMR_1.0" "ANALYZE_1.0" "ANSYS_1.0" "AUXFile_1.0" "Adventure_1.0" "AugDecomp_1.0" "BATL_1.0" "BOV_1.0" "Boxlib2D_1.0" "Boxlib3D_1.0" "CCM_1.0" "CEAucd_1.0" "CGNS_1.0" "CMAT_1.0" "CTRL_1.0" "Cale_1.1" "CaleHDF5_1.1" "CarpetHDF5_2.0" "Chombo_1.0" "Claw_1.0" "Cosmos_1.0" "CosmosPP_1.0" "Cube_1.0" "Curve2D_1.0" "DDCMD_1.0" "Dyna3D_1.0" "EnSight_1.0" "Enzo_1.0" "ExtrudedVol_1.0" "FITS_1.0" "FLASH_1.0" "FT2_1.0" "Fluent_1.0" "GDAL_1.0" "GGCM_1.0" "GMV_1.0" "GTC_1.0" "GULP_1.0" "Gadget_2.0a" "Geqdsk_1.0" "H5Nimrod_1.0" "H5Part_1.0" "Image_1.0" "KullLite_1.0" "LAMMPS_1.0" "Lines_1.0" "M3DC1_1.0" "M3D_1.0" "MFIXCDF_1.0" "MFIX_1.0" "MM5_1.0" "MatrixMarket_1.0" "Miranda_2.0" "NASTRAN_1.0" "NETCDF_1.0" "Nek5000_1.0" "OVERFLOW_1.0" "OpenFOAM_1.0" "PATRAN_1.0" "PDB_1.1" "PFLOTRAN_1.0" "PLOT2D_1.0" "PLOT3D_1.0" "Pixie_1.0" "PlainText_1.0" "Point3D_1.0" "ProteinDataBank_1.0" "PuReMD_1.0" "RAW_1.0" "S3D_1.0" "SAMI_1.0" "SAMRAI_1.0" "SAR_1.0" "SAS_1.0" "STAR_1.0" "STL_1.0" "SXRIS_1.0" "Shapefile_1.0" "Silo_1.0" "SimV1_1.0" "SimV1Writer_1.0" "SimV2_1.0" "Spheral_1.0" "TFT_1.0" "TSurf_1.0" "Tecplot_1.0" "Tetrad_1.0" "TimeVaryingExodus_1.0" "UNIC_1.0" "VASP_1.0" "VCellMTMD_1.0" "VTK_1.0" "Velodyne_1.0" "Vis5D_1.0" "Vista_1.0" "Vs_3.0.0" "WPPImage_2" "WavefrontOBJ_1.0" "XSF_1.0" "XYZ_1.0" "Xdmf_1.0" "Xmdv_1.0" "ZeusMP_1.0" "ZipWrapper_1.0" "lata_1.0" "unv_" "volimage_1.0" </Field>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 0 </Field>
+                    <Field name="names" type="stringVector">"Show generating processor instead of refinement level" "Use new style curve generation" </Field>
+                    <Field name="optBools" type="intVector">0 1 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 0 0 0 0 0 </Field>
+                    <Field name="names" type="stringVector">"Use ghost data (if present)" "Enable only root level by default" "Enable only explicitly defined materials by default" "Check for mapping file and import coordinates if available" "Use particle_nid and polymer_id to connect particles" "Always compute domain boundaries (hack for AMR stitch cells)" </Field>
+                    <Field name="optBools" type="intVector">1 0 0 1 0 0 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 0 0 </Field>
+                    <Field name="names" type="stringVector">"Show generating processor instead of refinement level" "Use new style curve generation" "Set up patch abutment information" </Field>
+                    <Field name="optBools" type="intVector">0 1 1 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 0 </Field>
+                    <Field name="names" type="stringVector">"Use FastBit index" "Disable domain decomposition" </Field>
+                    <Field name="optBools" type="intVector">1 0 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">5 5 0 </Field>
+                    <Field name="names" type="stringVector">"Mesh refinement" "Linear mesh data location" "Process Data Selections in the Reader" </Field>
+                    <Field name="optBools" type="intVector">0 </Field>
+                    <Field name="optEnums" type="intVector">1 0 </Field>
+                    <Field name="enumStrings" type="stringVector">"1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "Node" "Element" </Field>
+                    <Field name="enumStringsSizes" type="intVector">10 2 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">1 1 1 </Field>
+                    <Field name="names" type="stringVector">"Number of domains in the X or R direction" "Number of domains in the Y direction" "Number of domains in the Z or theta direction" </Field>
+                    <Field name="optInts" type="intVector">4 8 4 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 1 1 1 </Field>
+                    <Field name="names" type="stringVector">"Big Endian" "Number of domains in the X or R direction" "Number of domains in the Y direction" "Number of domains in the Z or theta direction" </Field>
+                    <Field name="optBools" type="intVector">1 </Field>
+                    <Field name="optInts" type="intVector">4 8 4 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">1 </Field>
+                    <Field name="names" type="stringVector">"Num Materials (-1==costly search)" </Field>
+                    <Field name="optInts" type="intVector">0 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 </Field>
+                    <Field name="names" type="stringVector">"Read all times and cycles" </Field>
+                    <Field name="optBools" type="intVector">1 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">1 </Field>
+                    <Field name="names" type="stringVector">"LEOS try harder level [set to 0, 1 or 2]" </Field>
+                    <Field name="optInts" type="intVector">0 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">5 </Field>
+                    <Field name="names" type="stringVector">"Partitioning" </Field>
+                    <Field name="optEnums" type="intVector">2 </Field>
+                    <Field name="enumStrings" type="stringVector">"X Slab" "Y Slab" "Z Slab" "KD Tree" </Field>
+                    <Field name="enumStringsSizes" type="intVector">4 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">5 1 0 1 1 1 </Field>
+                    <Field name="names" type="stringVector">"Data layout" "Lines to skip at beginning of file" "First row has variable names" "Column for X coordinate (or -1 for none)" "Column for Y coordinate (or -1 for none)" "Column for Z coordinate (or -1 for none)" </Field>
+                    <Field name="optBools" type="intVector">0 </Field>
+                    <Field name="optInts" type="intVector">0 -1 -1 -1 </Field>
+                    <Field name="optEnums" type="intVector">0 </Field>
+                    <Field name="enumStrings" type="stringVector">"1D Columns" "2D Array" </Field>
+                    <Field name="enumStringsSizes" type="intVector">2 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 0 0 0 </Field>
+                    <Field name="names" type="stringVector">"Polygons as lines" "Tessellate polygons" "ESRI Logging" "DBF Logging" </Field>
+                    <Field name="optBools" type="intVector">0 1 0 0 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">5 5 0 0 </Field>
+                    <Field name="names" type="stringVector">"Ignore spatial extents" "Ignore data extents" "Force Single" "Search For ANNOTATION_INT (!!Slow!!)" </Field>
+                    <Field name="optBools" type="intVector">0 0 </Field>
+                    <Field name="optEnums" type="intVector">3 3 </Field>
+                    <Field name="enumStrings" type="stringVector">"Always" "Auto" "Never" "Undef" "Always" "Auto" "Never" "Undef" </Field>
+                    <Field name="enumStringsSizes" type="intVector">4 4 </Field>
+                    <Field name="obsoleteNames" type="stringVector">"Ignore Spatial Extents" "Ignore Data Extents" </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">5 1 1 1 </Field>
+                    <Field name="names" type="stringVector">"Method to determine coordinate axes" "X axis variable index (or -1 for none)" "Y axis variable index (or -1 for none)" "Z axis variable index (or -1 for none)" </Field>
+                    <Field name="optInts" type="intVector">-1 -1 -1 </Field>
+                    <Field name="optEnums" type="intVector">0 </Field>
+                    <Field name="enumStrings" type="stringVector">"Guess from variable names" "Specify explicitly (below)" </Field>
+                    <Field name="enumStringsSizes" type="intVector">2 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">0 </Field>
+                    <Field name="names" type="stringVector">"Process Data Selections in the Reader" </Field>
+                    <Field name="optBools" type="intVector">1 </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                    <Field name="types" type="intVector">4 4 1 4 0 </Field>
+                    <Field name="names" type="stringVector">"TMPDIR for decompressed files" "Unique moniker for dirs made in $TMPDIR" "Max. # decompressed files" "Decompression command" "Don't atexit()" </Field>
+                    <Field name="optBools" type="intVector">0 </Field>
+                    <Field name="optInts" type="intVector">50 </Field>
+                    <Field name="optStrings" type="stringVector">"$TMPDIR" "$USER" "" </Field>
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Object name="DBOptionsAttributes">
+                </Object>
+                <Field name="Enabled" type="intVector">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </Field>
+            </Object>
+            <Object name="BoundaryAttributes">
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="ContourAttributes">
+                <Object name="defaultPalette">
+                    <Object name="ColorControlPointList">
+                        <Field name="compactColors" type="unsignedCharVector">255 0 0 255 0 255 0 255 0 0 255 255 0 255 255 255 255 0 255 255 255 255 0 255 255 135 0 255 255 0 135 255 168 168 168 255 255 68 68 255 99 255 99 255 99 99 255 255 40 165 165 255 255 99 255 255 255 255 99 255 255 170 99 255 170 79 255 255 150 0 0 255 0 150 0 255 0 0 150 255 0 109 109 255 150 0 150 255 150 150 0 255 150 84 0 255 160 0 79 255 255 104 28 255 0 170 81 255 68 255 124 255 0 130 255 255 130 0 255 255 </Field>
+                        <Field name="compactPositions" type="floatVector">0 0.034 0.069 0.103 0.138 0.172 0.207 0.241 0.276 0.31 0.345 0.379 0.414 0.448 0.483 0.517 0.552 0.586 0.621 0.655 0.69 0.724 0.759 0.793 0.828 0.862 0.897 0.931 0.966 1 </Field>
+                        <Field name="smoothing" type="string">None</Field>
+                        <Field name="equalSpacingFlag" type="bool">true</Field>
+                        <Field name="discreteFlag" type="bool">true</Field>
+                    </Object>
+                </Object>
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Field name="contourNLevels" type="int">10</Field>
+            </Object>
+            <Object name="CurveAttributes">
+                <Object name="curveColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="ballTimeCueColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="lineTimeCueColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="FilledBoundaryAttributes">
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="mixedColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 255 255 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="HistogramAttributes">
+                <Object name="color">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">200 80 40 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="LabelAttributes">
+                <Object name="textColor1">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 0 0 0 </Field>
+                    </Object>
+                </Object>
+                <Object name="textColor2">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 255 0 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="MeshAttributes">
+                <Object name="meshColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="opaqueColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 255 255 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="MoleculeAttributes">
+                <Object name="bondSingleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">128 128 128 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="MultiCurveAttributes">
+                <Object name="defaultPalette">
+                    <Object name="ColorControlPointList">
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 0 0 255 </Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 255 0 255 </Field>
+                            <Field name="position" type="float">0.034</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 0 255 255 </Field>
+                            <Field name="position" type="float">0.069</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 255 255 255 </Field>
+                            <Field name="position" type="float">0.103</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 0 255 255 </Field>
+                            <Field name="position" type="float">0.138</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 255 0 255 </Field>
+                            <Field name="position" type="float">0.172</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 135 0 255 </Field>
+                            <Field name="position" type="float">0.207</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 0 135 255 </Field>
+                            <Field name="position" type="float">0.241</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">168 168 168 255 </Field>
+                            <Field name="position" type="float">0.276</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 68 68 255 </Field>
+                            <Field name="position" type="float">0.31</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">99 255 99 255 </Field>
+                            <Field name="position" type="float">0.345</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">99 99 255 255 </Field>
+                            <Field name="position" type="float">0.379</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">40 165 165 255 </Field>
+                            <Field name="position" type="float">0.414</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 99 255 255 </Field>
+                            <Field name="position" type="float">0.448</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 255 99 255 </Field>
+                            <Field name="position" type="float">0.483</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 170 99 255 </Field>
+                            <Field name="position" type="float">0.517</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">170 79 255 255 </Field>
+                            <Field name="position" type="float">0.552</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">150 0 0 255 </Field>
+                            <Field name="position" type="float">0.586</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 150 0 255 </Field>
+                            <Field name="position" type="float">0.621</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 0 150 255 </Field>
+                            <Field name="position" type="float">0.655</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 109 109 255 </Field>
+                            <Field name="position" type="float">0.69</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">150 0 150 255 </Field>
+                            <Field name="position" type="float">0.724</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">150 150 0 255 </Field>
+                            <Field name="position" type="float">0.759</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">150 84 0 255 </Field>
+                            <Field name="position" type="float">0.793</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">160 0 79 255 </Field>
+                            <Field name="position" type="float">0.828</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">255 104 28 255 </Field>
+                            <Field name="position" type="float">0.862</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 170 81 255 </Field>
+                            <Field name="position" type="float">0.897</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">68 255 124 255 </Field>
+                            <Field name="position" type="float">0.931</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">0 130 255 255 </Field>
+                            <Field name="position" type="float">0.966</Field>
+                        </Object>
+                        <Object name="ColorControlPoint">
+                            <Field name="colors" type="unsignedCharArray" length="4">130 0 255 255 </Field>
+                            <Field name="position" type="float">1</Field>
+                        </Object>
+                        <Field name="smoothing" type="string">None</Field>
+                        <Field name="equalSpacingFlag" type="bool">true</Field>
+                        <Field name="discreteFlag" type="bool">true</Field>
+                    </Object>
+                </Object>
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="multiColor">
+                    <Object name="ColorAttributeList">
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 0 0 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">0 255 0 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">0 0 255 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">0 255 255 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 0 255 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 255 0 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 135 0 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 0 135 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">168 168 168 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 68 68 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">99 255 99 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">99 99 255 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">40 165 165 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 99 255 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 255 99 255 </Field>
+                        </Object>
+                        <Object name="ColorAttribute">
+                            <Field name="color" type="unsignedCharArray" length="4">255 170 99 255 </Field>
+                        </Object>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="ParallelCoordinatesAttributes">
+                <Object name="linesColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">128 0 0 255 </Field>
+                    </Object>
+                </Object>
+                <Object name="contextColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 220 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="PoincareAttributes">
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="ScatterAttributes">
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="SpreadsheetAttributes">
+                <Object name="tracerColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">255 0 0 150 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="StreamlineAttributes">
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="SubsetAttributes">
+                <Object name="singleColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="TensorAttributes">
+                <Object name="tensorColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="VectorAttributes">
+                <Object name="vectorColor">
+                    <Object name="ColorAttribute">
+                        <Field name="color" type="unsignedCharArray" length="4">0 0 0 255 </Field>
+                    </Object>
+                </Object>
+            </Object>
+            <Object name="CartographicProjectionAttributes">
+                <Field name="projectionID" type="string">aitoff</Field>
+                <Field name="centralMeridian" type="double">0</Field>
+            </Object>
+            <Object name="AppearanceAttributes">
+                <Field name="defaultForeground" type="string">#000000</Field>
+                <Field name="defaultBackground" type="string">#e8e8e8</Field>
+                <Field name="defaultFontName" type="string">"Lucida Grande,13,-1,5,50,0,0,0,0,0"</Field>
+                <Field name="defaultStyle" type="string">macintosh</Field>
+            </Object>
+            <Object name="PluginManagerAttributes">
+                <Field name="name" type="stringVector">"Boundary" "Contour" "Curve" "FilledBoundary" "Histogram" "Label" "Mesh" "Molecule" "MultiCurve" "ParallelCoordinates" "Poincare" "Pseudocolor" "Scatter" "Spreadsheet" "Streamline" "Subset" "Surface" "Tensor" "Truecolor" "Vector" "Volume" "WellBore" "AMRStitchCell" "BoundaryOp" "Box" "CartographicProjection" "Clip" "Cone" "ConnectedComponents" "CoordSwap" "CracksClipper" "CreateBonds" "Cylinder" "DataBinning" "Decimate" "DeferExpression" "Delaunay" "Displace" "DualMesh" "Edge" "Elevate" "ExternalSurface" "Extrude" "FFT" "FTLE" "FiveFoldTetSubdivision" "Flux" "IndexSelect" "InverseGhostZone" "Isosurface" "Isovolume" "Lagrangian" "LineSampler" "Lineout" "Merge" "ModelFit" "MultiresControl" "OnionPeel" "PDF" "PersistentParticles" "Project" "Reflect" "Replicate" "Resample" "Revolve" "Slice" "Smooth" "SphereSlice" "Stagger" "SurfaceNormal" "ThreeSlice" "Threshold" "ToroidalPoloidalProjection" "Transform" "TriangulateRegularPoints" "Tube" "ZoneDump" </Field>
+                <Field name="type" type="stringVector">"plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "plot" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" "operator" </Field>
+                <Field name="version" type="stringVector">"1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "2.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.1" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "2.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" "1.0" </Field>
+                <Field name="id" type="stringVector">"Boundary_1.0" "Contour_1.0" "Curve_1.0" "FilledBoundary_1.0" "Histogram_1.0" "Label_1.0" "Mesh_1.0" "Molecule_1.0" "MultiCurve_1.0" "ParallelCoordinates_1.0" "Poincare_2.0" "Pseudocolor_1.0" "Scatter_1.0" "Spreadsheet_1.0" "Streamline_1.0" "Subset_1.0" "Surface_1.0" "Tensor_1.0" "Truecolor_1.0" "Vector_1.0" "Volume_1.1" "WellBore_1.0" "AMRStitchCell_1.0" "BoundaryOp_1.0" "Box_1.0" "CartographicProjection_1.0" "Clip_1.0" "Cone_1.0" "ConnectedComponents_1.0" "CoordSwap_1.0" "CracksClipper_1.0" "CreateBonds_1.0" "Cylinder_1.0" "DataBinning_1.0" "Decimate_1.0" "DeferExpression_1.0" "Delaunay_1.0" "Displace_1.0" "DualMesh_1.0" "Edge_1.0" "Elevate_1.0" "ExternalSurface_1.0" "Extrude_1.0" "FFT_1.0" "FTLE_1.0" "FiveFoldTetSubdivision_1.0" "Flux_1.0" "IndexSelect_1.0" "InverseGhostZone_1.0" "Isosurface_1.0" "Isovolume_1.0" "Lagrangian_1.0" "LineSampler_1.0" "Lineout_1.0" "Merge_1.0" "ModelFit_1.0" "MultiresControl_1.0" "OnionPeel_1.0" "PDF_1.0" "PersistentParticles_2.0" "Project_1.0" "Reflect_1.0" "Replicate_1.0" "Resample_1.0" "Revolve_1.0" "Slice_1.0" "Smooth_1.0" "SphereSlice_1.0" "Stagger_1.0" "SurfaceNormal_1.0" "ThreeSlice_1.0" "Threshold_1.0" "ToroidalPoloidalProjection_1.0" "Transform_1.0" "TriangulateRegularPoints_1.0" "Tube_1.0" "ZoneDump_1.0" </Field>
+                <Field name="category" type="stringVector">"?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "?" "Geometry" "Slicing" "Selection" "Transforms" "Selection" "Slicing" "Analysis" "Geometry" "Analysis" "Molecular" "Selection" "Analysis" "Geometry" "Analysis" "Geometry" "Transforms" "Geometry" "Geometry" "Transforms" "Geometry" "Geometry" "Transforms" "Analysis" "Geometry" "Analysis" "Selection" "Debugging" "Slicing" "Selection" "" "Slicing" "Analysis" "Geometry" "" "Selection" "Selection" "Analysis" "Analysis" "Transforms" "Transforms" "Transforms" "Geometry" "Geometry" "Slicing" "Geometry" "Slicing" "Transforms" "Geometry" "Slicing" "Selection" "Transforms" "Transforms" "Geometry" "Geometry" "Debugging" </Field>
+                <Field name="enabled" type="intVector">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 0 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 </Field>
+            </Object>
+        </Object>
+        <Object name="ViewerSubject">
+            <Object name="SourceMap">
+                <Field name="SOURCE00" type="string">"localhost:/Users/frombs/Documents/IN100/reconstruction2d_100grns/reconstruction2d_100grns.e-s* database"</Field>
+            </Object>
+            <Object name="SourcePlugins">
+                <Field name="localhost:/Users/frombs/Documents/IN100/reconstruction2d_100grns/reconstruction2d_100grns.e-s* database" type="string">Exodus_1.0</Field>
+            </Object>
+            <Object name="DatabaseCorrelationList">
+                <Field name="needPermission" type="bool">true</Field>
+                <Field name="defaultCorrelationMethod" type="int">0</Field>
+                <Field name="whenToCorrelate" type="string">CorrelateOnlyIfSameLength</Field>
+            </Object>
+            <Object name="ViewerWindowManager">
+                <Object name="SelectionList">
+                </Object>
+                <Field name="cameraView" type="bool">false</Field>
+                <Field name="viewExtentsType" type="string">AVT_ORIGINAL_EXTENTS</Field>
+                <Object name="Windows">
+                    <Object name="ViewerWindow">
+                        <Field name="windowSize" type="intArray" length="2">1479 1479 </Field>
+                        <Field name="windowImageSize" type="intArray" length="2">1479 1415 </Field>
+                        <Field name="windowLocation" type="intArray" length="2">497 22 </Field>
+                    </Object>
+                </Object>
+            </Object>
+        </Object>
+    </Object>
+</Object>

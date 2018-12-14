@@ -1,0 +1,191 @@
+
+{
+  "blueprint_index": 
+  {
+    "rectilinear": 
+    {
+      "state": 
+      {
+        "number_of_domains": 1
+      },
+      "coordsets": 
+      {
+        "coords": 
+        {
+          "type": "rectilinear",
+          "coord_system": 
+          {
+            "axes": 
+            {
+              "x": null,
+              "y": null
+            },
+            "type": "cartesian"
+          },
+          "path": "rectilinear/coordsets/coords"
+        }
+      },
+      "topologies": 
+      {
+        "mesh": 
+        {
+          "type": "rectilinear",
+          "coordset": "coords",
+          "path": "rectilinear/topologies/mesh"
+        }
+      },
+      "fields": 
+      {
+        "constant": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/constant"
+        },
+        "random": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/random"
+        },
+        "spherical": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/spherical"
+        },
+        "xramp": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/xramp"
+        },
+        "ysin": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/ysin"
+        },
+        "noise": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/noise"
+        },
+        "noise_sum": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/noise_sum"
+        },
+        "xlayers": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/xlayers"
+        },
+        "constant_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/constant_000"
+        },
+        "random_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/random_000"
+        },
+        "spherical_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/spherical_000"
+        },
+        "xramp_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/xramp_000"
+        },
+        "ysin_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/ysin_000"
+        },
+        "noise_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/noise_000"
+        },
+        "noise_sum_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/noise_sum_000"
+        },
+        "xlayers_000": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/xlayers_000"
+        },
+        "constant_001": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/constant_001"
+        },
+        "random_001": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/random_001"
+        },
+        "spherical_001": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "element",
+          "path": "rectilinear/fields/spherical_001"
+        },
+        "xramp_001": 
+        {
+          "number_of_components": 1,
+          "topology": "mesh",
+          "association": "vertex",
+          "path": "rectilinear/fields/xramp_001"
+        }
+      }
+    }
+  },
+  "protocol": 
+  {
+    "name": "hdf5",
+    "version": "0.3.2"
+  },
+  "number_of_files": 1,
+  "number_of_trees": 1,
+  "file_pattern": "part.000.000.000.h5",
+  "tree_pattern": "/"
+}

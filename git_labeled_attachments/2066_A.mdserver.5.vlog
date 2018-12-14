@@ -1,0 +1,947 @@
+/Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/bin/mdserver -host 127.0.0.1 -port 5601 -key dd03910c2f6560d90957 
+MDSERVER started.
+Adding plugin search path: /Users/sveta/.visit/2.8.2/darwin-x86_64/plugins/databases
+Adding plugin search path: /Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/plugins/databases
+Successfully loaded info about 114 database plugins.
+ParentProcess::Connect: Called with (numRead=1, numWrite=1, argc=7, argv={/Applications/VisIt.app/Contents/Resources/2.8.2/darwin-x86_64/bin/mdserver, -host, 127.0.0.1, -port, 5601, -key, dd03910c2f6560d90957})
+ParentProcess::Connect: hostName = 127.0.0.1
+ParentProcess::GetHostInfo: Calling gethostbyname("127.0.0.1")
+ParentProcess::Connect: port = 5601
+ParentProcess::Connect: securityKey = dd03910c2f6560d90957
+ParentProcess::Connect: Creating sockets
+ParentProcess::Connect: Creating read sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5601
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Creating write sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5601
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Exchanging type representations.
+ParentProcess::Connect: done
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=14, len=93, type=ConnectRPC
+ParentProcess::Connect: Called with (numRead=1, numWrite=1, argc=10, argv={visit, -v, 2.8, -mdserver, -host, 127.0.0.1, -port, 5600, -key, dd03910c2f6560d90957})
+ParentProcess::Connect: hostName = 127.0.0.1
+ParentProcess::GetHostInfo: Calling gethostbyname("127.0.0.1")
+ParentProcess::Connect: port = 5600
+ParentProcess::Connect: securityKey = dd03910c2f6560d90957
+ParentProcess::Connect: Creating sockets
+ParentProcess::Connect: Creating read sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Creating write sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Exchanging type representations.
+ParentProcess::Connect: done
+Xfer::Process: Opcode=26, len=1, type=GetDBPluginInfoRPC
+GetDBPluginInfoRPCExecutor::Update
+Loading plugins!
+Loaded full database plugin ADIOS version 1.0
+Loaded full database plugin AMR version 1.0
+Loaded full database plugin AMRTest version 1.0
+Loaded full database plugin ANALYZE version 1.0
+Loaded full database plugin ANSYS version 1.0
+Loaded full database plugin AUXFile version 1.0
+Loaded full database plugin Adventure version 1.0
+Loaded full database plugin AugDecomp version 1.0
+Loaded full database plugin BATL version 1.0
+Loaded full database plugin BOV version 1.0
+Loaded full database plugin Boxlib2D version 1.0
+Loaded full database plugin Boxlib3D version 1.0
+Loaded full database plugin CCM version 1.0
+Loaded full database plugin CEAucd version 1.0
+Loaded full database plugin CGNS version 1.0
+Loaded full database plugin CMAT version 1.0
+Loaded full database plugin CTRL version 1.0
+Loaded full database plugin Cale version 1.1
+Loaded full database plugin CaleHDF5 version 1.1
+Loaded full database plugin CarpetHDF5 version 2.1
+Loaded full database plugin Chombo version 1.0
+Loaded full database plugin Claw version 1.0
+Loaded full database plugin Cosmos version 1.0
+Loaded full database plugin CosmosPP version 1.0
+Loaded full database plugin Cube version 1.0
+Loaded full database plugin Curve2D version 1.0
+Loaded full database plugin DDCMD version 1.0
+Loaded full database plugin Dyna3D version 1.0
+Loaded full database plugin EnSight version 1.0
+Loaded full database plugin Enzo version 1.0
+Loaded full database plugin Exodus version 1.0
+Loaded full database plugin ExtrudedVol version 1.0
+Loaded full database plugin FITS version 1.0
+Loaded full database plugin FLASH version 1.0
+Loaded full database plugin FT2 version 1.0
+Loaded full database plugin FieldView XDB version 1.0
+Loaded full database plugin Fluent version 1.0
+Loaded full database plugin GDAL version 1.0
+Loaded full database plugin GGCM version 1.0
+Loaded full database plugin GHOST version 1
+Loaded full database plugin GMV version 1.0
+Loaded full database plugin GTC version 1.0
+Loaded full database plugin GULP version 1.0
+Loaded full database plugin Gadget version 2.0a
+Loaded full database plugin Geqdsk version 1.0
+Loaded full database plugin H5Nimrod version 1.0
+Loaded full database plugin H5Part version 1.0
+Loaded full database plugin Image version 1.0
+Loaded full database plugin KullLite version 1.0
+Loaded full database plugin LAMMPS version 1.0
+Loaded full database plugin Lines version 1.0
+Loaded full database plugin M3DC1 version 1.0
+Loaded full database plugin M3D version 1.0
+Loaded full database plugin MFEM version 1.0
+Loaded full database plugin MFIXCDF version 1.0
+Loaded full database plugin MFIX version 1.0
+Loaded full database plugin MM5 version 1.0
+Loaded full database plugin MatrixMarket version 1.0
+Loaded full database plugin Miranda version 2.0
+Loaded full database plugin NASTRAN version 1.0
+Loaded full database plugin NETCDF version 1.0
+Loaded full database plugin Nek5000 version 1.0
+Loaded full database plugin OVERFLOW version 1.0
+Loaded full database plugin OpenFOAM version 1.0
+Loaded full database plugin PATRAN version 1.0
+Loaded full database plugin PDB version 1.1
+Loaded full database plugin PFLOTRAN version 1.0
+Loaded full database plugin PLOT3D version 1.0
+Loaded full database plugin PLY version 1.0
+Loaded full database plugin ParallelVelodyne version 1
+Loaded full database plugin Pixie version 1.0
+Loaded full database plugin PlainText version 1.0
+Loaded full database plugin Point3D version 1.0
+Loaded full database plugin ProteinDataBank version 1.0
+Loaded full database plugin PuReMD version 1.0
+Loaded full database plugin RAGE version 1.0
+Loaded full database plugin RAW version 1.0
+Loaded full database plugin S3D version 1.0
+Loaded full database plugin SAMI version 1.0
+Loaded full database plugin SAMRAI version 1.0
+Loaded full database plugin SAR version 1.0
+Loaded full database plugin SAS version 1.0
+Loaded full database plugin STAR version 1.0
+Loaded full database plugin STL version 1.0
+Loaded full database plugin SXRIS version 1.0
+Loaded full database plugin Shapefile version 1.0
+Loaded full database plugin Silo version 1.0
+Loaded full database plugin SimV2 version 1.0
+Loaded full database plugin Spheral version 1.0
+Loaded full database plugin TFT version 1.0
+Loaded full database plugin TSurf version 1.0
+Loaded full database plugin Tecplot version 1.0
+Loaded full database plugin Tetrad version 1.0
+Loaded full database plugin UNIC version 1.0
+Loaded full database plugin Uintah version 1.0
+Loaded full database plugin VASP version 1.0
+Loaded full database plugin VCellMTMD version 1.0
+Loaded full database plugin VTK version 1.0
+Loaded full database plugin Velodyne version 1.0
+Loaded full database plugin Vis5D version 1.0
+Loaded full database plugin Vista version 1.0
+Loaded full database plugin Vs version 3.0.0
+Loaded full database plugin WPPImage version 2
+Loaded full database plugin WavefrontOBJ version 1.0
+Loaded full database plugin WellLogs version 1.0
+Loaded full database plugin XSF version 1.0
+Loaded full database plugin XYZ version 1.0
+Loaded full database plugin Xdmf version 1.0
+Loaded full database plugin Xmdv version 1.0
+Loaded full database plugin ZeusMP version 1.0
+Loaded full database plugin ZipWrapper version 1.0
+Loaded full database plugin lata version 1.0
+Loaded full database plugin unv version 
+Loaded full database plugin volimage version 1.0
+Xfer::Update: Sending: opcode=27, name=DBPluginInfoAttributes (from GetDBPluginInfoRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=28, len=11635, type=SetMFileOpenOptionsRPC
+Xfer::Update: Sending: opcode=29, name=VisItRPC::RPCReply (from SetMFileOpenOptionsRPC)
+Xfer::Process: Opcode=24, len=1, type=GetPluginErrorsRPC
+Xfer::Update: Sending: opcode=25, name=GetPluginErrorsRPC::PluginErrors (from GetPluginErrorsRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+FILELIST={{., 0, 1530, 1}, {.., 0, 204, 1}, {A.gui.*.vlog database, 2, 0, 1}, {A.mdserver.*.vlog database, 2, 0, 1}, {A.viewer.*.vlog database, 2, 0, 1}, {Doxyfile, 1, 5015, 1}, {curv3dprep, 1, 4895, 1}, {frontendlauncher, 1, 4895, 1}, {frontendlauncher.py, 1, 14974, 1}, {makemili, 1, 4895, 1}, {mkgrdbl, 1, 12264, 1}, {mpeg2encode, 1, 4895, 1}, {regen-ajp, 1, 1659, 1}, {run_doxygen, 1, 2536, 1}, {surfcomp, 1, 4895, 1}, {text2polys, 1, 4895, 1}, {time_annotation, 1, 4895, 1}, {visit, 1, 4895, 1}, {visit_composite, 1, 4895, 1}, {visit_plugin, 1, 23672, 1}, {visit_transition, 1, 4895, 1}, {visitconvert, 1, 4895, 1}, {visitprotocol, 1, 4895, 1}, {xml2atts, 1, 4895, 1}, {xml2avt, 1, 4895, 1}, {xml2cmake, 1, 4895, 1}, {xml2info, 1, 4895, 1}, {xml2java, 1, 4895, 1}, {xml2plugin, 1, 1755, 1}, {xml2python, 1, 4895, 1}, {xml2window, 1, 4895, 1}, {xmledit, 1, 4895, 1}, {xmltest, 1, 4895, 1}}
+Virtual file: A.gui.*.vlog database {
+	A.gui.1.vlog
+	A.gui.2.vlog
+	A.gui.3.vlog
+	A.gui.4.vlog
+	A.gui.5.vlog
+}
+Virtual file: A.mdserver.*.vlog database {
+	A.mdserver.1.vlog
+	A.mdserver.2.vlog
+	A.mdserver.3.vlog
+	A.mdserver.4.vlog
+	A.mdserver.5.vlog
+}
+Virtual file: A.viewer.*.vlog database {
+	A.viewer.1.vlog
+	A.viewer.2.vlog
+	A.viewer.3.vlog
+	A.viewer.4.vlog
+	A.viewer.5.vlog
+}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=22, len=1, type=LoadPluginsRPC
+Xfer::Update: Sending: opcode=23, name=NonBlockingRPC::CompletionData (from LoadPluginsRPC)
+Xfer::Process: Opcode=28, len=11635, type=SetMFileOpenOptionsRPC
+Xfer::Update: Sending: opcode=29, name=VisItRPC::RPCReply (from SetMFileOpenOptionsRPC)
+Xfer::Process: Opcode=26, len=1, type=GetDBPluginInfoRPC
+GetDBPluginInfoRPCExecutor::Update
+Xfer::Update: Sending: opcode=27, name=DBPluginInfoAttributes (from GetDBPluginInfoRPC)
+Xfer::Process: Opcode=6, len=49, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+FILELIST={{., 0, 1530, 1}, {.., 0, 204, 1}, {A.gui.*.vlog database, 2, 0, 1}, {A.mdserver.*.vlog database, 2, 0, 1}, {A.viewer.*.vlog database, 2, 0, 1}, {Doxyfile, 1, 5015, 1}, {curv3dprep, 1, 4895, 1}, {frontendlauncher, 1, 4895, 1}, {frontendlauncher.py, 1, 14974, 1}, {makemili, 1, 4895, 1}, {mkgrdbl, 1, 12264, 1}, {mpeg2encode, 1, 4895, 1}, {regen-ajp, 1, 1659, 1}, {run_doxygen, 1, 2536, 1}, {surfcomp, 1, 4895, 1}, {text2polys, 1, 4895, 1}, {time_annotation, 1, 4895, 1}, {visit, 1, 4895, 1}, {visit_composite, 1, 4895, 1}, {visit_plugin, 1, 23672, 1}, {visit_transition, 1, 4895, 1}, {visitconvert, 1, 4895, 1}, {visitprotocol, 1, 4895, 1}, {xml2atts, 1, 4895, 1}, {xml2avt, 1, 4895, 1}, {xml2cmake, 1, 4895, 1}, {xml2info, 1, 4895, 1}, {xml2java, 1, 4895, 1}, {xml2plugin, 1, 1755, 1}, {xml2python, 1, 4895, 1}, {xml2window, 1, 4895, 1}, {xmledit, 1, 4895, 1}, {xmltest, 1, 4895, 1}}
+Virtual file: A.gui.*.vlog database {
+	A.gui.1.vlog
+	A.gui.2.vlog
+	A.gui.3.vlog
+	A.gui.4.vlog
+	A.gui.5.vlog
+}
+Virtual file: A.mdserver.*.vlog database {
+	A.mdserver.1.vlog
+	A.mdserver.2.vlog
+	A.mdserver.3.vlog
+	A.mdserver.4.vlog
+	A.mdserver.5.vlog
+}
+Virtual file: A.viewer.*.vlog database {
+	A.viewer.1.vlog
+	A.viewer.2.vlog
+	A.viewer.3.vlog
+	A.viewer.4.vlog
+	A.viewer.5.vlog
+}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=9, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+FILELIST={{., 0, 272, 1}, {.., 0, 1462, 1}, {.localized, 1, 0, 1}, {Shared, 0, 170, 1}, {beckwith, 0, 102, 1}, {cary, 0, 1224, 1}, {sveta, 0, 4148, 1}, {txadmin, 0, 816, 1}}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=15, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+File builds-7.* is not a file so we're adding its components back to the files list.
+	builds-7.2
+	builds-7.25
+FILELIST={{., 0, 4148, 1}, {.., 0, 272, 1}, {.CFUserTextEncoding, 1, 3, 1}, {.DS_Store, 1, 21508, 1}, {.Trash, 0, 136, 1}, {.Xauthority, 1, 174, 1}, {.Xcode, 0, 68, 1}, {.Xresources, 1, 3948, 1}, {.bash_completion, 1, 42821, 1}, {.bash_history, 1, 7193, 1}, {.bash_profile, 1, 15793, 1}, {.bash_profile.macports-saved_2011-07-11_at_12:16:54, 1, 12372, 1}, {.bash_profile.pysave, 1, 12936, 1}, {.bash_profileOFF, 1, 15793, 1}, {.bashrc, 1, 5496, 1}, {.bilder, 1, 26, 1}, {.cache, 0, 102, 1}, {.claro, 0, 136, 1}, {.config, 0, 102, 1}, {.cups, 0, 102, 1}, {.cvspass, 1, 127, 1}, {.emacs.d, 0, 102, 1}, {.fontconfig, 0, 1088, 1}, {.fonts, 0, 612, 1}, {.gdb_history, 1, 113, 1}, {.globus, 0, 102, 1}, {.hgrc, 1, 88, 1}, {.inputrc, 1, 122, 1}, {.java, 0, 102, 1}, {.matplotlib, 0, 170, 1}, {.rhosts, 1, 1475, 1}, {.rnd, 1, 1024, 1}, {.root_hist, 1, 3068, 1}, {.serverauth.21397, 1, 65, 1}, {.softenvrc, 1, 387, 1}, {.ssh, 0, 136, 1}, {.subversion, 0, 204, 1}, {.thumbnails, 0, 136, 1}, {.txcorp, 0, 136, 1}, {.vim, 0, 374, 1}, {.viminfo, 1, 23737, 1}, {.vimrc, 1, 2766, 1}, {.visit, 0, 238, 1}, {AcquisitionComparisons20141230.xlsx, 1, 51158, 1}, {AllenComposer.docx, 1, 102141, 1}, {Applications, 0, 102, 1}, {BLabsContractFeb2014-signed.pdf, 1, 209159, 1}, {BLabsContractFeb2014.doc, 1, 96256, 1}, {BLabsContractFeb2014.pdf, 1, 204762, 1}, {BS.jpg, 1, 42326, 1}, {CSA_A250_A275_Rev1.dxf, 1, 8428, 1}, {CompinBackglog4.1.2014.xlsx, 1, 45263, 1}, {ComposerNoviceGui20120112.pdf, 1, 3022081, 1}, {ComposerNoviceGui20120112.pptx, 1, 1549606, 1}, {DelucaGyropicUpdate_2014_01_31, 0, 170, 1}, {Desktop, 0, 170, 1}, {Documents, 0, 4726, 1}, {Downloads, 0, 6664, 1}, {FatherDeathCertP1.jpg, 1, 4353927, 1}, {FermiLogo.jpg, 1, 80320, 1}, {G01, 0, 1020, 1}, {Geant4_DICOM.pdf, 1, 428418, 1}, {GeomSim.png, 1, 150989, 1}, {GeomVis.png, 1, 207036, 1}, {GeometryCAD13Sep2012.pptx, 1, 562737, 1}, {LK00839.lic, 1, 4591, 1}, {Library, 0, 1734, 1}, {Movies, 0, 102, 1}, {Music, 0, 136, 1}, {OpenSpliceDDSV6.3.0-x86_64.linux2.6-HDE-installer-eval.bin, 1, 91750575, 1}, {OpenSpliceV6Eval.lic, 1, 4414, 1}, {OpenSplice_V5_V6_Migration_Guide_A13.pdf, 1, 491167, 1}, {Open_Science_Grid_Consortium(Logo).jpg, 1, 111497, 1}, {P665-OpenSpliceDDSV6.4.2-HDE-x86_64.linux-gcc4.6-glibc2.15-installer-eval.run, 1, 175853188, 1}, {Pictures, 0, 272, 1}, {Public, 0, 170, 1}, {PyDDSProductization20130201.pptx, 1, 1439227, 1}, {RegularNavigation.070914.pdf, 1, 703824, 1}, {SOWBoulderLabsFeb2014.docx, 1, 115157, 1}, {SOWBoulderLabsNovDec2012.docx, 1, 134279, 1}, {Sculptor_License.lic, 1, 2174, 1}, {Sites, 0, 170, 1}, {SmartVoxel.pdf, 1, 906527, 1}, {SoWBoulderLabsNov2012.docx, 1, 139745, 1}, {StagVisReviews.pdf, 1, 140118, 1}, {SvetaInHana.jpg, 1, 2248445, 1}, {TechX_Component_Test.zip, 1, 44261978, 1}, {VSimComposer7.0.pptx, 1, 761808, 1}, {VsRegistry.C, 1, 42039, 1}, {WangContractFeb2014-signed-signed.pdf, 1, 186758, 1}, {WangContractFeb2014-signed.pdf, 1, 187372, 1}, {WangContractFeb2014.doc, 1, 82432, 1}, {WangContractFeb2014.pdf, 1, 178048, 1}, {Wedding.jpg, 1, 458166, 1}, {XVars31Jan2012.pptx, 1, 45513, 1}, {XVars31Jan2012v*.pptx database, 2, 0, 1}, {builds-7.2, 0, 0, 1}, {builds-7.25, 0, 136, 1}, {business_cards.pdf, 1, 176778, 1}, {contrib, 0, 782, 1}, {ctkdependencies.pptx, 1, 999489, 1}, {ctkdependencies_old.pdf, 1, 22679, 1}, {ex.vtk, 1, 197, 1}, {exposedVarsPost.ppt, 1, 168448, 1}, {fnal-logo.jpg, 1, 2379, 1}, {gras-03-03, 0, 748, 1}, {gras-03-03-r1561.tar.gz, 1, 7689657, 1}, {gras:m.pdf, 1, 30113, 1}, {lasp-logo.color_.2lines-subtext.transp-bg.vector.pdf, 1, 502026, 1}, {license.txt, 1, 637, 1}, {mesfet_phi_0.h5, 1, 433944, 1}, {mu.rtf, 1, 1528, 1}, {projects, 0, 3128, 1}, {run_0100_He1_1.h5.newversion, 1, 2103328, 1}, {spenvis_gras31_cone_al.csv, 1, 613321, 1}, {tar, 1, 59, 1}, {tid_ratios.png, 1, 23061, 1}, {txcenv, 0, 1224, 1}, {txrad_plans.pptx, 1, 1354121, 1}, {volatile, 0, 442, 1}, {wire_transfer.pdf, 1, 288363, 1}}
+Virtual file: XVars31Jan2012v*.pptx database {
+	XVars31Jan2012v3.pptx
+	XVars31Jan2012v4.pptx
+}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=25, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+File ConsulDocs_PDF* is not a file so we're adding its components back to the files list.
+	ConsulDocs_PDF1559085
+	ConsulDocs_PDF1560582
+File etngrid* is not a file so we're adding its components back to the files list.
+	etngrid2004
+	etngrid2005
+	etngrid2006
+	etngrid2007
+	etngrid2009
+	etngrid2010
+FILELIST={{., 0, 4726, 1}, {.., 0, 4148, 1}, {.DS_Store, 1, 15364, 1}, {.localized, 1, 0, 1}, {2012SBIRTechTopicDescriptions.pdf, 1, 1322934, 1}, {ALNP_ToTechXCorpConsultingAgreement (Leitner.Arnold) 2015_06_04-signed.pdf, 1, 1502706, 1}, {Abhishek.pdf, 1, 14170784, 1}, {AllenComposer.docx, 1, 102137, 1}, {BCH02_04_2015.docx, 1, 45233, 1}, {BMC02_04_2015.docx, 1, 44753, 1}, {BRad02_04_2015.docx, 1, 45106, 1}, {BasicComposer.pptx, 1, 173144, 1}, {BasicComposerEdited.pptx, 1, 173153, 1}, {BasicComposerFinal.pptx, 1, 175593, 1}, {BirthCertMom.pdf, 1, 701203, 1}, {BolderSolveLogos.pptx, 1, 4460334, 1}, {CDCGM 2011, 0, 136, 1}, {CoDeveloperDocs, 0, 578, 1}, {ComponentModels, 0, 544, 1}, {Composer, 0, 578, 1}, {Composer Reports, 0, 170, 1}, {Composer3Jan2014.pptx, 1, 45150, 1}, {ConsulDocs_PDF*.zip database, 2, 0, 1}, {ConsulDocs_PDF1559085, 0, 0, 1}, {ConsulDocs_PDF1560582, 0, 170, 1}, {ConsulDocs_PDF1560582 2, 0, 170, 1}, {Consultant Sanderson Nov2012.doc, 1, 77824, 1}, {Corba4GLdocs, 0, 374, 1}, {DOEFY13PhaseIRelease1Topics071612.pdf, 1, 1882079, 1}, {DOEOct2012QuAI.ppt, 1, 20028928, 1}, {DOEOct2012QuAI.pptx, 1, 2613997, 1}, {Daphne9May2012.jpg, 1, 3473144, 1}, {DataWorkshop, 0, 714, 1}, {DonnitaGlenn21April2014.docx, 1, 82722, 1}, {DtkAPI.pdf, 1, 6355744, 1}, {EERE, 0, 1360, 1}, {EmployeeEvaluations201SS.xls, 1, 56320, 1}, {EmployeeEvaluations2014ss.xls, 1, 79360, 1}, {Exascale-ASCR-DMAV.pdf, 1, 11015981, 1}, {Exempla GS Hosp-signed.pdf, 1, 201911, 1}, {Exempla GS Hosp.pdf, 1, 204677, 1}, {Exempla GS HospToSign.doc, 1, 169472, 1}, {FES:ESnet2008, 0, 204, 1}, {FSMLDocs, 0, 612, 1}, {FacetsViz, 0, 408, 1}, {FatherDeathCert12.pdf, 1, 4358322, 1}, {FatherDeathCertP2.jpg, 1, 2334992, 1}, {FatherDeathCertP12.pdf, 1, 4358332, 1}, {FinAss02_06_2015.docx, 1, 57424, 1}, {Fusion Framework docs, 0, 680, 1}, {FusionExaScale2009, 0, 204, 1}, {FusionGridDocs, 0, 646, 1}, {GAN, 0, 170, 1}, {GRIDL docs, 0, 238, 1}, {Galina Shasharina Sep2012.pdf, 1, 2736547, 1}, {Geant4CAD17Sep2012.pptx, 1, 572394, 1}, {GeneralPaper-NIM(geant4).pdf, 1, 63467240, 1}, {GeoContinued12Sep12.pptx, 1, 564259, 1}, {GeoContinued23Aug12.pdf, 1, 2233672, 1}, {GeoContinued23Aug12.pptx, 1, 551099, 1}, {GeoContinued30Aug12.pptx, 1, 565603, 1}, {Geometry and materials component for multi.docx, 1, 123403, 1}, {GeometryCAD13Sep2012.pptx, 1, 562904, 1}, {GreyLogo.png, 1, 33548, 1}, {Grid4GLDocs, 0, 408, 1}, {GyropicComposerReportFeb2014.doc, 1, 494592, 1}, {IR&DBilderDoc2011.doc, 1, 51712, 1}, {IR&DComposerLoc2011.docx, 1, 154415, 1}, {Janumet.pdf, 1, 1414054, 1}, {L31_solidmodeling.pdf, 1, 645996, 1}, {LetterfromCOApril2014.pdf, 1, 812139, 1}, {Letters, 0, 204, 1}, {LogoExample.pdf, 1, 919759, 1}, {LogoExample.ppt, 1, 19251712, 1}, {LogoSS1, 0, 136, 1}, {LogoSS1.pdf, 1, 785031, 1}, {LogoSS1.pptx, 1, 2250397, 1}, {MCComposer12Aug2014.pptx, 1, 72099, 1}, {MCComposer13Aug2014.pptx, 1, 540834, 1}, {MapaReports, 0, 442, 1}, {Mastering CAD CAM.pdf, 1, 66725140, 1}, {MedicareApplication.pdf, 1, 90836, 1}, {Microsoft User Data, 0, 306, 1}, {MomGreenCard.pdf, 1, 2736550, 1}, {My Pictures, 0, 1156, 1}, {NDA - COMPANY_LEDAS.doc, 1, 36352, 1}, {NDA_TechX_LEDAS-signed.pdf, 1, 86780, 1}, {NDA_TechX_LEDAS.doc, 1, 36864, 1}, {NDA_TechX_LEDAS.pdf, 1, 81745, 1}, {NTCC, 0, 238, 1}, {NdousseWorkshop, 0, 204, 1}, {OpenAccessEighthEdCd.pdf, 1, 4893593, 1}, {PDP10, 0, 204, 1}, {PRCI2 registration form Tech-X.xls, 1, 23040, 1}, {Paper-WETICE-2011_5, 1, 1428835, 1}, {Papers, 0, 2686, 1}, {Personal, 0, 850, 1}, {Proposals, 0, 1632, 1}, {QuAI Documents, 0, 510, 1}, {QuAISummary.pptx, 1, 1936743, 1}, {RC_BNL-HPC-06062013.pdf, 1, 20217641, 1}, {RC_BNL-HPC-06062013.pptx, 1, 24098773, 1}, {SEKAD, 0, 1054, 1}, {SOWBoulderLabsJuly2012.docx, 1, 99415, 1}, {STEP.pptx, 1, 44081, 1}, {SWIM, 0, 204, 1}, {Scientific Consulting and Computational Infrastructures.docx, 1, 1127801, 1}, {SocialSecLetter.docx, 1, 56585, 1}, {Software Engineer.docx, 1, 98781, 1}, {SolidModeling.pptx, 1, 564258, 1}, {Sveta’s trip to FNAL June 13.docx, 1, 55867, 1}, {SvetaCropped1.png, 1, 101927, 1}, {SvetaJohnMaui2011.jpg, 1, 748082, 1}, {TASCS, 0, 204, 1}, {TASCS Reports, 0, 612, 1}, {Talks, 0, 1768, 1}, {Tech-X, 0, 1530, 1}, {USPAS2001, 0, 272, 1}, {ValtoolsFinalReport.doc, 1, 3362816, 1}, {VizSchemaORNLDec2011.pptx, 1, 12526304, 1}, {VizSchemaTimeData.pptx, 1, 163996, 1}, {WebEx, 0, 68, 1}, {XSimTechProfile.pptx, 1, 43735, 1}, {crabCavity_B_Eigenmode_0.vsh5, 1, 15201928, 1}, {etngrid2004, 0, 0, 1}, {etngrid2005, 0, 340, 1}, {etngrid2006, 0, 340, 1}, {etngrid2007, 0, 340, 1}, {etngrid2009, 0, 340, 1}, {etngrid2010, 0, 340, 1}, {example.vtk, 1, 197, 1}, {galloy.jpg, 1, 22057, 1}, {n-400_GalinaShasharina copy.pdf, 1, 1024314, 1}, {n-400_Shasharina.pdf, 1, 1047327, 1}, {spenvis_stv.wrl, 1, 33206, 1}, {tokamak09, 0, 952, 1}, {txcorp, 0, 340, 1}, {xsim_investment.pdf, 1, 68335, 1}}
+Virtual file: ConsulDocs_PDF*.zip database {
+	ConsulDocs_PDF1559085.zip
+	ConsulDocs_PDF1560582.zip
+}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=32, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+File VSimComposer6.* is not a file so we're adding its components back to the files list.
+	VSimComposer6.2
+	VSimComposer6.3
+File VSimComposer7.* is not a file so we're adding its components back to the files list.
+	VSimComposer7.0
+	VSimComposer7.1
+	VSimComposer7.2
+	VSimComposer7.3
+FILELIST={{., 0, 340, 1}, {.., 0, 4726, 1}, {.DS_Store, 1, 6148, 1}, {CadReview0.1, 0, 102, 1}, {VSimComposer6.2, 0, 0, 1}, {VSimComposer6.3, 0, 170, 1}, {VSimComposer7.0, 0, 0, 1}, {VSimComposer7.1, 0, 170, 1}, {VSimComposer7.2, 0, 170, 1}, {VSimComposer7.3, 0, 170, 1}}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=48, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+FILELIST={{., 0, 170, 1}, {.., 0, 340, 1}, {logs, 0, 136, 1}, {runs, 0, 1224, 1}, {settings, 0, 102, 1}}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=53, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+File bFieldByJ* is not a file so we're adding its components back to the files list.
+	bFieldByJ1
+	bFieldByJ2
+	bFieldByJ3
+	bFieldByJ4
+	bFieldByJ5
+	bFieldByJ6
+	bFieldByJ7
+	bFieldByJ8
+	bFieldByJ9
+	bFieldByJ10
+	bFieldByJ11
+File dishAntenna* is not a file so we're adding its components back to the files list.
+	dishAntenna1
+	dishAntenna2
+	dishAntenna3
+	dishAntenna4
+	dishAntenna5
+	dishAntenna6
+	dishAntenna7
+	dishAntenna8
+	dishAntenna9
+File emPtclInCell* is not a file so we're adding its components back to the files list.
+	emPtclInCell1
+	emPtclInCell2
+FILELIST={{., 0, 1224, 1}, {.., 0, 170, 1}, {.DS_Store, 1, 6148, 1}, {Simulation, 0, 1326, 1}, {Simulation1, 0, 204, 1}, {advancedDipoleAboveConductingPlane, 0, 1836, 1}, {bFieldByJ, 0, 204, 1}, {bFieldByJ1, 0, 0, 1}, {bFieldByJ2, 0, 204, 1}, {bFieldByJ3, 0, 204, 1}, {bFieldByJ4, 0, 204, 1}, {bFieldByJ5, 0, 204, 1}, {bFieldByJ6, 0, 204, 1}, {bFieldByJ7, 0, 204, 1}, {bFieldByJ8, 0, 204, 1}, {bFieldByJ9, 0, 204, 1}, {bFieldByJ10, 0, 204, 1}, {bFieldByJ11, 0, 204, 1}, {dishAntenna, 0, 272, 1}, {dishAntenna1, 0, 0, 1}, {dishAntenna2, 0, 272, 1}, {dishAntenna3, 0, 272, 1}, {dishAntenna4, 0, 272, 1}, {dishAntenna5, 0, 272, 1}, {dishAntenna6, 0, 272, 1}, {dishAntenna7, 0, 272, 1}, {dishAntenna8, 0, 272, 1}, {dishAntenna9, 0, 272, 1}, {emOscDipoleAboveConductor, 0, 4624, 1}, {emOscDipoleAboveConductor1, 0, 2618, 1}, {emPtclInCell, 0, 2244, 1}, {emPtclInCell1, 0, 0, 1}, {emPtclInCell2, 0, 2244, 1}, {multipactingGrowth, 0, 36550, 1}, {patchAntenna, 0, 2108, 1}, {radarCrossSection, 0, 1462, 1}}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=6, len=66, type=ChangeDirectoryRPC
+Xfer::Update: Sending: opcode=7, name=VisItRPC::RPCReply (from ChangeDirectoryRPC)
+Xfer::Process: Opcode=4, len=1, type=GetDirectoryRPC
+Xfer::Update: Sending: opcode=5, name=GetDirectoryRPC::DirectoryName (from GetDirectoryRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+FILELIST={{., 0, 2244, 1}, {.., 0, 1224, 1}, {emPtclInCell.in, 1, 86577, 1}, {emPtclInCell.png, 1, 91558, 1}, {emPtclInCell.pre, 1, 16917, 1}, {emPtclInCellVars.py, 1, 2383, 1}, {emPtclInCell_Globals_* database, 2, 0, 1}, {emPtclInCell_History.h5, 1, 18344, 1}, {emPtclInCell_HistoryOld.h5, 1, 18080, 1}, {emPtclInCell_SumRhoJ_* database, 2, 0, 1}, {emPtclInCell_all_*.txt database, 2, 0, 1}, {emPtclInCell_comms_0.txt, 1, 18881, 1}, {emPtclInCell_completed.txt, 1, 15, 1}, {emPtclInCell_dumpedobjs_0.txt, 1, 0, 1}, {emPtclInCell_edgeE_* database, 2, 0, 1}, {emPtclInCell_electrons_* database, 2, 0, 1}, {emPtclInCell_faceB_* database, 2, 0, 1}, {emPtclInCell_nodalB_* database, 2, 0, 1}, {emPtclInCell_nodalE_* database, 2, 0, 1}, {emPtclInCell_theEmField_* database, 2, 0, 1}, {emPtclInCell_universe_0.h5, 1, 254208, 1}}
+Virtual file: emPtclInCell_Globals_* database {
+	emPtclInCell_Globals_0.h5
+	emPtclInCell_Globals_1.h5
+	emPtclInCell_Globals_2.h5
+	emPtclInCell_Globals_3.h5
+	emPtclInCell_Globals_4.h5
+	emPtclInCell_Globals_5.h5
+}
+Virtual file: emPtclInCell_SumRhoJ_* database {
+	emPtclInCell_SumRhoJ_0.h5
+	emPtclInCell_SumRhoJ_1.h5
+	emPtclInCell_SumRhoJ_2.h5
+	emPtclInCell_SumRhoJ_3.h5
+	emPtclInCell_SumRhoJ_4.h5
+	emPtclInCell_SumRhoJ_5.h5
+}
+Virtual file: emPtclInCell_all_*.txt database {
+	emPtclInCell_all_0.txt
+	emPtclInCell_all_1.txt
+	emPtclInCell_all_2.txt
+	emPtclInCell_all_3.txt
+	emPtclInCell_all_4.txt
+	emPtclInCell_all_5.txt
+}
+Virtual file: emPtclInCell_edgeE_* database {
+	emPtclInCell_edgeE_0.h5
+	emPtclInCell_edgeE_1.h5
+	emPtclInCell_edgeE_2.h5
+	emPtclInCell_edgeE_3.h5
+	emPtclInCell_edgeE_4.h5
+	emPtclInCell_edgeE_5.h5
+}
+Virtual file: emPtclInCell_electrons_* database {
+	emPtclInCell_electrons_0.h5
+	emPtclInCell_electrons_1.h5
+	emPtclInCell_electrons_2.h5
+	emPtclInCell_electrons_3.h5
+	emPtclInCell_electrons_4.h5
+	emPtclInCell_electrons_5.h5
+}
+Virtual file: emPtclInCell_faceB_* database {
+	emPtclInCell_faceB_0.h5
+	emPtclInCell_faceB_1.h5
+	emPtclInCell_faceB_2.h5
+	emPtclInCell_faceB_3.h5
+	emPtclInCell_faceB_4.h5
+	emPtclInCell_faceB_5.h5
+}
+Virtual file: emPtclInCell_nodalB_* database {
+	emPtclInCell_nodalB_0.h5
+	emPtclInCell_nodalB_1.h5
+	emPtclInCell_nodalB_2.h5
+	emPtclInCell_nodalB_3.h5
+	emPtclInCell_nodalB_4.h5
+	emPtclInCell_nodalB_5.h5
+}
+Virtual file: emPtclInCell_nodalE_* database {
+	emPtclInCell_nodalE_0.h5
+	emPtclInCell_nodalE_1.h5
+	emPtclInCell_nodalE_2.h5
+	emPtclInCell_nodalE_3.h5
+	emPtclInCell_nodalE_4.h5
+	emPtclInCell_nodalE_5.h5
+}
+Virtual file: emPtclInCell_theEmField_* database {
+	emPtclInCell_theEmField_0.h5
+	emPtclInCell_theEmField_1.h5
+	emPtclInCell_theEmField_2.h5
+	emPtclInCell_theEmField_3.h5
+	emPtclInCell_theEmField_4.h5
+	emPtclInCell_theEmField_5.h5
+}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=8, len=8, type=GetFileListRPC
+GetFileListRPCExecutor::Update
+FILELIST={{., 0, 2244, 1}, {.., 0, 1224, 1}, {emPtclInCell.in, 1, 86577, 1}, {emPtclInCell.png, 1, 91558, 1}, {emPtclInCell.pre, 1, 16917, 1}, {emPtclInCellVars.py, 1, 2383, 1}, {emPtclInCell_Globals_0.h5, 1, 4824, 1}, {emPtclInCell_Globals_1.h5, 1, 4824, 1}, {emPtclInCell_Globals_2.h5, 1, 4824, 1}, {emPtclInCell_Globals_3.h5, 1, 4824, 1}, {emPtclInCell_Globals_4.h5, 1, 4824, 1}, {emPtclInCell_Globals_5.h5, 1, 4824, 1}, {emPtclInCell_History.h5, 1, 18344, 1}, {emPtclInCell_HistoryOld.h5, 1, 18080, 1}, {emPtclInCell_SumRhoJ_0.h5, 1, 499552, 1}, {emPtclInCell_SumRhoJ_1.h5, 1, 499552, 1}, {emPtclInCell_SumRhoJ_2.h5, 1, 499552, 1}, {emPtclInCell_SumRhoJ_3.h5, 1, 499552, 1}, {emPtclInCell_SumRhoJ_4.h5, 1, 499552, 1}, {emPtclInCell_SumRhoJ_5.h5, 1, 499552, 1}, {emPtclInCell_all_0.txt, 1, 18, 1}, {emPtclInCell_all_1.txt, 1, 18, 1}, {emPtclInCell_all_2.txt, 1, 18, 1}, {emPtclInCell_all_3.txt, 1, 18, 1}, {emPtclInCell_all_4.txt, 1, 18, 1}, {emPtclInCell_all_5.txt, 1, 18, 1}, {emPtclInCell_comms_0.txt, 1, 18881, 1}, {emPtclInCell_completed.txt, 1, 15, 1}, {emPtclInCell_dumpedobjs_0.txt, 1, 0, 1}, {emPtclInCell_edgeE_0.h5, 1, 377136, 1}, {emPtclInCell_edgeE_1.h5, 1, 377136, 1}, {emPtclInCell_edgeE_2.h5, 1, 377136, 1}, {emPtclInCell_edgeE_3.h5, 1, 377136, 1}, {emPtclInCell_edgeE_4.h5, 1, 377136, 1}, {emPtclInCell_edgeE_5.h5, 1, 377136, 1}, {emPtclInCell_electrons_0.h5, 1, 21821688, 1}, {emPtclInCell_electrons_1.h5, 1, 21774648, 1}, {emPtclInCell_electrons_2.h5, 1, 21730440, 1}, {emPtclInCell_electrons_3.h5, 1, 21693624, 1}, {emPtclInCell_electrons_4.h5, 1, 21663336, 1}, {emPtclInCell_electrons_5.h5, 1, 21643560, 1}, {emPtclInCell_faceB_0.h5, 1, 377136, 1}, {emPtclInCell_faceB_1.h5, 1, 377136, 1}, {emPtclInCell_faceB_2.h5, 1, 377136, 1}, {emPtclInCell_faceB_3.h5, 1, 377136, 1}, {emPtclInCell_faceB_4.h5, 1, 377136, 1}, {emPtclInCell_faceB_5.h5, 1, 377136, 1}, {emPtclInCell_nodalB_0.h5, 1, 376288, 1}, {emPtclInCell_nodalB_1.h5, 1, 376288, 1}, {emPtclInCell_nodalB_2.h5, 1, 376288, 1}, {emPtclInCell_nodalB_3.h5, 1, 376288, 1}, {emPtclInCell_nodalB_4.h5, 1, 376288, 1}, {emPtclInCell_nodalB_5.h5, 1, 376288, 1}, {emPtclInCell_nodalE_0.h5, 1, 376288, 1}, {emPtclInCell_nodalE_1.h5, 1, 376288, 1}, {emPtclInCell_nodalE_2.h5, 1, 376288, 1}, {emPtclInCell_nodalE_3.h5, 1, 376288, 1}, {emPtclInCell_nodalE_4.h5, 1, 376288, 1}, {emPtclInCell_nodalE_5.h5, 1, 376288, 1}, {emPtclInCell_theEmField_0.h5, 1, 9464, 1}, {emPtclInCell_theEmField_1.h5, 1, 9464, 1}, {emPtclInCell_theEmField_2.h5, 1, 9464, 1}, {emPtclInCell_theEmField_3.h5, 1, 9464, 1}, {emPtclInCell_theEmField_4.h5, 1, 9464, 1}, {emPtclInCell_theEmField_5.h5, 1, 9464, 1}, {emPtclInCell_universe_0.h5, 1, 254208, 1}}
+
+Xfer::Update: Sending: opcode=9, name=GetFileListRPC::FileList (from GetFileListRPC)
+Xfer::Process: Opcode=10, len=111, type=GetMetaDataRPC
+GetMetaDataRPCExecutor::Update - file=/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5 type=
+Read the Metadata for /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5, timeState=0, forceReadAllCyclesAndTimes=0, forcedFileType=, treatAllDBsAsTimeVarying = 0, createMeshQualityExpressions = 1, createTimeDerivativeExpressions = 1, createVectorMagnitudeExpressions = 1
+MDServerConnection::GetDatabase: Need to get a new database. file=/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5, timeState=0, forceReadAllCyclesAndTimes=0, forcedFileType=, treatAllDBsAsTimeVarying = 0
+avtDatabaseFactory: trying extension-matched format CarpetHDF5_2.1
+Trying to open the file with the CarpetHDF5 file format, strict mode is on
+Exception: (BadIndexException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Formats/avtMTMDFileFormatInterface.C, line 717: Tried to access an invalid index 1 (Maximum = 0).
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format Chombo_1.0
+Trying to open the file with the Chombo file format, strict mode is on
+avtChomboFileFormat: Initializing reader.
+Exception: (InvalidDBTypeException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/Chombo/avtChomboFileFormat.C, line 465: The selected database type was not correct for the given file.  The message from the database was Cannot be a Chombo file, does not have Chombo_global
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format GTC_1.0
+Trying to open the file with the GTC file format, strict mode is on
+Exception: (InvalidFilesException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/GTC/avtGTCFileFormat.C, line 172: There was an error opening /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5. It may be an invalid file.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format H5Nimrod_1.0
+Trying to open the file with the H5Nimrod file format, strict mode is on
+Reading 'Description' string in H5Nimrod gave an error! Is this attribute guaranteed to exist for all H5Nimrod files?
+Reading 'Source' string in H5Nimrod gave an error! Is this attribute guaranteed to exist for all H5Nimrod files?
+Exception: (InvalidVariableException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/H5Nimrod/avtH5NimrodFileFormat.C, line 167: An invalid variable (H5NIMROD Read Attribute - 'time' was not found or was the wrong type.) was specified.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format H5Part_1.0
+Trying to open the file with the H5Part file format, strict mode is on
+avtH5PartFileFormat compiled with FastBit support.
+avtH5PartFileFormat::avtH5PartFileFormat(): File contains 0 <= 0 time steps.
+Exception: (InvalidFilesException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/H5Part/avtH5PartFileFormat.C, line 173: There was an error opening /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5. It may be an invalid file.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format M3DC1_1.0
+Trying to open the file with the M3DC1 file format, strict mode is on
+Attempting to open M3D C1 file /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Exception: (InvalidVariableException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/M3DC1/avtM3DC1FileFormat.C, line 2309: An invalid variable (M3DC1 Attribute Reader - 'eqsubtract' was not found or was the wrong type.) was specified.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format M3D_1.0
+Trying to open the file with the M3D file format, strict mode is on
+Attempting to open M3D file /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Exception: (UnexpectedValueException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/M3D/avtM3DFileFormat.C, line 907: Expected XP_CLASS, Got Not found or wrong type
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format PFLOTRAN_1.0
+Trying to open the file with the PFLOTRAN file format, strict mode is on
+avtPFLOTRANFileFormat::LoadFile: Could not open the Coordinates or Domain group in file /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Exception: (InvalidDBTypeException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/PFLOTRAN/avtPFLOTRANFileFormat.C, line 322: The selected database type was not correct for the given file.  The message from the database was Cannot be a PFLOTRAN file since it does not have a top-level Coordinates or Domain group.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format Pixie_1.0
+Trying to open the file with the Pixie file format, strict mode is on
+avtPixieFileFormat::ActivateTimestep: ts=0
+Exception: (InvalidDBTypeException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/Pixie/avtPixieFileFormat.C, line 164: The selected database type was not correct for the given file.  The message from the database was Cannot be a Pixie file because it looks like a VizSchema file.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format SXRIS_1.0
+Trying to open the file with the SXRIS file format, strict mode is on
+Exception: (InvalidDBTypeException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/SXRIS/avtSXRISFileFormat.C, line 268: The selected database type was not correct for the given file.  The message from the database was Cannot be a SXRIS file because it doesn't have frames dataset.
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format Tetrad_1.0
+Trying to open the file with the Tetrad file format, strict mode is on
+Exception: (InvalidDBTypeException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/Tetrad/avtTetradFileFormat.C, line 112: The selected database type was not correct for the given file.  The message from the database was Cannot be a Tetrad file, since it is does not contain the dataset "cell_array"
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format UNIC_1.0
+Trying to open the file with the UNIC file format, strict mode is on
+Exception: (InvalidDBTypeException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/databases/UNIC/avtUNICFileFormat.C, line 171: The selected database type was not correct for the given file.  The message from the database was Cannot be a UNIC data file, since it is not contain the dataset "control".
+catch(VisItException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/avt/Database/Database/avtDatabaseFactory.C:712
+avtDatabaseFactory: trying extension-matched format Vs_3.0.0
+Trying to open the file with the Vs file format, strict mode is on
+HighOrderUnstructuredData::  HighOrderUnstructuredData  30  entering
+avtVsFileFormat::(1)avtVsFileFormat  120  entering
+avtVsFileFormat::(1)avtVsFileFormat  130  VizSchema reader will process data selections
+avtVsFileFormat::(1)avtVsFileFormat  146  float type checks out ok.
+avtVsFileFormat::(1)avtVsFileFormat  158  double type checks out ok.
+avtVsFileFormat::(1)avtVsFileFormat  184  exiting
+avtVsFileFormat::(1)LoadData  4449  Initializing VsReader()
+VsReader::VsReader  45  This VsReader is #1
+VsReader::VsReader  49  VsReader::VsReader(/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5) entering.
+File name is: /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+VsFilter::visitLinks() - looking at object electrons
+VsFilter::visitDataset: node 'electrons' is a dataset.
+VsFilter::visitAttrib(...): getting attribute 'charge'.
+VsObject::addAttribute 'charge', id: 100663296
+VsFilter::visitAttrib(...): getting attribute 'mass'.
+VsObject::addAttribute 'mass', id: 100663297
+VsFilter::visitAttrib(...): getting attribute 'numPtclsInMacro'.
+VsObject::addAttribute 'numPtclsInMacro', id: 100663298
+VsFilter::visitAttrib(...): getting attribute 'numSpatialDims'.
+VsObject::addAttribute 'numSpatialDims', id: 100663299
+VsFilter::visitAttrib(...): getting attribute 'ptclEnds'.
+VsObject::addAttribute 'ptclEnds', id: 100663300
+VsFilter::visitAttrib(...): getting attribute 'time'.
+VsObject::addAttribute 'time', id: 100663301
+VsFilter::visitAttrib(...): getting attribute 'vsLabels'.
+VsObject::addAttribute 'vsLabels', id: 100663302
+VsFilter::visitAttrib(...): getting attribute 'vsLimits'.
+VsObject::addAttribute 'vsLimits', id: 100663303
+VsFilter::visitAttrib(...): getting attribute 'vsNumSpatialDims'.
+VsObject::addAttribute 'vsNumSpatialDims', id: 100663304
+VsFilter::visitAttrib(...): getting attribute 'vsTimeGroup'.
+VsObject::addAttribute 'vsTimeGroup', id: 100663305
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663306
+VsFilter::visitDataset: Returning.
+VsFilter::visitLinks() - looking at object globalGridGlobalLimits
+VsFilter::visitGroup: node 'globalGridGlobalLimits' is a group.
+VsFilter::visitGroup(): Recursing on attributes of group globalGridGlobalLimits
+VsFilter::visitAttrib(...): getting attribute 'vsKind'.
+VsObject::addAttribute 'vsKind', id: 100663307
+VsFilter::visitAttrib(...): getting attribute 'vsLowerBounds'.
+VsObject::addAttribute 'vsLowerBounds', id: 100663308
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663309
+VsFilter::visitAttrib(...): getting attribute 'vsUpperBounds'.
+VsObject::addAttribute 'vsUpperBounds', id: 100663310
+VsFilter::visitGroup(): Recursing on children of group globalGridGlobalLimits
+VsFilter::visitGroup(): Returning.
+VsFilter::visitLinks() - looking at object runInfo
+VsFilter::visitGroup: node 'runInfo' is a group.
+VsFilter::visitGroup(): Recursing on attributes of group runInfo
+VsFilter::visitAttrib(...): getting attribute 'vsBuildHost'.
+VsObject::addAttribute 'vsBuildHost', id: 100663311
+VsFilter::visitAttrib(...): getting attribute 'vsBuildHostType'.
+VsObject::addAttribute 'vsBuildHostType', id: 100663312
+VsFilter::visitAttrib(...): getting attribute 'vsCommandLine'.
+VsObject::addAttribute 'vsCommandLine', id: 100663313
+VsFilter::visitAttrib(...): getting attribute 'vsCxxCompiler'.
+VsObject::addAttribute 'vsCxxCompiler', id: 100663314
+VsFilter::visitAttrib(...): getting attribute 'vsCxxCompilerFlags'.
+VsObject::addAttribute 'vsCxxCompilerFlags', id: 100663315
+VsFilter::visitAttrib(...): getting attribute 'vsCxxCompilerVersion'.
+VsObject::addAttribute 'vsCxxCompilerVersion', id: 100663316
+VsFilter::visitAttrib(...): getting attribute 'vsSciMakeRevision'.
+VsObject::addAttribute 'vsSciMakeRevision', id: 100663317
+VsFilter::visitAttrib(...): getting attribute 'vsSoftware'.
+VsObject::addAttribute 'vsSoftware', id: 100663318
+VsFilter::visitAttrib(...): getting attribute 'vsSwRevision'.
+VsObject::addAttribute 'vsSwRevision', id: 100663319
+VsFilter::visitAttrib(...): getting attribute 'vsSwVersion'.
+VsObject::addAttribute 'vsSwVersion', id: 100663320
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663321
+VsFilter::visitAttrib(...): getting attribute 'vsVsVersion'.
+VsObject::addAttribute 'vsVsVersion', id: 100663322
+VsFilter::visitGroup(): Recursing on children of group runInfo
+VsFilter::visitGroup(): Returning.
+VsFilter::visitLinks() - looking at object time
+VsFilter::visitGroup: node 'time' is a group.
+VsFilter::visitGroup(): Recursing on attributes of group time
+VsFilter::visitAttrib(...): getting attribute 'vsStep'.
+VsObject::addAttribute 'vsStep', id: 100663323
+VsFilter::visitAttrib(...): getting attribute 'vsTime'.
+VsObject::addAttribute 'vsTime', id: 100663324
+VsFilter::visitAttrib(...): getting attribute 'vsType'.
+VsObject::addAttribute 'vsType', id: 100663325
+VsFilter::visitGroup(): Recursing on children of group time
+VsFilter::visitGroup(): Returning.
+********** BEGIN VsGroups *********
+globalGridGlobalLimits(33554433)
+runInfo(33554434)
+time(33554435)
+********** END VsGroups *********
+********** BEGIN VsDatasets *********
+electrons(83886080)
+********** END VsDatasets *********
+VsRegistry::buildGroupObjects - Entering.
+VsRegistry::buildGroupObjects - Building object globalGridGlobalLimits
+VsObject::getAttribute vsType 0x7f8ae34b04d0
+VsRegistry::buildGroupObjects - group is of type limits
+VsRegistry::buildGroupObjects - object is of unrecognized type limits
+VsRegistry::buildGroupObjects - Building object runInfo
+VsObject::getAttribute vsType 0x7f8ae34b63f0
+VsRegistry::buildGroupObjects - group is of type runInfo
+VsRegistry::loadRunInfo() - not loading any information at this time.
+VsRegistry::buildGroupObjects - Building object time
+VsObject::getAttribute vsType 0x7f8ae34b7c50
+VsRegistry::buildGroupObjects - group is of type time
+VsRegistry::loadTime() - Group is NULL?'0x7f8ae34b6ad0'
+VsObject::getAttribute vsTime 0x7f8ae34b79f0
+VsRegistry::loadTime() - loaded time: 1.73141e-12
+VsObject::getAttribute vsStep 0x7f8ae34b76e0
+VsRegistry::loadTime() - loaded cycle: 20
+VsRegistry::buildGroupObjects - Returning.
+VsRegistry::buildDatasetObjects() - Entering.
+VsRegistry::buildDatasetObjects() - looking at dataset electrons
+VsObject::getAttribute vsType 0x7f8ae34aebd0
+VsRegistry::buildDatasetObjects() - object is of type variableWithMesh
+VsRegistry::buildDatasetObjects() - VariableWithMesh are built in second pass. Skipping for now.
+VsRegistry::buildDatasetObjects() - looking at varWithMesh dataset electrons
+VsStructuredMesh::initialize  230   entering.
+VsObject::getAttribute: 'vsSpatialIndices' not found
+VsObject::getAttribute: 'vsIndexOrder' not found
+VsStructuredMesh::initialize  278  did not find spatialIndices, trying regular style.
+VsStructuredMesh::initialize  281  Looking for attribute: vsNumSpatialDims
+VsObject::getAttribute vsNumSpatialDims 0x7f8ae34ae470
+VsStructuredMesh::initialize  317  numSpatialDims = 2.
+VsObject::getAttribute vsTimeGroup 0x7f8ae34ae840
+VsObject::getAttribute vsLabels 0x7f8ae34add50
+VsRegistry::loadTime() - Group is NULL?'0x7f8ae34b6ad0'
+VsObject::getAttribute vsTime 0x7f8ae34b79f0
+VsRegistry::loadTime() - loaded time: 1.73141e-12
+VsObject::getAttribute vsStep 0x7f8ae34b76e0
+VsRegistry::loadTime() - loaded cycle: 20
+VsRegistry::buildDatasetObjects() - Returning.
+VsRegistry::buildMDMeshes() - Entering.
+VsRegistry::buildMDMeshes() - Exiting.
+VsRegistry::buildMDVars() - Entering.
+VsRegistry::buildMDVars() - Returning.
+VsRegistry::buildTransformedMeshes() - Entering.
+VsRegistry::buildTransformedMeshes() - Returning.
+VsRegistry::buildTransformedVariables() - Creating transform names for Variable with Mesh electrons
+VsVariableWithMesh::createTransformedVariableAndMesh() - Creating transformed var name.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsVariableWithMesh::createTransformedVariable() - returning.
+*********** NO MESHES ********
+******** No Expressions *********
+*********** NO VSVARIABLES ********
+********** BEGIN VsVariablesWithMesh *********
+VsStructuredMesh::write  214  electrons  indexOrder = compMinorC  numSpatialDims  = 2  spatialIndices = [0, 1]
+********** END VsVariablesWithMesh *********
+*********** NO MDMESHES ********
+*********** NO MDVARIABLES ********
+VsRegistry::createComponents() - Entering
+VsRegistry::createComponents() - Creating components for Variable With Mesh electrons
+VsStructuredMesh::createComponents  395  Entering
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::registerComponentInfo(electrons_x, electrons, 0) - registration succeeded.
+VsReader::registerComponentInfo(electrons_0, electrons, 0) - registration succeeded.
+VsReader::registerComponentInfo(electrons_y, electrons, 1) - registration succeeded.
+VsReader::registerComponentInfo(electrons_1, electrons, 1) - registration succeeded.
+VsReader::registerComponentInfo(electrons_ux, electrons, 2) - registration succeeded.
+VsReader::registerComponentInfo(electrons_2, electrons, 2) - registration succeeded.
+VsReader::registerComponentInfo(electrons_uy, electrons, 3) - registration succeeded.
+VsReader::registerComponentInfo(electrons_3, electrons, 3) - registration succeeded.
+VsReader::registerComponentInfo(electrons_uz, electrons, 4) - registration succeeded.
+VsReader::registerComponentInfo(electrons_4, electrons, 4) - registration succeeded.
+VsReader::registerComponentInfo(electrons_weight, electrons, 5) - registration succeeded.
+VsReader::registerComponentInfo(electrons_5, electrons, 5) - registration succeeded.
+VsStructuredMesh::createComponents  410  Returning
+VsRegistry::createComponents() - Returning.
+VsReader::VsReader  112  exiting.
+avtVsFileFormat::(1)LoadData  4466  Exiting
+avtVsFileFormat::(1)PopulateDatabaseMetaData  4484  Entering function.
+avtVsFileFormat::(1)RegisterMeshes  3679  Entering function.
+avtVsFileFormat::(1)RegisterMeshes  3691  WARNING: no meshes were found in this file. Returning.
+avtVsFileFormat::(1)RegisterMdMeshes  4120  Entering function.
+avtVsFileFormat::(1)RegisterMdMeshes  4127  WARNING: no md meshes were found in this file. Returning
+avtVsFileFormat::(1)RegisterVarsWithMesh  4194  Entering function.
+avtVsFileFormat::(1)RegisterVarsWithMesh  4207  Found 1 variables with mesh in this file.
+avtVsFileFormat::(1)RegisterVarsWithMesh  4214  Processing varWithMesh 'electrons'.
+VsReader::getComponentInfo(electrons, 0) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_x.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 1) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_y.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 2) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_ux.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 3) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_uy.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 4) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_uz.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+VsReader::getComponentInfo(electrons, 5) - Found matching name & index, returning. 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4259  Adding variable component electrons_weight.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4296  Adding point mesh for this variable.
+avtVsFileFormat::(1)setAxisLabels  4558  Entering function.
+avtVsFileFormat::(1)setAxisLabels  4579  Exiting normally.
+VsObject::getAttribute: 'vsTransform' not found
+VsVariableWithMesh::getTransformName() - Unrecognized value for key vsTransform - 
+avtVsFileFormat::(1)RegisterVarsWithMesh  4321  Exiting normally.
+avtVsFileFormat::(1)RegisterVars  3464  Entering function.
+avtVsFileFormat::(1)RegisterVars  3473  WARNING: No variables were found in this file.  Returning.
+avtVsFileFormat::(1)RegisterMdVars  4015  Entering function.
+avtVsFileFormat::(1)RegisterMdVars  4024  WARNING: No MD variables were found in this file.  Returning.
+avtVsFileFormat::(1)RegisterExpressions  3359  Entering function.
+avtVsFileFormat::(1)RegisterExpressions  3368  WARNING: No expressions found in file. Returning.
+avtVsFileFormat::(1)PopulateDatabaseMetaData  4540  Exiting normally.
+File open appears to be successful.
+MetaData=
+Database: /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Simulation: No
+Database comment: 
+File format: Vs_3.0.0
+Num Time States: 1
+MetaData is NOT repopulated on state changes
+useCatchAllMesh: 0
+Format  cannot do its own domain decomposition
+The temporal extents are not set.
+All Times are ***NOT*** Accurate
+Times: 
+	0
+All Cycles are ***NOT*** Accurate
+Cycles: 
+	5
+Meshes: 
+	Name = electrons
+	Number of blocks = 1
+	Block origin = 1
+	Cell origin = 1 (origin within one block of the cells).
+	Node origin = 0 (origin within one block of the nodes).
+	Group origin = 0
+	Title for domain hierarchy is domains
+	Title for individual piece in domain hierarchy is domain
+	Number of groups = 0
+	Title for group hierarchy is groups
+	Title for individual piece in group hierarchy is group
+	Mesh type is Point Mesh.
+	Spatial Dimension = 2
+	The spatial extents are not set.
+	Topological Dimension = 0
+	Logical cell bound is (452599)
+	Number of cells is 452599
+	There are no names set with the blocks.
+	Disjoint elements false
+	Contains ghost zones 3
+	Contains original cells 0
+	Contains original nodes 0
+	Units =  x: "", y: "", z: "".
+	Labels =  x: "x", y: "y", z: "z".
+	Mesh coord type is XY
+	Mesh is primarily cell-based
+	Unit cell vector #0 is 1 0 0
+	Unit cell vector #1 is 0 1 0
+	Unit cell vector #2 is 0 0 1
+	Rectilinear grids do not have an implicit transform.
+
+Scalars: 
+	Name = "electrons_x"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_y"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_ux"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_uy"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_uz"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_weight"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+Xfer::Update: Sending: opcode=11, name=avtDatabaseMetaData (from GetMetaDataRPC)
+Xfer::Process: Opcode=12, len=101, type=GetSILRPC
+GetSILRPCExecutor::Update - file=/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Read the SIL for /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5, timeState=0
+Using SIL arrays to improve efficiency
+Xfer::Update: Sending: opcode=13, name=SILAttributes (from GetSILRPC)
+Xfer::Process: Opcode=10, len=111, type=GetMetaDataRPC
+GetMetaDataRPCExecutor::Update - file=/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5 type=
+Read the Metadata for /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5, timeState=0, forceReadAllCyclesAndTimes=0, forcedFileType=, treatAllDBsAsTimeVarying = 0, createMeshQualityExpressions = 1, createTimeDerivativeExpressions = 1, createVectorMagnitudeExpressions = 1
+MetaData=
+Database: /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Simulation: No
+Database comment: 
+File format: Vs_3.0.0
+Num Time States: 1
+MetaData is NOT repopulated on state changes
+useCatchAllMesh: 0
+Format  cannot do its own domain decomposition
+The temporal extents are not set.
+All Times are ***NOT*** Accurate
+Times: 
+	0
+All Cycles are ***NOT*** Accurate
+Cycles: 
+	5
+Meshes: 
+	Name = electrons
+	Number of blocks = 1
+	Block origin = 1
+	Cell origin = 1 (origin within one block of the cells).
+	Node origin = 0 (origin within one block of the nodes).
+	Group origin = 0
+	Title for domain hierarchy is domains
+	Title for individual piece in domain hierarchy is domain
+	Number of groups = 0
+	Title for group hierarchy is groups
+	Title for individual piece in group hierarchy is group
+	Mesh type is Point Mesh.
+	Spatial Dimension = 2
+	The spatial extents are not set.
+	Topological Dimension = 0
+	Logical cell bound is (452599)
+	Number of cells is 452599
+	There are no names set with the blocks.
+	Disjoint elements false
+	Contains ghost zones 3
+	Contains original cells 0
+	Contains original nodes 0
+	Units =  x: "", y: "", z: "".
+	Labels =  x: "x", y: "y", z: "z".
+	Mesh coord type is XY
+	Mesh is primarily cell-based
+	Unit cell vector #0 is 1 0 0
+	Unit cell vector #1 is 0 1 0
+	Unit cell vector #2 is 0 0 1
+	Rectilinear grids do not have an implicit transform.
+
+Scalars: 
+	Name = "electrons_x"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_y"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_ux"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_uy"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_uz"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+	Name = "electrons_weight"
+	Mesh is = "electrons"
+	Centering = node centered.
+	The extents are not set.
+	This variable does not contain enumerated values.
+
+Xfer::Update: Sending: opcode=11, name=avtDatabaseMetaData (from GetMetaDataRPC)
+Xfer::Process: Opcode=24, len=1, type=GetPluginErrorsRPC
+Xfer::Update: Sending: opcode=25, name=GetPluginErrorsRPC::PluginErrors (from GetPluginErrorsRPC)
+Xfer::Process: Opcode=12, len=101, type=GetSILRPC
+GetSILRPCExecutor::Update - file=/Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5
+Read the SIL for /Users/sveta/Documents/txcorp/VSimComposer7.2/runs/emPtclInCell/emPtclInCell_electrons_2.h5, timeState=0
+Xfer::Update: Sending: opcode=13, name=SILAttributes (from GetSILRPC)
+Xfer::Process: Opcode=26, len=1, type=GetDBPluginInfoRPC
+GetDBPluginInfoRPCExecutor::Update
+Xfer::Update: Sending: opcode=27, name=DBPluginInfoAttributes (from GetDBPluginInfoRPC)
+Xfer::Process: Opcode=26, len=1, type=GetDBPluginInfoRPC
+GetDBPluginInfoRPCExecutor::Update
+Xfer::Update: Sending: opcode=27, name=DBPluginInfoAttributes (from GetDBPluginInfoRPC)
+Xfer::Process: Opcode=26, len=1, type=GetDBPluginInfoRPC
+GetDBPluginInfoRPCExecutor::Update
+Xfer::Update: Sending: opcode=27, name=DBPluginInfoAttributes (from GetDBPluginInfoRPC)
+Xfer::Process: Opcode=2, len=6, type=KeepAliveRPC
+KeepAliveRPCExecutor::Update
+Xfer::Update: Sending: opcode=3, name=VisItRPC::RPCReply (from KeepAliveRPC)
+Xfer::Process: Opcode=2, len=6, type=KeepAliveRPC
+KeepAliveRPCExecutor::Update
+Xfer::Update: Sending: opcode=3, name=VisItRPC::RPCReply (from KeepAliveRPC)
+Exception: (LostConnectionException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/common/comm/SocketConnection.C, line 253: <The reason for the exception was not described>
+catch(LostConnectionException) /Users/miller86/visit/masonry/mbuild-visit-2.8.2-darwin-x86_64/src/mdserver/main/MDServerApplication.C:288
+avtVsFileFormat::(1)~avtVsFileFormat  202  entering
+avtVsFileFormat::(1)FreeUpResources  3328  Entering/Exiting function.
+VsReader::~VsReader  119  Entering.
+Deleting group: globalGridGlobalLimits
+Deleting group: runInfo
+Deleting group: time
+VsReader::~VsReader  127  Exiting.
+avtVsFileFormat::(1)FreeUpResources  3340  exiting
+avtVsFileFormat::(1)~avtVsFileFormat  206  exiting

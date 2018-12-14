@@ -1,0 +1,28 @@
+# vtk DataFile Version 3.0
+vtk output
+ASCII
+DATASET POLYDATA
+FIELD FieldData 4
+avtOriginalBounds 1 6 double
+0.2 9.2 0 9 0 0.9 
+MeshName 1 1 string
+particles
+
+CYCLE 1 1 int
+0 
+TIME 1 1 double
+0 
+POINTS 2 float
+5.2 5 0.5 6.2 6 0.6 
+VERTICES 2 4
+1 0 
+1 1 
+
+CELL_DATA 2
+FIELD FieldData 1
+avtOriginalCellNumbers 2 2 unsigned_int
+0 5 0 6 
+POINT_DATA 2
+SCALARS id float
+LOOKUP_TABLE default
+5 6 

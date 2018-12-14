@@ -1,0 +1,384 @@
+/usr/gapps/visit/2.5.2/linux-x86_64/bin/engine_ser -host 127.0.0.1 -port 5600 -dir /usr/gapps/visit -idle-timeout 480 -nosplash -key 2475e5996f6f6cbfc178 
+ENGINE started. pid: 8590
+ParentProcess::Connect: Called with (numRead=1, numWrite=2, argc=12, argv={/usr/gapps/visit/2.5.2/linux-x86_64/bin/engine_ser, -host, 127.0.0.1, -port, 5600, -dir, /usr/gapps/visit, -idle-timeout, 480, -nosplash, -key, 2475e5996f6f6cbfc178})
+ParentProcess::Connect: hostName = 127.0.0.1
+ParentProcess::GetHostInfo: Calling gethostbyname("127.0.0.1")
+ParentProcess::Connect: port = 5600
+ParentProcess::Connect: securityKey = 2475e5996f6f6cbfc178
+ParentProcess::Connect: Creating sockets
+ParentProcess::Connect: Creating read sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Creating write sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::GetClientSocketDescriptor: Set up using port 5600
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Exchanging type representations.
+ParentProcess::Connect: done
+Adding plugin search path: /g/g11/miller86/.visit/2.5.2/linux-x86_64/plugins/plots
+Adding plugin search path: /g/g11/miller86/.visit/linux-x86_64/plugins/plots
+Adding plugin search path: /usr/gapps/visit/2.5.2/linux-x86_64/plugins/plots
+Successfully loaded info about 22 plot plugins.
+Adding plugin search path: /g/g11/miller86/.visit/2.5.2/linux-x86_64/plugins/operators
+Adding plugin search path: /g/g11/miller86/.visit/linux-x86_64/plugins/operators
+Adding plugin search path: /usr/gapps/visit/2.5.2/linux-x86_64/plugins/operators
+Successfully loaded info about 54 operator plugins.
+Adding plugin search path: /g/g11/miller86/.visit/2.5.2/linux-x86_64/plugins/databases
+Adding plugin search path: /g/g11/miller86/.visit/linux-x86_64/plugins/databases
+Adding plugin search path: /usr/gapps/visit/2.5.2/linux-x86_64/plugins/databases
+Skipping plugin libISimV1Database.so because it is a simulation plugin.
+Skipping plugin libISimV1WriterDatabase.so because it is a simulation plugin.
+Skipping plugin libISimV2Database.so because it is a simulation plugin.
+Successfully loaded info about 107 database plugins.
+Going to print the following message to the user: 
+The following plugins were built with an old version of VisIt.  Please either rebuild the plugins associated with these files or delete them:
+   the ITAPS_FMDB plugin in the directory /g/g11/miller86/.visit/linux-x86_64/plugins/databases
+	(Note that the plugin from /usr/gapps/visit/2.5.2/linux-x86_64/plugins/databases is being used in its place.)
+   the ITAPS_GRUMMP plugin in the directory /g/g11/miller86/.visit/linux-x86_64/plugins/databases
+	(Note that the plugin from /usr/gapps/visit/2.5.2/linux-x86_64/plugins/databases is being used in its place.)
+   the ITAPS_MOAB plugin in the directory /g/g11/miller86/.visit/linux-x86_64/plugins/databases
+	(Note that the plugin from /usr/gapps/visit/2.5.2/linux-x86_64/plugins/databases is being used in its place.)
+   the ITAPS_REFIMPL plugin in the directory /g/g11/miller86/.visit/linux-x86_64/plugins/databases
+
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=2, len=6, type=KeepAliveRPC
+Xfer::Update: Sending: opcode=3, len=6, name=VisItRPC::RPCReply (from KeepAliveRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=58, len=1, type=EnginePropertiesRPC
+Executing EnginePropertiesRPC: 
+Xfer::Update: Sending: opcode=59, len=65, name=NonBlockingRPC::CompletionData (from EnginePropertiesRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=56, len=10367, type=SetEFileOpenOptionsRPC
+Xfer::Update: Sending: opcode=57, len=6, name=VisItRPC::RPCReply (from SetEFileOpenOptionsRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=36, len=56, type=OpenDatabaseRPC
+Executing OpenDatabaseRPC: db=/usr/gapps/visit/data/globe.silo, time=0
+Loaded full database plugin Silo version 1.0
+Loading new database
+avtDatabaseFactory: specifically told to use Silo_1.0
+Skipping already loaded database plugin Silo version 1.0
+Using old option "Ignore Spatial Extents" to set new option "Ignore spatial extents" to Never
+Using old option "Ignore Data Extents" to set new option "Ignore data extents" to Never
+Trying to open the file with the Silo file format, strict mode is off
+Ignoring unknown option "Ignore Spatial Extents"
+Ignoring unknown option "Ignore Data Extents"
+Opening silo file /usr/gapps/visit/data/globe.silo
+Succeeding in opening Silo file with DB_PDB driver
+The following Silo error occurred: db_pdb_getvarinfo: Low-level function call failed: PJ_inquire_entry
+The following Silo error occurred: db_pdb_getvarinfo: Low-level function call failed: PJ_inquire_entry
+Guessing this Silo file was produced by code "Unknown"
+No need to do I/O optimization because there is only one block
+Exception: (ImproperUseException) /usr/tmp/brugger/rzzeus/visitbuild/visit2.5.2/src/databases/Silo/avtSiloFileFormat.C, line 13880: The pipeline object is being used improperly.
+catch(VisItException) /usr/tmp/brugger/rzzeus/visitbuild/visit2.5.2/src/databases/Silo/avtSiloFileFormat.C:13934
+Unable to populate I/O information
+File open appears to be successful.
+LoadBalancer::AddDatabase - db=/usr/gapps/visit/data/globe.silo
+    iohints=[]  
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=42, len=14258, type=SetWinAnnotAttsRPC
+Executing SetWinAnnotAttsRPC 500x440
+Creating new VisWindow for id=0
+Forcing GL context initialization...
+Unknown if transparencies exist; recalculating (this requires global communication).
+Initializing GLEW using library: /usr/gapps/visit/2.5.2/linux-x86_64/lib/libOSMesa.so
+Xfer::Update: Sending: opcode=43, len=6, name=VisItRPC::RPCReply (from SetWinAnnotAttsRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=62, len=7964, type=ExpressionList
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=4, len=183, type=ReadRPC
+Executing ReadRPC
+Skipping already loaded database plugin Silo version 1.0
+NetworkManager::AddDB: Adding mesh1 to the name stack
+Not using SIL arrays to construct SIL, likely because there are materials involved.
+Xfer::Update: Sending: opcode=5, len=6, name=VisItRPC::RPCReply (from ReadRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=11, len=21, type=PreparePlotRPC
+Executing PreparePlotRPC: Mesh_1.0
+Loaded full plot plugin Mesh version 1.0
+Xfer::Update: Sending: opcode=12, len=6, name=VisItRPC::RPCReply (from PreparePlotRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=10, len=121, type=MakePlotRPC
+Executing MakePlotRPC: Mesh_1.0
+NetworkManager::MakePlot(): Leaving NetworkManager::MakePlot().
+Xfer::Update: Sending: opcode=13, len=13, name=MakePlotRPC::NetworkID (from MakePlotRPC)
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Xfer::Process: Opcode=26, len=3, type=ExecuteRPC
+Executing ExecuteRPC with respondWithNullDataObject = 0
+MeshPlot: Did not hit target topological dimension: 2
+Guide function indicated that we should do the first Update on pipeline 1.
+Entered update for avtActualExtentsFilter
+Entered update for avtCompactTreeFilter
+Entered update for avtVertexNormalsFilter
+Entered update for avtCondenseDatasetFilter
+Entered update for avtGhostZoneAndFacelistFilter
+Entered update for avtMeshFilter
+Entered update for avtGhostZoneAndFacelistFilter
+Entered update for avtMissingDataRemovalFilter
+Entered update for avtExpressionEvaluatorFilter
+EEF::ModifyContract: Checking candidates
+EEF::ModifyContract:     candidate: mesh1
+EEF::ModifyContract:     not an expression
+Entered update for avtMissingDataFilter
+Xfer::Update: Sending: opcode=27, len=43, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Using load balancer to reduce data.
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Generic database instructing get for var = mesh1, timestep = 0 domain = 0
+Reading in domain 0, mesh mesh1
+Reading in from toc /usr/gapps/visit/data/globe.silo
+avtTransformManager::NativeToFloat: needNativePrecision=false, admissibleDataTypes={VTK_FLOAT,VTK_DOUBLE,}
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=54, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Reading in domain 0, global node ids for mesh1
+Reading in from toc /usr/gapps/visit/data/globe.silo
+Executing avtMissingDataFilter
+Xfer::Update: Sending: opcode=27, len=53, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Generate missing data enabled
+avtMissingDataFilter::MissingDataBuildMask: start
+avtMissingDataFilter::MissingDataBuildMask: end. missing=false
+Xfer::Update: Sending: opcode=27, len=53, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=53, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtMissingDataFilter
+Done Updating avtMissingDataFilter
+Executing avtExpressionEvaluatorFilter
+Xfer::Update: Sending: opcode=27, len=45, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=45, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=45, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtExpressionEvaluatorFilter
+Filter avtMissingDataFilter releasing its data
+Done Updating avtExpressionEvaluatorFilter
+Executing avtMissingDataRemovalFilter
+Xfer::Update: Sending: opcode=27, len=53, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Remove missing data enabled
+Skipping no-op missing data removal
+Xfer::Update: Sending: opcode=27, len=53, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=53, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtMissingDataRemovalFilter
+Done Updating avtMissingDataRemovalFilter
+Executing avtGhostZoneAndFacelistFilter
+Xfer::Update: Sending: opcode=27, len=50, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Using facelist filter only.
+Entered update for avtFacelistFilter
+This source should not load balance the data.
+Executing avtFacelistFilter
+Xfer::Update: Sending: opcode=27, len=51, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+This source should not load balance the data.
+Ugrid using facelist from files for domain 0
+Facelist filter reduction for domain 0: input has 1200 cells, out has 1080
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=51, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=51, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtFacelistFilter
+Done Updating avtFacelistFilter
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=50, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=50, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtGhostZoneAndFacelistFilter
+Done Updating avtGhostZoneAndFacelistFilter
+Executing avtMeshFilter
+Xfer::Update: Sending: opcode=27, len=42, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=42, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=42, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtMeshFilter
+Filter avtGhostZoneAndFacelistFilter releasing its data
+Filter avtGhostZoneFilter releasing its data
+A data object sink's current input was fed back into itself, ignoring...
+Filter avtFacelistFilter releasing its data
+Done Updating avtMeshFilter
+Executing avtGhostZoneAndFacelistFilter
+Xfer::Update: Sending: opcode=27, len=50, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Not applying ghost zone or facelist filter.
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=50, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=50, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtGhostZoneAndFacelistFilter
+Filter avtMeshFilter releasing its data
+Done Updating avtGhostZoneAndFacelistFilter
+Executing avtCondenseDatasetFilter
+Xfer::Update: Sending: opcode=27, len=49, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Relevant points filter stopped by heuristic.  Points = 2186, cells = 2240
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=49, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=49, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtCondenseDatasetFilter
+Filter avtGhostZoneAndFacelistFilter releasing its data
+Filter avtGhostZoneFilter releasing its data
+A data object sink's current input was fed back into itself, ignoring...
+Filter avtFacelistFilter releasing its data
+A data object sink's current input was fed back into itself, ignoring...
+Done Updating avtCondenseDatasetFilter
+Executing avtVertexNormalsFilter
+Xfer::Update: Sending: opcode=27, len=44, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=44, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=44, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtVertexNormalsFilter
+Filter avtCondenseDatasetFilter releasing its data
+Done Updating avtVertexNormalsFilter
+Executing avtCompactTreeFilter
+Xfer::Update: Sending: opcode=27, len=45, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=45, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=45, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtCompactTreeFilter
+Filter avtVertexNormalsFilter releasing its data
+Done Updating avtCompactTreeFilter
+Executing avtActualExtentsFilter
+Xfer::Update: Sending: opcode=27, len=52, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+avtDataObjectToDatastFilter converting ugrids to polydata in postex.
+Xfer::Update: Sending: opcode=27, len=52, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=52, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Done executing avtActualExtentsFilter
+Filter avtCompactTreeFilter releasing its data
+Done Updating avtActualExtentsFilter
+Memory after first execution was: size = 277958656, rss = 48226304
+Done with iterating Updates on pipeline 1
+Xfer::Update: Sending: opcode=27, len=46, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=46, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+Xfer::Update: Sending: opcode=27, len=51, name=NonBlockingRPC::CompletionData (from ExecuteRPC)
+sending 62027 bytes to the viewer 80 from strings.
+Number of actual direct writes = 2
+Setting cell count for network 0 to 0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.

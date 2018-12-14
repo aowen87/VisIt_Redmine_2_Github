@@ -1,0 +1,1109 @@
+/public/soft/Visit220/visit2.2.0/src/exe/engine_par -host node1 -port 17332 -dv -dir /public/soft/Visit220/visit2.2.0/src -noloopback -forcestatic -hw-accel -idle-timeout 480 -n-gpus-per-node 2 visit C:\Users\ibm\AppData\Local\Programs\LLNL\VisIt 2.2.0\visit.exe -sshtunneling -key 67a14a1c4087973dc174 -plugindir :/home/tiandong/.visit/linux-x86_64/plugins:/public/soft/Visit220/visit2.2.0/src/plugins 
+ENGINE started
+ParentProcess::Connect: Called with (numRead=1, numWrite=2, argc=22, argv={/public/soft/Visit220/visit2.2.0/src/exe/engine_par, -host, node1, -port, 17332, -dv, -dir, /public/soft/Visit220/visit2.2.0/src, -noloopback, -forcestatic, -hw-accel, -idle-timeout, 480, -n-gpus-per-node, 2, visit, C:\Users\ibm\AppData\Local\Programs\LLNL\VisIt 2.2.0\visit.exe, -sshtunneling, -key, 67a14a1c4087973dc174, -plugindir, :/home/tiandong/.visit/linux-x86_64/plugins:/public/soft/Visit220/visit2.2.0/src/plugins})
+ParentProcess::Connect: hostName = node1
+ParentProcess::GetHostInfo: Calling gethostbyname("node1")
+ParentProcess::Connect: port = 17332
+ParentProcess::Connect: securityKey = 67a14a1c4087973dc174
+ParentProcess::Connect: Creating sockets
+ParentProcess::Connect: Creating read sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 17332
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Creating write sockets
+ParentProcess::GetClientSocketDescriptor: Set up using port 17332
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::GetClientSocketDescriptor: Set up using port 17332
+ParentProcess::GetClientSocketDescriptor: Creating a socket
+ParentProcess::GetClientSocketDescriptor: Setting socket options
+ParentProcess::GetClientSocketDescriptor: Calling connect
+(If you see no messages after this one, VisIt was not
+able to connect to the client machine.  Nine times out
+of ten, this is a firewall issue on the client machine.
+It could also mean that VisIt was unable to resolve the
+IP address for the client machine.  You may need to verify the contents of /etc/hosts.)
+ParentProcess::GetClientSocketDescriptor: Connected socket
+ParentProcess::Connect: Exchanging type representations.
+ParentProcess::Connect: done
+Setting up X displays for 2 GPUs.  Using X arguments: ''
+Creating X (HW-based) display.
+Giving a sec for the X server to start ... done!
+Saved X server PID 13062
+Connecting to display 0
+Using standard network manager.
+Successfully loaded info about 22 plot plugins.
+Shared information about 22 plot plugins.
+Successfully loaded info about 46 operator plugins.
+Shared information about 46 operator plugins.
+Skipping plugin libISimV1Database.so because it is a simulation plugin.
+Skipping plugin libISimV1WriterDatabase.so because it is a simulation plugin.
+Skipping plugin libISimV2Database.so because it is a simulation plugin.
+Successfully loaded info about 96 database plugins.
+Don't know how to broadcast empty vector!  Bailing out early.
+Shared information about 96 database plugins.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing OpenDatabaseRPC: db=/panfs/panfs/home/tiandong/zhangyanan/data/MeshData3D_4.BOV, time=0
+Loaded full database plugin BOV version 1.0
+Loading new database
+avtDatabaseFactory: specifically told to use BOV_1.0
+Skipping already loaded database plugin BOV version 1.0
+Trying to open the file with the BOV file format, strict mode is off
+Memory size before creating domain boundaries object: 324890624, rss=64311296
+Memory size after creating domain boundaries object: 324890624, rss=64389120
+No I/O info provided for file format Brick of values
+File open appears to be successful.
+LoadBalancer::AddDatabase - db=/panfs/panfs/home/tiandong/zhangyanan/data/MeshData3D_4.BOV
+    iohints=[]  
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 439x379
+Creating new VisWindow for id=0
+Forcing GL context initialization...
+Unknown if transparencies exist; recalculating (this requires global communication).
+Initializing GLEW using library: libGL.so.1
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing ReadRPC
+Skipping already loaded database plugin BOV version 1.0
+NetworkManager::AddDB: Adding mvalue to the name stack
+Using SIL arrays to improve efficiency
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PreparePlotRPC: Contour_1.0
+Loaded full plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing MakePlotRPC: Contour_1.0
+NetworkManager::MakePlot(): Leaving NetworkManager::MakePlot().
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing ExecuteRPC with respondWithNullDataObject = 1
+Guide function indicated that we should do the first Update on pipeline 1.
+Entered update for avtActualExtentsFilter
+Entered update for avtCompactTreeFilter
+Entered update for avtVertexNormalsFilter
+Entered update for avtCondenseDatasetFilter
+Entered update for avtGhostZoneAndFacelistFilter
+Entered update for avtContourFilter
+This pipeline has indicated that no load balancing should be used.
+Entered update for avtExpressionEvaluatorFilter
+EEF::ModifyContract: Checking candidates
+EEF::ModifyContract:     candidate: mvalue
+EEF::ModifyContract:     not an expression
+Using load balancer to reduce data.
+Generic database instructing get for var = mvalue, timestep = 0 domain = 0
+avtBOVFileFormat::GetVar: Read whole brick
+avtBOVFileFormat::GetVar: byteOffset: 268
+avtBOVFileFormat::GetVar: Full size: 1024, 512, 512
+avtBOVFileFormat::GetVar: Created data array of 134217728 1-tuples
+avtBOVFileFormat::GetVar: Seeking past 268 bytes
+avtBOVFileFormat::GetVar: Reading 134217728*1 elements of 8 bytes. fread returned 134217728
+avtTransformManager: Applying NativeToFloat transform
+avtTransformManager: Array "mvalue" was not in tmngr's cache
+avtTransformManager: Converting vktDataArray, "mvalue", with 134217728 tuples and 1 components from type "double" to "float"
+Executing avtExpressionEvaluatorFilter
+Done executing avtExpressionEvaluatorFilter
+Done Updating avtExpressionEvaluatorFilter
+Executing avtContourFilter
+About to execute contour filter.  50 isovalues are: 26.3462, 52.6924, 79.0387, 105.385, 131.731, 158.077, 184.424, 210.77, 237.116, 263.462, 289.808, 316.155, 342.501, 368.847, 395.193, 421.54, 447.886, 474.232, 500.578, 526.924, 553.271, 579.617, 605.963, 632.309, 658.655, 685.002, 711.348, 737.694, 764.04, 790.387, 816.733, 843.079, 869.425, 895.771, 922.118, 948.464, 974.81, 1001.16, 1027.5, 1053.85, 1080.19, 1106.54, 1132.89, 1159.23, 1185.58, 1211.93, 1238.27, 1264.62, 1290.96, 1317.31, 
+Done executing avtContourFilter
+Done Updating avtContourFilter
+Executing avtGhostZoneAndFacelistFilter
+Using facelist filter before ghostzone filter.
+Entered update for avtGhostZoneFilter
+Entered update for avtFacelistFilter
+This source should not load balance the data.
+Executing avtFacelistFilter
+Done executing avtFacelistFilter
+Done Updating avtFacelistFilter
+Executing avtGhostZoneFilter
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Using vtkDataSetRemoveGhostCells
+Done executing avtGhostZoneFilter
+Filter avtFacelistFilter releasing its data
+Done Updating avtGhostZoneFilter
+Done executing avtGhostZoneAndFacelistFilter
+Done Updating avtGhostZoneAndFacelistFilter
+Executing avtCondenseDatasetFilter
+Relevant points filter stopped by heuristic.  Points = 190182, cells = 350910
+Relevant points filter stopped by heuristic.  Points = 44627, cells = 80504
+Relevant points filter stopped by heuristic.  Points = 18280, cells = 32556
+Relevant points filter stopped by heuristic.  Points = 8896, cells = 15640
+Relevant points filter stopped by heuristic.  Points = 5070, cells = 8802
+Relevant points filter stopped by heuristic.  Points = 2970, cells = 5108
+Relevant points filter stopped by heuristic.  Points = 1853, cells = 3140
+Relevant points filter stopped by heuristic.  Points = 1131, cells = 1898
+Relevant points filter stopped by heuristic.  Points = 734, cells = 1212
+Relevant points filter stopped by heuristic.  Points = 493, cells = 794
+Relevant points filter stopped by heuristic.  Points = 323, cells = 522
+Relevant points filter stopped by heuristic.  Points = 195, cells = 314
+Relevant points filter stopped by heuristic.  Points = 143, cells = 226
+Relevant points filter stopped by heuristic.  Points = 106, cells = 156
+Relevant points filter stopped by heuristic.  Points = 71, cells = 104
+Relevant points filter stopped by heuristic.  Points = 55, cells = 80
+Relevant points filter stopped by heuristic.  Points = 37, cells = 52
+Relevant points filter stopped by heuristic.  Points = 22, cells = 32
+Relevant points filter stopped by heuristic.  Points = 11, cells = 12
+Relevant points filter stopped by heuristic.  Points = 11, cells = 12
+Relevant points filter stopped by heuristic.  Points = 11, cells = 12
+Relevant points filter stopped by heuristic.  Points = 11, cells = 12
+Done executing avtCondenseDatasetFilter
+Filter avtGhostZoneAndFacelistFilter releasing its data
+Filter avtGhostZoneFilter releasing its data
+Filter avtFacelistFilter releasing its data
+Done Updating avtCondenseDatasetFilter
+Executing avtVertexNormalsFilter
+Done executing avtVertexNormalsFilter
+Filter avtCondenseDatasetFilter releasing its data
+Done Updating avtVertexNormalsFilter
+Executing avtCompactTreeFilter
+Done executing avtCompactTreeFilter
+Filter avtVertexNormalsFilter releasing its data
+Done Updating avtCompactTreeFilter
+Executing avtActualExtentsFilter
+Done executing avtActualExtentsFilter
+Filter avtCompactTreeFilter releasing its data
+Done Updating avtActualExtentsFilter
+Memory after first execution was: size = 1289445376, rss = 247808000
+Done with iterating Updates on pipeline 1
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+Chunk 1 contributed 0 bytes to the serialized string.
+This source should not load balance the data.
+sending 3084 bytes to the viewer 378 from strings.
+Number of actual direct writes = 1
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 439x379
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+avtPlot::Execute Receiving Polygon Data
+No guide function registered with the originating sink, doing normal Update.
+Setting cell count for network 0 to 1195378
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502098 primitives.  Balanced speedup = 1.15993x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 500153 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing SetWinAnnotAttsRPC 1024x646
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing PrepareUpdatePlotAttsRPC: Contour_1.0
+Skipping already loaded plot plugin Contour version 1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing UpdatePlotAttsRPC: Contour_1.0
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Executing RenderRPC for the following plots
+   0, 
+Invalidating transparency cache.
+VisWinAnnotations::AddAnnotationObject: New Legend object created. It is called "Plot0000".
+Found matching annotation attributes for legend Plot0000
+Found matching annotation attributes for legend Plot0000
+Unknown if transparencies exist; recalculating (this requires global communication).
+Multipass rendering is disabled
+Forcing early calculation of transparency...
+Early transparency calculation says there is no transparent geometry.
+Rendering 502110 primitives.  Balanced speedup = 1.15992x
+Using load balancer to reduce data.
+Compositer outputting Z buffer.
+Using load balancer to reduce data.
+exceeded scalable threshold of -1
+sending 1985523 bytes to the viewer 70 from strings.
+Number of actual direct writes = 2
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting execution timeout to 30 minutes.
+Resetting idle timeout to 480 minutes.
+Resetting idle timeout to 480 minutes.

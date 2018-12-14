@@ -1,0 +1,973 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>VisIt - vtk-5.0.0f.patch - VisIt Bugs</title>
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<link href="/stylesheets/application.css?1267352889" media="all" rel="stylesheet" type="text/css" />
+<script src="/javascripts/prototype.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/application.js?1267352889" type="text/javascript"></script>
+<link href="/stylesheets/jstoolbar.css?1267352889" media="screen" rel="stylesheet" type="text/css" />
+<!--[if IE]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(/stylesheets/csshover.htc?1267352889);}
+    </style>
+<![endif]-->
+
+<!-- page specific tags -->
+    <link href="/stylesheets/scm.css?1267352889" media="screen" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="wrapper">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="/login" class="login">Sign in</a></li>
+<li><a href="/account/register" class="register">Register</a></li></ul>    </div>
+    
+    <ul><li><a href="/" class="home">Home</a></li>
+<li><a href="/projects" class="projects">Projects</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul></div>
+      
+<div id="header">
+    <div id="quick-search">
+        <form action="/search/index/visit" method="get">
+        
+        <a href="/search/index/visit" accesskey="4">Search</a>:
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text" />
+        </form>
+        
+    </div>
+    
+    <h1>VisIt</h1>
+    
+    <div id="main-menu">
+        <ul><li><a href="/projects/visit" class="overview">Overview</a></li>
+<li><a href="/projects/visit/activity" class="activity">Activity</a></li>
+<li><a href="/projects/visit/roadmap" class="roadmap">Roadmap</a></li>
+<li><a href="/projects/visit/issues" class="issues">Issues</a></li></ul>
+    </div>
+</div>
+
+<div class="nosidebar" id="main">
+    <div id="sidebar">        
+        
+        
+    </div>
+    
+    <div id="content">
+				
+        <h2>vtk-5.0.0f.patch</h2>
+
+<div class="attachments">
+<p>
+   <span class="author">John Cary, 08/05/2010 02:02 pm</span></p>
+<p><a href="/attachments/download/4/vtk-5.0.0f.patch">Download</a>   <span class="size">(4.9 KB)</span></p>
+
+</div>
+&nbsp;
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//CMakeLists.txt	2010-07-21 10:00:32.762130500 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">302</th>
+  <th class="line-num">302</th>
+    <td class="line-code ">
+    <pre>ENDIF(CMAKE_COMPILER_IS_GNUCXX)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">303</th>
+  <th class="line-num">303</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">304</th>
+  <th class="line-num">304</th>
+    <td class="line-code ">
+    <pre>IF(APPLE)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">305</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>  SET(CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS &quot;${CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS} -Wl,-flat_namespace,-U,_environ&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">306</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>  SET(CMAKE_SHARED_MODULE_CREATE_C_FLAGS &quot;${CMAKE_SHARED_MODULE_CREATE_C_FLAGS} -Wl,-flat_namespace,-U,_environ&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">305</th>
+    <td class="line-code diff_in">
+    <pre>  SET(CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS &quot;${CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS} -Wl,-twolevel_namespace,-headerpad_max_install_names&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">306</th>
+    <td class="line-code diff_in">
+    <pre>  SET(CMAKE_SHARED_MODULE_CREATE_C_FLAGS &quot;${CMAKE_SHARED_MODULE_CREATE_C_FLAGS} -Wl,-twolevel_namespace,-headerpad_max_install_names&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">307</th>
+  <th class="line-num">307</th>
+    <td class="line-code ">
+    <pre>  IF(CMAKE_COMPILER_IS_GNUCXX)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">308</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>    SET(VTK_REQUIRED_C_FLAGS &quot;${VTK_REQUIRED_C_FLAGS} -no-cpp-precomp&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">309</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>    SET(VTK_REQUIRED_CXX_FLAGS &quot;${VTK_REQUIRED_CXX_FLAGS} -no-cpp-precomp&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">308</th>
+    <td class="line-code diff_in">
+    <pre>    SET(VTK_REQUIRED_C_FLAGS &quot;${VTK_REQUIRED_C_FLAGS} -fno-common -fexceptions&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">309</th>
+    <td class="line-code diff_in">
+    <pre>    SET(VTK_REQUIRED_CXX_FLAGS &quot;${VTK_REQUIRED_CXX_FLAGS} -fno-common -fexceptions&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">310</th>
+  <th class="line-num">310</th>
+    <td class="line-code ">
+    <pre>    IF(VTK_USE_CARBON)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">311</th>
+  <th class="line-num">311</th>
+    <td class="line-code ">
+    <pre>      SET(VTK_REQUIRED_CXX_FLAGS &quot;${VTK_REQUIRED_CXX_FLAGS} -fpascal-strings&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">312</th>
+  <th class="line-num">312</th>
+    <td class="line-code ">
+    <pre>    ENDIF(VTK_USE_CARBON)</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//Graphics/vtkStreamer.h	2010-07-21 10:01:46.276134400 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">59</th>
+  <th class="line-num">59</th>
+    <td class="line-code ">
+    <pre>#define VTK_INTEGRATE_BACKWARD 1</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">60</th>
+  <th class="line-num">60</th>
+    <td class="line-code ">
+    <pre>#define VTK_INTEGRATE_BOTH_DIRECTIONS 2</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">61</th>
+  <th class="line-num">61</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">62</th>
+    <td class="line-code diff_in">
+    <pre>// Now StreamArray is exported</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">63</th>
+    <td class="line-code diff_in">
+    <pre>#define VTK_STREAM_ARRAY_EXPORTED</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">64</th>
+    <td class="line-code diff_in">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">62</th>
+  <th class="line-num">65</th>
+    <td class="line-code ">
+    <pre>class VTK_GRAPHICS_EXPORT vtkStreamer : public vtkPolyDataAlgorithm</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">63</th>
+  <th class="line-num">66</th>
+    <td class="line-code ">
+    <pre>{</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">64</th>
+  <th class="line-num">67</th>
+    <td class="line-code ">
+    <pre>public:</pre>
+  </td>
+  </tr>
+
+<tr class="spacing">
+<th class="line-num">...</th><th class="line-num">...</th><td></td>
+</tr>
+<tr>
+  <th class="line-num">217</th>
+  <th class="line-num">220</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">218</th>
+  <th class="line-num">221</th>
+    <td class="line-code ">
+    <pre>  class StreamArray;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">219</th>
+  <th class="line-num">222</th>
+    <td class="line-code ">
+    <pre>  friend class StreamArray;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">220</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>  class StreamArray { //;prevent man page generation</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">223</th>
+    <td class="line-code diff_in">
+    <pre>  class VTK_GRAPHICS_EXPORT StreamArray { //;prevent man page generation</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">221</th>
+  <th class="line-num">224</th>
+    <td class="line-code ">
+    <pre>  public:</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">222</th>
+  <th class="line-num">225</th>
+    <td class="line-code ">
+    <pre>    StreamArray();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">223</th>
+  <th class="line-num">226</th>
+    <td class="line-code ">
+    <pre>    ~StreamArray()</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//Rendering/vtkImagingFactory.cxx	2010-07-21 10:00:32.793393100 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">202</th>
+  <th class="line-num">202</th>
+    <td class="line-code ">
+    <pre>    {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">203</th>
+  <th class="line-num">203</th>
+    <td class="line-code ">
+    <pre>    if(strcmp(vtkclassname, &quot;vtkTextMapper&quot;) == 0)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">204</th>
+  <th class="line-num">204</th>
+    <td class="line-code ">
+    <pre>      {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">205</th>
+    <td class="line-code diff_in">
+    <pre>#if defined(VTK_USE_MANGLED_MESA)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">206</th>
+    <td class="line-code diff_in">
+    <pre>      if ( vtkImagingFactory::UseMesaClasses )</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">207</th>
+    <td class="line-code diff_in">
+    <pre>        {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">208</th>
+    <td class="line-code diff_in">
+    <pre>        return vtkMesaFreeTypeTextMapper::New();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">209</th>
+    <td class="line-code diff_in">
+    <pre>        }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">210</th>
+    <td class="line-code diff_in">
+    <pre>#endif</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">205</th>
+  <th class="line-num">211</th>
+    <td class="line-code ">
+    <pre>      return vtkOpenGLFreeTypeTextMapper::New();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">206</th>
+  <th class="line-num">212</th>
+    <td class="line-code ">
+    <pre>      }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">207</th>
+  <th class="line-num">213</th>
+    <td class="line-code ">
+    <pre>    if(strcmp(vtkclassname, &quot;vtkImageMapper&quot;) == 0)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">208</th>
+  <th class="line-num">214</th>
+    <td class="line-code ">
+    <pre>      {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">215</th>
+    <td class="line-code diff_in">
+    <pre>#if defined(VTK_USE_MANGLED_MESA)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">216</th>
+    <td class="line-code diff_in">
+    <pre>      if ( vtkImagingFactory::UseMesaClasses )</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">217</th>
+    <td class="line-code diff_in">
+    <pre>        {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">218</th>
+    <td class="line-code diff_in">
+    <pre>        return vtkMesaImageMapper::New();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">219</th>
+    <td class="line-code diff_in">
+    <pre>        }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">220</th>
+    <td class="line-code diff_in">
+    <pre>#endif</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">209</th>
+  <th class="line-num">221</th>
+    <td class="line-code ">
+    <pre>      return vtkOpenGLImageMapper::New();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">210</th>
+  <th class="line-num">222</th>
+    <td class="line-code ">
+    <pre>      }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">211</th>
+  <th class="line-num">223</th>
+    <td class="line-code ">
+    <pre>    if(strcmp(vtkclassname, &quot;vtkPolyDataMapper2D&quot;) == 0)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">212</th>
+  <th class="line-num">224</th>
+    <td class="line-code ">
+    <pre>      {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">225</th>
+    <td class="line-code diff_in">
+    <pre>#if defined(VTK_USE_MANGLED_MESA)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">226</th>
+    <td class="line-code diff_in">
+    <pre>      if ( vtkImagingFactory::UseMesaClasses )</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">227</th>
+    <td class="line-code diff_in">
+    <pre>        {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">228</th>
+    <td class="line-code diff_in">
+    <pre>        return vtkMesaPolyDataMapper2D::New();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">229</th>
+    <td class="line-code diff_in">
+    <pre>        }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">230</th>
+    <td class="line-code diff_in">
+    <pre>#endif</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">213</th>
+  <th class="line-num">231</th>
+    <td class="line-code ">
+    <pre>      return vtkOpenGLPolyDataMapper2D::New();</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">214</th>
+  <th class="line-num">232</th>
+    <td class="line-code ">
+    <pre>      }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">215</th>
+  <th class="line-num">233</th>
+    <td class="line-code ">
+    <pre>    }</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//Rendering/vtkWin32OpenGLRenderWindow.cxx	2010-07-21 10:00:32.809024400 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">31</th>
+  <th class="line-num">31</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">32</th>
+  <th class="line-num">32</th>
+    <td class="line-code ">
+    <pre>#if defined(_MSC_VER) || defined (__BORLANDC__)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">33</th>
+  <th class="line-num">33</th>
+    <td class="line-code ">
+    <pre># include &quot;vtkWindows.h&quot;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">34</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre># include &lt;GL/glaux.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">34</th>
+    <td class="line-code diff_in">
+    <pre>// # include &lt;GL/glaux.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">35</th>
+  <th class="line-num">35</th>
+    <td class="line-code ">
+    <pre>#else</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">36</th>
+  <th class="line-num">36</th>
+    <td class="line-code ">
+    <pre># include &quot;vtkOpenGL.h&quot;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">37</th>
+  <th class="line-num">37</th>
+    <td class="line-code ">
+    <pre>#endif</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//Utilities/DICOMParser/DICOMAppHelper.cxx	2010-07-21 10:00:32.840287000 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">31</th>
+  <th class="line-num">31</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">32</th>
+  <th class="line-num">32</th>
+    <td class="line-code ">
+    <pre>#include &lt;stdlib.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">33</th>
+  <th class="line-num">33</th>
+    <td class="line-code ">
+    <pre>#include &lt;stdio.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">34</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>#include &lt;string&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">34</th>
+    <td class="line-code diff_in">
+    <pre>#include &lt;cstring&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">35</th>
+  <th class="line-num">35</th>
+    <td class="line-code ">
+    <pre>#include &lt;math.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">36</th>
+  <th class="line-num">36</th>
+    <td class="line-code ">
+    <pre>#include &lt;algorithm&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">37</th>
+  <th class="line-num">37</th>
+    <td class="line-code ">
+    <pre>#include &lt;cstring&gt;</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//Utilities/DICOMParser/DICOMParser.cxx	2010-07-21 10:00:32.855918300 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">36</th>
+  <th class="line-num">36</th>
+    <td class="line-code ">
+    <pre>#include &lt;sys/types.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">37</th>
+  <th class="line-num">37</th>
+    <td class="line-code ">
+    <pre>#endif</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">38</th>
+  <th class="line-num">38</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">39</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>#include &lt;string&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">39</th>
+    <td class="line-code diff_in">
+    <pre>#include &lt;cstring&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">40</th>
+  <th class="line-num">40</th>
+    <td class="line-code ">
+    <pre>#include &lt;map&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">41</th>
+  <th class="line-num">41</th>
+    <td class="line-code ">
+    <pre>#include &lt;cstring&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">42</th>
+  <th class="line-num">42</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">../vtk-5.0.0f.new//Utilities/ftgl/CMakeLists.txt	2010-07-21 10:00:32.871549600 -0600</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">134</th>
+  <th class="line-num">134</th>
+    <td class="line-code ">
+    <pre>ENDIF(NOT OPENGL_FOUND)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">135</th>
+  <th class="line-num">135</th>
+    <td class="line-code ">
+    <pre>SET (VTKFTGL_LIBS &quot;${VTKFTGL_LIBS};${OPENGL_gl_LIBRARY}&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">136</th>
+  <th class="line-num">136</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">137</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>IF(WIN32)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">137</th>
+    <td class="line-code diff_in">
+    <pre>IF(APPLE OR WIN32)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">138</th>
+  <th class="line-num">138</th>
+    <td class="line-code ">
+    <pre>  IF (FTGL_SUPPORT_MANGLE_MESA)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">139</th>
+  <th class="line-num">139</th>
+    <td class="line-code ">
+    <pre>    SET (VTKFTGL_LIBS &quot;${VTKFTGL_LIBS};${MANGLED_MESA_LIBRARY}&quot;)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">140</th>
+  <th class="line-num">140</th>
+    <td class="line-code ">
+    <pre>  ENDIF (FTGL_SUPPORT_MANGLE_MESA)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">141</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>ENDIF(WIN32)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">141</th>
+    <td class="line-code diff_in">
+    <pre>ENDIF(APPLE OR WIN32)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">142</th>
+  <th class="line-num">142</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">143</th>
+  <th class="line-num">143</th>
+    <td class="line-code ">
+    <pre>#</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">144</th>
+  <th class="line-num">144</th>
+    <td class="line-code ">
+    <pre># We obviously need FreeType</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+
+
+
+
+        
+				<div style="clear:both;"></div>
+    </div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+	
+<div id="footer">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> &copy; 2006-2010 Jean-Philippe Lang
+</div>
+</div>
+
+</body>
+</html>

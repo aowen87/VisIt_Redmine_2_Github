@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="2.1">
+  <Domain>
+    <Grid CollectionType="Spatial" GridType="Collection" Name="Velodyne">
+      <Grid GridType="Uniform" Name="Part_0001">
+        <Topology NumberOfElements="2" Type="Hexahedron">
+          <DataItem DataType="Int" Dimensions="16" Format="HDF">grid.h5:/Part_0001/Topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem DataType="Float" Dimensions="3 16" Format="HDF" Name="Nodes" Precision="4">grid.h5:/Part_0001/XYZ</DataItem>
+        </Geometry>
+      </Grid>
+      <Grid GridType="Uniform" Name="Part_0002">
+        <Topology NumberOfElements="1" Type="Hexahedron">
+          <DataItem DataType="Int" Dimensions="8" Format="HDF">grid.h5:/Part_0002/Topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem DataType="Float" Dimensions="3 8" Format="HDF" Name="Nodes" Precision="4">grid.h5:/Part_0002/XYZ</DataItem>
+        </Geometry>
+      </Grid>
+      <Grid GridType="Uniform" Name="Part_0003">
+        <Topology NumberOfElements="2" Type="Polyvertex">
+          <DataItem DataType="Int" Dimensions="2" Format="HDF">grid.h5:/Part_0003/Topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem DataType="Float" Dimensions="3 2" Format="HDF" Name="Nodes" Precision="4">grid.h5:/Part_0003/XYZ</DataItem>
+        </Geometry>
+      </Grid>
+      <Grid GridType="Uniform" Name="Part_0004">
+        <Topology NumberOfElements="1" Type="Quadrilateral">
+          <DataItem DataType="Int" Dimensions="4" Format="HDF">grid.h5:/Part_0004/Topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem DataType="Float" Dimensions="3 4" Format="HDF" Name="Nodes" Precision="4">grid.h5:/Part_0004/XYZ</DataItem>
+        </Geometry>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>

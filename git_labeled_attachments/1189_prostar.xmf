@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+  <Domain>
+    <Grid GridType="Uniform">
+      <Topology TopologyType="Mixed" Dimensions="10">
+        <DataItem Dimensions="57" NumberType="Int" Precision="8" Format="XML">
+1 1 0 2 2 1 2 4 3 4 
+5 5 6 7 8 9 3 6 10 11 
+12 13 14 15 6 16 17 18 19 7 
+20 21 22 23 24 8 25 27 26 28 
+30 29 9 31 32 33 34 35 36 37 
+38 0 39 40 41 42 43 
+</DataItem>
+      </Topology>
+      <Geometry GeometryType="XYZ">
+        <DataItem Dimensions="44 3" NumberType="Float" Precision="4" Format="HDF">/local/data/VTKData/Data/prostar.h5:/Data0</DataItem>
+      </Geometry>
+      <Attribute Name="cellTableId" Active="1" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10" NumberType="Int" Precision="4" Format="XML">
+1 2 4 5 3 6 7 8 9 0 
+</DataItem>
+      </Attribute>
+    </Grid>
+  </Domain>
+</Xdmf>

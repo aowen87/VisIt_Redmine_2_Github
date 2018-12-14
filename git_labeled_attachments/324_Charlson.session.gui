@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<Object name="VisIt">
+    <Field name="Version" type="string">"2.2.0"</Field>
+    <Object name="GUI">
+        <Object name="FileServerList">
+            <Field name="path" type="string">"/Projects/Data/Fusion/Charlson/SMALL_SET"</Field>
+            <Field name="filter" type="string">"*"</Field>
+            <Field name="useCurrentDir" type="bool">true</Field>
+            <Field name="automaticFileGrouping" type="bool">true</Field>
+            <Field name="smartFileGrouping" type="bool">true</Field>
+            <Object name="recentpaths">
+                <Field name="localhost" type="stringVector">"/Projects/VisIt/trunk/src" "/Projects/VisIt" "/Projects/VisIt/trunk" "/Projects/VisIt/trunk/data" "/Projects/VisIt/src/1.12RC/src" "/Projects/VisIt/src/trunk/src" "/Projects/VisIt/1.12RC_trunk/src" "/Projects/VisIt/Converter" "/Projects/VisIt/Converter/GTC" "/Projects/VisIt/src/1.12RC" "/Projects/VisIt/src" "/Projects" "/Projects/Data" "/Projects/Data/Fusion" "/Projects/Data/Fusion/NIMROD" "/Projects/Data/Fusion/NIMROD/87009" "/Projects/Data/Fusion/M3D" "/Projects/Data/Fusion/M3D/Nate" "/Projects/Data/Fusion/M3D/Nate/3" "/Projects/VisIt/1.12RC/src" "/Projects/VisIt/1.12RC" "/Projects/Data/Fusion/M3D/Nate/1" "/Projects/Data/Fusion/M3D/Josh" "/Projects/Data/Fusion/M3D/Josh/M3D%32C1" "/scratch/allen/VisIt/1.12RC/src" "/scratch/allen/VisIt/trunk/src" "/scratch/allen/VisIT" "/usr/local" "/usr/local/visit" "/usr/local/visit/data" "/home/sci/allen/Projects/Data/Fusion/M3D/Josh" "/Users/allen" "/Users/allen/Projects/Data/Fusion/M3D/Josh" "/Projects/Data/Fusion/Charlson" "/Projects/Data/Fusion/Charlson/SMALL_SET" </Field>
+            </Object>
+        </Object>
+        <Object name="AppearanceAttributes">
+            <Field name="useSystemDefault" type="bool">true</Field>
+            <Field name="background" type="string">"#c0c0c0"</Field>
+            <Field name="foreground" type="string">"#000000"</Field>
+            <Field name="fontName" type="string">"Helvetica,12,-1,5,50,0,0,0,0,0"</Field>
+            <Field name="style" type="string">"aqua"</Field>
+            <Field name="orientation" type="int">0</Field>
+            <Field name="defaultForeground" type="string">"#000000"</Field>
+            <Field name="defaultBackground" type="string">"#e8e8e8"</Field>
+            <Field name="defaultFontName" type="string">"Lucida Grande,13,-1,5,50,0,0,0,0,0"</Field>
+            <Field name="defaultStyle" type="string">"macintosh"</Field>
+            <Field name="defaultOrientation" type="int">0</Field>
+        </Object>
+        <Object name="Appearance">
+            <Field name="x" type="int">640</Field>
+            <Field name="y" type="int">610</Field>
+            <Field name="width" type="int">285</Field>
+            <Field name="height" type="int">250</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Field name="postWhenShown" type="bool">false</Field>
+        <Object name="Color tables">
+            <Field name="x" type="int">640</Field>
+            <Field name="y" type="int">330</Field>
+            <Field name="width" type="int">317</Field>
+            <Field name="height" type="int">690</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+            <Field name="currentColorTable" type="string">"contoured"</Field>
+        </Object>
+        <Object name="File selection">
+            <Field name="x" type="int">26</Field>
+            <Field name="y" type="int">338</Field>
+            <Field name="width" type="int">792</Field>
+            <Field name="height" type="int">392</Field>
+            <Field name="visible" type="bool">false</Field>
+        </Object>
+        <Object name="Information">
+            <Field name="x" type="int">906</Field>
+            <Field name="y" type="int">628</Field>
+            <Field name="width" type="int">534</Field>
+            <Field name="height" type="int">240</Field>
+            <Field name="visible" type="bool">false</Field>
+        </Object>
+        <Object name="Plugin Manager">
+            <Field name="x" type="int">528</Field>
+            <Field name="y" type="int">828</Field>
+            <Field name="width" type="int">584</Field>
+            <Field name="height" type="int">474</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+            <Field name="activeTab" type="int">2</Field>
+        </Object>
+        <Object name="Preferences">
+            <Field name="x" type="int">640</Field>
+            <Field name="y" type="int">390</Field>
+            <Field name="width" type="int">346</Field>
+            <Field name="height" type="int">630</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Selections">
+            <Field name="x" type="int">144</Field>
+            <Field name="y" type="int">932</Field>
+            <Field name="width" type="int">507</Field>
+            <Field name="height" type="int">397</Field>
+            <Field name="visible" type="bool">true</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Subset">
+            <Field name="x" type="int">670</Field>
+            <Field name="y" type="int">946</Field>
+            <Field name="width" type="int">596</Field>
+            <Field name="height" type="int">380</Field>
+            <Field name="visible" type="bool">true</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="MainWin">
+            <Field name="x" type="int">4</Field>
+            <Field name="y" type="int">0</Field>
+            <Field name="width" type="int">422</Field>
+            <Field name="height" type="int">896</Field>
+            <Field name="SPLITTER_VALUES_V2" type="floatVector">0 0.990691 0 </Field>
+        </Object>
+        <Object name="Mesh plot attributes">
+            <Field name="x" type="int">1070</Field>
+            <Field name="y" type="int">519</Field>
+            <Field name="width" type="int">370</Field>
+            <Field name="height" type="int">501</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Poincare plot attributes">
+            <Field name="x" type="int">858</Field>
+            <Field name="y" type="int">228</Field>
+            <Field name="width" type="int">582</Field>
+            <Field name="height" type="int">634</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Pseudocolor plot attributes">
+            <Field name="x" type="int">1840</Field>
+            <Field name="y" type="int">943</Field>
+            <Field name="width" type="int">413</Field>
+            <Field name="height" type="int">614</Field>
+            <Field name="visible" type="bool">true</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Streamline plot attributes">
+            <Field name="x" type="int">988</Field>
+            <Field name="y" type="int">348</Field>
+            <Field name="width" type="int">452</Field>
+            <Field name="height" type="int">687</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Boundary operator attributes">
+            <Field name="x" type="int">802</Field>
+            <Field name="y" type="int">870</Field>
+            <Field name="width" type="int">341</Field>
+            <Field name="height" type="int">150</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Clip operator attributes">
+            <Field name="x" type="int">640</Field>
+            <Field name="y" type="int">464</Field>
+            <Field name="width" type="int">361</Field>
+            <Field name="height" type="int">556</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Cone operator attributes">
+            <Field name="x" type="int">789</Field>
+            <Field name="y" type="int">1276</Field>
+            <Field name="width" type="int">472</Field>
+            <Field name="height" type="int">294</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Cylinder operator attributes">
+            <Field name="x" type="int">881</Field>
+            <Field name="y" type="int">1041</Field>
+            <Field name="width" type="int">384</Field>
+            <Field name="height" type="int">196</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Elevate operator attributes">
+            <Field name="x" type="int">19</Field>
+            <Field name="y" type="int">647</Field>
+            <Field name="width" type="int">384</Field>
+            <Field name="height" type="int">393</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Index Select operator attributes">
+            <Field name="x" type="int">883</Field>
+            <Field name="y" type="int">662</Field>
+            <Field name="width" type="int">333</Field>
+            <Field name="height" type="int">358</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Isosurface operator attributes">
+            <Field name="x" type="int">640</Field>
+            <Field name="y" type="int">610</Field>
+            <Field name="width" type="int">313</Field>
+            <Field name="height" type="int">282</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Lineout operator attributes">
+            <Field name="x" type="int">23</Field>
+            <Field name="y" type="int">368</Field>
+            <Field name="width" type="int">384</Field>
+            <Field name="height" type="int">323</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="PersistentParticles operator attributes">
+            <Field name="x" type="int">1388</Field>
+            <Field name="y" type="int">932</Field>
+            <Field name="width" type="int">431</Field>
+            <Field name="height" type="int">421</Field>
+            <Field name="visible" type="bool">true</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Project operator attributes">
+            <Field name="x" type="int">4</Field>
+            <Field name="y" type="int">874</Field>
+            <Field name="width" type="int">461</Field>
+            <Field name="height" type="int">166</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Resample operator attributes">
+            <Field name="x" type="int">4</Field>
+            <Field name="y" type="int">245</Field>
+            <Field name="width" type="int">462</Field>
+            <Field name="height" type="int">570</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Object name="Slice operator attributes">
+            <Field name="x" type="int">649</Field>
+            <Field name="y" type="int">599</Field>
+            <Field name="width" type="int">368</Field>
+            <Field name="height" type="int">421</Field>
+            <Field name="visible" type="bool">false</Field>
+            <Field name="posted" type="bool">false</Field>
+        </Object>
+        <Field name="plotDatabases" type="stringVector">"localhost:/Projects/Data/Fusion/Charlson/SMALL_SET/part*.h5 database" </Field>
+        <Object name="TimeFormat">
+            <Field name="displayMode" type="string">"Cycles"</Field>
+            <Field name="precision" type="int">5</Field>
+        </Object>
+        <Field name="showSelectedFiles" type="bool">false</Field>
+        <Field name="allowFileSelectionChange" type="bool">true</Field>
+        <Field name="enableWarningMessagePopups" type="bool">true</Field>
+    </Object>
+</Object>

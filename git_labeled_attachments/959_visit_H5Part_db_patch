@@ -1,0 +1,12 @@
+--- visit2.4.2/src/databases/H5Part/timestep.C	2011-11-01 17:52:04.000000000 +0100
++++ visit2.4.2.1/src/databases/H5Part/timestep.C	2012-05-07 14:01:29.000000000 +0200
+@@ -796,8 +796,7 @@
+     std::string strname(name());
+     uint64_t size = 0;
+ 
+-    bool berr = h5file_.getBitmapSize(strname, (unsigned int64_t)(timeval),
+-                                      &size);
++    bool berr = h5file_.getBitmapSize(strname, (/*unsigned*/ uint64_t) (timeval), &size);
+ 
+     if (ibis::gVerbose > 3) {
+         if (!berr || size<=0)

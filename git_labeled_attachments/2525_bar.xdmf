@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="2.0">
+<Domain>
+<Grid Name="mesh1" GridType="Uniform">
+<!-- Define the mesh where the vectors will sit -->
+<Topology TopologyType="3DRectMesh" NumberOfElements="2 2 4"/>
+<Geometry GeometryType="VXVYVZ">
+<DataItem Dimensions="4" NumberType="Float" Precision="8" Format="XML">
+0 10 15 20
+</DataItem>
+<DataItem Dimensions="2" NumberType="Float" Precision="8" Format="XML">
+0 10
+</DataItem>
+<DataItem Dimensions="2" NumberType="Float" Precision="8" Format="XML">
+0 10
+</DataItem>
+</Geometry>
+<!--It appears to be critical that the center type is cell -->
+<Attribute Name="TESTvariable" AttributeType="Vector" Center="Node">
+<DataItem Dimensions="48" NumberType="Float" Precision="8" Format="XML">
+1 1 1
+2 2 2
+3 3 3
+4 0 0
+5 0 0
+6 0 0
+0 0 1
+0 0 2
+0 0 3
+0 0 4
+0 1 0
+0 2 0
+0 3 0
+0 4 0
+</DataItem>
+</Attribute> 
+</Grid>
+</Domain>
+</Xdmf>

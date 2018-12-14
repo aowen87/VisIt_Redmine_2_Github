@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>VisIt - inf.patch - VisIt Bugs</title>
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<link href="/stylesheets/application.css?1267352889" media="all" rel="stylesheet" type="text/css" />
+<script src="/javascripts/prototype.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/application.js?1267352889" type="text/javascript"></script>
+<link href="/stylesheets/jstoolbar.css?1267352889" media="screen" rel="stylesheet" type="text/css" />
+<!--[if IE]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(/stylesheets/csshover.htc?1267352889);}
+    </style>
+<![endif]-->
+
+<!-- page specific tags -->
+    <link href="/stylesheets/scm.css?1267352889" media="screen" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="wrapper">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="/login" class="login">Sign in</a></li>
+<li><a href="/account/register" class="register">Register</a></li></ul>    </div>
+    
+    <ul><li><a href="/" class="home">Home</a></li>
+<li><a href="/projects" class="projects">Projects</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul></div>
+      
+<div id="header">
+    <div id="quick-search">
+        <form action="/search/index/visit" method="get">
+        
+        <a href="/search/index/visit" accesskey="4">Search</a>:
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text" />
+        </form>
+        
+    </div>
+    
+    <h1>VisIt</h1>
+    
+    <div id="main-menu">
+        <ul><li><a href="/projects/visit" class="overview">Overview</a></li>
+<li><a href="/projects/visit/activity" class="activity">Activity</a></li>
+<li><a href="/projects/visit/roadmap" class="roadmap">Roadmap</a></li>
+<li><a href="/projects/visit/issues" class="issues">Issues</a></li></ul>
+    </div>
+</div>
+
+<div class="nosidebar" id="main">
+    <div id="sidebar">        
+        
+        
+    </div>
+    
+    <div id="content">
+				
+        <h2>inf.patch</h2>
+
+<div class="attachments">
+<p>
+   <span class="author">Pavol Klacansky, 11/14/2014 10:45 am</span></p>
+<p><a href="/attachments/download/292/inf.patch">Download</a>   <span class="size">(1.8 KB)</span></p>
+
+</div>
+&nbsp;
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">avtCartographicProjectionFilter.C	2014-11-14 15:43:26.118304560 +0000</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">35</th>
+  <th class="line-num">35</th>
+    <td class="line-code ">
+    <pre>*</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">36</th>
+  <th class="line-num">36</th>
+    <td class="line-code ">
+    <pre>*****************************************************************************/</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">37</th>
+  <th class="line-num">37</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">38</th>
+    <td class="line-code diff_in">
+    <pre>#include &lt;cmath&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">39</th>
+    <td class="line-code diff_in">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">38</th>
+  <th class="line-num">40</th>
+    <td class="line-code ">
+    <pre>#include &lt;vtkSphericalTransform.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">39</th>
+  <th class="line-num">41</th>
+    <td class="line-code ">
+    <pre>#include &lt;vtkGeoProjection.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">40</th>
+  <th class="line-num">42</th>
+    <td class="line-code ">
+    <pre>#include &lt;vtkGeoTransform.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr class="spacing">
+<th class="line-num">...</th><th class="line-num">...</th><td></td>
+</tr>
+<tr>
+  <th class="line-num">44</th>
+  <th class="line-num">46</th>
+    <td class="line-code ">
+    <pre>#include &lt;vtkRectilinearGrid.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">45</th>
+  <th class="line-num">47</th>
+    <td class="line-code ">
+    <pre>#include &lt;vtkVisItUtility.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">46</th>
+  <th class="line-num">48</th>
+    <td class="line-code ">
+    <pre>#include &lt;DebugStream.h&gt;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">47</th>
+  <th class="line-num"></th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">49</th>
+    <td class="line-code diff_in">
+    <pre>// ************************************************************************* //</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">48</th>
+  <th class="line-num">50</th>
+    <td class="line-code ">
+    <pre>// ************************************************************************* //</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">49</th>
+  <th class="line-num">51</th>
+    <td class="line-code ">
+    <pre>//  File: avtCartographicProjectionFilter.C</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">50</th>
+  <th class="line-num">52</th>
+    <td class="line-code ">
+    <pre>// ************************************************************************* //</pre>
+  </td>
+  </tr>
+
+<tr class="spacing">
+<th class="line-num">...</th><th class="line-num">...</th><td></td>
+</tr>
+<tr>
+  <th class="line-num">217</th>
+  <th class="line-num">219</th>
+    <td class="line-code ">
+    <pre>  vtkPoints *newPoints = vtkPoints::New(inPts-&gt;GetDataType());</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">218</th>
+  <th class="line-num">220</th>
+    <td class="line-code ">
+    <pre>  geoXform-&gt;TransformPoints(inPts, newPoints);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">219</th>
+  <th class="line-num">221</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">220</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>  newPoints-&gt;GetBounds(out_bounds);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">222</th>
+    <td class="line-code diff_in">
+    <pre>  // compute bounds ignoring infinity</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">223</th>
+    <td class="line-code diff_in">
+    <pre>  out_bounds[0] = out_bounds[1] = out_bounds[2] = 0.0;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">224</th>
+    <td class="line-code diff_in">
+    <pre>  out_bounds[3] = out_bounds[4] = out_bounds[5] = 0.0;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">225</th>
+    <td class="line-code diff_in">
+    <pre>  for(int i=0; i &lt; numPts; i++) {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">226</th>
+    <td class="line-code diff_in">
+    <pre>    newPoints-&gt;GetPoint(i, c_pt);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">227</th>
+    <td class="line-code diff_in">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">228</th>
+    <td class="line-code diff_in">
+    <pre>    if (std::isfinite(c_pt[0])) {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">229</th>
+    <td class="line-code diff_in">
+    <pre>        out_bounds[0] = std::min(out_bounds[0], c_pt[0]);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">230</th>
+    <td class="line-code diff_in">
+    <pre>        out_bounds[1] = std::max(out_bounds[1], c_pt[0]);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">231</th>
+    <td class="line-code diff_in">
+    <pre>    }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">232</th>
+    <td class="line-code diff_in">
+    <pre>    if (std::isfinite(c_pt[1])) {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">233</th>
+    <td class="line-code diff_in">
+    <pre>        out_bounds[2] = std::min(out_bounds[2], c_pt[1]);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">234</th>
+    <td class="line-code diff_in">
+    <pre>        out_bounds[3] = std::max(out_bounds[3], c_pt[1]);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">235</th>
+    <td class="line-code diff_in">
+    <pre>    }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">236</th>
+    <td class="line-code diff_in">
+    <pre>  }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">237</th>
+    <td class="line-code diff_in">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">238</th>
+    <td class="line-code diff_in">
+    <pre>//  newPoints-&gt;GetBounds(out_bounds);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">239</th>
+    <td class="line-code diff_in">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">221</th>
+  <th class="line-num">240</th>
+    <td class="line-code ">
+    <pre>  debug4 &lt;&lt; &quot;Output Bounds[6] = &quot; &lt;&lt; out_bounds[0] &lt;&lt; &quot; &quot;  &lt;&lt; out_bounds[1] &lt;&lt; &quot; &quot; &lt;&lt; out_bounds[2] &lt;&lt; &quot; &quot; &lt;&lt; out_bounds[3] &lt;&lt; &quot; &quot; &lt;&lt; out_bounds[4] &lt;&lt; &quot; &quot; &lt;&lt; out_bounds[5] &lt;&lt;  endl;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">222</th>
+  <th class="line-num">241</th>
+    <td class="line-code ">
+    <pre></pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">223</th>
+  <th class="line-num">242</th>
+    <td class="line-code ">
+    <pre>// rescale coordinates to the original set of longitude and latitude ranges.</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+
+
+
+
+        
+				<div style="clear:both;"></div>
+    </div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+	
+<div id="footer">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> &copy; 2006-2010 Jean-Philippe Lang
+</div>
+</div>
+
+</body>
+</html>

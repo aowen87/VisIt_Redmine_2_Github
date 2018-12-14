@@ -1,0 +1,67 @@
+<?xml version="1.0"?> 
+ <VTKFile type="PolyData" version="0.1" byte_order="LittleEndian" compressor="">
+ <PolyData> 
+<FieldData>
+ <DataArray type="Float64" Name="TIME" NumberOfTuples="1" format="ascii"> 
+26
+ </DataArray> 
+ </FieldData>
+<Piece NumberOfPoints="26"    NumberOfVerts="0"     NumberOfLines="0"   NumberOfStrips="0" NumberOfPolys="7">
+<Points> 
+   <DataArray type="Float64" NumberOfComponents="3" format="ascii"> 
+2.5 1 0
+2.5 -1 0
+-2.5 1 0
+-2.5 -1 0
+6.52344 1 0
+6.52344 -1 0
+-6.52344 1 0
+-6.52344 -1 0
+7.04688 2.11975 0
+9.04688 2.11975 0
+-10.1614 -1.20638 0
+-8.54428 -2.38314 0
+4.51172 -1 0
+4.51172 1 0
+0 1 0
+0 -1 0
+-4.51172 1 0
+-4.51172 -1 0
+9.04688 -1 0
+7.04688 1 0
+-8.55594 1 0
+-7.53781 -1 0
+7.04688 4.23949 0
+9.04688 4.23949 0
+-11.4674 -3.00113 0
+-9.85027 -4.1779 0
+</DataArray>
+</Points>
+<Polys> 
+ 	<DataArray type="Int64" Name="connectivity" format="ascii"> 
+ 0 1 12 5 4 13
+ 1 0 14 2 3 15
+ 3 2 16 6 7 17
+ 4 5 18 9 8 19
+ 7 6 20 10 11 21
+ 8 9 23 22
+ 11 10 24 25
+</DataArray> 
+	<DataArray type="Int64" Name="offsets" format="ascii"> 
+ 6 12 18 24 30 34 38
+ </DataArray>
+ </Polys>
+<CellData>
+<DataArray type="Float64" Name="Area" format="ascii">
+0.0407001
+0.0521872
+0.0429467
+0.0336573
+0.0506696
+0
+0
+</DataArray>
+</CellData>
+</Piece> 
+</PolyData> 
+ </VTKFile>

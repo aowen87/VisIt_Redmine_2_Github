@@ -1,0 +1,15 @@
+--- visit2.6.1/src/databases/BOV/avtBOVFileFormat.C	2012-12-19 01:19:35.000000000 +0100
++++ ../visit2.6.1/src/databases/BOV/avtBOVFileFormat.C	2013-02-17 18:54:54.249605897 +0100
+@@ -82,7 +82,11 @@
+ #ifdef _WIN32
+ #define FSEEK _fseeki64
+ #else
+-#define FSEEK fseek
++#if SIZEOF_OFF64_T > 4
++#define FSEEK fseeko64
++#else 
++#define FSEEK fseeko
++#endif
+ #endif
+ 
+ static int FormatLine(char *line);

@@ -1,0 +1,16 @@
+--- frontend.py.orig	2013-01-24 10:20:56.581503548 -0600
++++ frontend.py	2013-01-24 10:22:28.540306773 -0600
+@@ -147,8 +147,11 @@
+             mfile = "visitmodule.pyd"
+         else:
+             mfile = "visitmodule.so"
+-        mpaths = [ pjoin(libpath,"site-packages","visit",mfile), # new style
+-                   pjoin(libpath,mfile)] # old style
++        # handle multiple paths in libpath
++        mpaths = []
++        for path in libpath.split(":"):
++          mpaths += [ pjoin(path,"site-packages","visit",mfile), # new style
++                      pjoin(path,mfile)] # old style
+         for mp in mpaths:
+             if os.path.isfile(mp):
+                 return mp

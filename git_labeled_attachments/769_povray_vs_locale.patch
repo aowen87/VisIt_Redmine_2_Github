@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>VisIt - povray_vs_locale.patch - VisIt Bugs</title>
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<link href="/stylesheets/application.css?1267352889" media="all" rel="stylesheet" type="text/css" />
+<script src="/javascripts/prototype.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1267352889" type="text/javascript"></script>
+<script src="/javascripts/application.js?1267352889" type="text/javascript"></script>
+<link href="/stylesheets/jstoolbar.css?1267352889" media="screen" rel="stylesheet" type="text/css" />
+<!--[if IE]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(/stylesheets/csshover.htc?1267352889);}
+    </style>
+<![endif]-->
+
+<!-- page specific tags -->
+    <link href="/stylesheets/scm.css?1267352889" media="screen" rel="stylesheet" type="text/css" /></head>
+<body>
+<div id="wrapper">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="/login" class="login">Sign in</a></li>
+<li><a href="/account/register" class="register">Register</a></li></ul>    </div>
+    
+    <ul><li><a href="/" class="home">Home</a></li>
+<li><a href="/projects" class="projects">Projects</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul></div>
+      
+<div id="header">
+    <div id="quick-search">
+        <form action="/search/index/visit" method="get">
+        
+        <a href="/search/index/visit" accesskey="4">Search</a>:
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text" />
+        </form>
+        
+    </div>
+    
+    <h1>VisIt</h1>
+    
+    <div id="main-menu">
+        <ul><li><a href="/projects/visit" class="overview">Overview</a></li>
+<li><a href="/projects/visit/activity" class="activity">Activity</a></li>
+<li><a href="/projects/visit/roadmap" class="roadmap">Roadmap</a></li>
+<li><a href="/projects/visit/issues" class="issues">Issues</a></li></ul>
+    </div>
+</div>
+
+<div class="nosidebar" id="main">
+    <div id="sidebar">        
+        
+        
+    </div>
+    
+    <div id="content">
+				
+        <h2>povray_vs_locale.patch</h2>
+
+<div class="attachments">
+<p>patch - 
+   <span class="author">Jeremy Meredith, 09/23/2011 10:39 am</span></p>
+<p><a href="/attachments/download/93/povray_vs_locale.patch">Download</a>   <span class="size">(1.1 KB)</span></p>
+
+</div>
+&nbsp;
+<div class="autoscroll">
+<table class="filecontent CodeRay">
+<thead>
+<tr><th colspan="3" class="filename">./avt/FileWriter/avtDatasetFileWriter.C	2011-09-23 01:14:45.552651436 +0200</th></tr>
+</thead>
+<tbody>
+
+<tr>
+  <th class="line-num">1282</th>
+  <th class="line-num">1282</th>
+    <td class="line-code ">
+    <pre>        for (int j=0; j&lt;ct.GetNumControlPoints(); j++)</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1283</th>
+  <th class="line-num">1283</th>
+    <td class="line-code ">
+    <pre>        {</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1284</th>
+  <th class="line-num">1284</th>
+    <td class="line-code ">
+    <pre>            const ColorControlPoint &amp;pt = ct.GetControlPoints(j);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1285</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            sprintf(num, &quot;%0.3f&quot;, pt.GetPosition());</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1286</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            ctfile &lt;&lt; &quot;  [&quot; &lt;&lt; num &lt;&lt; &quot; color rgb&lt;&quot;;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1287</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            sprintf(num, &quot;%0.4f&quot;, float(pt.GetColors()[0])/255.);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1288</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            ctfile &lt;&lt; num &lt;&lt; &quot; &quot;;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1289</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            sprintf(num, &quot;%0.4f&quot;, float(pt.GetColors()[1])/255.);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1290</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            ctfile &lt;&lt; num &lt;&lt; &quot; &quot;;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1291</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            sprintf(num, &quot;%0.4f&quot;, float(pt.GetColors()[2])/255.);</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1292</th>
+  <th class="line-num"></th>
+    <td class="line-code diff_out">
+    <pre>            ctfile &lt;&lt; num &lt;&lt; &quot;&gt;]&quot; &lt;&lt; endl;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">1285</th>
+    <td class="line-code diff_in">
+    <pre>            ctfile &lt;&lt; &quot;  [&quot; &lt;&lt; pt.GetPosition()) &lt;&lt; &quot; color rgb&lt;&quot;;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">1286</th>
+    <td class="line-code diff_in">
+    <pre>            ctfile &lt;&lt; float(pt.GetColors()[0])/255.) &lt;&lt; &quot; &quot;;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">1287</th>
+    <td class="line-code diff_in">
+    <pre>            ctfile &lt;&lt; float(pt.GetColors()[1])/255.) &lt;&lt; &quot; &quot;;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num"></th>
+  <th class="line-num">1288</th>
+    <td class="line-code diff_in">
+    <pre>            ctfile &lt;&lt; float(pt.GetColors()[2])/255.) &lt;&lt; &quot;&gt;]&quot; &lt;&lt; endl;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1293</th>
+  <th class="line-num">1289</th>
+    <td class="line-code ">
+    <pre>        }</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1294</th>
+  <th class="line-num">1290</th>
+    <td class="line-code ">
+    <pre>        ctfile &lt;&lt; &quot;};&quot; &lt;&lt; endl;</pre>
+  </td>
+  </tr>
+
+<tr>
+  <th class="line-num">1295</th>
+  <th class="line-num">1291</th>
+    <td class="line-code ">
+    <pre>        ctfile &lt;&lt; endl;</pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+
+
+
+
+        
+				<div style="clear:both;"></div>
+    </div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+	
+<div id="footer">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> &copy; 2006-2010 Jean-Philippe Lang
+</div>
+</div>
+
+</body>
+</html>
