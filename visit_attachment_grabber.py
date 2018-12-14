@@ -35,12 +35,11 @@ if __name__ == "__main__":
         html_parser = BeautifulSoup(raw_html, 'html.parser')
 
         links = html_parser.find_all('a', {'class': 'icon icon-attachment'})
-        print links
-        #for addr in links:
-        #    ref   = addr['href']
-        #    out_f = "%s/%i_%s" % (out_dir, issue, ref.split('/')[-1])
-        #    url   = "%s%s" % (base, ref)
-        #    urllib.urlretrieve(url, out_f)
+        for addr in links:
+            ref   = addr['href']
+            out_f = "%s/%i_%s" % (out_dir, issue, ref.split('/')[-1])
+            url   = "%s%s" % (base, ref)
+            urllib.urlretrieve(url, out_f)
 
     print "FINISHED GRABBING ATTACHMENTS!"
     
