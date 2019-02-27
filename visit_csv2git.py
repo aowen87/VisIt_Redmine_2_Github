@@ -500,7 +500,7 @@ def extract_milestones(row, exclude):
 
 def create_github_label(name, 
                         color, 
-                        description = None, 
+                        description = '', 
                         attempts    = 0):
     """
         Create a label on github issues. 
@@ -538,10 +538,8 @@ def create_github_label(name,
 
 
 def create_github_milestone(title, 
-                            state       = 'open',
-                            description = None, 
-                            due_on      = None,
-                            attempts    = 0):
+                            state    = 'open',
+                            attempts = 0):
     """
         Create a label on github issues. 
     """
@@ -549,9 +547,8 @@ def create_github_milestone(title,
     session = requests.Session()
     session.auth = (USERNAME, PASSWORD)
     issue = {'title': title,
-             'state': state,
-             'description': description,
-             'due_on': due_on}
+             'state': state
+            }
 
     sleep(SHORT_WAIT)
     response = session.post(url, json.dumps(issue, encoding='latin1'))
@@ -576,8 +573,6 @@ def create_github_milestone(title,
             sleep(LONG_WAIT)
             create_github_milestone(title, 
                                     state, 
-                                    description, 
-                                    due_on, 
                                     attempts + 1)
 
 
@@ -614,7 +609,7 @@ def close_github_issue(issue_url,
 
 
 def create_github_issue(title, 
-                        body      = None, 
+                        body      = '', 
                         assignees = [], 
                         milestone = None, 
                         labels    = [], 

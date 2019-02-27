@@ -741,7 +741,7 @@ cq-id: VisIt00008520cq-submitter: Mark Millercq-submit-date: 02/27/08
 Greg Greenman has a CSG dataset with ~10K rods. VisIt chokes on it. It would help immensley if VisIt's CSG stuff understood 'copies' of regions. Silo's file format supports that.
 MCM -- Added 05Mar08--------------------Hank asked for some prioritization on this. Eric said he would take with Chris Clouse
 "
-128,Pending,Feature,Normal," Add to pseudo color plot ability to have values above or below user set min, max a specific color ",-,-,-,Cyrus Harrison,,,0%,,06/21/2010 07:16 pm,,,,2.12.3,3 - Medium,3 - Occasional,All,DOE/ASC,"
+128,Resolved,Feature,Normal," Add to pseudo color plot ability to have values above or below user set min, max a specific color ",Kathleen Biagas,-,3.0,Cyrus Harrison,,,100%,,06/21/2010 07:16 pm,12/26/2018 07:56 pm,,,2.12.3,3 - Medium,3 - Occasional,All,DOE/ASC,"
 cq-id: VisIt00008872cq-submitter: Eric Bruggercq-submit-date: 01/16/09
 Doug Faux would like to be able to tell when values in a pseudo color plot are outsidethe range he set with the minimum and maximum. Currently anything below theminimum is colored using the minimum color and anything above the maximumis colored using the maximum color. He would like values outside the rangedrawn a user specified color.
 "
@@ -4800,7 +4800,7 @@ This ticket contains usability improvements requested by a VisIt user:
 When I double click on a curve plot, to bring up the ""Curve PlotAttributes"" window, it would be nice if that window had a ""log-scale"" for the domain and range. If I have zero or negative values, it would be nice to be able to set a min and max for the values, so the log is well defined (just like the pseudo-color plot attributes window).
 Currently I have to bring up the ""View"" window to change to a log scale for a curve, and there is no way to set a minimum value on that same window.  I think it would be easier to use if the log/linear scale and min/max stuff were all on the ""curve plot attributes"" window.
 "
-888,Pending,Bug,Normal," save movie wizard difficult to set up, save, and later use a template ",-,-,-,Kathleen Biagas,11/07/2011,,0%,,11/07/2011 05:44 pm,11/09/2011 12:41 pm,2 - Rare,3 - Major Irritation,2.3.2,,,All,Any,"
+888,Resolved,Bug,Normal," save movie wizard difficult to set up, save, and later use a template ",Kathleen Biagas,-,3.0,Kathleen Biagas,11/07/2011,,100%,2.00 hours,11/07/2011 05:44 pm,12/27/2018 08:12 pm,2 - Rare,3 - Major Irritation,2.3.2,,,All,Any,"
 Using save movie wizard, I wanted to create a template with two viewports, top and bottom in the viewing area.Several problems arose:
 1) I chose a side-by-side layout which gives left-right viewports.  I attempted to change the viewport properties so that they would be top-bottom instead.  Values were not accepted until I pressed enter, and that moved me to the next screen.  I had to use the back button to go back and change the viewport properties for the second viewport, then hit enter again.
 2) since #1 was such a hassle, I wanted to save my template. The default location for the template filename is VisIt's install directory.I didn't think overwriting this file was good, so attempted to choose a new location.  When I do, the 'open' button is greyed out, and I cannot do anything but cancel.
@@ -20389,7 +20389,7 @@ The total unnamed1 is 1000 # this is variable sum
 
 I added high priority for Greg Burton
 "
-3201,Pending,Bug,High, suspect int overflow in either VisIt or VTK8 when writing to string in avtDataRepresentation ,-,-,3.0,Mark Miller,08/15/2018,,0%,,08/15/2018 03:29 pm,11/27/2018 06:17 pm,3 - Occasional,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
+3201,New,Bug,High, suspect int overflow in either VisIt or VTK8 when writing to string in avtDataRepresentation ,-,-,3.0,Mark Miller,08/15/2018,,0%,,08/15/2018 03:29 pm,02/05/2019 01:24 pm,3 - Occasional,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
 I have a dataset, 10 million exodus quad8 zones. A smaller, 5 millon quad8 case works fine.But, engine crashes on 10 million case due to a call to new from VTK of size 18446744071695319403 (which is 64 bit unsigned for -2280735082) . I am pretty sure what is going on here is an int overflow somewhere in VisIt and/or VTK during vtkDataWriter::Write method when writing to a string in avtDataRepresentation::vtkToString() method repeated, with hacks, below
 unsigned char*
 avtDataRepresentation::vtkToString(bool compress)
@@ -20613,4 +20613,459 @@ Add expressions that cause ghost data to become a normal field on a mesh (instea
 Normal OSX apps launch themselves the first time you hit them and thereafter simply make the existing running instance of the app the active app.
 But, VisIt doesn't behave that way. Each new click of the app icon launches a new instance.
 Yet another OSX odd-ball behavior of VisIt.
+"
+3241,Resolved,Bug,Normal, support relative addressing in obj files ,Mark Miller,-,2.13.3,Mark Miller,10/02/2018,,0%,7.00 hours,10/02/2018 05:48 pm,10/17/2018 08:29 pm,3 - Occasional,3 - Major Irritation,2.12.3,,,All,Any,"
+I have a workaround that kind of sucks for not allowing for relative addressing for the f field in VisIt. Basically, the boss processor does all the work. My choices are to do the work twice so I can get a count of facets the first time; keep this serial; write a different file for each rank; or abandon VisIt for this.
+So what I would like to know is the following:
+Can relative addressing (negative numbers) be supported to an upcoming VisIt version for OBJ format?Can VisIt use a material file with OBJ format to color the surfaces?Is there a better format that is well supported in VisIt like .fbx, .dae (Collada), .3ds, .dxf, and .skp formats that I can also use with Unity?I would like it to support at least materials and/or colorsI would like to support relative addressing of information for parallel processing
+I included a picture of some shapes I have gotten to work (serial). Besides 3D virtual reality work, this may lead into some 3D printing as well.
+I have a workaround that kind of sucks for not allowing for relative addressing for the f field in VisIt. Basically, the boss processor does all the work. My choices are to do the work twice so I can get a count of facets the first time; keep this serial; write a different file for each rank; or abandon VisIt for this.
+So what I would like to know is the following:
+Can relative addressing (negative numbers) be supported to an upcoming VisIt version for OBJ format?Can VisIt use a material file with OBJ format to color the surfaces?Is there a better format that is well supported in VisIt like .fbx, .dae (Collada), .3ds, .dxf, and .skp formats that I can also use with Unity?I would like it to support at least materials and/or colorsI would like to support relative addressing of information for parallel processing
+I included a picture of some shapes I have gotten to work (serial). Besides 3D virtual reality work, this may lead into some 3D printing as well.
+"
+3242,Pending,Bug,Normal, plot list var menu becomes unuseable. ,-,-,-,Kathleen Biagas,10/03/2018,,0%,,10/03/2018 07:28 pm,10/16/2018 06:50 pm,3 - Occasional,2 - Minor Irritation,2.13.2,,,All,Any,"
+Allen reported this.  I saw it happen with his Mac. The variable menu icon actually gets grayed out.  Only restarting VisIt gets it to work again.
+He gave me data to play with on Surface.  I am able to reproduce with 2.13.2 on surface, though the icon doesn't go gray, it simply becomes unresponsive.  I had to quickly try changing vars on the active plot with the menu to reproduce, and it sometimes takes awhile.
+I saw this in the terminal window:QObject::disconnect: Unexpected null parameterQObject::disconnect: Unexpected null parameter
+and in the gui logs:QvisPlotManagerWidget::UpdatePlotVariableMenu: Need to update menus: falseQt: Warning: QObject::disconnect: Unexpected null parameterQt: Warning: QObject::disconnect: Unexpected null parameter
+So, I'm thinking that we are in the process of deleting something that was already deleted, or some such.
+"
+3243,Pending,Bug,High, Variable menus are possibly being recreated erroneously  ,-,-,-,Allen Sanderson,10/05/2018,,0%,,10/05/2018 01:13 pm,10/16/2018 06:48 pm,3 - Occasional,3 - Major Irritation,trunk,,,All,Any,"
+When running in situ (all on my local machine) I have 200+ variables.  There are long lags between creating a plot, having it appear in the plot window, clicking draw, having it go from green to yellow to black, and for the plot window to be responsive again.
+Kathleen, Mark, and I have seem it and all believe that the variable menus are possibly being recreated erroneously. This issue may be related to:  https://visitbugs.ornl.gov/issues/3242 in that we push the button but menus are being regenerated and the var button becomes unusable.
+"
+3244,Pending,Bug,Normal, linux libraries not found after installing - paths are not valid ,-,-,-,Allen Sanderson,10/05/2018,,0%,,10/05/2018 01:26 pm,10/16/2018 06:44 pm,3 - Occasional,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
+When running lib sim on linux libraries are not always found because the rpaths have been stripped out as part of the install. On OS X systems we fix up the paths. But not linux systems. I have looked at PatchELF https://nixos.org/patchelf.html and Kathleen has seen some references to it within CMAKE
+I should note that early on I could solve some of the missing library issues by adding the VTK libs to the TARGET_LINK_LIBRARIES
+TARGET_LINK_LIBRARIES(simV2runtime_par engine_par ${VTK_LIBRARIES} ${LIBSIM_RUNTIME_VIEWER_LIBS_PAR})
+The odd part is that they were needed when running in parallel but not serially.
+"
+3245,Pending,Feature,High, Pick from block id and i-j-k ,-,-,3.0,Kathleen Biagas,10/11/2018,,0%,,10/11/2018 11:12 am,10/16/2018 06:42 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+Requested by Thomas Shepard
+"
+3246,Pending,Feature,Normal, Add LS-Dyna readers. ,-,-,-,Kathleen Biagas,10/12/2018,,0%,,10/12/2018 05:15 pm,10/16/2018 06:42 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+"
+3247,Resolved,Feature,Normal, Signing OSX Builds ,Kevin Griffin,-,2.13.4,Kevin Griffin,10/16/2018,,100%,,10/16/2018 12:06 pm,11/20/2018 11:12 am,,,2.12.3,3 - Medium,3 - Occasional,OSX,Any,"
+So Ive talked with a few people at the Lab to include the developer of MacPatch, LivIT support folks, and I just recently reached out to Mary Ann Chapeta (handles various enterprise licenses) and still waiting to hear back from her. Heres what Ive discovered so far:
+1.     You can actually bypass all of the security exception stuff with OSX when you download an unsigned application by right-click and select open. It will display a warning message but after that youll be able to run the application! So, instead of double-click always do a right-click + open for unsigned applicationsI verified this with the latest VisIt build.2.      We can create an apple account using our Lab email address  (or use an existing) and purchase an individual Apple Developer Membership ($100) and get reimbursed. If you have a Lab iphone you had to create an apple account so you would use that account to purchase an Apple Developer Membership.3.     Charles Heizer, MacPatch developer, says he was told by Apple that the Lab has an Enterprise Developer Program but wasnt at liberty to say who. Ive contacted Mary Ann Chapeta to hopefully track this down.
+The simplest solution is to keep doing what weve been doing and just remind users that have a problem opening VisIt to always right-click+open. If we go the application signing route, Ive attached a recipe found online to give a sense of what needs to be done. Cyruss masonry scripts would definitely need to be updated to add these additional steps and allow for a developer ID to be entered.
+"
+3248,Resolved,Bug,High, Ensure graph-based enum scalars provide decent names for children ,Mark Miller,-,3.0,Mark Miller,10/16/2018,,0%,,10/16/2018 05:12 pm,12/07/2018 07:06 pm,3 - Occasional,3 - Major Irritation,2.12.3,,,All,Any,"
+This is for Allen Sanderson.
+I have one nicety that I would like to add - being able to name the edge list so when Node_0000 is expanded one does not get Node_0000 again but instead Ranks for my case:
+
+"
+3249,Pending,Bug,Normal, build_visit --all-io is broken due to Nektar++ and ADIOS2 ,-,-,2.13.4,Brad Whitlock,10/16/2018,,0%,,10/16/2018 05:33 pm,10/16/2018 06:35 pm,3 - Occasional,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
+Kick these libraries out of build_visit's all-io until their maintainers check libraries into third_party. Perhaps there are others that cause this too. build_visit should work.
+Normal svn failed. Trying anonymous svn.SVN download attempt failed: http://visit.ilight.com/svn/visit/trunk/third_party/nektar-4.4.1.tar.gzAnonymous SVN download attempt failed: http://visit.ilight.com/svn/visit/trunk/third_party/nektar-4.4.1.tar.gzDownload attempt failed: https://www.nektar.info/wp-content/uploads/2017/03//nektar-4.4.1.tar.gzDownload attempt failed: http://visit.ilight.com/svn/visit/trunk/third_party/nektar-4.4.1.tar.gzFailed to download nektar-4.4.1.tar.gzError: Cannot obtain source for nektar++.Unable to build Netar++.  nektar-4.4.1.tar.gz not found.Error in build process.  See build_visit_log for more information. If the error is unclear, please include build_visit_log in a  message
+Downloading ADIOS2-0.1.0.tar.gz . . .Normal svn failed. Trying anonymous svn.SVN download attempt failed: http://visit.ilight.com/svn/visit/trunk/third_party/ADIOS2-0.1.0.tar.gzAnonymous SVN download attempt failed: http://visit.ilight.com/svn/visit/trunk/third_party/ADIOS2-0.1.0.tar.gzDownload attempt failed: http://visit.ilight.com/svn/visit/trunk/third_party/ADIOS2-0.1.0.tar.gzFailed to download ADIOS2-0.1.0.tar.gzError: Cannot obtain source for adios.Unable to build ADIOS2.  ADIOS2-0.1.0.tar.gz not found.Error in build process.  See build_visit_log for more information. If the error is unclear, please include build_visit_log in a  message to the visit-users@ornl.gov list.  You will probably  need to compress the build_visit_log using a program like gzip  so it will fit within the size limits for email attachments.
+"
+3250,Pending,Bug,Normal, Qt 5.10 on Mac makes VisIt main window appear with bad size. ,-,-,3.0,Brad Whitlock,10/17/2018,,0%,,10/17/2018 12:59 pm,10/30/2018 07:01 pm,3 - Occasional,3 - Major Irritation,2.12.3,,,OSX,Any,"
+I ran build_visit the other day to redo VTK with some extra flags. It picked up a new Qt. When I ran it, the VisIt main window came up fairly square instead of in the tall,narrow configuration I expect. I'm reverting to Qt 5.6 because of this. Note the viewer geometry flags below that tell the viewer to appear at x=641, which is because of the GUI main window that is almost twice as wide as it ought to be:
+VisIt with Qt 5.10optimusprime:bin bjw$ ./visit -noconfigRunning: gui -dv -noconfigRunning: viewer -dv -noconfig -geometry 1919x1337+641+0 -borders 20,0,0,1 -shift 0,0 -preshift 0,0 -defer -host 127.0.0.1 -port 5600Running: mdserver -dv -host 127.0.0.1 -port 5601
+VisIt with Qt 5.6optimusprime:bin bjw$ ./visit -noconfigRunning: gui -dv -noconfigRunning: viewer -dv -noconfig -geometry 2207x1337+353+0 -borders 20,0,0,1 -shift 0,0 -preshift 0,0 -defer -host 127.0.0.1 -port 5600Running: mdserver -dv -host 127.0.0.1 -port 5601
+"
+3251,Resolved,Feature,High, Enhance OBJ reader to support coloration of surface elements ,Mark Miller,-,2.13.4,Mark Miller,10/17/2018,,0%,,10/17/2018 08:38 pm,10/25/2018 08:43 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+Currently, our OBJ reader supports grouping via the g statements.
+However, those statements permit multiple inclusion (e.g. a given element in the file can be included in multiple groups) and VisIt's material object, the only one that allows data producer to specify colors associated with mesh subsets, is single inclusion.
+Its concievable user's only need this to work for single inclusion case. In which case, current mechanism of using an bit-mask enum scalar for groups would need to be replaced with a material object specifying, also, colors.
+Requested by WSC customer
+"
+3252,Pending,Bug,High, Inverse ghost zone not working when all domains selected ,-,-,2.13.4,Mark Miller,10/19/2018,,0%,,10/19/2018 03:20 pm,10/31/2018 07:12 pm,3 - Occasional,4 - Crash / Wrong Results,2.13.2,,,All,Any,"
+Attached are two pictures of a simple mesh with inverse ghost zone operator applied. The only difference between the two pictures is that the one showing correct ghosting (some-domain-off-case) has one domain turned off. It doesn't matter which domain. Just one domain has to be off to get the correct ghost zones plotted. I suspect this has to do with optimization in the ghost zone and facelist filter for the all domains on case. I think all-domains-on+inverse-ghost-operator has a problem. Perhaps the all-domains-on optimization should be ignored when inverse-ghost-zone operator is in use?
+"
+3253,Resolved,Feature,Normal, Add tests for WavefrontOBJ files ,Mark Miller,-,2.13.4,Mark Miller,10/19/2018,,0%,,10/19/2018 06:50 pm,10/25/2018 08:42 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+I recently added functionality to WavefrontOBJ reader and have some data files useful for defining a few tests.
+
+
+We should a .py test which includes
+	
+enum scalar groups
+multiple inclusion in enum scalar groupings
+single-inclusion groupiins as materials
+color specification in materials
+
+"
+3254,Pending,Bug,Normal, Orphan VisIt VCL jobs ,Alister Maguire,-,2.13.4,Alister Maguire,10/24/2018,,0%,,10/24/2018 06:46 pm,10/30/2018 07:34 pm,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+Mark recently noticed some zombie VCL jobs on Surface. I've been able to reproduce the issue by following these steps:
+1. Launch VisIt from my desktop.2. Click open, and change my host to surface.3. Open a dataset.4. When prompted, select parallel batch pbatch.
+After step 4, I see an error message about an invalid account or account/partition combination. I can then exit VisIt, and the vcl will remain running on surface until I kill it manually.Interestingly, I havent yet been able to reproduce this on any other machines. For instance, I dont have a bank on rztopaz and will receive the same error as above if I try to launch a job there. I repeated the above steps, but connecting to rztopaz instead of surface. I received the same error message, but there were no vcl processes running after exiting VisIt.
+Just for reference, Ive also tried to reproduce this by exiting with ctrl-c, but I had no luck. Also, following the above steps (with surface) but selecting parallel mxterm or serial does not result in the above issue. Everything runs fine in both cases.
+"
+3255,Pending,Bug,High, VTK8: confirm obj rebaselines ,-,-,3.0,Mark Miller,10/25/2018,,0%,,10/25/2018 08:45 pm,10/30/2018 06:50 pm,3 - Occasional,4 - Crash / Wrong Results,trunk,,,All,Any,"
+Have a look at these results
+http://portal.nersc.gov/project/visit/tests/2018-10-25-08:47/pascal_trunk_serial/obj_box.html
+I am wondering if the thick mesh lines are a problem in VTK we're using on trunk
+"
+3256,Pending,Bug,Normal, Plane tool not aligned with slice plane when first enabled ,-,-,-,Kevin Griffin,10/29/2018,,0%,,10/29/2018 02:08 pm,10/30/2018 06:48 pm,3 - Occasional,3 - Major Irritation,2.12.3,,,All,Any,"
+When initializing the plane tool on a pseudo color plot with the Slice operator applied to it, the plane tool is not correctly initialized with the operator's slice plane (see attachment).
+"
+3257,Pending,Bug,Normal, Upgrade BoxLib to AMReX ,-,-,-,Mark Miller,10/30/2018,,0%,,10/30/2018 12:19 am,10/30/2018 06:47 pm,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+BoxLib has been superseded by AMReX.
+We should upgrade our builds and plugin to use AMReX.
+What happens to our ability to read/vis old boxlib data files?
+"
+3258,New,Docs,Normal, Error and omission in Host Profiles section of documentation. ,Eric Brugger,-,3.0,Eric Brugger,11/05/2018,,0%,,11/05/2018 05:23 pm,,3 - Occasional,3 - Major Irritation,2.12.3,,,,Any,"
+I was helping a user with getting host profiles installed and I pointed him at the documentation. It neglected some important information and potentially has an error. Here is the e-mail message. He was running 2.10.0, so it is a bit old, but I suspect the docs should be the same.
+Eric, I am not sure why but the Export Host does not work.  The instructions say something about a checkbox to export files but I dont see a checkbox, but the export host file is there and when I press it no file is created in my user home directory.
+As for the hosts entry:
+And as you can see herels ltotal 8-rw-r-r-- 1 root root 5376 Nov  5 15:28 vocc.xml [root@headnode hosts]# pwd /usr/local/visit_local/visit2_10_0.linux-x86_64/2.10.0/.visit/hosts[root@headnode hosts]#
+I have placed the vocc.xml file in the directory, yet it does not show up in the lists of hosts.
+I figured it out the file needed to be named host_vocc.xml for Visit to see it.
+Once I copied it to the new name it showed up.  That should be documented somewhere.Daniel
+-----Original Message-----From: Brugger, Eric <brugger1@llnl.gov>Sent: Monday, November 5, 2018 4:36 PMTo: Ross, Daniel B. <rossdb@ornl.gov>Cc: Brugger, Eric <brugger1@llnl.gov>Subject: RE: [visit-users] problem running 2.10.0 parallel version of visit on Centos 7
+Hi Daniel,
+The ""Export Host"" button near the bottom of the window is used to create save the host profiles you have created in the GUI. It places the file in ""~/.visit/hosts"". The name of the file doesn't matter. All the information about the profile is stored in the xml file. I just tried it on a RHEL7.5 system with 2.13.2 and it worked fine.
+Here is the manual page regarding creating host profiles.
+https://visit-sphinx-user-manual.readthedocs.io/en/latest/ClientServer/Host_Profiles.html
+For creating customlaunchers, you have to code them up in Python and I start with an example that is close to what I want.
+Eric
+-----Original Message-----From: Ross, Daniel B. <rossdb@ornl.gov>Sent: Monday, November 05, 2018 1:13 PMTo: Brugger, Eric <brugger1@llnl.gov>Subject: RE: [visit-users] problem running 2.10.0 parallel version of visit on Centos 7
+Eric,I cant get it to show up in the host profiles section.   If I copy say Clemson xml sample and launcher to the bin directory and .visit/hosts that shows up in the gui as a host profile.However, changing the name to anything else it no longer shows up.  Is there some ruleset VISIT uses to decide when a profile shows up based on the name of the xml? .  How are we supposed to create hosts and launchers normally from the gui?  I dont seem to be able to save anything when I create a new host.  The export host feature seems to do nothing and there is no way to save a host.   ThanksDaniel
+-----Original Message-----From: Brugger, Eric <brugger1@llnl.gov>Sent: Monday, November 5, 2018 1:56 PMTo: Ross, Daniel B. <rossdb@ornl.gov>Cc: Brugger, Eric <brugger1@llnl.gov>Subject: RE: [visit-users] problem running 2.10.0 parallel version of visit on Centos 7
+Daniel,
+visit/2.10.0/.visit/hosts
+Eric
+-----Original Message-----From: Ross, Daniel B. <rossdb@ornl.gov>Sent: Monday, November 05, 2018 10:49 AMTo: Brugger, Eric <brugger1@llnl.gov>Subject: RE: [visit-users] problem running 2.10.0 parallel version of visit on Centos 7
+Eric,Thanks for the help so far, that seems to be what I am looking for.  Where do I place the xml file such that Visit will then read the customlauncher?  I tried just copying the customlauncher from one of the samples but the hosts does not show up in the host list to load.daniel
+-----Original Message-----From: Brugger, Eric <brugger1@llnl.gov>Sent: Monday, November 5, 2018 11:05 AMTo: VisIt software users community <visit-users@elist.ornl.gov>; Marcelo Ponce <mponce@scinet.utoronto.ca>Cc: Ross, Daniel B. <rossdb@ornl.gov>Subject: RE: [visit-users] problem running 2.10.0 parallel version of visit on Centos 7
+Hi Daniel,
+You can set environment variables in a custom launcher. Here is a link to one that sets environment variables.
+http://visit.ilight.com/svn/visit/branches/2.13RC/src/resources/hosts/llnl/customlauncher
+There are more examples if you go up 2 directory levels and search for files named ""customlauncher"". You place your ""customlauncher"" script in ""visit/2.10.0/bin"".
+Eric
+"
+3259,New,Bug,Low, Dyna Reader Freezes Visit ,-,-,-,Edward Rusu,11/06/2018,,0%,,11/06/2018 12:16 pm,,3 - Occasional,2 - Minor Irritation,2.13.2,,,Linux,Any,"
+In the File Open dialog box, select Dyna3d for ""Open file as type"". Then, attempting to open some types of files will cause Visit to freeze. I've tried this with a number of .isave, .log, and .matlist files. Freeze every time. For other file types, the reader is able to detect that it is an invalid file type and outputs the Error! message.
+"
+3260,Pending,Bug,Normal, build_visit results in funky build on unbuntu ,-,-,-,Mark Miller,11/08/2018,,0%,,11/08/2018 11:12 pm,11/27/2018 07:01 pm,2 - Rare,3 - Major Irritation,2.13.2,,,All,Any,"
+user built 2.13.3 on ubuntu using ./build_visit -static -boxlib --parallel
+Then, cannot open boxlib file without explicitly specifying boxlib3d reader.
+And, cli won't run due to undefined visit module
+See attached PDF for email thread.
+See attached debug logs when running.
+"
+3261,Pending,Bug,Normal, Something funky with QXcbEventReader ,-,-,-,Mark Miller,11/19/2018,,0%,,11/19/2018 12:33 pm,11/27/2018 07:00 pm,4 - Common,3 - Major Irritation,2.12.3,,,All,Any,"
+When runnig 2.13RC on RZ (or CZ I think also), I am seeing after I exit VisIt, core files like rzgenie5-QXcbEventReader-58682.core
+I believe I can see behavior with either my own build or with current install.
+The core happens when I exit VisIt normally. So, it is somewhat silent until you happen to see the core files.
+I captured gdb and valgrind info here too.
+gdb output...
+rzgenie5{miller86}558: gdb /g/g11/miller86/visit/2.13RC_trunk/build/exe/viewer rzgenie5-QXcbEventReader-120847.core
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-110.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type ""show copying"" 
+and ""show warranty"" for details.
+This GDB was configured as ""x86_64-redhat-linux-gnu"".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /g/g11/miller86/visit/2.13RC_trunk/build/exe/viewer...done.
+[New LWP 121041]
+[New LWP 120847]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library ""/lib64/libthread_db.so.1"".
+Core was generated by `/g/g11/miller86/visit/2.13RC_trunk/build/exe/viewer -dv -geometry 1519x1119+401'.
+Program terminated with signal 6, Aborted.
+#0  0x00002aaaba83c207 in __GI_raise (sig=sig@entry=6) at ../nptl/sysdeps/unix/sysv/linux/raise.c:56
+56      return INLINE_SYSCALL (tgkill, 3, pid, selftid, sig);
+warning: File ""/usr/tce/packages/gcc/gcc-4.9.3/lib64/libstdc++.so.6.0.20-gdb.py"" auto-loading has been declined by your `auto-load safe-path' set to ""$debugdir:$datadir/auto-load:/usr/bin/mono-gdb.py:/usr/lib/golang/src/pkg/runtime/runtime-gdb.py"".
+To enable execution of this file add
+    add-auto-load-safe-path /usr/tce/packages/gcc/gcc-4.9.3/lib64/libstdc++.so.6.0.20-gdb.py
+line to your configuration file ""/g/g11/miller86/.gdbinit"".
+To completely disable this security protection add
+    set auto-load safe-path /
+line to your configuration file ""/g/g11/miller86/.gdbinit"".
+For more information about this security protection see the
+""Auto-loading safe path"" section in the GDB manual.  E.g., run from the shell:
+    info ""(gdb)Auto-loading safe path"" 
+Missing separate debuginfos, use: debuginfo-install glib2-2.54.2-2.el7.x86_64 libICE-1.0.9-9.el7.x86_64 libSM-1.2.2-2.el7.x86_64 libX11-1.6.5-1.el7.x86_64 libXau-1.0.8-2.1.el7.x86_64 libXcursor-1.1.14-8.el7.x86_64 libXext-1.3.3-3.el7.x86_64 libXfixes-5.0.3-1.el7.x86_64 libXrender-0.9.10-1.el7.x86_64 libXt-1.1.5-3.el7.x86_64 libffi-3.0.13-18.el7.x86_64 libglvnd-1.0.1-0.1.git5baa1e5.el7.x86_64 libglvnd-glx-1.0.1-0.1.git5baa1e5.el7.x86_64 libicu-50.1.2-15.el7.x86_64 libpng-1.5.13-7.el7_2.x86_64 libuuid-2.23.2-52.el7_5.1.x86_64 libxcb-1.12-1.el7.x86_64 mesa-libGLU-9.0.0-4.el7.x86_64 pcre-8.32-17.el7.x86_64
+(gdb) where
+#0  0x00002aaaba83c207 in __GI_raise (sig=sig@entry=6) at ../nptl/sysdeps/unix/sysv/linux/raise.c:56
+#1  0x00002aaaba83d8f8 in __GI_abort () at abort.c:90
+#2  0x00002aaab7ad6ff1 in signalhandler_core(int) (sig=11)
+    at /g/g11/miller86/visit/2.13RC_trunk/src/common/misc/DebugStreamFull.C:196
+#3  0x00002aaaba83c280 in <signal handler called> () at /lib64/libc.so.6
+#4  0x00002aaac5519769 in  ()
+#5  0x00002aaac75c3e50 in  ()
+#6  0x00000000006f4670 in  ()
+#7  0x00002aaac75c3e90 in  ()
+#8  0x00000000006f49d0 in  ()
+#9  0x0000000000201000 in  ()
+#10 0x00002aaab9266259 in  ()
+    at /usr/workspace/wsrzc/visit/visit/thirdparty_shared/2.13.0/toss3/qt/5.6.1/linux-x86_64_gcc-4.9/lib/libQt5Core.so.5
+(gdb) up
+#1  0x00002aaaba83d8f8 in __GI_abort () at abort.c:90
+90          raise (SIGABRT);
+(gdb) up
+#2  0x00002aaab7ad6ff1 in signalhandler_core (sig=11)
+    at /g/g11/miller86/visit/2.13RC_trunk/src/common/misc/DebugStreamFull.C:196
+196              close_streams(); abort(); // HOOKS_IGNORE
+(gdb) list
+191              debug1 << ""signalhandler_core: SIGFPE!"" << endl;
+192              close_streams(); abort(); // HOOKS_IGNORE
+193              break;
+194          case SIGSEGV:
+195              debug1 << ""signalhandler_core: SIGSEGV!"" << endl;
+196              close_streams(); abort(); // HOOKS_IGNORE
+197              break;
+198    #if !defined(_WIN32)
+199          case SIGBUS:
+200              debug1 << ""signalhandler_core: SIGBUS!"" << endl;
+(gdb) 
+
+valgrind logs...
+==141776== Thread 2 QXcbEventReader:
+==141776== Jump to the invalid address stated on the next line
+==141776==    at 0x1FE80769: ???
+==141776==    by 0x21F2AE4F: ???
+==141776==    by 0x1FC6FB6F: ???
+==141776==    by 0x21F2AE8F: ???
+==141776==    by 0x1FC6FF5F: ???
+==141776==    by 0x200FFF: ???
+==141776==    by 0x133CD258: ??? (in /usr/workspace/wsrzc/visit/visit/thirdparty_shared/2.13.0/toss3/qt/5.6.1/linux-x86_64_gcc-4.9/lib/libQt5Core.so.5.6.1)
+==141776==    by 0x1365909F: ??? (in /usr/workspace/wsrzc/visit/visit/thirdparty_shared/2.13.0/toss3/qt/5.6.1/linux-x86_64_gcc-4.9/lib/libQt5Core.so.5.6.1)
+==141776==  Address 0x1fe80769 is not stack'd, malloc'd or (recently) free'd
+==141776==
+==141776==
+==141776== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==141776==    at 0x149A3207: raise (raise.c:56)
+==141776==    by 0x149A48F7: abort (abort.c:90)
+==141776==    by 0x11C3DFF0: signalhandler_core(int) (DebugStreamFull.C:196)
+==141776==    by 0x149A327F: ??? (in /usr/lib64/libc-2.17.so)
+==141776==    by 0x1FE80768: ???
+==141776==    by 0x21F2AE4F: ???
+==141776==    by 0x1FC6FB6F: ???
+==141776==    by 0x21F2AE8F: ???
+==141776==    by 0x1FC6FF5F: ???
+==141776==    by 0x200FFF: ???
+==141776==    by 0x133CD258: ??? (in /usr/workspace/wsrzc/visit/visit/thirdparty_shared/2.13.0/toss3/qt/5.6.1/linux-x86_64_gcc-4.9/lib/libQt5Core.so.5.6.1)
+==141776==    by 0x1365909F: ??? (in /usr/workspace/wsrzc/visit/visit/thirdparty_shared/2.13.0/toss3/qt/5.6.1/linux-x86_64_gcc-4.9/lib/libQt5Core.so.5.6.1)
+
+"
+3262,Pending,Bug,Normal, ThreeSlice operator failure when slice aligns on block boundaries ,-,-,-,Mark Miller,11/19/2018,,0%,,11/19/2018 07:14 pm,11/27/2018 06:58 pm,1 - Exceptional,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
+I have encountered a bug that seems to show up only in a rare case.  When I try to make a ThreeSlice plot and a plane of one or more of the slice planes are exactly at the planar boundary between patches, those slice planes are not displayed.
+Mesh description:  100x100x100 mesh, partitioned into 4 patches by bisecting in the Y and Z directions.  The planes of bisection are at Y=0.0 and Z=0.0.  This uses the SAMRAI format, but there are no fine AMR patches.
+VisIt commands:Add->Pseudocolor->density->DrawOperators->Slicing->ThreeSlice->Draw
+The default Y and Z slice planes are exactly at the planes that bisected the mesh to partition the patches, and they don't show up in the ThreeSlice plot.  Only the X-slice plane is there.  If I go to ThreeSlice operator attributes and change the Y and Z values to 1.0e-16, then all three slices appear.
+Dataset is attached.  This seems to be something that will be very rare, because if I change almost anything about the run that produces this dump, including the number of mesh zones, the buggy behavior goes away.
+"
+3263,Pending,Bug,Normal, Bug in rendering ThreeSlice plots--SAMRAI plugin ,-,-,-,Kevin Griffin,11/20/2018,,0%,,11/20/2018 11:08 am,11/27/2018 06:57 pm,1 - Exceptional,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
+I have encountered a bug that seems to show up only in a rare case.  When I try to make a ThreeSlice plot and a plane of one or more of the slice planes are exactly at the planar boundary between patches, those slice planes are not displayed.Mesh description:  100x100x100 mesh, partitioned into 4 patches by bisecting in the Y and Z directions.  The planes of bisection are at Y=0.0 and Z=0.0.  This uses the SAMRAI format, but there are no fine AMR patches.
+VisIt commands:
+Add->Pseudocolor->density->Draw
+Operators->Slicing->ThreeSlice->Draw
+The default Y and Z slice planes are exactly at the planes that bisected the mesh to partition the patches, and they don't show up in the ThreeSlice plot.  Only the X-slice plane is there.  If I go to ThreeSlice operator attributes and change the Y and Z values to 1.0e-16, then all three slices appear.I can provide a dataset.  This seems to be something that will be very rare, because if I change almost anything about the run that produces this dump, including the number of mesh zones, the buggy behavior goes away.
+--Noah Elliott
+"
+3264,Pending,Bug,Normal, moving mesh & actual extents ,-,-,-,Burlen Loring,11/20/2018,,0%,,11/20/2018 12:29 pm,11/28/2018 01:32 pm,3 - Occasional,3 - Major Irritation,2.13.2,,,All,Any,"
+I am attempting to analyze a moving mesh in situ with libsim. We are initializing things from a session file. The problem I'm having is that the camera doesn't move with the mesh, so things only work well around the timestep where the session file was generated, and the data is off screen before and after that timestep.
+I've observed that in the gui things work a little differently. in situ the view is fixed, but in the gui, the view/camera parameters are expanded to encompass all timesteps. this isn't quite what we want, because the mesh moves enough that we will not be able to see sufficient detail when the view is expanded.
+If I recall correctly a number of years ago the ""actual extents"" option used to move the camera with the data and set the view to tightly capture the data.
+Here are some test datasets, with .visit files
+https://drive.google.com/open?id=1RfxN5mYOT3SEUe09VhZz6dLbFXkxW6-P
+the 2d version is easier to see what's going on. in the 3d folder use an expression to make j=sqrt(jx*jx+jy*jy+jz*jz) and visualize 10 iso surfaces of j.
+"
+3265,Resolved,Feature,Normal, Onion peel defaults to start at zone 1. Shouldn't it be zone 0? ,Mark Miller,-,3.0,Mark Miller,11/20/2018,,0%,,11/20/2018 12:50 pm,12/12/2018 11:20 am,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+"
+3266,Pending,Bug,Normal, VTK8 - Locally running trunk (3.0) behaves differently on OSX if XQuartz/Grab are running ,-,-,-,Mark Miller,11/20/2018,,0%,,11/20/2018 01:23 pm,11/27/2018 06:52 pm,4 - Common,4 - Crash / Wrong Results,2.12.3,,,All,Any,"
+I finally built trunk on my OSX system using build_visit 
+build_visit --build-mode Debug --required --optional --all-io --fortran --parallel --thirdparty-path /Users/miller86/visit.new/thirdparty/3.0 \
+--debug --no-adios2 --no-fastbit --no-fastquery --no-nektarpp --no-pyside
+The 5 trailing --no-xxx args were to disable things that were preventing build_visit from completing successfully.
+However, I noticed that I am seeing that same build behave differently depending on whether or not I have other applications running such as XQuartz or sometimes Grab.
+I've attached two pictures one with and one without XQuartz running. However, this isn't always reproducible. Sometimes, even when I quit XQuartz, I still see the bad behavior.
+
+
+Also, am noticing this on stderr, for both good and bad cases, when running...
+dlerror() = dlopen(libospray_module_ispc.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_native_float.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_avx2_float.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_avx_float.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_sse4_float.dylib, 10): image not found
+#osp: INITIALIZATION ERROR --> could not open module lib ospray_module_ispc
+Running: engine_ser -dv -idle-timeout 480 -host 127.0.0.1 -port 5600
+dlerror() = dlopen(libospray_module_ispc.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_native_float.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_avx2_float.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_avx_float.dylib, 10): image not found
+dlerror() = dlopen(libospray_module_ispc_sse4_float.dylib, 10): image not found
+#osp: INITIALIZATION ERROR --> could not open module lib ospray_module_ispc
+
+"
+3267,Pending,Bug,Normal, restore session does not honor non-default read options ,-,-,-,Mark Miller,11/20/2018,,0%,,11/20/2018 05:35 pm,11/27/2018 06:47 pm,2 - Rare,3 - Major Irritation,2.12.3,,,All,Any,"
+One of the non-default Silo read options is to search for annotation_int objects.
+Test databases that contain these are all those in overlink_test_data/annotInt
+
+Open such a database by using Open As... and setting default read options to search for annotation int objects.
+Do a PC plot and then adjust the SIL using one of the annotation_int objects list in the SIL controls.
+Save the session.
+Exit VisIt and restart with --sessionfile using the session you just saved.
+
+It will not plot correctly
+"
+3268,New,Bug,Normal, fix 2D zbuffer compositing to use plot-list ordering as proxy for depth sort ,-,-,-,Mark Miller,11/27/2018,,0%,,11/27/2018 11:18 pm,11/28/2018 12:08 pm,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+We've had this long standing problem for 2D zbuffer compositing in SR mode that if we have two or more plots with areal features, we can wind up with zbuffer contention between them because both are rendered with depth of zero. I think zbuffer contention can happen in 3D too and this issue ticket isn't speaking to 3D; only 2D.
+We should find a way to assign zbuffer depths to 2D objects such that all 2D objects for a plot i in the plot list are assigned a depth of i (more or less). This way, when scalable image compositing is performed in SR mode, there is always a clear winner at any given pixel based on plot list ordering and that winner is consistent across all pixels the plot covers.
+"
+3269,New,Docs,Normal, Add tags/labels to CLI documentation ,-,-,-,Mark Miller,11/28/2018,,0%,,11/28/2018 01:12 pm,,3 - Occasional,2 - Minor Irritation,2.12.3,,,,Any,"
+Currently, our CLI documentation amounts to an alpha list of function/member names. There is no hierarchical/categorization of stuff. It would help to have those.
+We can fix by adding some kind of simple tagging/labeling scheme to our documentation.
+"
+3270,New,Bug,Normal, Probably serious compiler warning ,-,-,-,Mark Miller,12/03/2018,,0%,,12/03/2018 07:55 pm,12/03/2018 07:55 pm,3 - Occasional,2 - Minor Irritation,trunk,,,All,Any,"
+
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C: In instantiation of 'T {anonymous}::getCellMax(vtkIdType*, vtkIdType, const T*) [with T = short unsigned int; vtkIdType = long long int]':
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:143:39:   required from 'void {anonymous}::getCellCenterDepth(vtkPolyData*, vtkDataArray*, vtkIdType, T, T, T, T, T, T, T*&) [with T = short unsigned int; vtkIdType = long long int]'
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:318:9:   required from here
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:98:39: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   T mx = -std::numeric_limits<T>::max();
+                                       ^
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C: In instantiation of 'T {anonymous}::getCellMax(vtkIdType*, vtkIdType, const T*) [with T = unsigned char; vtkIdType = long long int]':
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:143:39:   required from 'void {anonymous}::getCellCenterDepth(vtkPolyData*, vtkDataArray*, vtkIdType, T, T, T, T, T, T, T*&) [with T = unsigned char; vtkIdType = long long int]'
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:318:9:   required from here
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:98:39: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C: In instantiation of 'T {anonymous}::getCellMax(vtkIdType*, vtkIdType, const T*) [with T = short unsigned int; vtkIdType = long long int]':
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:143:39:   required from 'void {anonymous}::getCellCenterDepth(vtkPolyData*, vtkDataArray*, vtkIdType, T, T, T, T, T, T, T*&) [with T = short unsigned int; vtkIdType = long long int]'
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:318:9:   required from here
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:98:39: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+   T mx = -std::numeric_limits<T>::max();
+                                       ^
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C: In instantiation of 'T {anonymous}::getCellMax(vtkIdType*, vtkIdType, const T*) [with T = unsigned char; vtkIdType = long long int]':
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:143:39:   required from 'void {anonymous}::getCellCenterDepth(vtkPolyData*, vtkDataArray*, vtkIdType, T, T, T, T, T, T, T*&) [with T = unsigned char; vtkIdType = long long int]'
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:318:9:   required from here
+/usr/workspace/wsa/visit/miller86/visit_git_migration_trunk/trunk/src/avt/Plotter/vtk/vtkDepthSortPolyData2.C:98:39: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+
+
+"
+3271,New,Bug,Normal, Command recording not working when xterm not present. ,-,-,-,Brad Whitlock,12/07/2018,,0%,,12/07/2018 11:44 am,,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+I was giving a demo on a VM that did not have ""xterm"" installed. So, when I tried using the command recording window, it could not use xterm to start up the cli. This was on Ubuntu 18. It would be nice if internallauncher would use lxterminal (or what have you) preferentially and then use xterm otherwise.
+"
+3272,New,Bug,Normal, Plane tool with VisIt 3.0.0b is buggy and crashes VisIt. ,-,-,-,Brad Whitlock,12/07/2018,,0%,,12/07/2018 11:58 am,,3 - Occasional,5 - Very Serious,trunk,,,All,Any,"
+I ran VisIt trunk on an Ubuntu VM and used the plane tool to move a slice plane. It caused a hang in one case and a crash in another case.
+1. Open rect3d.silo2. Make a Pseudocolor plot of u3. Make a Mesh plot4. Draw the plots5. Turn off the project 2d on the slice6. Turn on the plane tool7. Move the plane tool forward/backward
+This is when I was able to get a hang or crash for the viewer. It might take a few times.
+"
+3273,Resolved,Bug,High, VTK8 - Volume rendering multi-domain datasets  ,Alister Maguire,-,3.0,Alister Maguire,12/07/2018,,100%,,12/07/2018 01:37 pm,12/11/2018 02:05 pm,4 - Common,4 - Crash / Wrong Results,trunk,,,All,Any,"
+There is currently an issue with rendering volumes of multi domain datasets. The issue occurs only when using the default renderer and appears to be a result of an old piece of code that tries to merge the domains into one.
+"
+3274,Resolved,Bug,High, Unable to create a 2D gradient from a NEK5000 file. ,Eric Brugger,-,2.13.4,Eric Brugger,12/10/2018,,100%,8.00 hours,12/10/2018 11:24 am,12/11/2018 02:26 pm,3 - Occasional,4 - Crash / Wrong Results,2.13.2,,,All,Any,"
+Jean Favre reported the bug described below. He gave me the file and I have it in my home directory on kickit.
+Hello Eric
+This is the file where I cannot compute a 2D gradient. GIven:
+grad_temp = gradient(temperature) mag_grad_temp = magnitude(grad_temp) Message is ""The Pseudocolor plot of variable ""mag_grad_temp"" yielded no data.""
+Can you please open a bug and send me the bug number? Thanks Jean
+"
+3275,Resolved,Bug,High, Cinema on windows doesn't save to user dir ,Kathleen Biagas,-,3.0,Kathleen Biagas,12/11/2018,,100%,,12/11/2018 11:36 am,12/13/2018 12:21 pm,3 - Occasional,4 - Crash / Wrong Results,trunk,,,All,Any,"
+If VisIt is installed 'per user', then this isn't a problem since user has write access to that directory.However, that isn't how we usually do things on windows, any saved files should be saved to the VisIt folder in the user's home space.  User might have a problem locating the files.
+If VisIt is installed for all users, and installed to standard location (Program Files), then user doesn't necessarily have write access without privilege elevation.   I've attached screen shots of my Cinema settings, and the resulting error messages in the cli window.
+The cinema wizard has the option for choosing the directory, but if that isn't filled out, it should be users' home on Windows.
+"
+3276,New,Bug,Normal, Re-work handling of CMake built-in variables ,-,-,-,Mark Miller,12/14/2018,,0%,,12/14/2018 04:29 pm,,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+There is some contention between CMAKE_BUILD_TYPE (a built-in CMake variable) and VISIT_CXX_FLAGS (a VisIt counterpart to a CMake builtin variable, CMAKE_CXX_FLAGS). Currently, if one specifies -DCMAKE_BUILD_TYPE:STRING=""Debug"" on command-line and VISIT_CXX_FLAGS is also specified in the config-site file, if it sets -O2 or fails to set -g, then one does not get a debuggable executable. There will be no debug symbols and optimizations may make it difficult to follow execution in a debugger.
+There are a few things involved here. First, in top-level CMakeLists.txt file, we have
+SET(CMAKE_C_FLAGS ""${CMAKE_C_FLAGS} ${VISIT_C_FLAGS}"")
+SET(CMAKE_CXX_FLAGS ""${CMAKE_CXX_FLAGS} ${VISIT_CXX_FLAGS}"")
+I believe these place VISIT_CXX_FLAGS at a higher priority than CMAKE_CXX_FLAGS because compiler will obey only the last instance of a repeated option on command-line. So, if you have -O0 followed by -O2, the compiler will obey -O2.
+But, don't we want the command-line to CMake to override anything from elsewhere, including either config-site files or top-level CMakeLists.txt file? For CMAKE_CXX_FLAGS, that is impossible if any config-site file specifies VISIT_CXX_FLAGS. Worse, even setting VISIT_CXX_FLAGS on command-line to CMake will not have the intended effect if config-site file also specifies them UN-conditionally.
+It looks like build_visit will often create a config-site file in which VISIT_CXX_FLAGS (and friends) are specified UN-conditionally. This practice should be corrected. There are several config-site files that do this and they should probably be fixed. The only reason we don't have more is that I think some aware developers have known to go remove such entries from config-site files produced by build_visit before committing them to the repo.
+More broadly though, shouldn't we be relying upon CMAKE_BUILD_TYPE to set things up correctly for us anyways and only manipulating compiler flags where we've discovered we need to because CMAKE_BUILD_TYPE isn't getting us the desired result?
+"
+3277,Resolved,Bug,Normal, Transparent color option for Image annotations crashes viewer ,Kathleen Biagas,-,2.13.4,Kathleen Biagas,12/18/2018,,100%,2.00 hours,12/18/2018 12:06 pm,12/18/2018 02:12 pm,2 - Rare,4 - Crash / Wrong Results,2.11.0,,,All,Any,"
+I set version found to 2.11, because that's as far back as I tried. It's been broken awhile.
+I opened wave.visit, created a plot, then saved the window in png format at 300x300.
+I then created an Image annotation using the png I had just saved. Click apply to make the image appear in the Vis Window.Then click 'Transparent color' option for the Image annotation.  crash.
+I also tried with jpeg and tiff, same results.
+Current trunk viewer log files show this:ERROR: In /home/biagas2/BuildVisIt/300/VTK-8.1.0/Common/DataModel/vtkImageData.cxx, line 1410vtkImageData (0x2e3d8d0): Bad component index 1
+ERROR: In /home/biagas2/BuildVisIt/300/VTK-8.1.0/Common/DataModel/vtkImageData.cxx, line 1410vtkImageData (0x2e3d8d0): Bad component index 2
+ERROR: In /home/biagas2/BuildVisIt/300/VTK-8.1.0/Common/DataModel/vtkImageData.cxx, line 1410vtkImageData (0x2e3d8d0): Bad component index 3
+The origin in VisIt is avtImageColleague::SetOptions, in a call to 'SetScalarComponentFromDouble'.
+"
+3278,New,Bug,Normal, Cinema spec D output has extra output for Pseudocolor plot ,-,-,3.0,Eric Brugger,12/19/2018,,0%,,12/19/2018 03:19 pm,,3 - Occasional,3 - Major Irritation,trunk,,,All,Any,"
+The Cinema spec D output for a pseudocolor plot for a time varying database puts out 4 fields. They are phi, theta, time and variable value. The variable value should not be there. It only makes sense for contour levels. It is currently using the minimum and maximum values.
+"
+3279,New,Feature,Normal, Way to initialize atts to 'reasonable' values for cli like we do for gui ,-,-,-,Kathleen Biagas,12/21/2018,,0%,,12/21/2018 09:58 am,,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+We have a mechanism via PluginInfo to initialize operator atts to 'reasonable' values based on the current plot and/or SIL selection.  This helps with populating gui widgets.  The current setup, however doesn't help when using cli.
+Take onion peel for example.  When SIL is applied, the 'categoryName' and 'subsetName' in the gui are filled in with the first available category and set available in the SIL.  In the cli, when we grab the default atts via 'OnionPeelAttributes', those fields aren't pre-filled with reasonable values, and the 'whole' SIL is used.  This can lead to unexpected differences in behavior between gui and cli, if say, user only changes the 'index' when using the cli.  See onionpeel.py TestUCD.  When the default index for onionpeel attributes was changed to 0, this test was modified to set the index to 1 (the old default). In parallel, this yielded results from 2 domains instead of only 1.
+"
+3280,Resolved,Bug,Normal," VTK8 - Curve plot, 'Crop' extra doesn't work ",Kathleen Biagas,-,3.0,Kathleen Biagas,12/26/2018,,100%,,12/26/2018 07:51 pm,12/27/2018 01:17 pm,3 - Occasional,4 - Crash / Wrong Results,trunk,,,All,Any,"
+In the 'Extras' tab for curve plot is a 'Crop' option.This doesn't work since the VTK8 upgrade.
+"
+3281,Pending,Bug,Normal, Curve plot time cues ... what if Time Cue position is out of range? ,Kathleen Biagas,-,3.0,Kathleen Biagas,12/27/2018,,0%,,12/27/2018 01:25 pm,02/19/2019 06:59 pm,3 - Occasional,2 - Minor Irritation,trunk,,,All,Any,"
+Current behavior is inconsistent between ball and line:
+If Time cue position is outside the range of the curve,Line:  is still drawn Ball:  is not drawn
+I think we should make the behavior consistent between ball and line.If the position lies outside the range, should we:Not draw the cue?orClamp the cue to the min (if position < min) or max (if position > max).
+"
+3282,Pending,Feature,High, Use the bounding box when zooming with the scroll wheel in scalable rendering mode. ,Edward Rusu,-,3.0,Eric Brugger,01/04/2019,,0%,,01/04/2019 05:43 pm,02/25/2019 04:49 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+When you zoom with the scroll wheel it always draws intermediate frames. It would be consistent with how we handle rotations in 3D with scalable rendering if we switched to the bounding box when zooming with the scroll wheel. I just had a thought though, how would we determine when scrolling had stopped?
+Willy Moss suggested this.
+"
+3283,Pending,Bug,Normal, Pick highlight on exploded dataset ,Alister Maguire,-,3.0,Alister Maguire,01/08/2019,,0%,,01/08/2019 07:08 pm,02/19/2019 06:47 pm,3 - Occasional,3 - Major Irritation,2.12.3,,,All,Any,"
+The pick highlight seems to not know where a cell's new location is after it's been exploded. The pick letter does have the correct location, though.
+"
+3284,Pending,Bug,High, Contour plot of rect3d/multirect3d with VTKM crashes engine ,Eric Brugger,-,3.0,Kathleen Biagas,01/10/2019,,0%,,01/10/2019 12:33 pm,02/19/2019 06:46 pm,3 - Occasional,4 - Crash / Wrong Results,trunk,,,All,Any,"
+Choosing VTKM from the preferences, then doing a contour plot of rect3d or multirect3d causes the engine to crash.
+Is this supposed to work for rect3d?
+"
+3285,Pending,Bug,Normal," Processor boundaries appear in domain selected, transparent PC plots ",-,-,-,Mark Miller,01/12/2019,,0%,,01/12/2019 03:41 pm,02/19/2019 06:45 pm,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+Open multi_ucd3d.siloPC plot of dSet transparency to constent @ 50%You will NOT see any processor boundaries. That is great.Go to SIL controls and unselect a domain.Now, all the processor boundaries appear.
+There is some optimization logic in avtGhostZoneAndFacelistFilter that has to do with whether all domains are selected or not. I suspect, without avtDomainBoundary auxiliary data, VisIt is unable to re-assess which boundares are ""external"" when one or more domains are removed and so it resorts to worst case.
+Oddly, however, keep all domains on but do a material selection. That actually plots correctly with transparency. That is because ghost zone removal is performed before material selection and since all domains are still in effect, it can still remove processor boundaries fine.
+"
+3286,Pending,Bug,Normal, Triad is ortho (mostly) regardless of view ,-,-,-,Mark Miller,01/12/2019,,0%,,01/12/2019 04:01 pm,02/19/2019 06:43 pm,3 - Occasional,2 - Minor Irritation,2.12.3,,,All,Any,"
+I always have trouble using triad to mentally map box axes to xyz directions.
+Part of the problem is that the triad doesn't parallel the box lines in perspective mode.
+AFAICT it doesn't match any of the 8 box corners. It appears to match the box lines only in ortho mode.
+I think the triad should be rendered with perpsective in perspective mode and with ortho in ortho mode.
+
+"
+3287,Pending,Feature,High, Silo writer should report Silo library errors ,-,-,3.0,Mark Miller,02/05/2019,,0%,,02/05/2019 08:33 am,02/19/2019 06:42 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+A user had a variable from a VTK file with characters the Silo library doesn't permit.
+They tried to export it.
+They got the a silo file with a mesh but not variable(s).
+For them, VisIt silently ignored the variable with chars Silo lib doesn't allow.
+We need a way for Silo writer (any writer) to report errots back to user.
+"
+3288,Pending,Bug,Normal, Tracing CLI logic doesn't get correct operator index when multiple operators on play ,Kathleen Biagas,-,3.0,Mark Miller,02/05/2019,,0%,,02/05/2019 11:27 am,02/19/2019 06:41 pm,3 - Occasional,3 - Major Irritation,2.12.3,,,All,Any,"
+Add reflect 3x to a plotgo to controls->commandsstart to manipulate the different reflect operators on the plot and watch what VisIt spews out as the various commands.No matter which operator instance, it always passes '1' for the index.
+"
+3289,Pending,Feature,Normal, Change default setting for Elevate operator's scaling option ,Kevin Griffin,-,3.0,Mark Miller,02/06/2019,,0%,,02/06/2019 10:33 pm,02/19/2019 06:40 pm,,,2.12.3,3 - Medium,3 - Occasional,All,Any,"
+Elevate operator can appear to do either
+	
+nothing when hieght (variable values being elevated) is small relative to XY extents
+produce an uninterpretable plot when height is large relative to XY extents
+
+The operator has a check box to enable a form of scaling that accounts for this.
+However, it is off by default.
+Since variable values tend to range over either much larger or much smaller dynamic ranges than spatial extents, I suspect having this scaling on by default would result in fewer misuses of the operator.
+But, having the scaling on by default does mean the height axis (z axis) will wind up having scaled values the user isn't necessarily expecting (if they know their data).
+
+
+I propose the following changes to this feature
+	
+replace on/off control with always/auto/never control
+add auto logic for the auto case that applies the scaling when the aspect ratio is above 10x or below 0.1x (same threshold used for auto full frame mode for 2D plots)
+set default mode to auto
+add logic to affect the Z axis custom units to use the variables units plus the word ""auto-scaled"" when auto-scaling is in effect, if doing so is practical
+
+"
+3290,Pending,Bug,High, Error with expression of a curve variable. ,Edward Rusu,-,3.0,Eric Brugger,02/13/2019,,0%,,02/13/2019 03:30 pm,02/26/2019 12:19 pm,3 - Occasional,4 - Crash / Wrong Results,2.13.2,,,All,Any,"
+A user reported a bug creating a simple expression with a curve variable. Here are the steps required to reproduce the error. The bug was reported by Selina-Jane Spencer <S-J.Spencer@warwick.ac.uk> in an e-mail to visit-users on 2/13/2019 at 2:08 AM.
+1) Open multi_rect2d.silo2) Create a curve plot of wave3) Create an expression waveSquared that is wave*wave of type Curve4) Create a curve plot of waveSquared
+VisIt will give the following error:
+Curve: ()viewer: The 'waveSquared' expression failed because An internal error occurred when calculating an expression. Please contact a VisIt developer.
+"
+3291,New,Bug,High, compression performance is slow for gzip ,-,-,-,Mark Miller,02/19/2019,,0%,,02/19/2019 01:41 pm,,3 - Occasional,2 - Minor Irritation,4.8,,,All,Any,"
+A user tried compressing using gzip and Silo took 2x longer to write the files.
+The files were smaller though.
+This could be an issue with how Silo was using HDF5 (maybe single chunking causes performance issues here)
+"
+3292,New,Bug,High, OSX UI Issues in VisIt 3.0.0b ,Kevin Griffin,-,2.13.4,Kevin Griffin,02/22/2019,,0%,,02/22/2019 11:56 am,,5 - Always,3 - Major Irritation,trunk,,,OSX,Any,"
+I found a few UI issues with VisIt 3.0.0b:1. GUI is too wide by default2. Zoom box doesn't overlay correctly on the area that you are zooming to (sometimes the zoom box doesn't show at all)3. The drag line doesn't render for lineouts
+"
+3293,New,Bug,Normal, multi-curve plot doesn't handle no data condition gracefully ,-,-,-,Mark Miller,02/25/2019,,0%,,02/25/2019 11:13 pm,,2 - Rare,1 - Not Serious,2.12.3,,,All,Any,"
+Do a multi-curve plot of a streamline (operators->integral curve) such that no data is produced.
+You get a red plot and viewer throws an exception.
+What you should get under these conditions is a green plot and the 'plot yielded no data' message.
 "
