@@ -1,11 +1,37 @@
 Some tools to help with migrating VisIt redmine tickets 
-to github issues. 
+to github issues. Note that these scripts are specifically 
+created to handle VisIt and were not created as general
+migration scripts. Having said that, they should be fairly
+customizeable with a little effort.  
 
 Instructions:
-    1. Save the Redmine tickets in csv format, and move all csv files to
-       a clean directory. 
-    2. Fill out info in authentication_empty.py and change name to 
-       authentication.py
-    3. Run visit_csv2git.py
 
-wait.. no.. there's more now. I'll do this later. 
+    Within the msub_scripts directory, there are 4 scripts of importance.
+    Note that many (maybe all) of these scripts could now be consolodated 
+    into a single script. Since there hasn't been a need for it, it's been
+    indefinitely put on a back burner. 
+    Also, make sure you look over these scripts and understand them as they 
+    really just launch python scripts with specific arguments that are 
+    specific to the VisIt migration. 
+
+    1. get_attachments.msub: this will retrieve the ticket attachments.
+    2. get_comments.msub: this will retrieve the ticket comments. 
+    3. get_redmine_tickets.msub: this will retrieve the ticket info. 
+    4. migrate_tickets.msub: this will migrate all of tickets and their 
+       comments to the target github repo. 
+
+
+    The process:
+
+    1. Fill out info in authentication_empty.py and change name to 
+       authentication.py
+    2. Lookover the msub scripts and update the arguments as needed. 
+    3. Launch msub retrieval scripts to retrieve the info you need (at 
+       the very least, the ticket info is required for a migration). 
+    4. Launch the migrate_tickets.msub script. 
+    5. Periodically look over the migration.out file to make sure 
+       nothing is burning. 
+
+    That's it!
+    
+
