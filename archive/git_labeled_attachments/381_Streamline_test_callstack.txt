@@ -1,0 +1,44 @@
+>	avtivp.dll!celltree_builder::split(unsigned int index=0, float * min=0x00dab308, float * max=0x00dab2f4)  Line 418 + 0xf bytes	C++
+ 	avtivp.dll!celltree_builder::build(celltree & ct={...}, vtkDataSet * ds=0x04d700e8)  Line 473	C++
+ 	avtivp.dll!avtCellLocatorBIH::Build()  Line 572	C++
+ 	avtivp.dll!avtCellLocatorBIH::avtCellLocatorBIH(vtkDataSet * ds=0x04d700e8)  Line 522	C++
+ 	avtfilters_ser.dll!avtPICSFilter::SetupLocator(const DomainType & domain={...}, vtkDataSet * ds=0x04d700e8)  Line 1204 + 0x32 bytes	C++
+ 	avtfilters_ser.dll!avtPICSFilter::PointInDomain(avtVector & pt={...}, DomainType & domain={...})  Line 1361 + 0x10 bytes	C++
+ 	avtfilters_ser.dll!avtICAlgorithm::PointInDomain(avtVector & pt={...}, DomainType & dom={...})  Line 132 + 0x36 bytes	C++
+ 	avtfilters_ser.dll!avtSerialICAlgorithm::AddIntegralCurves(std::vector<avtIntegralCurve *,std::allocator<avtIntegralCurve *> > & ics=[1](0x04d51720 {serializeFlags=0 sequenceCnt=0 historyMask='' ...}))  Line 176 + 0x1a bytes	C++
+ 	avtfilters_ser.dll!avtSerialICAlgorithm::Initialize(std::vector<avtIntegralCurve *,std::allocator<avtIntegralCurve *> > & seedPts=[1](0x04d51720 {serializeFlags=0 sequenceCnt=0 historyMask='' ...}))  Line 112 + 0x13 bytes	C++
+ 	avtfilters_ser.dll!avtPICSFilter::Execute()  Line 814 + 0x1f bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 273 + 0x13 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObjectSink::UpdateInput(ref_ptr<avtContract> spec={...})  Line 157 + 0x73 bytes	C++
+ 	avtpipeline_ser.dll!avtFilter::Update(ref_ptr<avtContract> contract={...})  Line 249 + 0x42 bytes	C++
+ 	avtpipeline_ser.dll!avtDataObject::Update(ref_ptr<avtContract> contract={...})  Line 131 + 0x33 bytes	C++
+ 	avtpipeline_ser.dll!avtTerminatingSink::Execute(ref_ptr<avtContract> contract={...})  Line 209	C++
+ 	avtplotter_ser.dll!avtPlot::Execute(ref_ptr<avtDataObject> input={...}, ref_ptr<avtContract> contract={...}, const WindowAttributes * atts=0x04ce3d58, const bool combinedExecute=false)  Line 553	C++
+ 	avtplotter_ser.dll!avtPlot::Execute(ref_ptr<avtDataObject> input={...}, ref_ptr<avtContract> contract={...}, const WindowAttributes * atts=0x04ce3d58)  Line 398 + 0x5a bytes	C++
+ 	enginelib_ser.dll!DataNetwork::GetWriter(ref_ptr<avtDataObject> dob={...}, ref_ptr<avtContract> contract={...}, WindowAttributes * atts=0x04ce3d58)  Line 191 + 0xa6 bytes	C++
+ 	enginelib_ser.dll!NetworkManager::GetOutput(bool respondWithNullData=false, bool calledForRender=false, float * cellCountMultiplier=0x00daf7c8)  Line 1985 + 0x67 bytes	C++
+ 	enginelib_ser.dll!RPCExecutor<ExecuteRPC>::Execute(ExecuteRPC * rpc=0x04461448)  Line 966 + 0x3b bytes	C++
+ 	enginelib_ser.dll!RPCExecutor<ExecuteRPC>::Update(Subject * s=0x04461460)  Line 68	C++
+ 	visitcommon.dll!Subject::Notify()  Line 193 + 0x29 bytes	C++
+ 	visitcommon.dll!AttributeSubject::Notify()  Line 103	C++
+ 	visitcommon.dll!Xfer::Process()  Line 420 + 0x2f bytes	C++
+ 	enginelib_ser.dll!Engine::ProcessInput()  Line 1646 + 0x17 bytes	C++
+ 	enginelib_ser.dll!Engine::EventLoop()  Line 1595	C++
+ 	engine_ser.exe!main(int argc=4, char * * argv=0x044557a8)  Line 314 + 0xb bytes	C++
+ 	engine_ser.exe!__tmainCRTStartup()  Line 597 + 0x17 bytes	C
+ 	kernel32.dll!7c817077() 	
+ 	[Frames below may be incorrect and/or missing, no symbols loaded for kernel32.dll]	
+

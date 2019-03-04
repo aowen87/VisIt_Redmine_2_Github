@@ -1,0 +1,84 @@
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\engine_ser.exe', Symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\ntdll.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\kernel32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\enginelib_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\visitcommon.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\user32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\gdi32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\shell32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\advapi32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\rpcrt4.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\secur32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\msvcrt.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\shlwapi.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\ws2_32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\ws2help.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\userenv.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.4053_x-ww_e6967989\msvcp80.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.4053_x-ww_e6967989\msvcr80.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\enginerpc.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtview.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkRendering.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkGraphics.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkFiltering.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkCommon.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkImaging.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkIO.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkDICOMParser.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkpng.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkzlib.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkjpeg.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtktiff.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkexpat.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkMPEG2Encode.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkftgl.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\opengl32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\glu32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\ddraw.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\dciman32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\MesaGL32.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkfreetype.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtwriter_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtpipeline_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtmath.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtdbatts.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\lightweight_visit_vtk.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\visit_vtk.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtplotter_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtfilters_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtivp.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtdatabase_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtmir_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\visit_verdict.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\vtkHybrid.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\GLEW.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtquery_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtshapelets.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtexpressions_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtdbin_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtpythonfilters_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\python26.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\avtviswindow_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.5512_x-ww_35d4ce83\comctl32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\comctl32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\mswsock.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\dnsapi.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\iphlpapi.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\winrnr.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\wldap32.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\rasadhlp.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\hnetcfg.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\wshtcpip.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\databases\libESiloDatabase_ser.dll', Symbols loaded.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\silohdf5.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\zlib1.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\hdf5dll.dll', Binary was not built with debug information.
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\ThirdParty\szlibdll.dll', Binary was not built with debug information.
+The thread 'Win32 Thread' (0x814) has exited with code 0 (0x0).
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\atioglxx.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\uxtheme.dll', No symbols loaded.
+'engine_ser.exe': Loaded 'C:\WINDOWS\system32\mcd32.dll', No symbols loaded.
+'engine_ser.exe': Unloaded 'C:\WINDOWS\system32\mcd32.dll'
+'engine_ser.exe': Loaded 'V:\VisIt\2.1RC\BUILD_VC8\exe\Debug\plots\libEStreamlinePlot_ser.dll', Symbols loaded.
+Run-Time Check Failure #2 - Stack around the variable 'iext' was corrupted.
+

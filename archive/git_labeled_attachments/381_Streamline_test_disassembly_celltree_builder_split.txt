@@ -1,0 +1,118 @@
+031E8CE4  idiv        eax,ecx 
+031E8CE6  push        eax  
+031E8CE7  lea         ecx,[ebp-298h] 
+031E8CED  call        celltree::node::make_leaf (31DD55Ah) 
+        
+        m_nodes[index].make_node( m_nodes.size(), dim, clip );
+031E8CF2  lea         eax,[clip] 
+031E8CF8  push        eax  
+031E8CF9  mov         ecx,dword ptr [dim] 
+031E8CFF  push        ecx  
+031E8D00  mov         ecx,dword ptr [this] 
+031E8D03  add         ecx,0Ch 
+031E8D06  call        std::vector<celltree::node,std::allocator<celltree::node> >::size (31DD4CEh) 
+031E8D0B  push        eax  
+031E8D0C  mov         edx,dword ptr [index] 
+031E8D0F  push        edx  
+031E8D10  mov         ecx,dword ptr [this] 
+031E8D13  add         ecx,0Ch 
+031E8D16  call        std::vector<celltree::node,std::allocator<celltree::node> >::operator[] (31DD56Eh) 
+031E8D1B  mov         ecx,eax 
+031E8D1D  call        celltree::node::make_node (31DD951h) 
+        m_nodes.insert( m_nodes.end(), child, child+2 );
+031E8D22  lea         eax,[ebp-28Ch] 
+031E8D28  push        eax  
+031E8D29  lea         ecx,[child] 
+031E8D2F  push        ecx  
+031E8D30  lea         edx,[ebp-374h] 
+031E8D36  push        edx  
+031E8D37  mov         ecx,dword ptr [this] 
+031E8D3A  add         ecx,0Ch 
+031E8D3D  call        std::vector<celltree::node,std::allocator<celltree::node> >::end (31DDC35h) 
+031E8D42  mov         ecx,dword ptr [eax+4] 
+031E8D45  push        ecx  
+031E8D46  mov         edx,dword ptr [eax] 
+031E8D48  push        edx  
+031E8D49  mov         ecx,dword ptr [this] 
+031E8D4C  add         ecx,0Ch 
+031E8D4F  call        std::vector<celltree::node,std::allocator<celltree::node> >::insert<celltree::node *> (31DDFF5h) 
+
+        split( m_nodes[index].left(), lmin, lmax );
+031E8D54  lea         eax,[lmax] 
+031E8D5A  push        eax  
+031E8D5B  lea         ecx,[lmin] 
+031E8D61  push        ecx  
+031E8D62  mov         edx,dword ptr [index] 
+031E8D65  push        edx  
+031E8D66  mov         ecx,dword ptr [this] 
+031E8D69  add         ecx,0Ch 
+031E8D6C  call        std::vector<celltree::node,std::allocator<celltree::node> >::operator[] (31DD56Eh) 
+031E8D71  mov         ecx,eax 
+031E8D73  call        celltree::node::left (31DE5E0h) 
+031E8D78  push        eax  
+031E8D79  mov         ecx,dword ptr [this] 
+031E8D7C  call        celltree_builder::split (31DD064h) 
+        split( m_nodes[index].right(), rmin, rmax );
+031E8D81  lea         eax,[rmax] 
+031E8D87  push        eax  
+031E8D88  lea         ecx,[rmin] 
+031E8D8E  push        ecx  
+031E8D8F  mov         edx,dword ptr [index] 
+031E8D92  push        edx  
+031E8D93  mov         ecx,dword ptr [this] 
+031E8D96  add         ecx,0Ch 
+031E8D99  call        std::vector<celltree::node,std::allocator<celltree::node> >::operator[] (31DD56Eh) 
+031E8D9E  mov         ecx,eax 
+031E8DA0  call        celltree::node::right (31DE01Dh) 
+031E8DA5  push        eax  
+031E8DA6  mov         ecx,dword ptr [this] 
+031E8DA9  call        celltree_builder::split (31DD064h) 
+    }
+031E8DAE  push        edx  
+031E8DAF  mov         ecx,ebp 
+031E8DB1  push        eax  
+031E8DB2  lea         edx,[ (31E8DD8h)] 
+031E8DB8  call        @ILT+1805(@_RTC_CheckStackVars@8) (31DD712h) 
+031E8DBD  pop         eax  
+031E8DBE  pop         edx  
+031E8DBF  pop         edi  
+031E8DC0  pop         esi  
+031E8DC1  pop         ebx  
+031E8DC2  add         esp,3A4h 
+031E8DC8  cmp         ebp,esp 
+031E8DCA  call        @ILT+4190(__RTC_CheckEsp) (31DE063h) 
+031E8DCF  mov         esp,ebp 
+031E8DD1  pop         ebp  
+031E8DD2  ret         0Ch  
+031E8DD5  lea         ecx,[ecx] 
+031E8DD8  db          09h  
+031E8DD9  db          00h  
+031E8DDA  db          00h  
+031E8DDB  db          00h  
+031E8DDC  db          e0h  
+031E8DDD  db          8dh  
+031E8DDE  db          1eh  
+031E8DDF  db          03h  
+031E8DE0  db          9ch  
+031E8DE1  db          ffh  
+031E8DE2  db          ffh  
+031E8DE3  db          ffh  
+031E8DE4  db          0ch  
+031E8DE5  db          00h  
+031E8DE6  db          00h  
+031E8DE7  db          00h  
+031E8DE8  db          72h  
+031E8DE9  db          8eh  
+031E8DEA  db          1eh  
+031E8DEB  db          03h  
+031E8DEC  db          88h  
+031E8DED  db          ffh  
+031E8DEE  db          ffh  
+031E8DEF  db          ffh  
+031E8DF0  db          0ch  
+031E8DF1  db          00h  
+031E8DF2  db          00h  
+031E8DF3  db          00h  
+031E8DF4  db          6dh  
+031E8DF5  db          8eh  
+

@@ -1,0 +1,576 @@
+
+sasha@W7-00 /local/silo-4.7
+$ cd /local/silo-4.8
+
+sasha@W7-00 /local/silo-4.8
+$ ./configure -q -disable-silex
+appending configuration tag "CXX" to libtool
+appending configuration tag "F77" to libtool
+
+
+SUMMARY OF THE Silo CONFIGURATION
+=================================
+
+Silo Version:           4.8
+Configured on:          Fri Aug 24 14:25:43 EDT 2012
+Configured by:          w7-00\sasha@W7-00
+Configure command:      ./configure '-disable-silex'
+Host system:            i686-pc-mingw32
+Build system:           i686-pc-mingw32
+Installation point:     /local/silo-4.8
+Source directory:       @UsingSrcDir@
+Archiver:               ar
+Ranlib:                 ranlib
+
+Configure Summary
+Compiling Options:
+                     C Compiler /mingw/bin/gcc.exe
+                       CPPFLAGS
+                         CFLAGS -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE
+ -D_FILE_OFFSET_BITS=64 -Wdeclaration-after-statement
+                        LDFLAGS
+                           LIBS  -lm
+               Shared Libraries @UsingShared@
+               Static Libraries @UsingStatic@
+                        64 bits @Using64bits@
+                   Optimization @UsingOpt@
+Languages:
+                            C++ @UsingCxx@
+                   C++ Compiler /mingw/bin/g++.exe
+                       CXXFLAGS -g -O2
+                        Fortran @UsingFortran@
+               Fortran Compiler /mingw/bin/gfortran.exe
+                        FCFLAGS -g -O2
+                         FCLIBS  -Ld:/mingw/bin/../lib/gcc/mingw32/4.6.2 -Ld:/mi
+ngw/bin/../lib/gcc -Ld:/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/l
+ib -Ld:/mingw/bin/../lib/gcc/mingw32/4.6.2/../../.. -L/mingw/lib -lgfortran -lmi
+ngw32 -lmoldname -lmingwex -lmsvcrt -lquadmath -lm -ladvapi32 -lshell32 -luser32
+ -lkernel32
+Features:
+                        Browser @UsingBrowser@
+                       Readline @UsingReadline@
+                           HDF5 @UsingHDF5@
+                          Silex @UsingSilex@
+                             Qt @UsingQt@
+                Qt moc Compiler
+                    Qt CXXFLAGS
+                        Qt LIBS
+                         Python @UsingPython@
+                Python Compiler
+                Python CPPFLAGS
+
+sasha@W7-00 /local/silo-4.8
+$ make
+make  all-recursive
+make[1]: Entering directory `/local/silo-4.8'
+Making all in .
+make[2]: Entering directory `/local/silo-4.8'
+make[2]: Leaving directory `/local/silo-4.8'
+Making all in src
+make[2]: Entering directory `/local/silo-4.8/src'
+make  all-recursive
+make[3]: Entering directory `/local/silo-4.8/src'
+Making all in score
+make[4]: Entering directory `/local/silo-4.8/src/score'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/local/silo-4.8/src/score'
+Making all in pdb
+make[4]: Entering directory `/local/silo-4.8/src/pdb'
+make  all-am
+make[5]: Entering directory `/local/silo-4.8/src/pdb'
+make[5]: Nothing to be done for `all-am'.
+make[5]: Leaving directory `/local/silo-4.8/src/pdb'
+make[4]: Leaving directory `/local/silo-4.8/src/pdb'
+Making all in silo
+make[4]: Entering directory `/local/silo-4.8/src/silo'
+make  all-am
+make[5]: Entering directory `/local/silo-4.8/src/silo'
+/bin/sh ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..
+    -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Wde
+claration-after-statement -MT alloc.lo -MD -MP -MF .deps/alloc.Tpo -c -o alloc.l
+o alloc.c
+ gcc -DHAVE_CONFIG_H -I. -I../.. -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURC
+E -D_FILE_OFFSET_BITS=64 -Wdeclaration-after-statement -MT alloc.lo -MD -MP -MF
+.deps/alloc.Tpo -c alloc.c -o alloc.o
+In file included from alloc.c:55:0:
+silo_private.h:893:9: warning: 'safe_strdup' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+alloc.c:120:1: warning: 'DBAllocDefvars' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:174:1: warning: 'DBAllocMultimesh' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+alloc.c:231:1: warning: 'DBAllocMultimeshadj' redeclared without dllimport attri
+bute: previous dllimport ignored [-Wattributes]
+alloc.c:279:1: warning: 'DBAllocMultivar' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:329:1: warning: 'DBAllocMultimat' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:378:1: warning: 'DBAllocMultimatspecies' redeclared without dllimport at
+tribute: previous dllimport ignored [-Wattributes]
+alloc.c:418:1: warning: 'DBFreeDefvars' redeclared without dllimport attribute a
+fter being referenced with dll linkage [enabled by default]
+alloc.c:455:1: warning: 'DBFreeMultimesh' redeclared without dllimport attribute
+ after being referenced with dll linkage [enabled by default]
+alloc.c:495:1: warning: 'DBFreeMultimeshadj' redeclared without dllimport attrib
+ute after being referenced with dll linkage [enabled by default]
+alloc.c:546:1: warning: 'DBFreeMultivar' redeclared without dllimport attribute
+after being referenced with dll linkage [enabled by default]
+alloc.c:591:1: warning: 'DBFreeMultimat' redeclared without dllimport attribute
+after being referenced with dll linkage [enabled by default]
+alloc.c:651:1: warning: 'DBFreeMultimatspecies' redeclared without dllimport att
+ribute after being referenced with dll linkage [enabled by default]
+alloc.c:701:1: warning: 'DBAllocCsgmesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:733:1: warning: 'DBFreeCsgmesh' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+alloc.c:781:1: warning: 'DBAllocQuadmesh' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:810:1: warning: 'DBFreeQuadmesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:845:1: warning: 'DBAllocPointmesh' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+alloc.c:874:1: warning: 'DBFreePointmesh' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:907:1: warning: 'DBAllocMeshvar' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:937:1: warning: 'DBFreeMeshvar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+alloc.c:976:1: warning: 'DBAllocUcdmesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:1014:1: warning: 'DBFreeUcdmesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:1050:1: warning: 'DBAllocCsgvar' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:1077:1: warning: 'DBFreeCsgvar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+alloc.c:1111:1: warning: 'DBAllocQuadvar' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:1136:1: warning: 'DBResetQuadvar' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:1160:1: warning: 'DBFreeQuadvar' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:1197:1: warning: 'DBAllocUcdvar' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+alloc.c:1222:1: warning: 'DBResetUcdvar' redeclared without dllimport attribute
+after being referenced with dll linkage [enabled by default]
+alloc.c:1245:1: warning: 'DBFreeUcdvar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+alloc.c:1283:1: warning: 'DBAllocZonelist' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+alloc.c:1308:1: warning: 'DBAllocPHZonelist' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+alloc.c:1333:1: warning: 'DBAllocCSGZonelist' redeclared without dllimport attri
+bute: previous dllimport ignored [-Wattributes]
+alloc.c:1362:1: warning: 'DBFreeZonelist' redeclared without dllimport attribute
+ after being referenced with dll linkage [enabled by default]
+alloc.c:1385:1: warning: 'DBFreePHZonelist' redeclared without dllimport attribu
+te after being referenced with dll linkage [enabled by default]
+alloc.c:1409:1: warning: 'DBFreeCSGZonelist' redeclared without dllimport attrib
+ute after being referenced with dll linkage [enabled by default]
+alloc.c:1452:1: warning: 'DBAllocEdgelist' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+alloc.c:1477:1: warning: 'DBFreeEdgelist' redeclared without dllimport attribute
+ after being referenced with dll linkage [enabled by default]
+alloc.c:1500:1: warning: 'DBAllocFacelist' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+alloc.c:1525:1: warning: 'DBFreeFacelist' redeclared without dllimport attribute
+ after being referenced with dll linkage [enabled by default]
+alloc.c:1553:1: warning: 'DBAllocMaterial' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+alloc.c:1577:1: warning: 'DBFreeMaterial' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+alloc.c:1621:1: warning: 'DBAllocMatspecies' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+alloc.c:1650:1: warning: 'DBFreeMatspecies' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+alloc.c:1703:1: warning: 'DBAllocCompoundarray' redeclared without dllimport att
+ribute: previous dllimport ignored [-Wattributes]
+alloc.c:1728:1: warning: 'DBFreeCompoundarray' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+alloc.c:1764:1: warning: 'DBAllocCurve' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+alloc.c:1794:1: warning: 'DBFreeCurve' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+alloc.c:1812:1: warning: 'DBFreeGroupelmap' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+alloc.c:1838:1: warning: 'DBFreeMrgvar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+alloc.c:1871:1: warning: 'DBFreeNamescheme' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+alloc.c:1894:1: warning: 'DBAllocNamescheme' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+alloc.c:1912:1: warning: 'DBAllocGroupelmap' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+mv -f .deps/alloc.Tpo .deps/alloc.Plo
+/bin/sh ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..
+    -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Wde
+claration-after-statement -MT extface.lo -MD -MP -MF .deps/extface.Tpo -c -o ext
+face.lo extface.c
+ gcc -DHAVE_CONFIG_H -I. -I../.. -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURC
+E -D_FILE_OFFSET_BITS=64 -Wdeclaration-after-statement -MT extface.lo -MD -MP -M
+F .deps/extface.Tpo -c extface.c -o extface.o
+In file included from extface.c:55:0:
+silo_private.h:893:9: warning: 'safe_strdup' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+extface.c:135:1: warning: 'DBCalcExternalFacelist' redeclared without dllimport
+attribute: previous dllimport ignored [-Wattributes]
+extface.c:206:1: warning: 'DBCalcExternalFacelist2' redeclared without dllimport
+ attribute: previous dllimport ignored [-Wattributes]
+mv -f .deps/extface.Tpo .deps/extface.Plo
+/bin/sh ../../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../..
+    -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Wde
+claration-after-statement -MT silo.lo -MD -MP -MF .deps/silo.Tpo -c -o silo.lo s
+ilo.c
+ gcc -DHAVE_CONFIG_H -I. -I../.. -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURC
+E -D_FILE_OFFSET_BITS=64 -Wdeclaration-after-statement -MT silo.lo -MD -MP -MF .
+deps/silo.Tpo -c silo.c -o silo.o
+In file included from silo.c:117:0:
+silo_private.h:893:9: warning: 'safe_strdup' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+silo.c:129:5: warning: 'Silo_version_4_8' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:141:16: warning: 'DBDebugAPI' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:142:16: warning: 'db_errno' redeclared without dllimport attribute: previ
+ous dllimport ignored [-Wattributes]
+silo.c:143:16: warning: 'db_errfunc' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:230:19: error: field 's' has incomplete type
+silo.c:505:1: warning: 'DBVariableNameValid' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+silo.c:2533:1: warning: 'DBFilterRegistration' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:2600:1: warning: 'DBUninstall' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:2647:1: warning: 'DBSetDataReadMask' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:2668:1: warning: 'DBGetDataReadMask' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:2684:1: warning: 'DBSetAllowOverwrites' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:2692:1: warning: 'DBGetAllowOverwrites' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:2708:1: warning: 'DBSetEnableChecksums' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:2716:1: warning: 'DBGetEnableChecksums' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:2731:1: warning: 'DBSetCompression' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:2753:1: warning: 'DBGetCompression' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:2759:1: warning: 'DBFreeCompressionResources' redeclared without dllimpor
+t attribute: previous dllimport ignored [-Wattributes]
+silo.c:2786:1: warning: 'DBSetFriendlyHDF5Names' redeclared without dllimport at
+tribute: previous dllimport ignored [-Wattributes]
+silo.c:2794:1: warning: 'DBGetFriendlyHDF5Names' redeclared without dllimport at
+tribute: previous dllimport ignored [-Wattributes]
+silo.c:2872:1: warning: 'DBGuessHasFriendlyHDF5Names' redeclared without dllimpo
+rt attribute: previous dllimport ignored [-Wattributes]
+silo.c:2897:1: warning: 'DBSetDeprecateWarnings' redeclared without dllimport at
+tribute: previous dllimport ignored [-Wattributes]
+silo.c:2905:1: warning: 'DBGetDeprecateWarnings' redeclared without dllimport at
+tribute: previous dllimport ignored [-Wattributes]
+silo.c:2921:1: warning: 'DBSetUnknownDriverPriorities' redeclared without dllimp
+ort attribute: previous dllimport ignored [-Wattributes]
+silo.c:2937:1: warning: 'DBGetUnknownDriverPriorities' redeclared without dllimp
+ort attribute: previous dllimport ignored [-Wattributes]
+silo.c:2945:1: warning: 'DBRegisterFileOptionsSet' redeclared without dllimport
+attribute: previous dllimport ignored [-Wattributes]
+silo.c:2964:1: warning: 'DBUnregisterFileOptionsSet' redeclared without dllimpor
+t attribute: previous dllimport ignored [-Wattributes]
+silo.c:2978:1: warning: 'DBUnregisterAllFileOptionsSets' redeclared without dlli
+mport attribute: previous dllimport ignored [-Wattributes]
+silo.c:3031:1: warning: 'DBGrabDriver' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:3054:1: warning: 'DBGetDriverType' redeclared without dllimport attribute
+ after being referenced with dll linkage [enabled by default]
+silo.c:3080:1: warning: 'DBGetDriverTypeFromPath' redeclared without dllimport a
+ttribute: previous dllimport ignored [-Wattributes]
+silo.c:3115:1: warning: 'DBJoinPath' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:3133:1: warning: 'DBUngrabDriver' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:3161:1: warning: 'DBMakeObject' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:3219:1: warning: 'DBFreeObject' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:3270:1: warning: 'DBClearObject' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:3325:1: warning: 'DBAddVarComponent' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:3384:1: warning: 'DBAddIntComponent' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:3449:1: warning: 'DBAddFltComponent' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:3500:1: warning: 'DBAddDblComponent' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:3560:1: warning: 'DBAddStrComponent' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:3656:1: warning: 'DBShowErrors' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:3708:1: warning: 'DBErrString' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:3721:1: warning: 'DBErrno' redeclared without dllimport attribute: previo
+us dllimport ignored [-Wattributes]
+silo.c:3750:1: warning: 'DBErrFunc' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:3757:1: warning: 'DBErrFuncname' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:3763:1: warning: 'DBErrfunc' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:3769:1: warning: 'DBErrlvl' redeclared without dllimport attribute: previ
+ous dllimport ignored [-Wattributes]
+silo.c:3790:1: warning: 'DBVersion' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:3810:1: warning: 'DBVersionGE' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:3830:1: warning: 'DBFileVersion' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:3854:1: warning: 'DBFileVersionGE' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:4001:1: warning: 'DBOpenReal' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:4194:1: warning: 'DBCreateReal' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:4313:1: warning: 'DBClose' redeclared without dllimport attribute: previo
+us dllimport ignored [-Wattributes]
+silo.c:4410:1: warning: 'DBInqFileHasObjects' redeclared without dllimport attri
+bute: previous dllimport ignored [-Wattributes]
+silo.c:4452:1: warning: 'DBInqFileReal' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:4515:1: warning: 'DBPause' redeclared without dllimport attribute: previo
+us dllimport ignored [-Wattributes]
+silo.c:4551:1: warning: 'DBContinue' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:4587:1: warning: 'DBInqVarExists' redeclared without dllimport attribute
+after being referenced with dll linkage [enabled by default]
+silo.c:4648:1: warning: 'DBForceSingle' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:4685:1: warning: 'DBMakeOptlist' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:4732:1: warning: 'DBFreeOptlist' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:4770:1: warning: 'DBClearOptlist' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:4815:1: warning: 'DBAddOption' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:4846:1: warning: 'DBClearOption' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:4899:1: warning: 'DBGetOption' redeclared without dllimport attribute aft
+er being referenced with dll linkage [enabled by default]
+silo.c:4936:1: warning: 'DBGetToc' redeclared without dllimport attribute after
+being referenced with dll linkage [enabled by default]
+silo.c:4970:1: warning: 'DBInqVarType' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:5013:1: warning: 'DBNewToc' redeclared without dllimport attribute after
+being referenced with dll linkage [enabled by default]
+silo.c:5057:1: warning: 'DBGetAtt' redeclared without dllimport attribute: previ
+ous dllimport ignored [-Wattributes]
+silo.c:5124:1: warning: 'DBGetComponent' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:5171:1: warning: 'DBGetComponentType' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+silo.c:5212:1: warning: 'DBGetDir' redeclared without dllimport attribute after
+being referenced with dll linkage [enabled by default]
+silo.c:5261:1: warning: 'DBSetDir' redeclared without dllimport attribute after
+being referenced with dll linkage [enabled by default]
+silo.c:5316:1: warning: 'DBSetDirID' redeclared without dllimport attribute afte
+r being referenced with dll linkage [enabled by default]
+silo.c:5367:1: warning: 'DBListDir' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:5409:1: warning: 'DBFilters' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:5458:1: warning: 'DBMkDir' redeclared without dllimport attribute: previo
+us dllimport ignored [-Wattributes]
+silo.c:5495:1: warning: 'DBCpDir' redeclared without dllimport attribute: previo
+us dllimport ignored [-Wattributes]
+silo.c:5553:1: warning: 'DBChangeObject' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:5605:1: warning: 'DBWriteObject' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:5652:1: warning: 'DBGetObject' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:5709:1: warning: 'DBWriteComponent' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:5795:1: warning: 'DBWrite' redeclared without dllimport attribute after b
+eing referenced with dll linkage [enabled by default]
+silo.c:5864:1: warning: 'DBWriteSlice' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:5940:1: warning: 'DBReadAtt' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:5985:1: warning: 'DBGetCompoundarray' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+silo.c:6023:1: warning: 'DBGetCurve' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:6058:1: warning: 'DBGetDefvars' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:6100:1: warning: 'DBGetMaterial' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6156:1: warning: 'DBGetMatspecies' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:6201:1: warning: 'DBGetMultimesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:6237:1: warning: 'DBGetMultimeshadj' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:6285:1: warning: 'DBGetMultivar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6327:1: warning: 'DBGetMultimat' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6369:1: warning: 'DBGetMultimatspecies' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:6413:1: warning: 'DBGetPointmesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:6457:1: warning: 'DBGetPointvar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6505:1: warning: 'DBGetQuadmesh' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6587:1: warning: 'DBGetQuadvar' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:6622:1: warning: 'DBGetQuadvar1' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6691:1: warning: 'DBAnnotateUcdmesh' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:6781:1: warning: 'DBGetUcdmesh' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:6860:1: warning: 'DBGetUcdvar' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:6903:1: warning: 'DBGetFacelist' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6946:1: warning: 'DBGetZonelist' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:6980:1: warning: 'DBGetPHZonelist' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:7021:1: warning: 'DBGetVar' redeclared without dllimport attribute after
+being referenced with dll linkage [enabled by default]
+silo.c:7065:1: warning: 'DBReadVar' redeclared without dllimport attribute after
+ being referenced with dll linkage [enabled by default]
+silo.c:7107:1: warning: 'DBReadVar1' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:7150:1: warning: 'DBReadVarSlice' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:7202:1: warning: 'DBGetVarByteLength' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+silo.c:7242:1: warning: 'DBGetVarLength' redeclared without dllimport attribute
+after being referenced with dll linkage [enabled by default]
+silo.c:7284:1: warning: 'DBGetVarDims' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:7330:1: warning: 'DBGetVarType' redeclared without dllimport attribute af
+ter being referenced with dll linkage [enabled by default]
+silo.c:7374:1: warning: 'DBInqMeshname' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:7417:1: warning: 'DBInqMeshtype' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:7463:1: warning: 'DBPutCompoundarray' redeclared without dllimport attrib
+ute: previous dllimport ignored [-Wattributes]
+silo.c:7527:1: warning: 'DBPutCurve' redeclared without dllimport attribute: pre
+vious dllimport ignored [-Wattributes]
+silo.c:7571:1: warning: 'DBPutDefvars' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:7638:1: warning: 'DBPutFacelist' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:7721:1: warning: 'DBPutMaterial' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:7819:1: warning: 'DBPutMatspecies' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:7906:1: warning: 'DBPutMultimesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:7960:1: warning: 'DBPutMultimeshadj' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:8033:1: warning: 'DBPutMultivar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:8096:1: warning: 'DBPutMultimat' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:8156:1: warning: 'DBPutMultimatspecies' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:8216:1: warning: 'DBPutPointmesh' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:8276:1: warning: 'DBPutPointvar' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:8334:1: warning: 'DBPutPointvar1' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:8385:1: warning: 'DBPutQuadmesh' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:8456:1: warning: 'DBPutQuadvar' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:8530:1: warning: 'DBPutQuadvar1' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:8582:1: warning: 'DBPutUcdmesh' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:8643:1: warning: 'DBPutUcdsubmesh' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:8718:1: warning: 'DBPutUcdvar' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:8786:1: warning: 'DBPutUcdvar1' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:8836:1: warning: 'DBPutZonelist' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:8910:1: warning: 'DBPutZonelist2' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:8981:1: warning: 'DBPutPHZonelist' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:9050:1: warning: 'DBPutCsgmesh' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:9114:1: warning: 'DBGetCsgmesh' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:9153:1: warning: 'DBPutCSGZonelist' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:9213:1: warning: 'DBGetCSGZonelist' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:9251:1: warning: 'DBPutCsgvar' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:9316:1: warning: 'DBGetCsgvar' redeclared without dllimport attribute: pr
+evious dllimport ignored [-Wattributes]
+silo.c:11144:1: warning: 'DBInqCompoundarray' redeclared without dllimport attri
+bute: previous dllimport ignored [-Wattributes]
+silo.c:11222:1: warning: 'DBGetComponentNames' redeclared without dllimport attr
+ibute: previous dllimport ignored [-Wattributes]
+silo.c:11734:1: warning: 'DBStringArrayToStringList' redeclared without dllimpor
+t attribute: previous dllimport ignored [-Wattributes]
+silo.c:11819:1: warning: 'DBStringListToStringArray' redeclared without dllimpor
+t attribute: previous dllimport ignored [-Wattributes]
+silo.c:11922:1: warning: 'DBSortObjectsByOffset' redeclared without dllimport at
+tribute: previous dllimport ignored [-Wattributes]
+silo.c:12751:6: warning: 'DBFreeMrgtree' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:12781:6: warning: 'DBPrintMrgtree' redeclared without dllimport attribute
+: previous dllimport ignored [-Wattributes]
+silo.c:12841:1: warning: 'DBLinearizeMrgtree' redeclared without dllimport attri
+bute: previous dllimport ignored [-Wattributes]
+silo.c:12887:1: warning: 'DBWalkMrgtree' redeclared without dllimport attribute
+after being referenced with dll linkage [enabled by default]
+silo.c:12902:1: warning: 'DBMakeMrgtree' redeclared without dllimport attribute:
+ previous dllimport ignored [-Wattributes]
+silo.c:12964:1: warning: 'DBAddRegion' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:13055:1: warning: 'DBAddRegionArray' redeclared without dllimport attribu
+te: previous dllimport ignored [-Wattributes]
+silo.c:13152:1: warning: 'DBSetCwr' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:13193:1: warning: 'DBGetCwr' redeclared without dllimport attribute: prev
+ious dllimport ignored [-Wattributes]
+silo.c:13209:1: warning: 'DBPutMrgtree' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:13243:1: warning: 'DBGetMrgtree' redeclared without dllimport attribute:
+previous dllimport ignored [-Wattributes]
+silo.c:13264:1: warning: 'DBPutGroupelmap' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:13304:1: warning: 'DBGetGroupelmap' redeclared without dllimport attribut
+e: previous dllimport ignored [-Wattributes]
+silo.c:13325:1: warning: 'DBPutMrgvar' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+silo.c:13367:1: warning: 'DBGetMrgvar' redeclared without dllimport attribute: p
+revious dllimport ignored [-Wattributes]
+make[5]: *** [silo.lo] Error 1
+make[5]: Leaving directory `/local/silo-4.8/src/silo'
+make[4]: *** [all] Error 2
+make[4]: Leaving directory `/local/silo-4.8/src/silo'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/local/silo-4.8/src'
+make[2]: *** [all] Error 2
+make[2]: Leaving directory `/local/silo-4.8/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/local/silo-4.8'
+make: *** [all] Error 2
+
+sasha@W7-00 /local/silo-4.8
+$

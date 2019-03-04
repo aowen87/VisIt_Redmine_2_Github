@@ -1,0 +1,500 @@
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ClientInformation.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ClientInformationList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ClientMethod.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ColorAttribute.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ColorAttributeList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ColorControlPoint.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ColorControlPointList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ColorTableAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ColorTableManager.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/CompactSILRestrictionAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ConfigManager.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ConstructDataBinningAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ContourOpAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/DatabaseAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/DatabaseCorrelation.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/DatabaseCorrelationList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/DataNode.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/DBOptionsAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/DBPluginInfoAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/EngineList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/EngineProperties.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ExportDBAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Expression.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ExpressionList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/FileOpenOptions.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/FontAttributes.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/GaussianControlPoint.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/GaussianControlPointList.C.o
+[  6%] Building CXX object common/CMakeFiles/visitcommon.dir/state/GlobalAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/GlobalLineoutAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/LaunchProfile.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/LaunchRPC.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/MachineProfile.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/HostProfileList.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/InteractorAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/InternalResampleAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/KeepAliveRPC.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/KeyframeAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/LightAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/LightList.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Line.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/LinearTransformAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/MapNode.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/MaterialAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/MeshManagementAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/MessageAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/MovieAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/NamespaceAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/NameschemeAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Observer.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ObserverToCallback.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PickAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PickVarInfo.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PlaneAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Plot.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PlotInfoAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PlotList.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PlotQueryInfo.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PluginManagerAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Point.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PointAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/PrinterAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ProcessAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/QueryAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/QueryList.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/QueryOverTimeAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/QuitRPC.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/RenderingAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SaveWindowAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SaveSubWindowAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SaveSubWindowsAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SelectionList.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SelectionProperties.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SelectionSummary.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SelectionVariableSummary.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SimulationUIValues.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SILArrayAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SILAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SILMatrixAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SILRestrictionAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SimilarityTransformAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SimpleObserver.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SimulationCommand.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SingleAttributeConfigManager.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SphereAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/StatusAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Subject.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SurfaceFilterAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/SyncAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ThresholdOpAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/TimeFormat.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Variant.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/View2DAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/View3DAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ViewAttributes.C.o
+[  7%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ViewAxisArrayAttributes.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/ViewCurveAttributes.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/VisItRPC.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/VisualCueInfo.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/VisualCueList.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/WindowAttributes.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/WindowInformation.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/Xfer.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/XMLNode.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/state/JSONNode.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/AtomicProperties.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/CoordUtils.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/GeometricHelpers.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/Namescheme.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/StringHelpers.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/Utility.C.o
+[  8%] Building CXX object common/CMakeFiles/visitcommon.dir/utility/void_ref_ptr.C.o
+Linking CXX shared library ../lib/libvisitcommon.dylib
+[  8%] Built target visitcommon
+Scanning dependencies of target Namescheme_test
+[  8%] Building CXX object common/CMakeFiles/Namescheme_test.dir/utility/Namescheme_test.C.o
+/Users/macadmin/visit/visit2.6.2/src/common/utility/Namescheme_test.C: In function ‘int main()’:
+/Users/macadmin/visit/visit2.6.2/src/common/utility/Namescheme_test.C:128: warning: deprecated conversion from string constant to ‘char*’
+/Users/macadmin/visit/visit2.6.2/src/common/utility/Namescheme_test.C:129: warning: deprecated conversion from string constant to ‘char*’
+/Users/macadmin/visit/visit2.6.2/src/common/utility/Namescheme_test.C:130: warning: deprecated conversion from string constant to ‘char*’
+Linking CXX executable ../exe/Namescheme_test
+[  8%] Built target Namescheme_test
+Scanning dependencies of target StringHelpers_test
+[  8%] Building CXX object common/CMakeFiles/StringHelpers_test.dir/utility/StringHelpers_test.C.o
+Linking CXX executable ../exe/StringHelpers_test
+[  8%] Built target StringHelpers_test
+Scanning dependencies of target exprconfig
+[  8%] Building CXX object common/CMakeFiles/exprconfig.dir/expr/ExprConfig.C.o
+Linking CXX executable ../exe/exprconfig
+[  8%] Built target exprconfig
+Scanning dependencies of target exprtest
+[  8%] Building CXX object common/CMakeFiles/exprtest.dir/expr/test.C.o
+Linking CXX executable ../exe/exprtest
+[  8%] Built target exprtest
+Scanning dependencies of target lightweight_visit_vtk
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesHex.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesLin.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesPix.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesPyr.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesQua.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesTet.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesTri.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesWdg.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesVox.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesVtx.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesPoly5.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesPoly6.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesPoly7.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/ClipCasesPoly8.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/InitVTKLite.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkCellIntersections.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkDataSetFromVolume.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkDebugStream.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkEnumThreshold.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkPolyDataRelevantPointsFilter.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkSkewLookupTable.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkTriangulationTables.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkUnstructuredGridBoundaryFilter.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkUnstructuredGridFacelistFilter.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkVisItCellLocator.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkVisItPointDataToCellData.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkVisItPointLocator.C.o
+[  8%] Building CXX object visit_vtk/lightweight/CMakeFiles/lightweight_visit_vtk.dir/vtkVisItUtility.C.o
+Linking CXX shared library ../../lib/liblightweight_visit_vtk.dylib
+[  8%] Built target lightweight_visit_vtk
+Scanning dependencies of target visit_vtk
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/InitVTK.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkAxisDepthSort.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkBinaryPartitionVolumeFromVolume.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkCSGCell.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkCSGGrid.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkConnectedTubeFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkDataSetRemoveGhostCells.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkLineoutFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkLinesFromOriginalCells.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkMultiSplitter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkOBJWriter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkOnionPeelFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkPPMWriter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkPolyDataOnionPeelFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkRGBWriter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkRectilinearGridFacelistFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkRectilinearLinesNoDataFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkSlicer.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkStructuredGridFacelistFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkSurfaceFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkSurfaceFromVolume.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkTensorReduceFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkUniqueFeatureEdges.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkUnstructuredGridRelevantPointsFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVectorGlyph.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVectorReduceFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVertexFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItCellDataToPointData.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItClipper.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItContourFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItCutter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItExtractGrid.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItExtractRectilinearGrid.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItFeatureEdges.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItGlyph3D.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItInterpolatedVelocityField.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItPolyDataNormals.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItProbeFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItRectilinearGrid.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItSTLWriter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItScalarTree.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItSplitter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItStreamLine.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItStructuredGrid.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItStructuredGridNormals.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItTubeFilter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItTIFFWriter.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVisItTensorGlyph.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVolumeFromCSGVolume.C.o
+[  8%] Building CXX object visit_vtk/full/CMakeFiles/visit_vtk.dir/vtkVolumeFromVolume.C.o
+Linking CXX shared library ../../lib/libvisit_vtk.dylib
+[  8%] Built target visit_vtk
+Scanning dependencies of target avtdbatts
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtArrayMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtBaseVarMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtCurveMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtDatabaseMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtDefaultPlotMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtExpressionTypeConversions.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtLabelMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtMatSpeciesMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtMaterialMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtMeshMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtScalarMetaData.C.o
+[  8%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtSimulationCommandSpecification.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtSimulationInformation.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtSpeciesMetaData.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtSubsetsMetaData.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtSymmetricTensorMetaData.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtTensorMetaData.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtTypes.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtVarMetaData.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/MetaData/avtVectorMetaData.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSIL.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILArray.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILCollection.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILEnumeratedNamespace.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILMatrix.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILNamespace.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILRangeNamespace.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILRestriction.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILRestrictionTraverser.C.o
+[  9%] Building CXX object avt/DBAtts/CMakeFiles/avtdbatts.dir/SIL/avtSILSet.C.o
+Linking CXX shared library ../../lib/libavtdbatts.dylib
+[  9%] Built target avtdbatts
+Scanning dependencies of target avtmath
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtFactorial.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtHermitePolynomial.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtMatrix.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtPolynomial.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtQuaternion.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtTrackball.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtVecArray.C.o
+[  9%] Building CXX object avt/Math/CMakeFiles/avtmath.dir/avtVector.C.o
+Linking CXX shared library ../../lib/libavtmath.dylib
+[  9%] Built target avtmath
+Scanning dependencies of target avtivp
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtCellLocator.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtCellLocatorClassic.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtCellLocatorBIH.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtCellLocatorRect.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIntegralCurve.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/IVP/avtIntegralCurve.C: In member function ‘void avtIntegralCurve::Advance(avtIVPField*)’:
+/Users/macadmin/visit/visit2.6.2/src/avt/IVP/avtIntegralCurve.C:353: warning: comparison between ‘enum avtIVPField::Result’ and ‘enum avtIVPSolver::Result’
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPAdamsBashforth.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPDopri5.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/IVP/avtIVPDopri5.C: In member function ‘virtual avtIVPSolver::Result avtIVPDopri5::Step(avtIVPField*, double, avtIVPStep*)’:
+/Users/macadmin/visit/visit2.6.2/src/avt/IVP/avtIVPDopri5.C:537: warning: comparison between ‘enum avtIVPField::Result’ and ‘enum avtIVPSolver::Result’
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPEuler.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/IVP/avtIVPEuler.C: In member function ‘virtual avtIVPSolver::Result avtIVPEuler::Step(avtIVPField*, double, avtIVPStep*)’:
+/Users/macadmin/visit/visit2.6.2/src/avt/IVP/avtIVPEuler.C:427: warning: comparison between ‘enum avtIVPField::Result’ and ‘enum avtIVPSolver::Result’
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPRK4.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPLeapfrog.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPSolver.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPM3DC1Field.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPM3DC1Integrator.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPNIMRODField.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPFlashField.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPVTKField.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPVTKOffsetField.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtIVPVTKTimeVaryingField.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtPoincareIC.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtStateRecorderIntegralCurve.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/avtStreamlineIC.C.o
+[  9%] Building CXX object avt/IVP/CMakeFiles/avtivp.dir/MemStream.C.o
+Linking CXX shared library ../../lib/libavtivp.dylib
+[  9%] Built target avtivp
+Scanning dependencies of target avtpipeline_par
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtAverageValueRF.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtCallback.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtCellList.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtColorTables.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtCommonDataFunctions.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtCompositeRF.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataAttributes.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtDataAttributes.C: In member function ‘void avtDataAttributes::DebugDump(avtWebpage*)’:
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtDataAttributes.C:5129: warning: format ‘%d’ expects type ‘int’, but argument 4 has type ‘size_t’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtDataAttributes.C:5129: warning: format ‘%d’ expects type ‘int’, but argument 4 has type ‘size_t’
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataObject.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataObjectInformation.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataRangeSelection.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataRepresentation.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataTree.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataValidity.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDataset.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDatasetExaminer.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDatasetVerifier.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtDatasetVerifier.C: In member function ‘void avtDatasetVerifier::CheckConnectivity(int, int, vtkCellArray*, const char*)’:
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtDatasetVerifier.C:442: warning: format ‘%d’ expects type ‘int’, but argument 6 has type ‘long long int’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtDatasetVerifier.C:442: warning: format ‘%d’ expects type ‘int’, but argument 6 has type ‘long long int’
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDistancePixelizer.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDistanceToValueRF.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtDynamicAttribute.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtExtents.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtExtractor.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtFacelist.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtFlatLighting.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtHexahedronExtractor.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtHexahedron20Extractor.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtHexahedron27Extractor.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtHistogramSpecification.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtIdentifierSelection.C.o
+[  9%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtImage.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtImagePartition.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtImageRepresentation.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtIntegrationRF.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtIntervalTree.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtIsolevelsSelection.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtLightingModel.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtLogicalSelection.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtLookupTable.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtMIPRangeRF.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtMaterial.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtMaximumIntensityProjectionRF.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtMetaData.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtMixedVariable.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtNullData.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtOpacityMap.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtOpacityMapSamplePointArbitrator.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPhong.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPixelizer.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPlaneSelection.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPointAttribute.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPointExtractor.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPointSelection.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtPyramidExtractor.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtRangeMaxTable.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtRay.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtRayFunction.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtRelativeValueSamplePointArbitrator.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtResampleSelection.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C: In member function ‘virtual std::string avtResampleSelection::DescriptionString()’:
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 5 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 6 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 7 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 8 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 9 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 10 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 5 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 6 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 7 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 8 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 9 has type ‘double’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/Data/avtResampleSelection.C:218: warning: format ‘%d’ expects type ‘int’, but argument 10 has type ‘double’
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtSamplePointArbitrator.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtSamplePoints.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtSpatialBoxSelection.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtSpecies.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtTetrahedronExtractor.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtVariablePixelizer.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtVolume.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Data/avtWedgeExtractor.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtContract.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDataObjectReader.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDataObjectString.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDataObjectWriter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDataRequest.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDataSetReader.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDataSetWriter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtDebugDumpOptions.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtImageReader.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtImageTiler.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtImageWriter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtMultiWindowSaver.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtNamedSelection.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtNamedSelectionExtension.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtNamedSelectionManager.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtNullDataReader.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtNullDataWriter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtParallel.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Pipeline/avtWebpage.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtCompactTreeFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDataObjectToDatasetFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDataObjectToImageFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDataObjectToSamplePointsFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDataTreeIterator.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDatasetToDataObjectFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDatasetToDatasetFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDatasetToImageFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtDatasetToSamplePointsFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtFacadeFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtFilter.C.o
+[ 10%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtImageToDataObjectFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtImageToImageFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtMultiResolutionPartitionStrategy.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtMultipleInputToDataObjectFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtMultipleInputToDatasetFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtPluginDatasetToDatasetFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtPluginDataTreeIterator.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtPluginStructuredChunkDataTreeIterator.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSIMODataTreeIterator.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSamplePointsToDataObjectFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSamplePointsToDatasetFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSamplePointsToImageFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSamplePointsToSamplePointsFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSingleFilterFacade.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtStructuredChunkDataTreeIterator.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtStructuredMeshChunker.C.o
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/AbstractFilters/avtStructuredMeshChunker.C: In static member function ‘static avtStructuredMeshChunker::ZoneDesignation* avtStructuredMeshChunker::SplitIntoSubgrids(const int*, vtkDataSet*, std::vector<avtStructuredMeshChunker::ZoneDesignation, std::allocator<avtStructuredMeshChunker::ZoneDesignation> >&, avtGhostDataType, std::vector<avtStructuredMeshChunker::MeshDescription, std::allocator<avtStructuredMeshChunker::MeshDescription> >&, vtkUnstructuredGrid*&, bool)’:
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/AbstractFilters/avtStructuredMeshChunker.C:901: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘vtkIdType’
+/Users/macadmin/visit/visit2.6.2/src/avt/Pipeline/AbstractFilters/avtStructuredMeshChunker.C:901: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘vtkIdType’
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtStructuredMeshPartitionStrategy.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtSweepPlanePartitionStrategy.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtTimeLoopCollectorFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/AbstractFilters/avtTimeLoopFilter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtDataObjectSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtDatabaseWriter.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtDatasetSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtImageSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtMultipleInputSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtNullDataSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtSamplePointsSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtTerminatingDatasetSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtTerminatingImageSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtTerminatingNullDataSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sinks/avtTerminatingSink.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtDataObjectSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtDatasetSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtImageSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtInlinePipelineSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtNullDataSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtOriginatingDatasetSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtOriginatingImageSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtOriginatingNullDataSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtOriginatingSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtQueryableSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtSamplePointsSource.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtSourceFromAVTDataset.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtSourceFromDataset.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtSourceFromImage.C.o
+[ 11%] Building CXX object avt/Pipeline/CMakeFiles/avtpipeline_par.dir/Sources/avtSourceFromNullData.C.o
+Linking CXX shared library ../../lib/libavtpipeline_par.dylib
+Undefined symbols for architecture x86_64:
+  "MPI::Win::Free()", referenced from:
+      vtable for MPI::Winin avtDataObjectInformation.C.o
+      vtable for MPI::Winin avtFacelist.C.o
+      vtable for MPI::Winin avtHistogramSpecification.C.o
+      vtable for MPI::Winin avtImagePartition.C.o
+      vtable for MPI::Winin avtIntervalTree.C.o
+      vtable for MPI::Winin avtParallel.C.o
+      vtable for MPI::Winin avtCompactTreeFilter.C.o
+      ...
+  "MPI::Comm::Comm()", referenced from:
+      MPI::Intercomm::Merge(bool) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Clone() constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Create(MPI::Group const&) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Split(int, int) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Create_cart(int, int const*, bool const*, bool) constin avtDataObjectInformation.C.o
+      MPI::Intracomm::Create_graph(int, int const*, int const*, bool) constin avtDataObjectInformation.C.o
+      MPI::Cartcomm::Clone() constin avtDataObjectInformation.C.o
+      ...
+  "MPI::Datatype::Free()", referenced from:
+      vtable for MPI::Datatypein avtDataObjectInformation.C.o
+      vtable for MPI::Datatypein avtFacelist.C.o
+      vtable for MPI::Datatypein avtHistogramSpecification.C.o
+      vtable for MPI::Datatypein avtImagePartition.C.o
+      vtable for MPI::Datatypein avtIntervalTree.C.o
+      vtable for MPI::Datatypein avtParallel.C.o
+      vtable for MPI::Datatypein avtCompactTreeFilter.C.o
+      ...
+  "_ompi_mpi_cxx_op_intercept", referenced from:
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtDataObjectInformation.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtFacelist.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtHistogramSpecification.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtImagePartition.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtIntervalTree.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtParallel.C.o
+      MPI::Op::Init(void (*)(void const*, void*, int, MPI::Datatype const&), bool)in avtCompactTreeFilter.C.o
+      ...
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+make[2]: *** [lib/libavtpipeline_par.dylib] Error 1
+make[1]: *** [avt/Pipeline/CMakeFiles/avtpipeline_par.dir/all] Error 2
+make: *** [all] Error 2

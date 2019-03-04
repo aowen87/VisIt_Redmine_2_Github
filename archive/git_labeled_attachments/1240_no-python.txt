@@ -1,0 +1,247 @@
+-- Trying to include config-site file 'config-site/galvatron.llnl.gov.cmake'
+-- Included: 'config-site/galvatron.llnl.gov.cmake'
+-- The C compiler identification is GNU 4.2.1
+-- The CXX compiler identification is GNU 4.2.1
+-- Checking whether C compiler has -isysroot
+-- Checking whether C compiler has -isysroot - yes
+-- Checking whether C compiler supports OSX deployment target flag
+-- Checking whether C compiler supports OSX deployment target flag - yes
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Checking whether CXX compiler has -isysroot
+-- Checking whether CXX compiler has -isysroot - yes
+-- Checking whether CXX compiler supports OSX deployment target flag
+-- Checking whether CXX compiler supports OSX deployment target flag - yes
+-- Check for working CXX compiler: /usr/bin/g++
+-- Check for working CXX compiler: /usr/bin/g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- CMake Platform: Darwin
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of int
+-- Check size of int - done
+-- Check size of long
+-- Check size of long - done
+-- Check size of void*
+-- Check size of void* - done
+-- Check size of char
+-- Check size of char - done
+-- Check size of short
+-- Check size of short - done
+-- Check size of float
+-- Check size of float - done
+-- Check size of double
+-- Check size of double - done
+-- Looking for limits.h
+-- Looking for limits.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for include files sys/types.h, sys/prctl.h
+-- Looking for include files sys/types.h, sys/prctl.h - not found.
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Looking for XOpenDisplay in /opt/local/lib/libX11.dylib;/opt/local/lib/libXext.dylib
+-- Looking for XOpenDisplay in /opt/local/lib/libX11.dylib;/opt/local/lib/libXext.dylib - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for connect
+-- Looking for connect - found
+-- Looking for remove
+-- Looking for remove - found
+-- Looking for shmat
+-- Looking for shmat - found
+-- Looking for IceConnectionNumber in ICE
+-- Looking for IceConnectionNumber in ICE - found
+-- Found X11: /opt/local/lib/libX11.dylib
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- Looking for C++ include iostream
+-- Looking for C++ include iostream - found
+-- Check for STD namespace
+-- Check for STD namespace - found
+-- Check for ANSI scope
+-- Check for ANSI scope - found
+-- Check for sstream
+-- Check for sstream - found
+-- Looking for include file fcntl.h
+-- Looking for include file fcntl.h - found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file malloc.h
+-- Looking for include file malloc.h - not found.
+-- Looking for include file limits.h
+-- Looking for include file limits.h - found
+-- Looking for include file memory.h
+-- Looking for include file memory.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file strings.h
+-- Looking for include file strings.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/time.h
+-- Looking for include file sys/time.h - found
+-- Looking for include file sys/stat.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file zlib.h
+-- Looking for include file zlib.h - found
+-- Looking for include file stdbool.h
+-- Looking for include file stdbool.h - found
+-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework  
+-- Looking for MESA
+--   Found library OSMesa in /Users/whitlock2/Development/thirdparty_shared_debug/mesa/7.8.2/i386-apple-darwin10_gcc-4.2/lib
+--   MESA found
+-- Looking for MESAGLU
+--   Found library MesaGLU in /Users/whitlock2/Development/thirdparty_shared_debug/mesa/7.8.2/i386-apple-darwin10_gcc-4.2/lib
+--   MESAGLU found
+-- Added unix libs.
+-- Check for osmesa size limit
+-- Check for osmesa size limit - found (16384)
+-- Checking for VTK in /Users/whitlock2/Development/thirdparty_shared_debug/vtk/5.8.0.a/i386-apple-darwin10_gcc-4.2/lib
+--   VTK_FOUND=1
+--   VTK_USE_FILE=/Users/whitlock2/Development/thirdparty_shared_debug/vtk/5.8.0.a/i386-apple-darwin10_gcc-4.2/lib/UseVTK.cmake
+--   VTK_MAJOR_VERSION=5
+--   VTK_MINOR_VERSION=8
+--   VTK_BUILD_VERSION=0
+--   VTK_INCLUDE_DIRS=/Users/whitlock2/Development/thirdparty_shared_debug/vtk/5.8.0.a/i386-apple-darwin10_gcc-4.2/include
+--   VTK_LIBRARY_DIRS=/Users/whitlock2/Development/thirdparty_shared_debug/vtk/5.8.0.a/i386-apple-darwin10_gcc-4.2/lib
+--   VTK_KITS=COMMON;FILTERING;IO;GRAPHICS;GENERIC_FILTERING;IMAGING;RENDERING;VOLUMERENDERING;HYBRID;WIDGETS;INFOVIS;GEOVIS;VIEWS
+--   VTK_PY_WRAPPERS_DIR=/Users/whitlock2/Development/thirdparty_shared_debug/vtk/5.8.0.a/i386-apple-darwin10_gcc-4.2/lib/python2.6
+-- Found VTK Python Wrappers - /Users/whitlock2/Development/thirdparty_shared_debug/vtk/5.8.0.a/i386-apple-darwin10_gcc-4.2/lib/python2.6
+-- Looking for Q_WS_X11
+-- Looking for Q_WS_X11 - not found.
+-- Looking for Q_WS_WIN
+-- Looking for Q_WS_WIN - not found.
+-- Looking for Q_WS_QWS
+-- Looking for Q_WS_QWS - not found.
+-- Looking for Q_WS_MAC
+-- Looking for Q_WS_MAC - found
+-- Looking for QT_MAC_USE_COCOA
+-- Looking for QT_MAC_USE_COCOA - found
+-- Found Qt4: /Users/whitlock2/Development/thirdparty_shared_debug/qt/4.8.3/i386-apple-darwin10_gcc-4.2/bin/qmake (found version "4.8.3") 
+-- Looking for TCMALLOC
+--   TCMALLOC not requested
+-- Looking for HDF5
+--   Found library hdf5 in /Users/whitlock2/Development/thirdparty_shared_debug/hdf5/1.8.7/i386-apple-darwin10_gcc-4.2/lib
+--   Looking for dependent libraries for HDF5
+--      Found library sz in /Users/whitlock2/Development/thirdparty_shared_debug/szip/2.1/i386-apple-darwin10_gcc-4.2/lib
+--      Found library z in /usr/lib
+--   HDF5 found
+-- Looking for ADIOS
+--   ADIOS not requested
+-- Looking for ADVIO
+--   ADVIO not requested
+-- Looking for BOXLIB
+--   BOXLIB not requested
+-- Looking for CCMIO
+--   CCMIO not requested
+-- Looking for CFITSIO
+--   CFITSIO not requested
+-- Looking for CGNS
+--   CGNS not requested
+-- Looking for FASTBIT
+--   FASTBIT not requested
+-- Looking for GDAL
+--   GDAL not requested
+-- Looking for HDF4
+--   HDF4 not requested
+-- Looking for H5PART
+--   H5PART not requested
+-- Configuring ITAPS
+-- Looking for MILI
+--   MILI not requested
+-- Looking for NETCDF
+--   NETCDF not requested
+-- Looking for NETCDF_CXX
+--   NETCDF_CXX not requested
+-- Looking for SILO
+--   Found library siloh5 in /Users/whitlock2/Development/thirdparty_shared_debug/silo/4.8/i386-apple-darwin10_gcc-4.2/lib
+--   Looking for dependent libraries for SILO
+--      Found library hdf5 in /Users/whitlock2/Development/thirdparty_shared_debug/hdf5/1.8.7/i386-apple-darwin10_gcc-4.2/lib;/Users/whitlock2/Development/thirdparty_shared_debug/szip/2.1/i386-apple-darwin10_gcc-4.2/lib;/usr/lib
+--      Found library sz in /Users/whitlock2/Development/thirdparty_shared_debug/szip/2.1/i386-apple-darwin10_gcc-4.2/lib
+--      Found library z in /usr/lib
+--   SILO found
+--     PDB Lite has long long support
+-- Looking for VISUS
+--   VISUS not requested
+-- Looking for XDMF
+--   XDMF not requested
+-- Looking for MDSPLUS
+--   MDSPLUS not requested
+-- Looking for MANTA
+--   MANTA not requested
+-- Serial version of VisIt
+-- Found Subversion: /usr/bin/svn (found version "1.6.17") 
+-- Check size of off64_t
+-- Check size of off64_t - failed
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Check for socklen_t
+-- Check for socklen_t - found
+-- BSD style pseudo-tty
+-- Looking for memmove
+-- Looking for memmove - found
+-- Looking for div
+-- Looking for div - found
+-- Looking for setenv
+-- Looking for setenv - found
+-- Looking for strtof
+-- Looking for strtof - found
+-- Check for strtof prototype
+-- Check for strtof prototype - found
+-- Check for ftime prototype
+-- Check for ftime prototype - found
+-- Check for isfinite
+-- Check for isfinite - found
+-- Looking for select
+-- Looking for select - found
+-- Setting VISIT_RENDERING_SIZE_LIMIT to 16384
+-- Check the value of the 22nd bit of a 32-bit quiet-NaN
+-- Check the value of the 22nd bit of a 32-bit quiet-NaN - 1
+-- QT_QTGUI_LIBRARY=/Users/whitlock2/Development/thirdparty_shared_debug/qt/4.8.3/i386-apple-darwin10_gcc-4.2/lib/libQtGui_debug.dylib
+-- QT_QTGUI_LIBRARY_DEBUG=/Users/whitlock2/Development/thirdparty_shared_debug/qt/4.8.3/i386-apple-darwin10_gcc-4.2/lib/libQtGui_debug.dylib
+CMake Error: cmake version 2.8.8
+Usage: /Users/whitlock2/Development/thirdparty_shared_debug/cmake/2.8.8/i386-apple-darwin10_gcc-4.2/bin/cmake -E [command] [arguments ...]
+Available commands: 
+  chdir dir cmd [args]...   - run command in a given directory
+  compare_files file1 file2 - check if file1 is same as file2
+  copy file destination     - copy file to destination (either file or directory)
+  copy_directory source destination   - copy directory 'source' content to directory 'destination'
+  copy_if_different in-file out-file  - copy file if input has changed
+  echo [string]...          - displays arguments as text
+  echo_append [string]...   - displays arguments as text but no new line
+  environment               - display the current environment
+  make_directory dir        - create a directory
+  md5sum file1 [...]        - compute md5sum of files
+  remove [-f] file1 file2 ... - remove the file(s), use -f to force it
+  remove_directory dir      - remove a directory and its contents
+  rename oldname newname    - rename a file or directory (on one volume)
+  tar [cxt][vfz][cvfj] file.tar file/dir1 file/dir2 ... - create a tar archive
+  time command [args] ...   - run command and return elapsed time
+  touch file                - touch a file.
+  touch_nocreate file       - touch a file but do not create it.
+Available on UNIX only:
+  create_symlink old new    - create a symbolic link new -> old
+
+-- Configuring VisIt Data Targets
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/whitlock2/Development/MAIN/trunk/debug
